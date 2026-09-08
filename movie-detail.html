@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - SciFiLens</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
+                    <path d="M1 12h6m6 0h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                </svg>
+                <span>SciFiLens</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="movies.html" class="nav-link active">Movies</a></li>
+                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="experiments.html" class="nav-link">Experiments</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading State -->
+    <div class="loading" id="loadingState">
+        <div class="spinner"></div>
+        <p>Loading movie details...</p>
+    </div>
+
+    <!-- Movie Detail Content -->
+    <div id="movieContent" class="movie-detail-container" style="display: none;">
+        <!-- Backdrop -->
+        <div class="movie-backdrop" id="movieBackdrop"></div>
+
+        <!-- Detail Section -->
+        <section class="movie-detail-section">
+            <div class="movie-detail-wrapper">
+                <div class="movie-poster-section">
+                    <div class="movie-poster" id="moviePoster"></div>
+                    <div class="movie-metadata">
+                        <div class="metadata-item">
+                            <span class="label">Genre</span>
+                            <span class="value" id="movieGenre"></span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="label">Year</span>
+                            <span class="value" id="movieYear"></span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="label">Director</span>
+                            <span class="value" id="movieDirector"></span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="label">Runtime</span>
+                            <span class="value" id="movieRuntime"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-info-section">
+                    <h1 class="movie-detail-title" id="movieTitle"></h1>
+                    
+                    <div class="accuracy-badge">
+                        <div class="accuracy-score" id="accuracyScore"></div>
+                        <span>Scientific Accuracy</span>
+                    </div>
+
+                    <p class="movie-description" id="movieDescription"></p>
+
+                    <div class="concepts-section">
+                        <h3>Key Scientific Concepts</h3>
+                        <div class="concepts-list" id="conceptsList"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Behind the Movie Section -->
+        <section class="science-behind-section">
+            <div class="section-header">
+                <h2 class="section-title">The Science Behind the Movie</h2>
+                <p class="section-subtitle">Detailed explanations of the scientific concepts featured</p>
+            </div>
+            <div class="science-concepts" id="scienceConcepts"></div>
+        </section>
+
+        <!-- Movie vs Reality Section -->
+        <section class="comparison-section">
+            <div class="section-header">
+                <h2 class="section-title">Movie vs Reality</h2>
+                <p class="section-subtitle">How accurately does the film represent real science?</p>
+            </div>
+            <div class="comparison-cards" id="comparisonCards"></div>
+        </section>
+
+        <!-- Related Movies Section -->
+        <section class="related-section">
+            <div class="section-header">
+                <h2 class="section-title">Related Movies</h2>
+                <p class="section-subtitle">Explore similar science-fiction films</p>
+            </div>
+            <div class="related-movies" id="relatedMovies"></div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SciFiLens</h3>
+                <p>Exploring the intersection of science and cinema</p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SciFiLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/movie-detail.js"></script>
+</body>
+</html>

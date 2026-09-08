@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Explorer - SciFiLens</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
+                    <path d="M1 12h6m6 0h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                </svg>
+                <span>SciFiLens</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="movies.html" class="nav-link">Movies</a></li>
+                <li><a href="science.html" class="nav-link active">Science</a></li>
+                <li><a href="experiments.html" class="nav-link">Experiments</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="stars"></div>
+        <h1>Science Explorer</h1>
+        <p>Discover the real physics and science behind science-fiction concepts</p>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="science-container">
+        <aside class="filters-panel">
+            <div class="filter-group">
+                <h3>Search</h3>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search concepts...">
+            </div>
+
+            <div class="filter-group">
+                <h3>Difficulty Level</h3>
+                <div class="filter-options" id="difficultyFilters"></div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Category</h3>
+                <div class="filter-options" id="categoryFilters"></div>
+            </div>
+
+            <button class="reset-btn" id="resetFilters">Reset Filters</button>
+        </aside>
+
+        <div class="science-grid-wrapper">
+            <div class="concepts-count">
+                <span id="conceptsCount">Loading concepts...</span>
+            </div>
+            <div class="science-grid" id="scienceGrid"></div>
+        </div>
+    </section>
+
+    <!-- Science Detail Modal -->
+    <div class="modal" id="scienceModal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h2 id="modalTitle"></h2>
+                <div class="modal-description" id="modalDescription"></div>
+                
+                <div class="modal-section">
+                    <h3>Key Formula</h3>
+                    <div class="formula" id="modalFormula"></div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Related Movies</h3>
+                    <div class="modal-movies" id="modalMovies"></div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Real-World Applications</h3>
+                    <ul class="applications-list" id="applicationsList"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Learn More</h3>
+                    <div class="resources-list" id="resourcesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SciFiLens</h3>
+                <p>Exploring the intersection of science and cinema</p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SciFiLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/science.js"></script>
+</body>
+</html>

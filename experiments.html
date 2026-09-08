@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Experiments - SciFiLens</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
+                    <path d="M1 12h6m6 0h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                </svg>
+                <span>SciFiLens</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="movies.html" class="nav-link">Movies</a></li>
+                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="experiments.html" class="nav-link active">Experiments</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="stars"></div>
+        <h1>Interactive Experiments</h1>
+        <p>Experiment with physics concepts and see the science in action</p>
+    </section>
+
+    <!-- Experiments Section -->
+    <section class="experiments-container">
+        <div class="experiments-grid" id="experimentsGrid"></div>
+    </section>
+
+    <!-- Experiment Detail Modal -->
+    <div class="experiment-modal" id="experimentModal">
+        <div class="experiment-modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            
+            <div class="experiment-header">
+                <h2 id="experimentTitle"></h2>
+                <p id="experimentDescription"></p>
+            </div>
+
+            <div class="experiment-body">
+                <div class="controls-section">
+                    <h3>Adjust Parameters</h3>
+                    <div class="controls" id="experimentControls"></div>
+                </div>
+
+                <div class="visualization-section">
+                    <h3>Visualization</h3>
+                    <div class="visualization" id="experimentVisualization">
+                        <canvas id="experimentCanvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <h3>Results</h3>
+                    <div class="results" id="experimentResults"></div>
+                </div>
+
+                <div class="explanation-section">
+                    <h3>How This Works</h3>
+                    <p id="experimentExplanation"></p>
+                </div>
+
+                <div class="movie-connection">
+                    <h3>Featured In</h3>
+                    <div id="experimentMovies"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SciFiLens</h3>
+                <p>Exploring the intersection of science and cinema</p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SciFiLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/experiments.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+{
+  "concepts": [
+    {
+      "id": 1,
+      "title": "Black Holes",
+      "icon": "🕳️",
+      "description": "A region of space where gravity is so strong that nothing, not even light, can escape from beyond the event horizon.",
+      "difficulty": "advanced",
+      "category": "Astrophysics",
+      "formula": "r_s = 2GM/c²",
+      "explanation": "Black holes form when massive stars collapse at the end of their life cycles. The Schwarzschild radius represents the event horizon boundary. They are described by Einstein's theory of general relativity.",
+      "applications": [
+        "Understanding extreme gravity and spacetime",
+        "Testing theories of general relativity",
+        "Potential energy sources for advanced civilizations",
+        "Gravitational wave detection (LIGO)"
+      ],
+      "relatedMovies": [1, 3, 5],
+      "resources": [
+        "NASA's Black Hole Explorer",
+        "Einstein's General Relativity",
+        "Hawking's Black Hole Thermodynamics"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Time Dilation",
+      "icon": "⏰",
+      "description": "A phenomenon where time passes at different rates depending on relative velocity and gravitational fields, as predicted by Einstein's theory of relativity.",
+      "difficulty": "intermediate",
+      "category": "Relativity",
+      "formula": "t' = t√(1 - v²/c²)",
+      "explanation": "Time is not absolute. At high velocities or near massive objects, time moves more slowly relative to distant observers. This effect has been measured with atomic clocks on fast-moving aircraft.",
+      "applications": [
+        "GPS satellite corrections",
+        "Particle accelerator experiments",
+        "Understanding aging near black holes",
+        "Space mission calculations"
+      ],
+      "relatedMovies": [1, 5, 6],
+      "resources": [
+        "Special Relativity Theory",
+        "GPS Time Dilation",
+        "Relativity of Simultaneity"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Wormholes",
+      "icon": "🌉",
+      "description": "Theoretical shortcuts through spacetime that could connect distant points in the universe, mathematically predicted by Einstein's field equations.",
+      "difficulty": "advanced",
+      "category": "Relativity",
+      "formula": "ds² = -c²dt² + dl²",
+      "explanation": "Wormholes (Einstein-Rosen bridges) are possible solutions to Einstein's field equations. However, they would require exotic matter with negative energy density, which has never been observed.",
+      "applications": [
+        "Theoretical physics research",
+        "Science fiction inspiration",
+        "Understanding spacetime topology",
+        "Potential interstellar travel (highly speculative)"
+      ],
+      "relatedMovies": [1, 3, 4],
+      "resources": [
+        "Einstein-Rosen Bridge",
+        "Traversable Wormholes",
+        "Exotic Matter Physics"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Relativity",
+      "icon": "⚡",
+      "description": "Einstein's theories describing the relationship between space, time, gravity, and motion - fundamental to modern physics.",
+      "difficulty": "intermediate",
+      "category": "Relativity",
+      "formula": "E = mc²",
+      "explanation": "Special relativity deals with motion and time. General relativity describes gravity as the curvature of spacetime. Both have been extensively tested and proven accurate.",
+      "applications": [
+        "Nuclear energy (E=mc²)",
+        "GPS and satellite systems",
+        "Particle physics experiments",
+        "Cosmology and universe understanding"
+      ],
+      "relatedMovies": [1, 2, 5],
+      "resources": [
+        "Special Theory of Relativity",
+        "General Theory of Relativity",
+        "Einstein's Field Equations"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Space Travel",
+      "icon": "🚀",
+      "description": "The technology and physics of traveling through space, including propulsion systems, orbital mechanics, and life support.",
+      "difficulty": "intermediate",
+      "category": "Aerospace",
+      "formula": "Δv = v_e × ln(m_0/m_f)",
+      "explanation": "Space travel requires understanding orbital mechanics, the Oberth effect, and Hohmann transfer orbits. Chemical rockets are the primary current method, with advanced concepts like ion drives and nuclear propulsion under development.",
+      "applications": [
+        "Satellites and space stations",
+        "Planetary exploration",
+        "Commercial spaceflight",
+        "Interplanetary missions"
+      ],
+      "relatedMovies": [1, 2, 3],
+      "resources": [
+        "Orbital Mechanics",
+        "Hohmann Transfer Orbit",
+        "Ion Propulsion Systems"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Artificial Gravity",
+      "icon": "⬆️",
+      "description": "Methods of simulating gravity in space using centrifugal force or acceleration, crucial for long-duration space missions.",
+      "difficulty": "beginner",
+      "category": "Aerospace",
+      "formula": "g = ω²r",
+      "explanation": "In orbital habitats, rotating sections generate centrifugal acceleration simulating gravity. The rate of rotation and radius determine the artificial g-force. This is theoretically sound and has been partially tested.",
+      "applications": [
+        "Space station design",
+        "Long-duration space missions",
+        "Health in microgravity environments",
+        "Future deep space exploration"
+      ],
+      "relatedMovies": [1, 3, 5],
+      "resources": [
+        "Centrifugal Force",
+        "Rotating Space Habitats",
+        "Bone Density in Microgravity"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Quantum Physics",
+      "icon": "🌊",
+      "description": "The physics of the subatomic world, where particles behave according to probability waves and quantum mechanics.",
+      "difficulty": "advanced",
+      "category": "Physics",
+      "formula": "E = hf",
+      "explanation": "Quantum mechanics describes particles like electrons and photons. Particles can exist in superposition, entangle with each other, and exhibit wave-particle duality. This is the foundation of modern technology.",
+      "applications": [
+        "Semiconductor and computer technology",
+        "Laser technology",
+        "Medical imaging (PET scans)",
+        "Quantum computing (emerging)"
+      ],
+      "relatedMovies": [4, 6],
+      "resources": [
+        "Quantum Mechanics Basics",
+        "Wave-Particle Duality",
+        "Quantum Entanglement"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Artificial Intelligence",
+      "icon": "🤖",
+      "description": "Computer systems designed to perform tasks that typically require human intelligence, including learning and problem-solving.",
+      "difficulty": "intermediate",
+      "category": "Technology",
+      "formula": "A* = argmax P(action|state)",
+      "explanation": "AI uses machine learning, neural networks, and algorithms to process information and make decisions. Modern AI excels at pattern recognition but lacks true consciousness and general intelligence.",
+      "applications": [
+        "Virtual assistants and chatbots",
+        "Recommendation systems",
+        "Autonomous vehicles",
+        "Medical diagnosis and research"
+      ],
+      "relatedMovies": [5, 6],
+      "resources": [
+        "Machine Learning Fundamentals",
+        "Neural Networks",
+        "AI Ethics and Philosophy"
+      ]
+    }
+  ]
+}

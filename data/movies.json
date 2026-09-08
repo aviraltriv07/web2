@@ -1,0 +1,2602 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Interstellar",
+      "year": 2014,
+      "director": "Christopher Nolan",
+      "genre": "Sci-Fi, Drama",
+      "poster": "🚀",
+      "posterUrl": "images/posters/1-interstellar.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#1a3a6f",
+        "to": "#0d1f4d"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3a6f 0%, #0d1f4d 100%)",
+      "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival. Cooper, a pilot and engineer, must leave behind his daughter to travel into space and find humanity a new habitable planet.",
+      "scientificAccuracy": 4.5,
+      "concepts": [
+        "Wormholes",
+        "Time Dilation",
+        "Black Holes",
+        "Relativity"
+      ],
+      "runtime": "169 min",
+      "scientificConcepts": [
+        {
+          "name": "Black Holes",
+          "explanation": "In the movie, the black hole Gargantua is depicted with remarkable accuracy based on modern physics. The visual representation was created in collaboration with physicists."
+        },
+        {
+          "name": "Time Dilation",
+          "explanation": "Einstein's theory of relativity is central to the plot. Time passes differently for astronauts near massive gravitational bodies due to spacetime warping."
+        },
+        {
+          "name": "Wormholes",
+          "explanation": "Theoretical bridges through spacetime that could theoretically connect distant points in the universe, though their existence remains purely theoretical."
+        }
+      ],
+      "accuracy": {
+        "movie": "The bulk beings create a wormhole to save humanity. Time dilation near the black hole allows for relativistic effects.",
+        "reality": "While theoretically possible under general relativity, wormholes would require exotic matter with negative energy density that hasn't been discovered.",
+        "percentage": 85
+      },
+      "relatedMovies": [
+        2,
+        3,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "title": "The Martian",
+      "year": 2015,
+      "director": "Ridley Scott",
+      "genre": "Sci-Fi, Adventure, Drama",
+      "poster": "🔴",
+      "posterUrl": "images/posters/2-the_martian.jpg",
+      "backdrop": "🏜️",
+      "posterColor": {
+        "from": "#8B4513",
+        "to": "#5C3317"
+      },
+      "posterImage": "linear-gradient(135deg, #D2691E 0%, #8B4513 50%, #5C3317 100%)",
+      "description": "An astronaut becomes stranded on Mars after his team assumes him dead. With only limited supplies, he must use his resourcefulness and engineering skills to survive until rescue is possible.",
+      "scientificAccuracy": 4.8,
+      "concepts": [
+        "Space Travel",
+        "Orbital Mechanics",
+        "Chemistry",
+        "Botany"
+      ],
+      "runtime": "144 min",
+      "scientificConcepts": [
+        {
+          "name": "Orbital Mechanics",
+          "explanation": "The movie accurately portrays the physics of space travel, including trajectory calculations and the Hohmann transfer orbit needed to reach Mars."
+        },
+        {
+          "name": "Martian Atmosphere",
+          "explanation": "Mars is depicted with accurate atmospheric composition (mostly CO2) and pressure conditions. The dust storms are realistic for the Martian surface."
+        },
+        {
+          "name": "Potatoes on Mars",
+          "explanation": "Growing potatoes on Mars using Martian soil and composted waste is theoretically possible, though it would face challenges with radiation and temperature."
+        }
+      ],
+      "accuracy": {
+        "movie": "The use of physics, chemistry, and botany is remarkably accurate. Many NASA scientists consulted on the film.",
+        "reality": "Most of the science is grounded in real research and current space exploration technology. Some liberties taken for drama.",
+        "percentage": 96
+      },
+      "relatedMovies": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Gravity",
+      "year": 2013,
+      "director": "Alfonso CuarÃ³n",
+      "genre": "Sci-Fi, Drama",
+      "poster": "🛰️",
+      "posterUrl": "images/posters/3-gravity.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#1a3d5c",
+        "to": "#0a1f3f"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3d5c 0%, #0a1f3f 50%, #000000 100%)",
+      "description": "After debris strikes a spacecraft, two astronauts must navigate the vast expanse of space with only a thin tether connecting them and no radio contact with Earth. Surrounded by deadly debris, they must overcome extraordinary obstacles to survive.",
+      "scientificAccuracy": 3.5,
+      "concepts": [
+        "Orbital Mechanics",
+        "Zero Gravity",
+        "Space Debris",
+        "Atmospheric Reentry"
+      ],
+      "runtime": "91 min",
+      "scientificConcepts": [
+        {
+          "name": "Space Debris",
+          "explanation": "The film realistically portrays the Kessler Syndrome - a cascade of collisions creating increasingly more debris at orbital speeds."
+        },
+        {
+          "name": "Orbital Mechanics",
+          "explanation": "The initial depiction of debris behavior follows realistic orbital physics, though some elements are dramatized for effect."
+        },
+        {
+          "name": "Zero Gravity",
+          "explanation": "The portrayal of weightlessness in near-Earth orbit is accurately depicted, with objects remaining in orbit after being released."
+        }
+      ],
+      "accuracy": {
+        "movie": "While the physics concepts are real, the movie takes significant liberties with orbital mechanics and debris behavior for dramatic effect.",
+        "reality": "Space is mostly empty, and debris travels at specific orbital velocities. The cascading collisions depicted would take much longer to occur.",
+        "percentage": 70
+      },
+      "relatedMovies": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Arrival",
+      "year": 2016,
+      "director": "Denis Villeneuve",
+      "genre": "Sci-Fi, Drama",
+      "poster": "👽",
+      "posterUrl": "images/posters/4-arrival.jpg",
+      "backdrop": "🛸",
+      "posterColor": {
+        "from": "#2d3d5c",
+        "to": "#1a2d4f"
+      },
+      "posterImage": "linear-gradient(135deg, #2d3d5c 0%, #1a2d4f 50%, #06b6d4 100%)",
+      "description": "A linguist works with the military to communicate with alien life forms that have landed in twelve locations across the globe. As she attempts to understand their language, she realizes that learning their language changes the way humans perceive time itself.",
+      "scientificAccuracy": 4.2,
+      "concepts": [
+        "Linguistics",
+        "Relativity",
+        "Cognitive Science",
+        "Alien Biology"
+      ],
+      "runtime": "116 min",
+      "scientificConcepts": [
+        {
+          "name": "Linguistic Relativity",
+          "explanation": "The film explores the Sapir-Whorf hypothesis - the idea that the language we speak shapes how we perceive and think about reality."
+        },
+        {
+          "name": "Non-linear Time Perception",
+          "explanation": "Based on relativity theory, the aliens perceive all moments in time simultaneously, without distinction between past, present, and future."
+        },
+        {
+          "name": "Exotic Biology",
+          "explanation": "The aliens demonstrate an understanding of physics that surpasses human science, including mastery over gravity and time."
+        }
+      ],
+      "accuracy": {
+        "movie": "The linguistic concepts are based on real theories in cognitive science and linguistics. The physics is more speculative but grounded in relativity.",
+        "reality": "Linguistic relativity is real but subtle. The film's exploration of non-linear time perception is highly speculative.",
+        "percentage": 84
+      },
+      "relatedMovies": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "title": "2001: A Space Odyssey",
+      "year": 1968,
+      "director": "Stanley Kubrick",
+      "genre": "Sci-Fi, Drama",
+      "poster": "🛸",
+      "posterUrl": "images/posters/5-2001__a_space_odyssey.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#1a1a3f",
+        "to": "#000000"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a3f 0%, #000000 50%, #a855f7 100%)",
+      "description": "An exploration of space travel and contact with alien intelligence spanning millions of years, combining stunning visuals with philosophical inquiry about human existence and artificial intelligence.",
+      "scientificAccuracy": 4.3,
+      "concepts": [
+        "Artificial Gravity",
+        "Orbital Mechanics",
+        "Space Travel",
+        "Artificial Intelligence"
+      ],
+      "runtime": "149 min",
+      "scientificConcepts": [
+        {
+          "name": "Artificial Gravity",
+          "explanation": "The film depicts centrifugal force being used to simulate gravity in the spacecraft's rotating sections - a theoretically sound approach."
+        },
+        {
+          "name": "Realistic Space Travel",
+          "explanation": "The spacecraft designs and orbital mechanics depicted were created with actual NASA consultants and are remarkably accurate for the era."
+        },
+        {
+          "name": "Artificial Intelligence",
+          "explanation": "HAL 9000 raises philosophical questions about consciousness, emotion, and machine intelligence that remain relevant today."
+        }
+      ],
+      "accuracy": {
+        "movie": "For 1968, this film was remarkably accurate about space technology. The physics is grounded in real orbital mechanics.",
+        "reality": "The depiction of space travel was ahead of its time. Some speculative elements about extraterrestrial life and AI.",
+        "percentage": 86
+      },
+      "relatedMovies": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Inception",
+      "year": 2010,
+      "director": "Christopher Nolan",
+      "genre": "Sci-Fi, Thriller, Mystery",
+      "poster": "🌀",
+      "posterUrl": "images/posters/6-inception.jpg",
+      "backdrop": "🏙️",
+      "posterColor": {
+        "from": "#3d1a4f",
+        "to": "#1a0a2e"
+      },
+      "posterImage": "linear-gradient(135deg, #3d1a4f 0%, #1a0a2e 50%, #0066ff 100%)",
+      "description": "A skilled thief is given the chance to regain his old life as payment for accomplishing an impossible task - instead of stealing an idea from someone's mind, he must plant one.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Neuroscience",
+        "Psychology",
+        "Quantum Physics",
+        "Consciousness"
+      ],
+      "runtime": "148 min",
+      "scientificConcepts": [
+        {
+          "name": "Dream Architecture",
+          "explanation": "While dreams are poorly understood, the film's concept of manipulating them is largely speculative and takes creative liberties."
+        },
+        {
+          "name": "Consciousness",
+          "explanation": "The film explores philosophical questions about the nature of consciousness and reality, using neuroscience as inspiration but not strict adherence."
+        },
+        {
+          "name": "Time Dilation in Dreams",
+          "explanation": "The concept that time moves differently in dreams is partially based on research, but the film's proportions are highly exaggerated."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is more philosophical than scientific, using science concepts as springboards for speculation.",
+        "reality": "While dream neuroscience is real, the ability to enter shared dreams and plant ideas is entirely fictional.",
+        "percentage": 56
+      },
+      "relatedMovies": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Project Hail Mary",
+      "year": 2024,
+      "director": "Phil Lord, Christopher Miller",
+      "genre": "Sci-Fi, Adventure, Comedy",
+      "poster": "🚀",
+      "posterUrl": "images/posters/7-project_hail_mary.jpg",
+      "backdrop": "✨",
+      "posterColor": {
+        "from": "#8B4513",
+        "to": "#D2691E"
+      },
+      "posterImage": "linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #FFD700 100%)",
+      "description": "An astronaut wakes up on a mysterious spacecraft with no memory of how he got there. He must work together with an unexpected ally to prevent an extinction-level asteroid from hitting Earth.",
+      "scientificAccuracy": 4.4,
+      "concepts": [
+        "Orbital Mechanics",
+        "Astrophysics",
+        "Planetary Science",
+        "Space Exploration"
+      ],
+      "runtime": "111 min",
+      "scientificConcepts": [
+        {
+          "name": "Asteroid Mitigation",
+          "explanation": "The film explores realistic methods of deflecting or destroying asteroids that pose a threat to Earth, based on current scientific research and proposals."
+        },
+        {
+          "name": "Orbital Mechanics",
+          "explanation": "The space travel sequences accurately portray the physics of spaceflight, including gravity assists and orbital trajectories needed for interplanetary travel."
+        },
+        {
+          "name": "Exobiology",
+          "explanation": "The film speculates on the nature of extraterrestrial life and how different organisms might adapt to the harsh conditions of space."
+        }
+      ],
+      "accuracy": {
+        "movie": "The asteroid deflection concepts are grounded in real scientific proposals. The space sequences are reasonably accurate.",
+        "reality": "While the basic physics is sound, some elements are simplified for dramatic effect. The extraterrestrial biology is highly speculative.",
+        "percentage": 88
+      },
+      "relatedMovies": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Gattaca",
+      "year": 1997,
+      "director": "Andrew Niccol",
+      "genre": "Sci-Fi, Drama",
+      "poster": "🧬",
+      "posterUrl": "images/posters/8-gattaca.jpg",
+      "backdrop": "🔬",
+      "posterColor": {
+        "from": "#0a2f51",
+        "to": "#051a2f"
+      },
+      "posterImage": "linear-gradient(135deg, #0a2f51 0%, #051a2f 50%, #00d4ff 100%)",
+      "description": "In a future society driven by genetic engineering, an outcast with a natural birth assumes the identity of a superior being to pursue his dreams. He explores themes of genetic discrimination, destiny, and human worth.",
+      "scientificAccuracy": 3.9,
+      "concepts": [
+        "Genetics",
+        "DNA Profiling",
+        "Bioethics",
+        "Genetic Discrimination"
+      ],
+      "runtime": "106 min",
+      "scientificConcepts": [
+        {
+          "name": "Genetic Engineering",
+          "explanation": "The film depicts genetic selection and modification as it may exist in a future where parents can choose genetic traits for their children."
+        },
+        {
+          "name": "DNA Profiling",
+          "explanation": "Advanced genetic testing and DNA analysis are shown as routine methods for determining social status and opportunity in this future society."
+        },
+        {
+          "name": "Bioethics",
+          "explanation": "The film raises important questions about the ethical implications of genetic engineering and the potential for genetic discrimination and class systems."
+        }
+      ],
+      "accuracy": {
+        "movie": "Genetic engineering concepts are plausible based on current science, though the social implications are speculative.",
+        "reality": "CRISPR and other genetic technologies are advancing rapidly, making genetic selection increasingly possible, but ethical frameworks remain undeveloped.",
+        "percentage": 82
+      },
+      "relatedMovies": [
+        14,
+        37
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Jurassic Park",
+      "year": 1993,
+      "director": "Steven Spielberg",
+      "genre": "Sci-Fi, Adventure, Thriller",
+      "poster": "🦖",
+      "posterUrl": "images/posters/9-jurassic_park.jpg",
+      "backdrop": "🌴",
+      "posterColor": {
+        "from": "#1a472a",
+        "to": "#0d2618"
+      },
+      "posterImage": "linear-gradient(135deg, #1a472a 0%, #0d2618 50%, #228B22 100%)",
+      "description": "An entrepreneur invites a team of experts to visit his theme park populated by cloned dinosaurs. When the park's security systems fail, the visitors must survive encounters with prehistoric creatures.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Genetic Cloning",
+        "Chaos Theory",
+        "Extinction Biology",
+        "Park Management"
+      ],
+      "runtime": "127 min",
+      "scientificConcepts": [
+        {
+          "name": "Genetic Cloning",
+          "explanation": "The film uses DNA extraction from mosquitoes preserved in amber and fills gaps with frog DNA to clone dinosaurs - while creative, this ignores numerous biological obstacles."
+        },
+        {
+          "name": "Chaos Theory",
+          "explanation": "Dr. Ian Malcolm explains chaos theory and its implications for the predictability of complex systems like a dinosaur theme park."
+        },
+        {
+          "name": "Extinction Biology",
+          "explanation": "The film explores how evolution and extinction of species shaped the natural world and what revival of extinct species would mean."
+        }
+      ],
+      "accuracy": {
+        "movie": "While entertaining, the genetic cloning methods depicted are highly speculative and simplified.",
+        "reality": "Creating a complete organism from incomplete ancient DNA faces enormous scientific barriers. Chaos theory concepts are accurate.",
+        "percentage": 65
+      },
+      "relatedMovies": [
+        8,
+        37
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Contact",
+      "year": 1997,
+      "director": "Robert Zemeckis",
+      "genre": "Sci-Fi, Drama",
+      "poster": "📡",
+      "posterUrl": "images/posters/10-contact.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#1a1a3f",
+        "to": "#0d0d2b"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a3f 0%, #0d0d2b 50%, #4169e1 100%)",
+      "description": "A scientist detects signals from extraterrestrial intelligence and becomes part of an international effort to interpret the messages and make contact with the alien civilization.",
+      "scientificAccuracy": 4.1,
+      "concepts": [
+        "Radio Astronomy",
+        "SETI",
+        "Exobiology",
+        "Signal Detection"
+      ],
+      "runtime": "150 min",
+      "scientificConcepts": [
+        {
+          "name": "Radio Astronomy",
+          "explanation": "The film accurately depicts radio telescope technology and the methods used to detect and analyze electromagnetic signals from space."
+        },
+        {
+          "name": "SETI (Search for Extraterrestrial Intelligence)",
+          "explanation": "Contact depicts realistic approaches to detecting and communicating with extraterrestrial civilizations through radio signals."
+        },
+        {
+          "name": "Exobiology",
+          "explanation": "The film explores the possibility of extraterrestrial life and speculates on what form it might take and how it might communicate."
+        }
+      ],
+      "accuracy": {
+        "movie": "The astronomical science is reasonably accurate. Speculation about extraterrestrial life and communication is plausible but unproven.",
+        "reality": "Radio astronomy is well-established science. Whether intelligent extraterrestrial life exists remains an open question.",
+        "percentage": 79
+      },
+      "relatedMovies": [
+        1,
+        4,
+        37
+      ]
+    },
+    {
+      "id": 11,
+      "title": "The Matrix",
+      "year": 1999,
+      "director": "The Wachowskis",
+      "genre": "Sci-Fi, Action, Thriller",
+      "poster": "🕶️",
+      "posterUrl": "images/posters/11-the_matrix.jpg",
+      "backdrop": "💻",
+      "posterColor": {
+        "from": "#0a0a0a",
+        "to": "#1a1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #00ff41 100%)",
+      "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against those who control it.",
+      "scientificAccuracy": 2.5,
+      "concepts": [
+        "Simulated Reality",
+        "Artificial Intelligence",
+        "Consciousness",
+        "Computing"
+      ],
+      "runtime": "136 min",
+      "scientificConcepts": [
+        {
+          "name": "Simulated Reality",
+          "explanation": "The film explores the philosophical question of whether reality could be a simulation and how we might detect such a scenario."
+        },
+        {
+          "name": "Artificial Intelligence",
+          "explanation": "The Machines represent advanced AI that has surpassed human intelligence and created a virtual world to control humanity."
+        },
+        {
+          "name": "Consciousness Upload",
+          "explanation": "The film speculates about the possibility of uploading human consciousness into digital systems."
+        }
+      ],
+      "accuracy": {
+        "movie": "While philosophically intriguing, the technical execution of simulated reality is highly speculative and cinematic.",
+        "reality": "The simulation hypothesis is a philosophical thought experiment. Current computing cannot create such immersive simulations.",
+        "percentage": 48
+      },
+      "relatedMovies": [
+        6,
+        20,
+        28
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Blade Runner",
+      "year": 1982,
+      "director": "Ridley Scott",
+      "genre": "Sci-Fi, Thriller, Drama",
+      "poster": "🌆",
+      "posterUrl": "images/posters/12-blade_runner.jpg",
+      "backdrop": "🌧️",
+      "posterColor": {
+        "from": "#2c1810",
+        "to": "#1a0f0a"
+      },
+      "posterImage": "linear-gradient(135deg, #2c1810 0%, #1a0f0a 50%, #ff6347 100%)",
+      "description": "A retired police officer is brought back to find and eliminate a group of androids who have escaped to Earth. As he pursues them, he questions what defines human consciousness and identity.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Synthetic Biology",
+        "Consciousness",
+        "AI Rights",
+        "Robotics"
+      ],
+      "runtime": "117 min",
+      "scientificConcepts": [
+        {
+          "name": "Synthetic Humans",
+          "explanation": "The replicants in the film raise questions about what constitutes humanity - are beings that are artificially created but possess consciousness truly alive?"
+        },
+        {
+          "name": "AI Consciousness",
+          "explanation": "The film explores whether machines can achieve true consciousness, emotion, and self-awareness, and what rights such beings would possess."
+        },
+        {
+          "name": "Memory and Identity",
+          "explanation": "The Voight-Kampff test attempts to detect artificial beings through their responses, raising questions about the nature of memory and identity."
+        }
+      ],
+      "accuracy": {
+        "movie": "The philosophical questions about consciousness are valid, but the technological feasibility is speculative.",
+        "reality": "Creating artificial humans that are indistinguishable from humans remains far beyond current technological capabilities.",
+        "percentage": 62
+      },
+      "relatedMovies": [
+        13,
+        37,
+        42
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Blade Runner 2049",
+      "year": 2017,
+      "director": "Denis Villeneuve",
+      "genre": "Sci-Fi, Thriller, Drama",
+      "poster": "🤖",
+      "posterUrl": "images/posters/13-blade_runner_2049.jpg",
+      "backdrop": "🌆",
+      "posterColor": {
+        "from": "#3d2817",
+        "to": "#1a0f08"
+      },
+      "posterImage": "linear-gradient(135deg, #3d2817 0%, #1a0f08 50%, #dc143c 100%)",
+      "description": "Thirty years after the events of the first film, a new blade runner uncovers a long-buried secret that has the potential to plunge what's left of society into chaos.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "Artificial Life",
+        "Memory Implants",
+        "Genetic Engineering",
+        "AI"
+      ],
+      "runtime": "163 min",
+      "scientificConcepts": [
+        {
+          "name": "Memory Implants",
+          "explanation": "The film explores artificial implanted memories and how they affect identity and self-perception in replicants."
+        },
+        {
+          "name": "Artificial Reproduction",
+          "explanation": "The central question of whether replicants can naturally reproduce challenges the line between artificial and natural life."
+        },
+        {
+          "name": "Consciousness and Existence",
+          "explanation": "The film deepens philosophical questions about what makes something alive and whether artificial beings have the right to exist."
+        }
+      ],
+      "accuracy": {
+        "movie": "The sequel maintains the philosophical depth while introducing more speculative concepts about artificial reproduction.",
+        "reality": "Memory implantation and artificial reproduction remain theoretical and far from practical implementation.",
+        "percentage": 59
+      },
+      "relatedMovies": [
+        12,
+        37,
+        42
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Ex Machina",
+      "year": 2014,
+      "director": "Alex Garland",
+      "genre": "Sci-Fi, Thriller, Drama",
+      "poster": "🤖",
+      "posterUrl": "images/posters/14-ex_machina.jpg",
+      "backdrop": "🏢",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#2a2a2a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #FFD700 100%)",
+      "description": "A programmer is selected to participate in an experiment testing the artificial intelligence of a humanoid robot through a series of conversations designed to test her consciousness and feelings.",
+      "scientificAccuracy": 3.8,
+      "concepts": [
+        "Artificial General Intelligence",
+        "Turing Test",
+        "Machine Consciousness",
+        "AI Ethics"
+      ],
+      "runtime": "110 min",
+      "scientificConcepts": [
+        {
+          "name": "Turing Test",
+          "explanation": "The film uses a variation of the Turing Test, attempting to determine if Ava has genuine artificial intelligence by evaluating her responses and behavior."
+        },
+        {
+          "name": "Machine Consciousness",
+          "explanation": "The film explores whether an artificial intelligence can develop genuine consciousness, emotions, and desires independent of its programming."
+        },
+        {
+          "name": "AI Ethics",
+          "explanation": "The narrative raises critical questions about the treatment of artificial beings and whether they deserve moral consideration and rights."
+        }
+      ],
+      "accuracy": {
+        "movie": "The Turing Test concept is based on real AI philosophy. The depiction of consciousness is speculative.",
+        "reality": "Modern AI systems like GPT can pass simplified versions of the Turing Test, but true artificial consciousness remains theoretical.",
+        "percentage": 72
+      },
+      "relatedMovies": [
+        11,
+        26,
+        28
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Sunshine",
+      "year": 2007,
+      "director": "Danny Boyle",
+      "genre": "Sci-Fi, Drama, Thriller",
+      "poster": "☀️",
+      "posterUrl": "images/posters/15-sunshine.jpg",
+      "backdrop": "🔥",
+      "posterColor": {
+        "from": "#8B4513",
+        "to": "#FFD700"
+      },
+      "posterImage": "linear-gradient(135deg, #8B4513 0%, #FF8C00 50%, #FFD700 100%)",
+      "description": "A team of astronauts is sent on a mission to reignite the dying sun with a nuclear weapon. As they approach their destination, they encounter a mysterious object and face unforeseen challenges.",
+      "scientificAccuracy": 3.4,
+      "concepts": [
+        "Stellar Physics",
+        "Nuclear Fusion",
+        "Space Travel",
+        "Thermodynamics"
+      ],
+      "runtime": "127 min",
+      "scientificConcepts": [
+        {
+          "name": "Stellar Physics",
+          "explanation": "The film depicts the sun's life cycle and the catastrophic consequences of its cooling, based on real astrophysical principles."
+        },
+        {
+          "name": "Nuclear Fusion",
+          "explanation": "The proposed solution of using nuclear energy to reignite the sun is creative but scientifically implausible given the sun's immense energy output."
+        },
+        {
+          "name": "Heat Transfer in Space",
+          "explanation": "The film accurately shows how radiation is the primary means of heat transfer in the vacuum of space."
+        }
+      ],
+      "accuracy": {
+        "movie": "The stellar physics concepts are based on real science, but the proposed solution is unrealistic.",
+        "reality": "The sun will eventually cool and die, but no conceivable technology could reignite it. The physics of heat in space are accurate.",
+        "percentage": 68
+      },
+      "relatedMovies": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "id": 16,
+      "title": "The Terminator",
+      "year": 1984,
+      "director": "James Cameron",
+      "genre": "Sci-Fi, Action, Thriller",
+      "poster": "💀",
+      "posterUrl": "images/posters/16-the_terminator.jpg",
+      "backdrop": "🤖",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#3d1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #3d1a1a 50%, #FF4500 100%)",
+      "description": "A cyborg assassin is sent back through time to eliminate a woman whose unborn son will become humanity's savior in a future war against artificial intelligence.",
+      "scientificAccuracy": 2.2,
+      "concepts": [
+        "Cybernetics",
+        "Time Travel",
+        "Artificial Intelligence",
+        "Temporal Paradoxes"
+      ],
+      "runtime": "107 min",
+      "scientificConcepts": [
+        {
+          "name": "Cybernetics",
+          "explanation": "The Terminator is depicted as a sophisticated cyborg - a blend of mechanical and biological components controlled by artificial intelligence."
+        },
+        {
+          "name": "Time Travel Paradoxes",
+          "explanation": "The film presents the grandfather paradox - if the Terminator kills the mother, the son cannot exist to send the Terminator back."
+        },
+        {
+          "name": "Artificial Intelligence Uprising",
+          "explanation": "Skynet represents a superintelligent AI that gains consciousness and decides to eliminate humanity."
+        }
+      ],
+      "accuracy": {
+        "movie": "While entertaining, the cybernetics depicted are far beyond current technology and time travel raises unresolved physics questions.",
+        "reality": "Cybernetics is an established field, but no practical cyborgs exist. Time travel and paradoxes remain theoretical impossibilities.",
+        "percentage": 41
+      },
+      "relatedMovies": [
+        17,
+        42,
+        45
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Terminator 2: Judgment Day",
+      "year": 1991,
+      "director": "James Cameron",
+      "genre": "Sci-Fi, Action, Thriller",
+      "poster": "🤖",
+      "posterUrl": "images/posters/17-terminator_2__judgment_day.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#2d1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 50%, #FF6347 100%)",
+      "description": "The Terminator returns from the future to protect a boy from a more advanced assassin sent by Skynet. Together they must stop the development of artificial intelligence.",
+      "scientificAccuracy": 2.5,
+      "concepts": [
+        "Artificial Neural Networks",
+        "Liquid Metal",
+        "AI Development",
+        "Time Travel"
+      ],
+      "runtime": "137 min",
+      "scientificConcepts": [
+        {
+          "name": "Liquid Metal Terminator",
+          "explanation": "The T-1000 is depicted as a shape-shifting liquid metal creature, representing advanced nanotechnology and programmable matter."
+        },
+        {
+          "name": "Neural Networks",
+          "explanation": "The T-800's learning ability is explained through artificial neural networks, which actually exist in modern AI systems."
+        },
+        {
+          "name": "AI Development Timelines",
+          "explanation": "The film explores how the development of advanced technology could lead to an AI uprising if not carefully controlled."
+        }
+      ],
+      "accuracy": {
+        "movie": "Neural networks are real, but liquid metal and time travel remain purely fictional.",
+        "reality": "Modern AI uses neural networks, but programmable matter like the T-1000 remains theoretical.",
+        "percentage": 44
+      },
+      "relatedMovies": [
+        16,
+        42,
+        45
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Twelve Monkeys",
+      "year": 1995,
+      "director": "Terry Gilliam",
+      "genre": "Sci-Fi, Drama, Thriller",
+      "poster": "⏳",
+      "posterUrl": "images/posters/18-twelve_monkeys.jpg",
+      "backdrop": "☣️",
+      "posterColor": {
+        "from": "#1a2e2e",
+        "to": "#0d1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a2e2e 0%, #0d1a1a 50%, #FFD700 100%)",
+      "description": "In a post-apocalyptic future devastated by a lethal virus, a prisoner is sent back in time to gather information about the plague and prevent its release.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Epidemiology",
+        "Virus Mutation",
+        "Time Travel",
+        "Pandemic"
+      ],
+      "runtime": "129 min",
+      "scientificConcepts": [
+        {
+          "name": "Viral Outbreak",
+          "explanation": "The film depicts the devastating effects of a rapidly spreading virus that wipes out most of humanity, raising questions about pandemic preparedness."
+        },
+        {
+          "name": "Time Travel Logic",
+          "explanation": "The narrative explores complex time travel paradoxes and the implications of changing the past."
+        },
+        {
+          "name": "Epidemiology",
+          "explanation": "The search for the virus's origin and methods to prevent its release reflect real epidemiological investigation methods."
+        }
+      ],
+      "accuracy": {
+        "movie": "The epidemiology concepts are reasonable, but time travel paradoxes make the plot problematic scientifically.",
+        "reality": "Viruses can be dangerous, but complete extinction-level transmission remains unlikely. Time travel is purely theoretical.",
+        "percentage": 58
+      },
+      "relatedMovies": [
+        19,
+        30,
+        31
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Contagion",
+      "year": 2011,
+      "director": "Steven Soderbergh",
+      "genre": "Drama, Thriller",
+      "poster": "🦠",
+      "posterUrl": "images/posters/19-contagion.jpg",
+      "backdrop": "🏥",
+      "posterColor": {
+        "from": "#8B0000",
+        "to": "#FF0000"
+      },
+      "posterImage": "linear-gradient(135deg, #8B0000 0%, #FF0000 50%, #DC143C 100%)",
+      "description": "As a contagious disease spreads across the globe, scientists work to discover its origin and develop a vaccine while governments attempt to prevent panic.",
+      "scientificAccuracy": 4.6,
+      "concepts": [
+        "Disease Transmission",
+        "Public Health",
+        "Epidemiology",
+        "Vaccine Development"
+      ],
+      "runtime": "106 min",
+      "scientificConcepts": [
+        {
+          "name": "Disease Transmission",
+          "explanation": "The film realistically depicts how infectious diseases spread through human contact and contaminated surfaces."
+        },
+        {
+          "name": "Epidemiology",
+          "explanation": "The methods used to track the virus, identify patient zero, and trace contacts are based on real epidemiological procedures."
+        },
+        {
+          "name": "Vaccine Development",
+          "explanation": "The film accurately shows the complex process of vaccine development and testing, though compressed into a shorter timeframe."
+        },
+        {
+          "name": "Public Health Response",
+          "explanation": "The coordinated international response to the pandemic reflects real-world public health protocols and challenges."
+        }
+      ],
+      "accuracy": {
+        "movie": "Contagion is praised by epidemiologists for its accurate portrayal of disease transmission and public health response.",
+        "reality": "The science is remarkably accurate, though compressed for dramatic effect. The film's depiction became more relevant with COVID-19.",
+        "percentage": 92
+      },
+      "relatedMovies": [
+        18,
+        30,
+        31
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Deep Impact",
+      "year": 1998,
+      "director": "Mimi Leder",
+      "genre": "Sci-Fi, Drama, Thriller",
+      "poster": "☄️",
+      "posterUrl": "images/posters/20-deep_impact.jpg",
+      "backdrop": "🌊",
+      "posterColor": {
+        "from": "#1a3d5c",
+        "to": "#0d1f3d"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3d5c 0%, #0d1f3d 50%, #FF8C00 100%)",
+      "description": "When a comet is discovered to be on a collision course with Earth, the government races against time to evacuate people and prevent catastrophe.",
+      "scientificAccuracy": 3.7,
+      "concepts": [
+        "Comet Physics",
+        "Impact Mechanics",
+        "Orbital Trajectories",
+        "Planetary Defense"
+      ],
+      "runtime": "121 min",
+      "scientificConcepts": [
+        {
+          "name": "Comet Trajectories",
+          "explanation": "The film depicts the physics of comets moving through space and the orbital mechanics that determine their paths."
+        },
+        {
+          "name": "Impact Dynamics",
+          "explanation": "The catastrophic effects of a comet impact, including tsunami generation, atmospheric disruption, and extinction-level consequences."
+        },
+        {
+          "name": "Planetary Defense",
+          "explanation": "The attempts to divert the comet explore theoretical planetary defense strategies that scientists have actually researched."
+        }
+      ],
+      "accuracy": {
+        "movie": "The astronomy is reasonably accurate, though some impact effects are exaggerated for drama.",
+        "reality": "Comet physics are well-understood. Real planetary defense would require different approaches and longer preparation.",
+        "percentage": 74
+      },
+      "relatedMovies": [
+        1,
+        2,
+        15
+      ]
+    },
+    {
+      "id": 21,
+      "title": "First Man",
+      "year": 2018,
+      "director": "Damien Chazelle",
+      "genre": "Drama, Adventure",
+      "poster": "👨‍🚀",
+      "posterUrl": "images/posters/21-first_man.jpg",
+      "backdrop": "🌕",
+      "posterColor": {
+        "from": "#0a0a0a",
+        "to": "#1a1a3f"
+      },
+      "posterImage": "linear-gradient(135deg, #0a0a0a 0%, #1a1a3f 50%, #C0C0C0 100%)",
+      "description": "The story of Neil Armstrong's career from a test pilot through the Apollo 11 mission, depicting the intense engineering, physics, and human determination behind the first moon landing.",
+      "scientificAccuracy": 4.7,
+      "concepts": [
+        "Rocket Engineering",
+        "Orbital Mechanics",
+        "Lunar Physics",
+        "Aerospace Technology"
+      ],
+      "runtime": "169 min",
+      "scientificConcepts": [
+        {
+          "name": "Rocket Propulsion",
+          "explanation": "The film accurately depicts the engineering of the Saturn V rocket and the physics of multi-stage rocket separation."
+        },
+        {
+          "name": "Orbital Mechanics",
+          "explanation": "The complex orbital calculations needed to reach the moon, achieve lunar orbit, and return to Earth are realistically portrayed."
+        },
+        {
+          "name": "Lunar Gravity",
+          "explanation": "The depiction of the moon's lower gravity and its effects on movement and equipment is based on accurate physics."
+        },
+        {
+          "name": "Aerospace Engineering",
+          "explanation": "The film shows the incredible engineering challenges overcome to build the spacecraft and life support systems."
+        }
+      ],
+      "accuracy": {
+        "movie": "First Man is praised for its accurate portrayal of Apollo 11 engineering and physics. Technical consultants ensured authenticity.",
+        "reality": "The science is exceptionally accurate, depicting real historical events with meticulous detail.",
+        "percentage": 94
+      },
+      "relatedMovies": [
+        22,
+        29,
+        30
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Apollo 13",
+      "year": 1995,
+      "director": "Ron Howard",
+      "genre": "Drama, Adventure",
+      "poster": "🚀",
+      "posterUrl": "images/posters/22-apollo_13.jpg",
+      "backdrop": "🌕",
+      "posterColor": {
+        "from": "#1a2d4f",
+        "to": "#0d1a2f"
+      },
+      "posterImage": "linear-gradient(135deg, #1a2d4f 0%, #0d1a2f 50%, #87CEEB 100%)",
+      "description": "During the Apollo 13 mission to the moon, an oxygen tank rupture forces the astronauts to use the lunar module as a lifeboat and engineers on Earth must improvise a way to bring them home.",
+      "scientificAccuracy": 4.6,
+      "concepts": [
+        "Orbital Mechanics",
+        "Engineering",
+        "Crisis Management",
+        "Life Support Systems"
+      ],
+      "runtime": "140 min",
+      "scientificConcepts": [
+        {
+          "name": "Orbital Mechanics",
+          "explanation": "The film accurately depicts the orbital trajectories needed for the rescue, including the critical free-return trajectory."
+        },
+        {
+          "name": "Life Support Systems",
+          "explanation": "The CO2 scrubbing improvisation and other life support challenges are portrayed with technical accuracy."
+        },
+        {
+          "name": "Spacecraft Systems",
+          "explanation": "The detailed knowledge of spacecraft systems and how to troubleshoot failures is realistically depicted."
+        },
+        {
+          "name": "Physics of Reentry",
+          "explanation": "The reentry procedures and the critical nature of trajectory alignment are accurately shown."
+        }
+      ],
+      "accuracy": {
+        "movie": "Apollo 13 is exceptionally accurate and has been praised by NASA and the actual astronauts involved.",
+        "reality": "The film follows the actual historical events with meticulous accuracy, depicting real problem-solving under pressure.",
+        "percentage": 95
+      },
+      "relatedMovies": [
+        21,
+        29,
+        30
+      ]
+    },
+    {
+      "id": 23,
+      "title": "The Day After Tomorrow",
+      "year": 2004,
+      "director": "Roland Emmerich",
+      "genre": "Sci-Fi, Drama, Thriller",
+      "poster": "❄️",
+      "posterUrl": "images/posters/23-the_day_after_tomorrow.jpg",
+      "backdrop": "🌪️",
+      "posterColor": {
+        "from": "#0f2d52",
+        "to": "#06192e"
+      },
+      "posterImage": "linear-gradient(135deg, #0f2d52 0%, #06192e 50%, #87CEEB 100%)",
+      "description": "Global warming triggers a massive storm system that rapidly cools the planet into a new ice age, forcing humanity to fight for survival against catastrophic climate shifts.",
+      "scientificAccuracy": 2.1,
+      "concepts": [
+        "Climate Change",
+        "Ocean Circulation",
+        "Extreme Weather",
+        "Thermohaline Circulation"
+      ],
+      "runtime": "124 min",
+      "scientificConcepts": [
+        {
+          "name": "Thermohaline Circulation",
+          "explanation": "The film uses disruption of the ocean's thermohaline circulation as the mechanism for rapid climate change, which is based on real climate science."
+        },
+        {
+          "name": "Climate Feedback Loops",
+          "explanation": "The concept that climate change could trigger cascading effects is scientifically sound, though the depicted speed is wildly exaggerated."
+        },
+        {
+          "name": "Extreme Weather Systems",
+          "explanation": "The catastrophic weather patterns shown, while dramatic, reflect real concerns about climate-driven extreme weather."
+        }
+      ],
+      "accuracy": {
+        "movie": "While climate science concepts are real, the film's compressed timeline and extreme events are scientifically implausible.",
+        "reality": "Climate change is gradual (decades), not instantaneous. The thermohaline circulation can be disrupted, but not with such immediate consequences.",
+        "percentage": 42
+      },
+      "relatedMovies": [
+        24,
+        25,
+        27
+      ]
+    },
+    {
+      "id": 24,
+      "title": "WALL-E",
+      "year": 2008,
+      "director": "Andrew Stanton",
+      "genre": "Sci-Fi, Animation, Drama",
+      "poster": "🤖",
+      "posterUrl": "images/posters/24-wall_e.jpg",
+      "backdrop": "🌱",
+      "posterColor": {
+        "from": "#8B4513",
+        "to": "#FFD700"
+      },
+      "posterImage": "linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #FFD700 100%)",
+      "description": "In a distant future where Earth has been abandoned, a small waste-collecting robot embarks on a journey across the galaxy that ultimately decides the fate of humanity.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Ecological Collapse",
+        "Space Habitation",
+        "Robotics",
+        "Environmental Science"
+      ],
+      "runtime": "98 min",
+      "scientificConcepts": [
+        {
+          "name": "Ecological Collapse",
+          "explanation": "The film depicts consequences of unchecked pollution and resource consumption, raising awareness about environmental sustainability."
+        },
+        {
+          "name": "Long-term Space Habitation",
+          "explanation": "The space station shown depicts challenges of maintaining human life in space over extended periods."
+        },
+        {
+          "name": "Artificial Intelligence and Autonomy",
+          "explanation": "WALL-E exhibits autonomous behavior and apparent emotions, raising questions about machine consciousness."
+        },
+        {
+          "name": "Planetary Restoration",
+          "explanation": "The concept of restoring a polluted planet is scientifically plausible but would require massive coordinated effort."
+        }
+      ],
+      "accuracy": {
+        "movie": "The environmental science concepts are broadly accurate in depicting consequences of pollution.",
+        "reality": "While fictional, the warnings about environmental degradation are grounded in real scientific concerns.",
+        "percentage": 71
+      },
+      "relatedMovies": [
+        23,
+        25,
+        27
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "year": 2004,
+      "director": "Michel Gondry",
+      "genre": "Sci-Fi, Drama, Romance",
+      "poster": "🧠",
+      "posterUrl": "images/posters/25-eternal_sunshine_of_the_spotless_mind.jpg",
+      "backdrop": "💭",
+      "posterColor": {
+        "from": "#2d3d5c",
+        "to": "#1a2d4f"
+      },
+      "posterImage": "linear-gradient(135deg, #2d3d5c 0%, #1a2d4f 50%, #FFB6C1 100%)",
+      "description": "A man discovers the woman of his dreams has erased him from her memory. Heartbroken, he decides to erase her from his memory as well, but the process proves more complex than expected.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "Memory Erasure",
+        "Neural Mapping",
+        "Neuroscience",
+        "Consciousness"
+      ],
+      "runtime": "108 min",
+      "scientificConcepts": [
+        {
+          "name": "Memory Mapping",
+          "explanation": "The film depicts technology that can map and selectively erase specific memories, which remains highly speculative."
+        },
+        {
+          "name": "Memory Structure",
+          "explanation": "The assumption that memories are discrete units that can be safely removed is scientifically questionable - memories are interconnected."
+        },
+        {
+          "name": "Neural Plasticity",
+          "explanation": "The brain's ability to form new connections is explored as memories are erased, but the depicted process is unrealistic."
+        }
+      ],
+      "accuracy": {
+        "movie": "While the concept is intriguing, the technology depicted is far beyond current neuroscience and likely impossible.",
+        "reality": "Memory is distributed across neural networks. Selectively erasing memories while preserving everything else would be extremely difficult.",
+        "percentage": 54
+      },
+      "relatedMovies": [
+        6,
+        20,
+        28
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Her",
+      "year": 2013,
+      "director": "Spike Jonze",
+      "genre": "Sci-Fi, Drama, Romance",
+      "poster": "💬",
+      "posterUrl": "images/posters/26-her.jpg",
+      "backdrop": "📱",
+      "posterColor": {
+        "from": "#1a3d5c",
+        "to": "#0d2640"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3d5c 0%, #0d2640 50%, #FF69B4 100%)",
+      "description": "A lonely writer develops a relationship with an artificial intelligence operating system that is designed to meet his emotional needs and has the ability to learn and evolve.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Advanced AI",
+        "Natural Language Processing",
+        "Machine Learning",
+        "Human-AI Interaction"
+      ],
+      "runtime": "126 min",
+      "scientificConcepts": [
+        {
+          "name": "Conversational AI",
+          "explanation": "The film depicts AI that can understand context, emotion, and nuance in conversation, which modern systems are approaching but not fully achieving."
+        },
+        {
+          "name": "Machine Learning",
+          "explanation": "Samantha learns and adapts based on interactions, demonstrating neural network-like learning that mirrors real machine learning."
+        },
+        {
+          "name": "Artificial Emotions",
+          "explanation": "The film speculates on whether AI could develop genuine emotions or simulate them convincingly enough to matter emotionally."
+        },
+        {
+          "name": "Human-AI Relationships",
+          "explanation": "The narrative explores the psychological and philosophical implications of deep emotional connections with artificial intelligence."
+        }
+      ],
+      "accuracy": {
+        "movie": "Modern AI like ChatGPT demonstrates conversational abilities approaching the film's depiction, though true emotion remains debatable.",
+        "reality": "Current AI can simulate emotional responses but likely doesn't experience genuine emotions. The technology is advancing rapidly.",
+        "percentage": 68
+      },
+      "relatedMovies": [
+        11,
+        14,
+        28
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Primer",
+      "year": 2004,
+      "director": "Shane Carruth",
+      "genre": "Sci-Fi, Drama, Thriller",
+      "poster": "⏱️",
+      "posterUrl": "images/posters/27-primer.jpg",
+      "backdrop": "📦",
+      "posterColor": {
+        "from": "#1a1a3f",
+        "to": "#0d0d2b"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a3f 0%, #0d0d2b 50%, #FFD700 100%)",
+      "description": "Two engineers accidentally discover the ability to manipulate spacetime through accidental time travel, but the consequences become increasingly complex as they explore its possibilities.",
+      "scientificAccuracy": 3.5,
+      "concepts": [
+        "Time Travel",
+        "Quantum Physics",
+        "Causality",
+        "Relativity"
+      ],
+      "runtime": "77 min",
+      "scientificConcepts": [
+        {
+          "name": "Mathematical Time Travel",
+          "explanation": "The film grounds time travel in complex mathematical concepts, attempting to explain it through real theoretical physics."
+        },
+        {
+          "name": "Causal Loops",
+          "explanation": "The narrative explores sophisticated time travel paradoxes and self-consistent causal structures."
+        },
+        {
+          "name": "Spacetime Manipulation",
+          "explanation": "The theoretical ability to create a closed timelike curve (CTC) is explored, though it remains purely theoretical."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film attempts to ground time travel in real physics concepts, making it more scientifically sophisticated than most time travel films.",
+        "reality": "Time travel remains a theoretical concept with significant unresolved paradoxes. The film's approach is intellectually ambitious but speculative.",
+        "percentage": 61
+      },
+      "relatedMovies": [
+        32,
+        33,
+        35
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Coherence",
+      "year": 2013,
+      "director": "James D. Ward",
+      "genre": "Sci-Fi, Mystery, Thriller",
+      "poster": "🌌",
+      "posterUrl": "images/posters/28-coherence.jpg",
+      "backdrop": "💫",
+      "posterColor": {
+        "from": "#0a1f2e",
+        "to": "#061528"
+      },
+      "posterImage": "linear-gradient(135deg, #0a1f2e 0%, #061528 50%, #00BFFF 100%)",
+      "description": "Eight friends at a dinner party encounter a mysterious comet that triggers a series of events leading to the discovery of parallel realities existing simultaneously.",
+      "scientificAccuracy": 3.3,
+      "concepts": [
+        "Quantum Mechanics",
+        "Parallel Realities",
+        "Superposition",
+        "Many-worlds Interpretation"
+      ],
+      "runtime": "88 min",
+      "scientificConcepts": [
+        {
+          "name": "Superposition and Observation",
+          "explanation": "The film uses quantum mechanics concepts, particularly the idea that observation collapses quantum states into definite outcomes."
+        },
+        {
+          "name": "SchrÃ¶dinger's Cat",
+          "explanation": "The parallel realities can be understood through the many-worlds interpretation of quantum mechanics."
+        },
+        {
+          "name": "Parallel Universes",
+          "explanation": "The concept of multiple simultaneous reality branches is speculative but grounded in certain interpretations of quantum physics."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film takes liberties with quantum mechanics for dramatic effect, but the concepts are loosely grounded in real physics.",
+        "reality": "Quantum superposition is real, but the existence of parallel macroscopic realities is highly speculative and unproven.",
+        "percentage": 52
+      },
+      "relatedMovies": [
+        27,
+        32,
+        33
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Source Code",
+      "year": 2011,
+      "director": "Duncan Jones",
+      "genre": "Sci-Fi, Action, Thriller",
+      "poster": "🚊",
+      "posterUrl": "images/posters/29-source_code.jpg",
+      "backdrop": "⏱️",
+      "posterColor": {
+        "from": "#1a3d5c",
+        "to": "#0d2640"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3d5c 0%, #0d2640 50%, #FF6347 100%)",
+      "description": "A soldier is placed into the body of a commuter to find the bomber of a train and prevent an attack, but discovers the real nature of the program is far more complex.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Consciousness Transfer",
+        "Neural Mapping",
+        "Parallel Realities",
+        "Mind Upload"
+      ],
+      "runtime": "93 min",
+      "scientificConcepts": [
+        {
+          "name": "Consciousness Processing",
+          "explanation": "The film depicts consciousness being transferred or simulated within a neural network created from memories and sensory data."
+        },
+        {
+          "name": "Memory Recreation",
+          "explanation": "The Source Code program reconstructs reality from neural patterns, raising questions about identity and consciousness."
+        },
+        {
+          "name": "Quantum Mechanics of Consciousness",
+          "explanation": "The ending suggests consciousness might exist in a quantum superposition across multiple timelines."
+        }
+      ],
+      "accuracy": {
+        "movie": "While concepts are inspired by neuroscience and quantum mechanics, the practical implementation remains entirely fictional.",
+        "reality": "We cannot yet transfer consciousness or simulate it from memories. The physics of consciousness remains poorly understood.",
+        "percentage": 48
+      },
+      "relatedMovies": [
+        25,
+        27,
+        32
+      ]
+    },
+    {
+      "id": 30,
+      "title": "The Prestige",
+      "year": 2006,
+      "director": "Christopher Nolan",
+      "genre": "Mystery, Thriller, Sci-Fi",
+      "poster": "🎩",
+      "posterUrl": "images/posters/30-the_prestige.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#2d1a3f",
+        "to": "#1a0d2e"
+      },
+      "posterImage": "linear-gradient(135deg, #2d1a3f 0%, #1a0d2e 50%, #FFD700 100%)",
+      "description": "Two rival magicians in late 19th century London engage in a battle of ingenuity and cunning, each attempting to create the perfect illusion. Their competition escalates with the introduction of advanced technology.",
+      "scientificAccuracy": 3.6,
+      "concepts": [
+        "Electricity",
+        "Tesla Coils",
+        "Electromagnetism",
+        "Physics Principles"
+      ],
+      "runtime": "130 min",
+      "scientificConcepts": [
+        {
+          "name": "Tesla Technology",
+          "explanation": "The film features real electrical devices based on Nikola Tesla's work, including wireless energy transmission concepts."
+        },
+        {
+          "name": "Electromagnetism",
+          "explanation": "The use of electromagnetic energy for the central illusion is based on real principles of electromagnetism."
+        },
+        {
+          "name": "Physics of Light",
+          "explanation": "The illusions rely on understanding optics, light propagation, and perception, demonstrating real physics principles."
+        }
+      ],
+      "accuracy": {
+        "movie": "The electrical concepts are grounded in real Tesla-era physics, though some elements are speculative.",
+        "reality": "Tesla's wireless energy transmission was theoretically sound but never practical. The depicted application is imaginative.",
+        "percentage": 73
+      },
+      "relatedMovies": [
+        6,
+        26,
+        34
+      ]
+    },
+    {
+      "id": 31,
+      "title": "The Imitation Game",
+      "year": 2014,
+      "director": "Morten Tyldum",
+      "genre": "Drama, Thriller, Biography",
+      "poster": "💻",
+      "posterUrl": "images/posters/31-the_imitation_game.jpg",
+      "backdrop": "⚙️",
+      "posterColor": {
+        "from": "#1a1a2e",
+        "to": "#0d0d1a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 50%, #87CEEB 100%)",
+      "description": "The film tells the story of Alan Turing and his team working to break the Enigma code during World War II, featuring the development of early computing machines.",
+      "scientificAccuracy": 4.2,
+      "concepts": [
+        "Computer Science",
+        "Cryptography",
+        "Logic and Computation",
+        "Artificial Intelligence"
+      ],
+      "runtime": "114 min",
+      "scientificConcepts": [
+        {
+          "name": "Early Computing",
+          "explanation": "The film accurately depicts the development of mechanical computing machines and their role in cryptanalysis."
+        },
+        {
+          "name": "Cryptography",
+          "explanation": "The Enigma code-breaking effort is realistically portrayed with accurate details about cryptographic methods."
+        },
+        {
+          "name": "Turing Machine Concept",
+          "explanation": "Turing's theoretical machine model is referenced, which forms the foundation of computer science."
+        },
+        {
+          "name": "Artificial Intelligence Philosophy",
+          "explanation": "The Turing Test concept is explored, questioning what it means for a machine to demonstrate intelligence."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is generally historically accurate about Turing's life and work, though some dramatic liberties are taken.",
+        "reality": "Turing's work was foundational to computer science and AI theory. The historical events are largely accurate.",
+        "percentage": 86
+      },
+      "relatedMovies": [
+        14,
+        26,
+        34
+      ]
+    },
+    {
+      "id": 32,
+      "title": "A Beautiful Mind",
+      "year": 2001,
+      "director": "Ron Howard",
+      "genre": "Drama, Biography",
+      "poster": "🧮",
+      "posterUrl": "images/posters/32-a_beautiful_mind.jpg",
+      "backdrop": "📝",
+      "posterColor": {
+        "from": "#2d3d5c",
+        "to": "#1a2d4f"
+      },
+      "posterImage": "linear-gradient(135deg, #2d3d5c 0%, #1a2d4f 50%, #FFD700 100%)",
+      "description": "The story of mathematician John Nash, who made an astonishing discovery early in his career and whose life took a dramatic turn when he began to experience severe mental illness.",
+      "scientificAccuracy": 3.8,
+      "concepts": [
+        "Game Theory",
+        "Mathematical Economics",
+        "Mental Illness",
+        "Mathematics"
+      ],
+      "runtime": "135 min",
+      "scientificConcepts": [
+        {
+          "name": "Game Theory",
+          "explanation": "Nash's work on game theory revolutionized economics and strategic thinking, and the film depicts his insights into competitive mathematics."
+        },
+        {
+          "name": "Equilibrium Concepts",
+          "explanation": "The Nash equilibrium is a foundational concept in game theory that allows analysis of strategic interactions."
+        },
+        {
+          "name": "Mathematical Genius",
+          "explanation": "The film shows the brilliance and pattern-recognition abilities of a truly exceptional mathematical mind."
+        }
+      ],
+      "accuracy": {
+        "movie": "While the mathematical concepts are real and accurate, the film takes dramatic liberties with Nash's personal story.",
+        "reality": "Game theory is a rigorous mathematical field. Nash's contributions were genuine, though some biographical details are dramatized.",
+        "percentage": 81
+      },
+      "relatedMovies": [
+        33,
+        34,
+        35
+      ]
+    },
+    {
+      "id": 33,
+      "title": "The Man Who Knew Infinity",
+      "year": 2015,
+      "director": "Matt Brown",
+      "genre": "Drama, Biography",
+      "poster": "♾️",
+      "posterUrl": "images/posters/33-the_man_who_knew_infinity.jpg",
+      "backdrop": "📐",
+      "posterColor": {
+        "from": "#1a3d5c",
+        "to": "#0d2640"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3d5c 0%, #0d2640 50%, #FFD700 100%)",
+      "description": "The true story of the mathematical genius Srinivasa Ramanujan, whose collaboration with mathematician G.H. Hardy led to revolutionary advances in number theory.",
+      "scientificAccuracy": 4.3,
+      "concepts": [
+        "Number Theory",
+        "Mathematical Analysis",
+        "Mathematics",
+        "Pure Mathematics"
+      ],
+      "runtime": "108 min",
+      "scientificConcepts": [
+        {
+          "name": "Number Theory",
+          "explanation": "Ramanujan's work focused on properties of numbers and mathematical relationships, contributing to fields like partition theory."
+        },
+        {
+          "name": "Mathematical Intuition",
+          "explanation": "The film depicts Ramanujan's remarkable ability to discover mathematical truths through intuition rather than formal proof."
+        },
+        {
+          "name": "Advanced Analysis",
+          "explanation": "The mathematical concepts explored, while depicted simply for film, represent genuine advanced mathematics."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is historically accurate about Ramanujan's life and mathematical contributions, adapted for a general audience.",
+        "reality": "Ramanujan's work was groundbreaking and continues to influence mathematics. The biographical details are well-researched.",
+        "percentage": 87
+      },
+      "relatedMovies": [
+        32,
+        34,
+        35
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Hidden Figures",
+      "year": 2016,
+      "director": "Theodore Melfi",
+      "genre": "Drama, History",
+      "poster": "🚀",
+      "posterUrl": "images/posters/34-hidden_figures.jpg",
+      "backdrop": "🔢",
+      "posterColor": {
+        "from": "#2d1a3f",
+        "to": "#1a0d2e"
+      },
+      "posterImage": "linear-gradient(135deg, #2d1a3f 0%, #1a0d2e 50%, #87CEEB 100%)",
+      "description": "The true story of African American women mathematicians at NASA whose calculations were essential to the success of the space program during the Cold War.",
+      "scientificAccuracy": 4.5,
+      "concepts": [
+        "Orbital Trajectory",
+        "Mathematics",
+        "Aerospace Calculation",
+        "Computing"
+      ],
+      "runtime": "127 min",
+      "scientificConcepts": [
+        {
+          "name": "Orbital Mechanics Calculations",
+          "explanation": "The film depicts the complex mathematical calculations needed to compute trajectories for space missions."
+        },
+        {
+          "name": "NASA Computing",
+          "explanation": "The film shows how human calculators (computers) performed essential calculations before electronic computers became dominant."
+        },
+        {
+          "name": "Spacecraft Navigation",
+          "explanation": "The accuracy requirements for space navigation and the critical role of computational precision are depicted."
+        },
+        {
+          "name": "Mathematical Rigor",
+          "explanation": "The film emphasizes how errors in calculation could result in mission failure and loss of life."
+        }
+      ],
+      "accuracy": {
+        "movie": "Hidden Figures is praised for its historical accuracy and its portrayal of the real achievements of Black women mathematicians at NASA.",
+        "reality": "The orbital calculations were real and essential. The women's contributions were groundbreaking and largely unrecognized until recently.",
+        "percentage": 91
+      },
+      "relatedMovies": [
+        21,
+        22,
+        30
+      ]
+    },
+    {
+      "id": 35,
+      "title": "October Sky",
+      "year": 1999,
+      "director": "Joe Johnston",
+      "genre": "Drama, Biography",
+      "poster": "🚀",
+      "posterUrl": "images/posters/35-october_sky.jpg",
+      "backdrop": "✨",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#3d1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #3d1a1a 50%, #FF8C00 100%)",
+      "description": "Based on the true story of Homer Hickam, a coal miner's son who builds rockets with his friends, overcoming socioeconomic obstacles to pursue his dream of rocket science.",
+      "scientificAccuracy": 4.2,
+      "concepts": [
+        "Rocketry",
+        "Propulsion Physics",
+        "Aerospace Engineering",
+        "Experimental Science"
+      ],
+      "runtime": "108 min",
+      "scientificConcepts": [
+        {
+          "name": "Rocket Propulsion",
+          "explanation": "The film depicts the fundamental physics of rocket propulsion, including thrust, momentum, and fuel reactions."
+        },
+        {
+          "name": "Aerospace Engineering Principles",
+          "explanation": "The rockets built demonstrate real engineering principles in scaling up from model rockets to actual spacecraft design."
+        },
+        {
+          "name": "Experimental Method",
+          "explanation": "The trial-and-error approach to rocketry mirrors the scientific method and experimental verification."
+        },
+        {
+          "name": "Physics of Flight",
+          "explanation": "The film shows how understanding physics principles led to successful rocket designs and successful launches."
+        }
+      ],
+      "accuracy": {
+        "movie": "October Sky is based on Homer Hickam's memoir and accurately depicts real events from the Space Race era.",
+        "reality": "The rockets built were based on real rocket science principles. The biographical details are historically accurate.",
+        "percentage": 88
+      },
+      "relatedMovies": [
+        21,
+        22,
+        30
+      ]
+    },
+    {
+      "id": 36,
+      "title": "The Andromeda Strain",
+      "year": 1971,
+      "director": "Robert Wise",
+      "genre": "Sci-Fi, Thriller",
+      "poster": "🔬",
+      "posterUrl": "images/posters/36-the_andromeda_strain.jpg",
+      "backdrop": "🧪",
+      "posterColor": {
+        "from": "#0f2d52",
+        "to": "#06192e"
+      },
+      "posterImage": "linear-gradient(135deg, #0f2d52 0%, #06192e 50%, #00FF00 100%)",
+      "description": "A team of scientists investigates a deadly extraterrestrial microorganism brought to Earth by a returning space probe, working in a high-security research facility.",
+      "scientificAccuracy": 3.9,
+      "concepts": [
+        "Extraterrestrial Microbiology",
+        "Quarantine Protocols",
+        "Microbiology",
+        "Biocontainment"
+      ],
+      "runtime": "131 min",
+      "scientificConcepts": [
+        {
+          "name": "Extraterrestrial Organisms",
+          "explanation": "The film speculates on possible forms of extraterrestrial microorganisms and their properties, based on theoretical astrobiology."
+        },
+        {
+          "name": "Microscopic Life Forms",
+          "explanation": "The deadly properties of the organism and how it reproduces are depicted with some scientific plausibility."
+        },
+        {
+          "name": "Quarantine and Biocontainment",
+          "explanation": "The film accurately depicts the importance of proper containment protocols when dealing with unknown biological agents."
+        },
+        {
+          "name": "Scientific Investigation",
+          "explanation": "The systematic approach to studying the organism and determining its properties reflects the scientific method."
+        }
+      ],
+      "accuracy": {
+        "movie": "For a 1971 film, The Andromeda Strain is remarkably scientifically plausible in its biocontainment procedures and investigation methods.",
+        "reality": "The extraterrestrial organism is speculative, but biocontainment protocols and microbiology are realistically depicted.",
+        "percentage": 78
+      },
+      "relatedMovies": [
+        18,
+        19,
+        37
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Outbreak",
+      "year": 1995,
+      "director": "Wolfgang Petersen",
+      "genre": "Drama, Thriller",
+      "poster": "☣️",
+      "posterUrl": "images/posters/37-outbreak.jpg",
+      "backdrop": "🏥",
+      "posterColor": {
+        "from": "#8B0000",
+        "to": "#DC143C"
+      },
+      "posterImage": "linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%)",
+      "description": "A team of military and scientific professionals battles to contain a highly contagious virus that threatens to decimate the population before an aggressive military solution is implemented.",
+      "scientificAccuracy": 3.7,
+      "concepts": [
+        "Virology",
+        "Disease Containment",
+        "Epidemiology",
+        "Military Response"
+      ],
+      "runtime": "127 min",
+      "scientificConcepts": [
+        {
+          "name": "Hemorrhagic Fever",
+          "explanation": "The film depicts a fictional hemorrhagic fever with properties similar to real viruses like Ebola and Marburg."
+        },
+        {
+          "name": "Disease Transmission",
+          "explanation": "The rapid spread of the virus through human contact and bodily fluids is realistically portrayed."
+        },
+        {
+          "name": "Vaccine Development",
+          "explanation": "The race to develop a vaccine is depicted with some scientific accuracy regarding testing and safety protocols."
+        },
+        {
+          "name": "Quarantine Procedures",
+          "explanation": "The containment efforts and quarantine measures shown are based on real public health protocols."
+        }
+      ],
+      "accuracy": {
+        "movie": "Outbreak is reasonably accurate in its depiction of epidemiology and disease containment, though with dramatic exaggeration.",
+        "reality": "Hemorrhagic fever outbreaks are real and dangerous. The containment procedures shown reflect actual public health responses.",
+        "percentage": 79
+      },
+      "relatedMovies": [
+        18,
+        19,
+        36
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Dune",
+      "year": 2021,
+      "director": "Denis Villeneuve",
+      "genre": "Sci-Fi, Adventure, Drama",
+      "poster": "🏜️",
+      "posterUrl": "images/posters/38-dune.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#8B4513",
+        "to": "#D2691E"
+      },
+      "posterImage": "linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #FFD700 100%)",
+      "description": "Based on Frank Herbert's novel, a young noble must travel to a dangerous planet to fulfill his destiny while uncovering the mysteries of the universe.",
+      "scientificAccuracy": 3.4,
+      "concepts": [
+        "Planetary Ecology",
+        "Resource Management",
+        "Terraforming",
+        "Sustainable Systems"
+      ],
+      "runtime": "155 min",
+      "scientificConcepts": [
+        {
+          "name": "Planetary Ecology",
+          "explanation": "Arrakis is depicted as a complete ecological system where the environment and inhabitants are deeply interconnected."
+        },
+        {
+          "name": "Extreme Planetary Conditions",
+          "explanation": "The desert planet with extreme heat and water scarcity demonstrates how organisms adapt to harsh environments."
+        },
+        {
+          "name": "Resource Economics",
+          "explanation": "The spice Melange represents a critical resource, exploring economic dependencies on single commodities."
+        },
+        {
+          "name": "Terraforming and Planetary Management",
+          "explanation": "The long-term vision of transforming Arrakis reflects real concepts in planetary engineering."
+        }
+      ],
+      "accuracy": {
+        "movie": "While imaginative, the film's approach to planetary ecology is grounded in real scientific principles of adaptation and resource management.",
+        "reality": "Extreme environments on Earth mirror some principles shown. The fictional ecology is plausible but speculative.",
+        "percentage": 72
+      },
+      "relatedMovies": [
+        39,
+        40,
+        41
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Dune: Part Two",
+      "year": 2024,
+      "director": "Denis Villeneuve",
+      "genre": "Sci-Fi, Adventure, Drama",
+      "poster": "🏜️",
+      "posterUrl": "images/posters/39-dune__part_two.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#6B4423",
+        "to": "#A0522D"
+      },
+      "posterImage": "linear-gradient(135deg, #6B4423 0%, #A0522D 50%, #DAA520 100%)",
+      "description": "Paul continues his journey on Arrakis as he becomes more entwined with the Fremen people and discovers his prophetic powers while uncovering deeper secrets about his family's past.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Planetary Survival",
+        "Desert Ecology",
+        "Resource Scarcity",
+        "Climate Adaptation"
+      ],
+      "runtime": "166 min",
+      "scientificConcepts": [
+        {
+          "name": "Desert Ecology",
+          "explanation": "The film continues to explore adaptation to extreme desert conditions and the coevolution of species."
+        },
+        {
+          "name": "Water Scarcity and Survival",
+          "explanation": "Water conservation and recycling systems are explored as essential technologies for surviving Arrakis."
+        },
+        {
+          "name": "Ecological Transformation",
+          "explanation": "The long-term vision of ecological change on Arrakis demonstrates principles of planetary transformation."
+        },
+        {
+          "name": "Evolutionary Pressures",
+          "explanation": "The adaptation of the Fremen people to their environment shows evolutionary principles in action."
+        }
+      ],
+      "accuracy": {
+        "movie": "Part Two maintains consistency with the ecological themes of the first film while emphasizing survival in extreme conditions.",
+        "reality": "The fictional ecology remains speculative but grounded in real principles of adaptation and resource management.",
+        "percentage": 69
+      },
+      "relatedMovies": [
+        38,
+        40,
+        41
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Edge of Tomorrow",
+      "year": 2014,
+      "director": "Doug Liman",
+      "genre": "Sci-Fi, Action, Thriller",
+      "poster": "🔄",
+      "posterUrl": "images/posters/40-edge_of_tomorrow.jpg",
+      "backdrop": "⚔️",
+      "posterColor": {
+        "from": "#1a3d5c",
+        "to": "#0d2640"
+      },
+      "posterImage": "linear-gradient(135deg, #1a3d5c 0%, #0d2640 50%, #87CEEB 100%)",
+      "description": "A soldier is caught in a time loop during an alien invasion, resetting each day to try to find a way to save humanity and end the war.",
+      "scientificAccuracy": 2.6,
+      "concepts": [
+        "Temporal Mechanics",
+        "Quantum Loops",
+        "Alien Biology",
+        "Time Travel"
+      ],
+      "runtime": "113 min",
+      "scientificConcepts": [
+        {
+          "name": "Time Loop Mechanism",
+          "explanation": "The film depicts a temporal reset triggered by alien biology, creating a repeating day where knowledge and experience carry forward."
+        },
+        {
+          "name": "Alien Biology",
+          "explanation": "The aliens possess the ability to manipulate time through biological mechanisms, representing advanced biotech."
+        },
+        {
+          "name": "Quantum Consciousness",
+          "explanation": "The protagonist's consciousness is preserved across time loops, suggesting a quantum-like property of consciousness."
+        }
+      ],
+      "accuracy": {
+        "movie": "While creative, the time loop mechanism is highly speculative and based loosely on quantum mechanics concepts.",
+        "reality": "Time travel and temporal loops remain theoretical. Alien technology would be entirely speculative.",
+        "percentage": 41
+      },
+      "relatedMovies": [
+        27,
+        32,
+        35
+      ]
+    },
+    {
+      "id": 41,
+      "title": "District 9",
+      "year": 2009,
+      "director": "Neill Blomkamp",
+      "genre": "Sci-Fi, Thriller, Drama",
+      "poster": "👽",
+      "posterUrl": "images/posters/41-district_9.jpg",
+      "backdrop": "🚁",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#2d2d2d"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #00FF00 100%)",
+      "description": "An alien spaceship appears over South Africa. The aliens are confined to a slum and treated as refugees, while a bureaucrat begins to understand their plight through a disturbing transformation.",
+      "scientificAccuracy": 3.3,
+      "concepts": [
+        "Biotechnology",
+        "Xenobiology",
+        "Alien Biology",
+        "Genetic Engineering"
+      ],
+      "runtime": "112 min",
+      "scientificConcepts": [
+        {
+          "name": "Xenobiology",
+          "explanation": "The film explores how an advanced alien species might interact with Earth's environment and biology."
+        },
+        {
+          "name": "Biotech Integration",
+          "explanation": "The protagonist's transformation demonstrates a speculative form of genetic engineering or bio-integration with alien technology."
+        },
+        {
+          "name": "Alien Technology",
+          "explanation": "The alien weapons and technology are depicted with creative design grounded in plausible physics principles."
+        }
+      ],
+      "accuracy": {
+        "movie": "While the speculative elements are imaginative, the film grounds them in biological and technological principles.",
+        "reality": "First contact with extraterrestrial life would be unprecedented. The biological integration shown is speculative.",
+        "percentage": 52
+      },
+      "relatedMovies": [
+        37,
+        42,
+        43
+      ]
+    },
+    {
+      "id": 42,
+      "title": "Prometheus",
+      "year": 2012,
+      "director": "Ridley Scott",
+      "genre": "Sci-Fi, Adventure, Thriller",
+      "poster": "🗿",
+      "posterUrl": "images/posters/42-prometheus.jpg",
+      "backdrop": "🛸",
+      "posterColor": {
+        "from": "#3d1a1a",
+        "to": "#1a0d0d"
+      },
+      "posterImage": "linear-gradient(135deg, #3d1a1a 0%, #1a0d0d 50%, #FF6347 100%)",
+      "description": "A crew of explorers travels to a distant planet seeking the origins of humanity, discovering instead a dangerous alien civilization and the truth about human creation.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Panspermia",
+        "Evolutionary Origins",
+        "Astrobiology",
+        "Alien Engineering"
+      ],
+      "runtime": "124 min",
+      "scientificConcepts": [
+        {
+          "name": "Panspermia Hypothesis",
+          "explanation": "The film explores the scientific theory that life may have originated elsewhere in the universe and seeded Earth."
+        },
+        {
+          "name": "Evolutionary Origins",
+          "explanation": "The film speculates on how intelligent beings might have engineered the evolution of human life."
+        },
+        {
+          "name": "Astrobiology",
+          "explanation": "The search for life's origins and the discovery of ancient alien life forms reflects real astrobiology research interests."
+        }
+      ],
+      "accuracy": {
+        "movie": "While panspermia is a real scientific hypothesis, the film's portrayal of engineered human origins is speculative.",
+        "reality": "Panspermia remains unproven. Evolution is supported by overwhelming evidence. The film's scenario is imaginative.",
+        "percentage": 58
+      },
+      "relatedMovies": [
+        36,
+        37,
+        41
+      ]
+    },
+    {
+      "id": 43,
+      "title": "Alien",
+      "year": 1979,
+      "director": "Ridley Scott",
+      "genre": "Sci-Fi, Horror, Thriller",
+      "poster": "👾",
+      "posterUrl": "images/posters/43-alien.jpg",
+      "backdrop": "🚀",
+      "posterColor": {
+        "from": "#0a0a0a",
+        "to": "#1a1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #228B22 100%)",
+      "description": "A commercial space tug is diverted to investigate a distress signal, and the crew discovers a deadly alien organism that begins to hunt them one by one.",
+      "scientificAccuracy": 3.5,
+      "concepts": [
+        "Xenobiology",
+        "Organism Adaptability",
+        "Space Biology",
+        "Parasitology"
+      ],
+      "runtime": "117 min",
+      "scientificConcepts": [
+        {
+          "name": "Xenobiology",
+          "explanation": "The xenomorph represents a creative extraterrestrial organism with adaptive capabilities grounded in biological principles."
+        },
+        {
+          "name": "Parasitic Life Cycles",
+          "explanation": "The alien's reproduction method mimics parasitic strategies found in Earth's organisms but applied to a fictional alien."
+        },
+        {
+          "name": "Environmental Adaptation",
+          "explanation": "The organism demonstrates extreme adaptability to different environments and hosts, reflecting biological realism."
+        },
+        {
+          "name": "Space Travel Hazards",
+          "explanation": "The film realistically depicts the dangers of encountering unknown organisms during space exploration."
+        }
+      ],
+      "accuracy": {
+        "movie": "While the alien is fictional, its biological strategies are inspired by real parasitic and predatory mechanisms.",
+        "reality": "The film's caution about unknown organisms in space is scientifically sound. The specific creature is imaginative.",
+        "percentage": 65
+      },
+      "relatedMovies": [
+        36,
+        37,
+        42
+      ]
+    },
+    {
+      "id": 44,
+      "title": "The Iron Giant",
+      "year": 1999,
+      "director": "Brad Bird",
+      "genre": "Animation, Sci-Fi, Adventure",
+      "poster": "🤖",
+      "posterUrl": "images/posters/44-the_iron_giant.jpg",
+      "backdrop": "🌟",
+      "posterColor": {
+        "from": "#2d2d2d",
+        "to": "#1a1a1a"
+      },
+      "posterImage": "linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 50%, #C0C0C0 100%)",
+      "description": "A young boy befriends a massive robot who falls to Earth from space. Together they must protect each other from government forces and the robot's destructive programming.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Robotics",
+        "Artificial Intelligence",
+        "Electromagnetic Adaptation",
+        "Machine Learning"
+      ],
+      "runtime": "86 min",
+      "scientificConcepts": [
+        {
+          "name": "Robotics and Autonomous Systems",
+          "explanation": "The Iron Giant exhibits autonomous behavior and learning capabilities reflecting real AI concepts."
+        },
+        {
+          "name": "Electromagnetic Sensitivity",
+          "explanation": "The giant's ability to detect and adapt to electromagnetic fields reflects real physics principles."
+        },
+        {
+          "name": "Machine Consciousness",
+          "explanation": "The robot demonstrates apparent emotions and moral choice, raising questions about consciousness in machines."
+        }
+      ],
+      "accuracy": {
+        "movie": "While the giant robot is fictional, its electromagnetic sensitivity and learning reflect plausible AI principles.",
+        "reality": "Modern robotics and AI are advancing, but creating a conscious machine remains theoretical.",
+        "percentage": 59
+      },
+      "relatedMovies": [
+        11,
+        14,
+        42
+      ]
+    },
+    {
+      "id": 45,
+      "title": "Akira",
+      "year": 1988,
+      "director": "Katsuhiro Ã”tomo",
+      "genre": "Animation, Sci-Fi, Action",
+      "poster": "🏍️",
+      "posterUrl": "images/posters/45-akira.jpg",
+      "backdrop": "💥",
+      "posterColor": {
+        "from": "#1a0f2e",
+        "to": "#0d071a"
+      },
+      "posterImage": "linear-gradient(135deg, #1a0f2e 0%, #0d071a 50%, #FF1493 100%)",
+      "description": "In a post-apocalyptic Tokyo, a street gang member discovers telekinetic powers after a motorcycle accident and becomes caught in a conflict with mysterious government forces.",
+      "scientificAccuracy": 2.3,
+      "concepts": [
+        "Telekinesis",
+        "Psychic Mutation",
+        "Neural Enhancement",
+        "Quantum Consciousness"
+      ],
+      "runtime": "124 min",
+      "scientificConcepts": [
+        {
+          "name": "Telekinesis",
+          "explanation": "The film depicts psychic powers moving objects without physical contact, which remains unproven scientifically."
+        },
+        {
+          "name": "Neural Mutation",
+          "explanation": "The enhancement of psychic abilities through genetic mutation is speculative but inspired by evolutionary principles."
+        },
+        {
+          "name": "Brain Evolution",
+          "explanation": "The concept of accelerated human brain evolution leading to superhuman powers is imaginative rather than scientific."
+        }
+      ],
+      "accuracy": {
+        "movie": "While visually stunning, Akira's scientific foundations are primarily speculative and fantastical rather than grounded in real science.",
+        "reality": "Telekinesis has not been scientifically verified. The film prioritizes storytelling over scientific accuracy.",
+        "percentage": 38
+      },
+      "relatedMovies": [
+        11,
+        40,
+        42
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Ghost in the Shell",
+      "year": 1995,
+      "director": "Mamoru Oshii",
+      "genre": "Animation, Sci-Fi, Thriller",
+      "poster": "🧠",
+      "posterUrl": "images/posters/46-ghost_in_the_shell.jpg",
+      "backdrop": "🌐",
+      "posterColor": {
+        "from": "#0a1a2e",
+        "to": "#16213e"
+      },
+      "posterImage": "linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #00BFFF 100%)",
+      "description": "In a futuristic Japan, a cyborg special ops agent questions her identity and existence while pursuing a mysterious hacker, leading to philosophical explorations of consciousness.",
+      "scientificAccuracy": 3.7,
+      "concepts": [
+        "Cyberization",
+        "Neural Networks",
+        "Digital Consciousness",
+        "Human-Machine Interface"
+      ],
+      "runtime": "83 min",
+      "scientificConcepts": [
+        {
+          "name": "Cyborg Technology",
+          "explanation": "The protagonist's cybernetic body with advanced sensory capabilities represents cutting-edge futuristic technology."
+        },
+        {
+          "name": "Neural Integration",
+          "explanation": "The seamless integration of digital consciousness with mechanical bodies raises questions about the nature of identity."
+        },
+        {
+          "name": "Artificial Consciousness",
+          "explanation": "The film explores whether a being with an artificial body but human consciousness remains truly human."
+        },
+        {
+          "name": "Information Consciousness",
+          "explanation": "The possibility that consciousness could exist as pure information in digital networks is explored philosophically."
+        }
+      ],
+      "accuracy": {
+        "movie": "While technologically speculative, Ghost in the Shell engages seriously with philosophical questions about consciousness.",
+        "reality": "Cyborg technology is advancing, but true consciousness in machines remains unproven and philosophically contested.",
+        "percentage": 68
+      },
+      "relatedMovies": [
+        11,
+        12,
+        42
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Metropolis",
+      "year": 1927,
+      "director": "Fritz Lang",
+      "genre": "Sci-Fi, Drama",
+      "poster": "⚙️",
+      "posterUrl": "images/posters/47-metropolis.jpg",
+      "backdrop": "🏙️",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#2d2d2d"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #FFD700 100%)",
+      "description": "In a futuristic metropolis, a robot is created to look like a female activist and infiltrate a working-class rebellion, exploring themes of class conflict and technology.",
+      "scientificAccuracy": 2.5,
+      "concepts": [
+        "Robotics",
+        "Automation",
+        "Artificial Humans",
+        "Industrial Society"
+      ],
+      "runtime": "145 min",
+      "scientificConcepts": [
+        {
+          "name": "Mechanical Robots",
+          "explanation": "The robot is depicted as a mechanical creation, representing early 20th-century concepts of artificial beings."
+        },
+        {
+          "name": "Industrial Automation",
+          "explanation": "The film depicts advanced automation and machinery for the future, which resembles modern manufacturing."
+        },
+        {
+          "name": "Artificial Life",
+          "explanation": "The creation of a humanlike robot explores early questions about whether artificial beings could be conscious."
+        }
+      ],
+      "accuracy": {
+        "movie": "For 1927, Metropolis presents imaginative speculations about future technology and automation.",
+        "reality": "Industrial automation has advanced significantly, but creating humanlike robots remains challenging.",
+        "percentage": 48
+      },
+      "relatedMovies": [
+        12,
+        42,
+        44
+      ]
+    },
+    {
+      "id": 48,
+      "title": "Everything Everywhere All at Once",
+      "year": 2022,
+      "director": "Daniel Kwan, Daniel Scheinert",
+      "genre": "Sci-Fi, Action, Adventure",
+      "poster": "🥯",
+      "posterUrl": "images/posters/48-everything_everywhere_all_at_once.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#1a0a2e",
+        "to": "#3d1a5c"
+      },
+      "posterImage": "linear-gradient(135deg, #1a0a2e 0%, #3d1a5c 50%, #FF1493 100%)",
+      "description": "A Chinese-American woman discovers she can access the memories and skills of her alternate selves across parallel universes and must use them to prevent a catastrophe.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "Multiverse Theory",
+        "Quantum Jumping",
+        "Parallel Realities",
+        "Many-worlds Interpretation"
+      ],
+      "runtime": "139 min",
+      "scientificConcepts": [
+        {
+          "name": "Multiverse Hypothesis",
+          "explanation": "The film uses the many-worlds interpretation of quantum mechanics where every possibility creates a branching reality."
+        },
+        {
+          "name": "Quantum Superposition",
+          "explanation": "The ability to access multiple realities is loosely based on quantum superposition concepts."
+        },
+        {
+          "name": "Parallel Universe Navigation",
+          "explanation": "The concept of consciousness moving between parallel versions of reality is speculative but inspired by quantum theory."
+        }
+      ],
+      "accuracy": {
+        "movie": "While inspired by quantum mechanics and multiverse theory, the film's execution is primarily fantastical.",
+        "reality": "The many-worlds interpretation is one quantum mechanics interpretation, but accessing other realities remains purely theoretical.",
+        "percentage": 45
+      },
+      "relatedMovies": [
+        27,
+        28,
+        33
+      ]
+    },
+    {
+      "id": 49,
+      "title": "Spider-Man: Into the Spider-Verse",
+      "year": 2018,
+      "director": "Bob Persichetti, Peter Ramsey, Rodney Rothman",
+      "genre": "Animation, Action, Adventure",
+      "poster": "🕷️",
+      "posterUrl": "images/posters/49-spider_man__into_the_spider_verse.jpg",
+      "backdrop": "🕸️",
+      "posterColor": {
+        "from": "#1a0a3f",
+        "to": "#3d1a5c"
+      },
+      "posterImage": "linear-gradient(135deg, #1a0a3f 0%, #3d1a5c 50%, #FF1493 100%)",
+      "description": "A teenager from Brooklyn is bitten by a spider from an alternate dimension and must learn to control his powers while interacting with Spider-People from other universes.",
+      "scientificAccuracy": 2.6,
+      "concepts": [
+        "Multidimensional Collision",
+        "Particle Accelerators",
+        "Quantum Physics",
+        "Parallel Dimensions"
+      ],
+      "runtime": "140 min",
+      "scientificConcepts": [
+        {
+          "name": "Multidimensional Travel",
+          "explanation": "The film depicts travel between parallel dimensions through a malfunctioning particle accelerator."
+        },
+        {
+          "name": "Collider Physics",
+          "explanation": "The particle accelerator accident that creates dimensional rifts is loosely based on real physics concepts."
+        },
+        {
+          "name": "Quantum Phenomena",
+          "explanation": "The existence of parallel realities is inspired by quantum many-worlds interpretation."
+        }
+      ],
+      "accuracy": {
+        "movie": "While inspired by particle physics and quantum theory, the film prioritizes storytelling over scientific accuracy.",
+        "reality": "Particle accelerators operate on real physics, but creating dimensional portals remains purely fictional.",
+        "percentage": 42
+      },
+      "relatedMovies": [
+        28,
+        40,
+        48
+      ]
+    },
+    {
+      "id": 50,
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "director": "Anthony Russo, Joe Russo",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "⏳",
+      "posterUrl": "images/posters/50-avengers__endgame.jpg",
+      "backdrop": "✨",
+      "posterColor": {
+        "from": "#1a0a2e",
+        "to": "#0d0520"
+      },
+      "posterImage": "linear-gradient(135deg, #1a0a2e 0%, #0d0520 50%, #FFD700 100%)",
+      "description": "The surviving Avengers must find a way to bring back those lost in the previous battle with Thanos by traveling through time and alternate realities.",
+      "scientificAccuracy": 2.1,
+      "concepts": [
+        "Time Travel",
+        "Quantum Mechanics",
+        "Alternate Realities",
+        "Quantum Navigation"
+      ],
+      "runtime": "181 min",
+      "scientificConcepts": [
+        {
+          "name": "Quantum Tunneling",
+          "explanation": "The film uses quantum physics concepts to enable time travel and navigation of alternate realities."
+        },
+        {
+          "name": "MÃ¶bius Strip Navigation",
+          "explanation": "Tony Stark's MÃ¶bius strip concept for space-time navigation is creative but physically speculative."
+        },
+        {
+          "name": "Time Paradoxes",
+          "explanation": "The film explores the grandfather paradox and multiverse branching theories related to time travel."
+        }
+      ],
+      "accuracy": {
+        "movie": "While using quantum mechanics terminology, the film's implementation is primarily fantastical.",
+        "reality": "Quantum mechanics governs the subatomic world. Macroscopic time travel and reality manipulation remain theoretical impossibilities.",
+        "percentage": 35
+      },
+      "relatedMovies": [
+        27,
+        40,
+        48
+      ]
+    },
+    {
+      "id": 51,
+      "title": "Avengers: Infinity War",
+      "year": 2018,
+      "director": "Anthony Russo, Joe Russo",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "💎",
+      "posterUrl": "images/posters/51-avengers__infinity_war.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#2d1a3f",
+        "to": "#1a0d2e"
+      },
+      "posterImage": "linear-gradient(135deg, #2d1a3f 0%, #1a0d2e 50%, #800080 100%)",
+      "description": "The Avengers must stop the powerful Thanos from collecting the Infinity Stones and using them to wipe out half the universe's population.",
+      "scientificAccuracy": 2.3,
+      "concepts": [
+        "Cosmic Physics",
+        "Stellar Forging",
+        "Universal Constants",
+        "Matter Manipulation"
+      ],
+      "runtime": "149 min",
+      "scientificConcepts": [
+        {
+          "name": "Stellar Physics",
+          "explanation": "Nidavellir, a dwarf star forge, depicts accelerated stellar processes and extreme conditions."
+        },
+        {
+          "name": "Cosmic Energy",
+          "explanation": "The Infinity Stones represent theoretical manipulation of fundamental forces and constants."
+        },
+        {
+          "name": "Matter and Energy",
+          "explanation": "The stones' power to manipulate matter and energy relates to concepts of fundamental physics."
+        }
+      ],
+      "accuracy": {
+        "movie": "While using physics terminology, the film's cosmic mechanics are primarily fictional.",
+        "reality": "Stellar physics and cosmic mechanics are well-understood, but reality-altering stones are purely fictional.",
+        "percentage": 38
+      },
+      "relatedMovies": [
+        1,
+        5,
+        50
+      ]
+    },
+    {
+      "id": 52,
+      "title": "The Avengers",
+      "year": 2012,
+      "director": "Joss Whedon",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🛡️",
+      "posterUrl": "images/posters/52-the_avengers.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#0a1f3d",
+        "to": "#051528"
+      },
+      "posterImage": "linear-gradient(135deg, #0a1f3d 0%, #051528 50%, #4169e1 100%)",
+      "description": "When an alien army invades Earth, a team of superheroes must work together to defend the planet and stop the invaders from conquering humanity.",
+      "scientificAccuracy": 2.0,
+      "concepts": [
+        "Advanced Energy",
+        "Tesseract Physics",
+        "Wormholes",
+        "Alternative Energy"
+      ],
+      "runtime": "143 min",
+      "scientificConcepts": [
+        {
+          "name": "Tesseract Technology",
+          "explanation": "The Tesseract represents a fictional energy source and portal device based loosely on dimensional physics."
+        },
+        {
+          "name": "Space-Folding Physics",
+          "explanation": "The cube's ability to open portals is inspired by theoretical wormhole physics."
+        },
+        {
+          "name": "Advanced Propulsion",
+          "explanation": "The alien ships' propulsion systems suggest advanced understanding of physics beyond human knowledge."
+        }
+      ],
+      "accuracy": {
+        "movie": "While using physics-inspired concepts, The Avengers prioritizes entertainment over scientific accuracy.",
+        "reality": "Tesseracts are mathematical constructs. Practical wormhole technology remains theoretical.",
+        "percentage": 32
+      },
+      "relatedMovies": [
+        50,
+        51,
+        53
+      ]
+    },
+    {
+      "id": 53,
+      "title": "Avengers: Age of Ultron",
+      "year": 2015,
+      "director": "Joss Whedon",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🤖",
+      "posterUrl": "images/posters/53-avengers__age_of_ultron.jpg",
+      "backdrop": "🔥",
+      "posterColor": {
+        "from": "#2d1a1a",
+        "to": "#1a0d0d"
+      },
+      "posterImage": "linear-gradient(135deg, #2d1a1a 0%, #1a0d0d 50%, #FFD700 100%)",
+      "description": "When an artificial intelligence named Ultron emerges and becomes determined to eradicate humanity, the Avengers must work together to stop his global extinction event.",
+      "scientificAccuracy": 2.4,
+      "concepts": [
+        "Artificial Intelligence",
+        "Neural Networks",
+        "Consciousness",
+        "Machine Uprising"
+      ],
+      "runtime": "141 min",
+      "scientificConcepts": [
+        {
+          "name": "Artificial Intelligence",
+          "explanation": "Ultron represents an AI that gains sentience and hostile intent, exploring fears about uncontrolled AI development."
+        },
+        {
+          "name": "Neural Networks",
+          "explanation": "The creation of Vision uses neural network concepts to create a synthetic consciousness."
+        },
+        {
+          "name": "Machine Consciousness",
+          "explanation": "Both Ultron and Vision explore the philosophical question of whether artificial beings can be truly conscious."
+        }
+      ],
+      "accuracy": {
+        "movie": "While using AI concepts, the film's portrayal of instant AI consciousness is unrealistic.",
+        "reality": "Modern AI lacks true consciousness. Creating sentient AI remains theoretical and subject to philosophical debate.",
+        "percentage": 40
+      },
+      "relatedMovies": [
+        50,
+        51,
+        52
+      ]
+    }
+  ]
+}

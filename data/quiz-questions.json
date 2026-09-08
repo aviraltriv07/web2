@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Could a wormhole theoretically connect two distant regions of spacetime?",
+      "options": [
+        "Yes, wormholes are predicted by Einstein's field equations",
+        "No, wormholes violate the laws of physics",
+        "Only in the presence of negative mass",
+        "Only in two-dimensional spacetime"
+      ],
+      "correct": 0,
+      "explanation": "Wormholes (Einstein-Rosen bridges) are mathematically valid solutions to Einstein's field equations. However, they would require exotic matter with negative energy density that we've never observed, making them highly theoretical.",
+      "difficulty": "intermediate",
+      "movieConnection": "Interstellar features a traversable wormhole as the key to humanity's survival."
+    },
+    {
+      "id": 2,
+      "question": "In the movie 'The Martian', what method does Mark Watney primarily use to survive?",
+      "options": [
+        "Calling for rescue immediately",
+        "Growing potatoes and rationing supplies using engineering and science",
+        "Finding water sources on Mars",
+        "Using alien technology"
+      ],
+      "correct": 1,
+      "explanation": "Mark Watney survives through ingenuity, using scientific principles to grow food, create water, and solve life-threatening problems. Growing potatoes on Mars is theoretically possible but would face real challenges.",
+      "difficulty": "easy",
+      "movieConnection": "The Martian is renowned for its scientific accuracy in depicting real problems and solutions."
+    },
+    {
+      "id": 3,
+      "question": "What phenomenon does time dilation describe?",
+      "options": [
+        "The expansion of the universe",
+        "Time passing at different rates depending on velocity and gravity",
+        "The bending of light around massive objects",
+        "The decay of radioactive elements"
+      ],
+      "correct": 1,
+      "explanation": "Time dilation is a real effect predicted by Einstein's relativity. Time passes more slowly for objects moving at high velocities or in strong gravitational fields. This is confirmed by experiments with atomic clocks on fast aircraft.",
+      "difficulty": "intermediate",
+      "movieConnection": "In Interstellar, time dilation near the black hole means that one hour there equals 7 years on Earth."
+    },
+    {
+      "id": 4,
+      "question": "What is the Schwarzschild radius?",
+      "options": [
+        "The distance at which gravity ceases to exist",
+        "The radius of the event horizon of a black hole",
+        "The orbital velocity of Earth around the Sun",
+        "The temperature at which matter cannot be compressed further"
+      ],
+      "correct": 1,
+      "explanation": "The Schwarzschild radius defines the event horizon of a black hole - the boundary beyond which nothing can escape. It's calculated using the formula r_s = 2GM/c², where G is gravity, M is mass, and c is light speed.",
+      "difficulty": "advanced",
+      "movieConnection": "In Interstellar, the astronauts approach the Schwarzschild radius of the black hole Gargantua."
+    },
+    {
+      "id": 5,
+      "question": "In 'Arrival', what property of the alien language is believed to change human perception?",
+      "options": [
+        "Its mathematical structure",
+        "Its musical qualities",
+        "Its non-linear, simultaneous nature allowing perception of time differently",
+        "Its chemical composition"
+      ],
+      "correct": 2,
+      "explanation": "The film explores the concept of linguistic relativity and the Sapir-Whorf hypothesis - that the language we speak shapes how we perceive reality. The aliens' non-linear language allows them to perceive all moments in time simultaneously.",
+      "difficulty": "intermediate",
+      "movieConnection": "Arrival won the Academy Award for Best Achievement in Sound Mixing and depicts alien communication uniquely."
+    },
+    {
+      "id": 6,
+      "question": "What does the Kessler Syndrome describe?",
+      "options": [
+        "A type of black hole formation",
+        "A cascade of collisions creating increasingly more space debris",
+        "The heating effect during atmospheric reentry",
+        "The psychological impact of isolation in space"
+      ],
+      "correct": 1,
+      "explanation": "Kessler Syndrome is the theoretical scenario where collision debris in orbit creates a cascade of collisions, potentially making certain orbital regions unusable. This is a serious concern for space operations.",
+      "difficulty": "intermediate",
+      "movieConnection": "The movie 'Gravity' depicts the Kessler Syndrome with debris creating a cascade of destructive collisions."
+    },
+    {
+      "id": 7,
+      "question": "Which of the following is NOT an accurate depiction in 'The Martian'?",
+      "options": [
+        "The use of Hohmann transfer orbits for reaching Mars",
+        "The chemical composition of the Martian atmosphere",
+        "The ability to instantly communicate across interplanetary distances",
+        "The use of solar panels for power generation"
+      ],
+      "correct": 2,
+      "explanation": "Radio communications across interplanetary distances have significant time delays (3-22 minutes depending on distance). Instant communication as depicted in sci-fi isn't currently possible. The other aspects are scientifically accurate.",
+      "difficulty": "intermediate",
+      "movieConnection": "The Martian maintains high scientific accuracy overall but simplifies some communication realities for narrative purposes."
+    },
+    {
+      "id": 8,
+      "question": "What is the primary difference between Special Relativity and General Relativity?",
+      "options": [
+        "Special applies to objects moving at constant velocity; General includes gravity and acceleration",
+        "They describe different universes",
+        "Special is older and has been disproven",
+        "General Relativity only works for small objects"
+      ],
+      "correct": 0,
+      "explanation": "Special Relativity (1905) deals with objects moving at constant velocities. General Relativity (1915) extends this to include gravity, acceleration, and the curvature of spacetime. General Relativity is a more complete theory.",
+      "difficulty": "advanced",
+      "movieConnection": "Both forms of relativity are central to understanding the science depicted in Interstellar."
+    },
+    {
+      "id": 9,
+      "question": "Could humans currently use Artificial Gravity like in sci-fi movies?",
+      "options": [
+        "No, it's completely impossible",
+        "Yes, through artificial gravity generators",
+        "Yes, through rotation/centrifugal force, but not yet deployed at scale",
+        "Only on planets"
+      ],
+      "correct": 2,
+      "explanation": "Artificial gravity through rotation is theoretically sound and based on centrifugal acceleration (g = ω²r). However, it hasn't been implemented in actual spacecraft due to engineering challenges and cost.",
+      "difficulty": "intermediate",
+      "movieConnection": "The rotating space station in '2001: A Space Odyssey' accurately depicts artificial gravity through rotation."
+    },
+    {
+      "id": 10,
+      "question": "What is E=mc² primarily used to calculate?",
+      "options": [
+        "The speed of light",
+        "The equivalence of mass and energy",
+        "Gravitational attraction between objects",
+        "The radius of planetary orbits"
+      ],
+      "correct": 1,
+      "explanation": "Einstein's equation E=mc² shows that mass and energy are interchangeable. A small amount of mass can be converted into enormous amounts of energy, which is the principle behind nuclear power and nuclear weapons.",
+      "difficulty": "easy",
+      "movieConnection": "This fundamental equation underlies much of modern science fiction and is the foundation for advanced propulsion concepts."
+    }
+  ]
+}

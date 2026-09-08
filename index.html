@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciFiLens - Explore Science Behind Science Fiction</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
+                    <path d="M1 12h6m6 0h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                </svg>
+                <span>SciFiLens</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="movies.html" class="nav-link">Movies</a></li>
+                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="experiments.html" class="nav-link">Experiments</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="stars"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">SCIENCE FICTION, EXPLAINED BY SCIENCE</h1>
+            <p class="hero-subtitle">Explore the science behind the movies that imagine the impossible.</p>
+            <div class="hero-buttons">
+                <a href="movies.html" class="btn btn-primary">
+                    <span>Explore Movies</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+                <a href="science.html" class="btn btn-secondary">
+                    <span>Explore Science</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- Featured Movies Section -->
+    <section class="featured-section">
+        <div class="section-header">
+            <h2 class="section-title">Featured Movies</h2>
+            <p class="section-subtitle">Cinematic masterpieces grounded in real science</p>
+        </div>
+        <div class="featured-grid" id="featuredMovies"></div>
+    </section>
+
+    <!-- Science Categories Section -->
+    <section class="science-categories-section">
+        <div class="section-header">
+            <h2 class="section-title">Explore the Science</h2>
+            <p class="section-subtitle">Discover the real physics behind your favorite movies</p>
+        </div>
+        <div class="categories-grid" id="scienceCategories"></div>
+    </section>
+
+    <!-- Accuracy Ratings Section -->
+    <section class="accuracy-section">
+        <div class="section-header">
+            <h2 class="section-title">How Accurate Is Science Fiction?</h2>
+            <p class="section-subtitle">Scientific accuracy ratings of iconic films</p>
+        </div>
+        <div class="accuracy-container" id="accuracyRatings"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SciFiLens</h3>
+                <p>Exploring the intersection of science and cinema</p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SciFiLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/homepage.js"></script>
+</body>
+</html>

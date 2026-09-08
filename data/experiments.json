@@ -1,0 +1,224 @@
+{
+  "experiments": [
+    {
+      "id": 1,
+      "title": "Gravitational Time Dilation",
+      "icon": "⏰",
+      "description": "Observe how time passes differently near massive objects due to gravitational fields",
+      "category": "Relativity",
+      "difficulty": "Advanced",
+      "controls": [
+        {
+          "name": "mass",
+          "label": "Object Mass (kg)",
+          "type": "range",
+          "min": 1000000,
+          "max": 100000000,
+          "step": 1000000,
+          "value": 10000000,
+          "unit": "kg"
+        },
+        {
+          "name": "distance",
+          "label": "Distance from Object (m)",
+          "type": "range",
+          "min": 100,
+          "max": 10000,
+          "step": 100,
+          "value": 1000,
+          "unit": "m"
+        }
+      ],
+      "results": [
+        {
+          "label": "Time Dilation Factor",
+          "unit": "",
+          "formula": "1 - (2GM)/(c²r)"
+        },
+        {
+          "label": "Time Difference Per Day",
+          "unit": "microseconds",
+          "formula": "(1 - TDF) × 86400000000"
+        }
+      ],
+      "explanation": "Einstein's general relativity predicts that time flows slower in stronger gravitational fields. This effect has been measured with atomic clocks at different altitudes. Near massive objects like neutron stars or black holes, this effect becomes dramatic.",
+      "relatedMovies": ["Interstellar", "Arrival"],
+      "formula": "Δt = t₀√(1 - 2GM/c²r)"
+    },
+    {
+      "id": 2,
+      "title": "Escape Velocity",
+      "icon": "🚀",
+      "description": "Calculate the minimum velocity needed to escape a celestial body's gravitational pull",
+      "category": "Orbital Mechanics",
+      "difficulty": "Intermediate",
+      "controls": [
+        {
+          "name": "mass",
+          "label": "Celestial Body Mass (kg)",
+          "type": "range",
+          "min": 1000000000000000000000000,
+          "max": 10000000000000000000000000,
+          "step": 100000000000000000000000,
+          "value": 6000000000000000000000000,
+          "unit": "kg"
+        },
+        {
+          "name": "radius",
+          "label": "Celestial Body Radius (m)",
+          "type": "range",
+          "min": 100000,
+          "max": 10000000,
+          "step": 100000,
+          "value": 6371000,
+          "unit": "m"
+        }
+      ],
+      "results": [
+        {
+          "label": "Escape Velocity",
+          "unit": "m/s",
+          "formula": "√(2GM/R)"
+        },
+        {
+          "label": "Escape Velocity",
+          "unit": "km/s",
+          "formula": "√(2GM/R) / 1000"
+        }
+      ],
+      "explanation": "Escape velocity is the minimum speed needed for an object to escape from the gravitational attraction of a body without further propulsion. For Earth, this is about 11.2 km/s. For more massive objects, escape velocity is higher.",
+      "relatedMovies": ["The Martian", "Gravity"],
+      "formula": "v_e = √(2GM/R)"
+    },
+    {
+      "id": 3,
+      "title": "Orbital Motion",
+      "icon": "🛰️",
+      "description": "Simulate orbital velocity and understand circular orbital mechanics",
+      "category": "Orbital Mechanics",
+      "difficulty": "Intermediate",
+      "controls": [
+        {
+          "name": "mass",
+          "label": "Central Body Mass (kg)",
+          "type": "range",
+          "min": 1000000000000000000000000,
+          "max": 10000000000000000000000000,
+          "step": 100000000000000000000000,
+          "value": 6000000000000000000000000,
+          "unit": "kg"
+        },
+        {
+          "name": "distance",
+          "label": "Orbital Radius (m)",
+          "type": "range",
+          "min": 100000,
+          "max": 400000000,
+          "step": 1000000,
+          "value": 6700000,
+          "unit": "m"
+        }
+      ],
+      "results": [
+        {
+          "label": "Orbital Velocity",
+          "unit": "m/s",
+          "formula": "√(GM/r)"
+        },
+        {
+          "label": "Orbital Period",
+          "unit": "hours",
+          "formula": "2π√(r³/GM) / 3600"
+        }
+      ],
+      "explanation": "Objects in stable circular orbit maintain constant velocity determined by the balance between gravitational force and centrifugal acceleration. Closer orbits require higher velocities. This principle governs all satellite operations.",
+      "relatedMovies": ["Gravity", "2001: A Space Odyssey"],
+      "formula": "v = √(GM/r)"
+    },
+    {
+      "id": 4,
+      "title": "Projectile Motion",
+      "icon": "🏹",
+      "description": "Explore how objects move under gravity with an initial velocity",
+      "category": "Classical Mechanics",
+      "difficulty": "Beginner",
+      "controls": [
+        {
+          "name": "velocity",
+          "label": "Initial Velocity (m/s)",
+          "type": "range",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "value": 50,
+          "unit": "m/s"
+        },
+        {
+          "name": "angle",
+          "label": "Launch Angle (degrees)",
+          "type": "range",
+          "min": 0,
+          "max": 90,
+          "step": 5,
+          "value": 45,
+          "unit": "°"
+        }
+      ],
+      "results": [
+        {
+          "label": "Maximum Height",
+          "unit": "meters",
+          "formula": "(v₀²sin²θ) / (2g)"
+        },
+        {
+          "label": "Range",
+          "unit": "meters",
+          "formula": "(v₀²sin(2θ)) / g"
+        },
+        {
+          "label": "Flight Time",
+          "unit": "seconds",
+          "formula": "(2v₀sinθ) / g"
+        }
+      ],
+      "explanation": "Projectile motion combines horizontal motion at constant velocity with vertical motion under constant acceleration due to gravity. The optimal launch angle for maximum range is 45 degrees.",
+      "relatedMovies": ["The Martian"],
+      "formula": "y = x·tanθ - (gx²)/(2v₀²cos²θ)"
+    },
+    {
+      "id": 5,
+      "title": "Black Hole Event Horizon",
+      "icon": "🕳️",
+      "description": "Calculate the Schwarzschild radius - the boundary of a black hole",
+      "category": "Astrophysics",
+      "difficulty": "Advanced",
+      "controls": [
+        {
+          "name": "mass",
+          "label": "Black Hole Mass (Solar Masses)",
+          "type": "range",
+          "min": 3,
+          "max": 1000000000,
+          "step": 10,
+          "value": 1000,
+          "unit": "M☉"
+        }
+      ],
+      "results": [
+        {
+          "label": "Schwarzschild Radius",
+          "unit": "kilometers",
+          "formula": "2GM / c²"
+        },
+        {
+          "label": "Surface Area",
+          "unit": "km²",
+          "formula": "4πr²"
+        }
+      ],
+      "explanation": "The Schwarzschild radius defines the event horizon of a black hole - the point of no return. Even light cannot escape beyond this radius. For a solar-mass black hole, this is about 3 km. For supermassive black holes, it can be millions of kilometers.",
+      "relatedMovies": ["Interstellar"],
+      "formula": "r_s = 2GM/c²"
+    }
+  ]
+}
