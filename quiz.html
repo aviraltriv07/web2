@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz - SciFiLens</title>
+    <title>Scientist Personality Quiz & Science Trivia - SciFiLens</title>
+    <meta name="description" content="Discover which legendary scientist and sci-fi movie twin you are most similar to, or test your science fiction movie accuracy IQ with SciFiLens.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -50,86 +51,173 @@
         </div>
     </nav>
 
-    <!-- Quiz Container -->
+    <!-- Quiz Main Wrapper -->
     <div class="quiz-container">
-        <!-- Start Screen -->
-        <section class="quiz-start" id="quizStart">
+        <!-- Quiz Mode Selector Tabs -->
+        <div class="quiz-mode-nav" role="tablist" aria-label="Quiz Type Selection">
+            <button class="quiz-mode-tab active" id="tabScientistMode" role="tab" aria-selected="true" onclick="switchQuizMode('scientist')">
+                <span class="tab-icon">🔬</span>
+                <span class="tab-text">
+                    <span class="tab-label">Which Scientist Are You?</span>
+                    <span class="tab-sub">Archetype & Movie Twin Match</span>
+                </span>
+                <span class="tab-pill">Popular</span>
+            </button>
+            <button class="quiz-mode-tab" id="tabTriviaMode" role="tab" aria-selected="false" onclick="switchQuizMode('trivia')">
+                <span class="tab-icon">🎬</span>
+                <span class="tab-text">
+                    <span class="tab-label">Movie Science IQ</span>
+                    <span class="tab-sub">Fact vs. Fiction Trivia</span>
+                </span>
+            </button>
+        </div>
+
+        <!-- 1. SCIENTIST QUIZ START SCREEN -->
+        <section class="quiz-start" id="scientistStart">
             <div class="stars"></div>
             <div class="quiz-start-content">
-                <h1>Science Fiction Science Quiz</h1>
-                <p>Test your knowledge about the real science behind science-fiction movies. Can you distinguish between scientific fact and movie fiction?</p>
-                <button class="btn btn-primary" id="startQuizBtn">
-                    <span>Start Quiz</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <div class="quiz-badge-pill">
+                    <span class="pill-dot"></span> 8 Dilemmas • 8 Scientist Archetypes • 1 Cinematic Twin
+                </div>
+                <h1 class="glow-title">Which Scientist Are You?</h1>
+                <p class="quiz-hero-desc">
+                    Are you a visionary theorist like <strong>Albert Einstein</strong>, a gritty survival engineer like <strong>Mark Watney</strong>, or a cosmic explorer like <strong>Carl Sagan</strong>? Navigate 8 high-stakes research scenarios to discover your scientific archetype, 5-trait cognitive fingerprint, and sci-fi cinema twin.
+                </p>
+
+                <div class="quiz-feature-tags">
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">🧠</span>
+                        <span>5 Trait Dimensions</span>
+                    </div>
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">🎬</span>
+                        <span>Sci-Fi Movie Twin</span>
+                    </div>
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">⚡</span>
+                        <span>Instant Archetype Match</span>
+                    </div>
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">🍿</span>
+                        <span>Curated Watchlist</span>
+                    </div>
+                </div>
+
+                <div class="start-action-wrap">
+                    <button class="btn btn-primary btn-large glow-btn" id="startScientistQuizBtn">
+                        <span>Begin Scientist Discovery</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
-        <!-- Quiz Screen -->
+        <!-- 2. TRIVIA QUIZ START SCREEN -->
+        <section class="quiz-start" id="triviaStart" style="display: none;">
+            <div class="stars"></div>
+            <div class="quiz-start-content">
+                <div class="quiz-badge-pill">
+                    <span class="pill-dot"></span> 10 Questions • Scientific Accuracy • Instant Explanations
+                </div>
+                <h1>Science Fiction Science Quiz</h1>
+                <p>Test your knowledge about the real physics, biology, and mechanics behind iconic science-fiction films. Can you distinguish between Hollywood imagination and verifiable science?</p>
+                
+                <div class="start-action-wrap">
+                    <button class="btn btn-primary btn-large" id="startTriviaQuizBtn">
+                        <span>Start Trivia Challenge</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ACTIVE QUIZ QUESTION SCREEN (Shared) -->
         <section class="quiz-screen" id="quizScreen" style="display: none;">
             <div class="quiz-progress">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 <div class="progress-text">
-                    <span id="questionNumber">Question 1 of 10</span>
-                    <span id="scoreDisplay">Score: 0</span>
+                    <span id="questionNumber">Question 1 of 8</span>
+                    <span id="quizStatusIndicator" class="quiz-status-indicator">Select an option</span>
                 </div>
             </div>
 
             <div class="quiz-content">
+                <div class="question-header-badge" id="questionCategory" style="display: none;"></div>
                 <div class="question-container">
-                    <h2 id="questionText"></h2>
+                    <h2 id="questionText">Loading question...</h2>
                 </div>
 
                 <div class="options-container" id="optionsContainer"></div>
 
                 <div class="button-group">
                     <button class="btn btn-secondary" id="prevBtn" style="display: none;">
-                        Previous
+                        ← Previous
                     </button>
                     <button class="btn btn-primary" id="nextBtn" style="display: none;">
-                        Next
+                        Next →
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Answer Feedback -->
+        <!-- Trivia Feedback Banner (Only used in Trivia mode) -->
         <div class="answer-feedback" id="answerFeedback" style="display: none;">
             <div class="feedback-content">
                 <div class="feedback-icon" id="feedbackIcon"></div>
-                <h3 id="feedbackTitle"></h3>
-                <p id="feedbackText"></p>
-                <div class="movie-connection" id="feedbackMovie" style="display: none;">
-                    <h4>Featured In:</h4>
-                    <p id="feedbackMovieText"></p>
+                <div class="feedback-details">
+                    <h3 id="feedbackTitle"></h3>
+                    <p id="feedbackText"></p>
+                    <div class="movie-connection" id="feedbackMovie" style="display: none;">
+                        <h4>Featured In:</h4>
+                        <p id="feedbackMovieText"></p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Results Screen -->
-        <section class="quiz-results" id="quizResults" style="display: none;">
+        <!-- 4. SCIENTIST RESULTS SCREEN -->
+        <section class="quiz-results scientist-results-container" id="scientistResults" style="display: none;">
+            <div class="stars"></div>
+            <div class="scientist-results-content" id="scientistResultsInner">
+                <!-- Dynamically rendered via quiz.js -->
+            </div>
+        </section>
+
+        <!-- 5. TRIVIA RESULTS SCREEN -->
+        <section class="quiz-results" id="triviaResults" style="display: none;">
             <div class="stars"></div>
             <div class="results-content">
-                <h1>Quiz Complete!</h1>
+                <h1>Trivia Complete!</h1>
                 <div class="final-score" id="finalScore"></div>
                 <p id="resultMessage"></p>
                 
                 <div class="results-breakdown" id="resultsBreakdown"></div>
 
                 <div class="button-group">
-                    <button class="btn btn-secondary" id="retakeBtn">
-                        Retake Quiz
+                    <button class="btn btn-secondary" id="retakeTriviaBtn">
+                        Retake Trivia
                     </button>
-                    <a href="index.html" class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="switchQuizMode('scientist')">
+                        Try "Which Scientist Are You?"
+                    </button>
+                    <a href="index.html" class="btn btn-secondary">
                         Back to Home
                     </a>
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Toast Notification for Share / Copy -->
+    <div class="toast-notification" id="toastNotification">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toastMessage">Copied to clipboard!</span>
     </div>
 
     <!-- Footer -->
