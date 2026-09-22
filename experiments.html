@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Experiments - SciFiLens</title>
+    <title>Interactive Physics Laboratory - SciFiLens</title>
+    <meta name="description" content="Experiment with real relativistic, gravitational, and orbital physics simulations. Test time dilation, escape velocity, and black hole event horizons in real time.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +24,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link">Movies</a></li>
-                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link active">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link">Quiz</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -51,53 +54,131 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" style="position: relative; overflow: hidden; padding: 4rem 1.5rem 3rem 1.5rem; text-align: center;">
         <div class="stars"></div>
-        <h1>Interactive Experiments</h1>
-        <p>Experiment with physics concepts and see the science in action</p>
+        <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
+            <div class="confidence-badge" style="background: rgba(6, 182, 212, 0.2); color: #38bdf8; border-color: rgba(6, 182, 212, 0.4); margin-bottom: 1.25rem;">
+                ⚡ Real-Time Physics Simulators
+            </div>
+            <h1 style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: 1px; line-height: 1.15; margin-bottom: 1rem; background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                INTERACTIVE PHYSICS LAB
+            </h1>
+            <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 750px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+                Tweak fundamental cosmic constants, orbital altitudes, masses, and velocities. Observe real-time 60fps physics animations and rigorous mathematical outcomes.
+            </p>
+        </div>
     </section>
 
-    <!-- Experiments Section -->
-    <section class="experiments-container">
-        <div class="experiments-grid" id="experimentsGrid"></div>
-    </section>
-
-    <!-- Experiment Detail Modal -->
-    <div class="experiment-modal" id="experimentModal">
-        <div class="experiment-modal-content">
-            <button class="modal-close" aria-label="Close">&times;</button>
-            
-            <div class="experiment-header">
-                <h2 id="experimentTitle"></h2>
-                <p id="experimentDescription"></p>
+    <!-- Experiments Workspace -->
+    <main class="experiments-container">
+        <!-- Filter & Search Sidebar -->
+        <aside class="filters-panel">
+            <div class="filter-group">
+                <h3>🔍 Search Simulators</h3>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by name, physics topic..." autocomplete="off">
             </div>
 
-            <div class="experiment-body">
-                <div class="controls-section">
-                    <h3>Adjust Parameters</h3>
-                    <div class="controls" id="experimentControls"></div>
-                </div>
+            <div class="filter-group">
+                <h3>🌌 Scientific Field</h3>
+                <div class="filter-options" id="categoryFilters"></div>
+            </div>
 
-                <div class="visualization-section">
-                    <h3>Visualization</h3>
-                    <div class="visualization" id="experimentVisualization">
-                        <canvas id="experimentCanvas"></canvas>
+            <div class="filter-group">
+                <h3>📊 Difficulty Level</h3>
+                <div class="filter-options" id="difficultyFilters"></div>
+            </div>
+
+            <button class="reset-btn" id="resetFilters">
+                <span>Reset All Filters</span>
+            </button>
+        </aside>
+
+        <!-- Grid Container -->
+        <div class="experiments-grid-wrapper">
+            <div class="experiments-count-bar">
+                <span class="experiments-count" id="experimentsCount">Loading physics simulators...</span>
+                <span class="lab-badge">🟢 60 FPS Canvas Physics Engine Active</span>
+            </div>
+            <div class="experiments-grid" id="experimentsGrid"></div>
+        </div>
+    </main>
+
+    <!-- Full-Screen Interactive Experiment Simulator Modal -->
+    <div class="experiment-modal" id="experimentModal" role="dialog" aria-modal="true">
+        <div class="experiment-modal-content">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+            
+            <div class="experiment-modal-body">
+                <!-- Modal Header -->
+                <div class="modal-header-section">
+                    <div class="modal-icon" id="experimentIcon">⏰</div>
+                    <div class="modal-header-info">
+                        <div class="modal-meta-badges">
+                            <span class="modal-category-badge" id="experimentCategory">Relativity</span>
+                            <span class="modal-difficulty-badge" id="experimentDifficulty">Advanced</span>
+                        </div>
+                        <h2 id="experimentTitle">Gravitational Time Dilation</h2>
                     </div>
                 </div>
 
-                <div class="results-section">
-                    <h3>Results</h3>
-                    <div class="results" id="experimentResults"></div>
+                <p class="experiment-description" id="experimentDescription"></p>
+
+                <!-- Interactive Dual-Panel Lab Section -->
+                <div class="experiment-interactive-section">
+                    <!-- Left Column: Parameters & Presets -->
+                    <div class="controls-panel">
+                        <div class="panel-header">
+                            <h3>🎛️ Interactive Parameters</h3>
+                            <span class="panel-subtitle">Adjust sliders or choose presets</span>
+                        </div>
+
+                        <!-- Presets Bar -->
+                        <div class="presets-section">
+                            <span class="presets-title">Cosmic Presets:</span>
+                            <div class="presets-container" id="presetsContainer"></div>
+                        </div>
+
+                        <!-- Parameter Sliders -->
+                        <div class="controls-container" id="controlsContainer"></div>
+
+                        <!-- Theoretical Formula Display -->
+                        <div class="formula-section" id="formulaSection">
+                            <span class="formula-label">Theoretical Governing Equation:</span>
+                            <div class="formula-display" id="experimentFormula"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visual Simulator & Results -->
+                    <div class="visualization-panel">
+                        <div class="canvas-card">
+                            <div class="canvas-header">
+                                <span class="live-indicator">● LIVE VISUAL SIMULATION</span>
+                                <span class="canvas-readout" id="canvasStatusReadout">Simulating...</span>
+                            </div>
+                            <div class="canvas-wrapper">
+                                <canvas id="experimentCanvas" width="560" height="380"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="results-panel">
+                            <div class="results-header">
+                                <h3>📊 Real-Time Computed Physics</h3>
+                            </div>
+                            <div class="results-container" id="resultsContainer"></div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Deep Scientific Breakdown -->
                 <div class="explanation-section">
-                    <h3>How This Works</h3>
+                    <h3>🔬 Scientific Analysis & Principles</h3>
                     <p id="experimentExplanation"></p>
                 </div>
 
-                <div class="movie-connection">
-                    <h3>Featured In</h3>
-                    <div id="experimentMovies"></div>
+                <!-- Related Movies -->
+                <div class="related-movies-section">
+                    <h3>🎬 Featured in Science Fiction Cinema</h3>
+                    <div class="movies-tags" id="relatedMoviesTags"></div>
                 </div>
             </div>
         </div>
@@ -114,7 +195,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
@@ -123,8 +206,7 @@
                 <h4>Learn</h4>
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="concepts.html">Documentation & Formulas</a></li>
                 </ul>
             </div>
         </div>

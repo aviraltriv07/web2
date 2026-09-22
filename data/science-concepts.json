@@ -2,179 +2,788 @@
   "concepts": [
     {
       "id": 1,
-      "title": "Black Holes",
-      "icon": "🕳️",
-      "description": "A region of space where gravity is so strong that nothing, not even light, can escape from beyond the event horizon.",
-      "difficulty": "advanced",
-      "category": "Astrophysics",
-      "formula": "r_s = 2GM/c²",
-      "explanation": "Black holes form when massive stars collapse at the end of their life cycles. The Schwarzschild radius represents the event horizon boundary. They are described by Einstein's theory of general relativity.",
-      "applications": [
-        "Understanding extreme gravity and spacetime",
-        "Testing theories of general relativity",
-        "Potential energy sources for advanced civilizations",
-        "Gravitational wave detection (LIGO)"
-      ],
-      "relatedMovies": [1, 3, 5],
-      "resources": [
-        "NASA's Black Hole Explorer",
-        "Einstein's General Relativity",
-        "Hawking's Black Hole Thermodynamics"
-      ]
+      "slug": "gravity",
+      "title": "Gravity",
+      "icon": "⚖️",
+      "category": "Physics",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The fundamental natural force by which all things with mass or energy are attracted toward one another.",
+      "formula": "F = G \\frac{m_1 m_2}{r^2}",
+      "formulaBreakdown": {
+        "meaning": "Newton's Universal Gravitation: mutual attractive force between two masses.",
+        "variables": [
+          { "symbol": "F", "name": "Force", "value": "Newtons (N)" },
+          { "symbol": "G", "name": "Gravitational Constant", "value": "6.674 × 10⁻¹¹ N·m²/kg²" },
+          { "symbol": "m_1, m_2", "name": "Masses", "value": "kg" },
+          { "symbol": "r", "name": "Distance between centers", "value": "m" }
+        ],
+        "utility": "Planetary orbits, satellite trajectory design, and tidal analysis.",
+        "example": "For a 70 kg human on Earth: F = (6.674×10⁻¹¹ × 5.97×10²⁴ × 70) / (6.371×10⁶)² ≈ 686 Newtons."
+      },
+      "levels": {
+        "beginner": "Gravity is the attraction between objects with mass that keeps our feet on the ground and planets orbiting the Sun.",
+        "explorer": "The strength of gravitational attraction depends directly on the masses involved and drops inversely with the square of the distance between them.",
+        "deepScience": "General relativity describes gravity as the curvature of spacetime: G_μν = (8πG/c⁴)T_μν. Test bodies follow geodesic paths through 4D curved spacetime rather than feeling a Newtonian force."
+      },
+      "applications": ["Orbital mechanics", "GPS satellite timing", "Tidal energy", "Gravitational wave detection (LIGO)"],
+      "relatedMovies": [1, 2, 3],
+      "relatedMovieTitles": ["Interstellar", "The Martian", "Gravity"],
+      "relatedWhatIfs": [1, 3, 7, 8]
     },
     {
       "id": 2,
-      "title": "Time Dilation",
-      "icon": "⏰",
-      "description": "A phenomenon where time passes at different rates depending on relative velocity and gravitational fields, as predicted by Einstein's theory of relativity.",
-      "difficulty": "intermediate",
-      "category": "Relativity",
-      "formula": "t' = t√(1 - v²/c²)",
-      "explanation": "Time is not absolute. At high velocities or near massive objects, time moves more slowly relative to distant observers. This effect has been measured with atomic clocks on fast-moving aircraft.",
-      "applications": [
-        "GPS satellite corrections",
-        "Particle accelerator experiments",
-        "Understanding aging near black holes",
-        "Space mission calculations"
-      ],
-      "relatedMovies": [1, 5, 6],
-      "resources": [
-        "Special Relativity Theory",
-        "GPS Time Dilation",
-        "Relativity of Simultaneity"
-      ]
+      "slug": "relativity",
+      "title": "Relativity",
+      "icon": "⚡",
+      "category": "Physics",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "Einstein's theories describing how space, time, gravity, and mass-energy interact across the universe.",
+      "formula": "E = m c^2, \\quad G_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}",
+      "formulaBreakdown": {
+        "meaning": "Mass-energy equivalence and Einstein's Field Equations describing spacetime curvature.",
+        "variables": [
+          { "symbol": "E", "name": "Total Energy", "value": "Joules (J)" },
+          { "symbol": "m", "name": "Mass", "value": "kg" },
+          { "symbol": "c", "name": "Speed of Light", "value": "299,792,458 m/s" }
+        ],
+        "utility": "Nuclear fusion/fission energy calculations and relativistic astrophysics.",
+        "example": "1 kg of matter holds 8.99 × 10¹⁶ Joules of energy (equivalent to 21.5 Megatons of TNT)."
+      },
+      "levels": {
+        "beginner": "Space and time are connected into spacetime. Moving fast or standing near heavy objects slows down your clock.",
+        "explorer": "Special relativity fixes the speed of light c as invariant. General relativity explains that mass tells spacetime how to curve, and curved spacetime tells mass how to move.",
+        "deepScience": "Spacetime is a pseudo-Riemannian manifold with metric tensor g_μν. The Einstein-Hilbert action S = ∫ (R - 2Λ)(√-g / 16πG) d⁴x generates the field equations under metric variation."
+      },
+      "applications": ["Nuclear reactors", "Cosmological Big Bang modeling", "Black hole shadow imaging"],
+      "relatedMovies": [1, 3],
+      "relatedMovieTitles": ["Interstellar", "Gravity"],
+      "relatedWhatIfs": [4, 5, 12, 13]
     },
     {
       "id": 3,
-      "title": "Wormholes",
-      "icon": "🌉",
-      "description": "Theoretical shortcuts through spacetime that could connect distant points in the universe, mathematically predicted by Einstein's field equations.",
-      "difficulty": "advanced",
-      "category": "Relativity",
-      "formula": "ds² = -c²dt² + dl²",
-      "explanation": "Wormholes (Einstein-Rosen bridges) are possible solutions to Einstein's field equations. However, they would require exotic matter with negative energy density, which has never been observed.",
-      "applications": [
-        "Theoretical physics research",
-        "Science fiction inspiration",
-        "Understanding spacetime topology",
-        "Potential interstellar travel (highly speculative)"
-      ],
-      "relatedMovies": [1, 3, 4],
-      "resources": [
-        "Einstein-Rosen Bridge",
-        "Traversable Wormholes",
-        "Exotic Matter Physics"
-      ]
+      "slug": "time-dilation",
+      "title": "Time Dilation",
+      "icon": "⏰",
+      "category": "Physics",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The difference of elapsed time between two clocks due to relative velocity or gravitational field differences.",
+      "formula": "\\Delta t = \\gamma \\Delta \\tau = \\frac{\\Delta \\tau}{\\sqrt{1 - \\frac{v^2}{c^2}}}",
+      "formulaBreakdown": {
+        "meaning": "Relativistic kinematic time dilation relating observer time (t) to proper time (τ).",
+        "variables": [
+          { "symbol": "\\Delta \\tau", "name": "Proper Time", "value": "Time measured on moving clock" },
+          { "symbol": "\\Delta t", "name": "Coordinate Time", "value": "Time measured by stationary observer" },
+          { "symbol": "v", "name": "Velocity", "value": "m/s" }
+        ],
+        "utility": "GPS satellite synchronization, particle accelerator beam lifetimes, and space navigation.",
+        "example": "At 0.99c, γ ≈ 7.09. Traveling for 1 year in a ship equals 7.09 years on Earth."
+      },
+      "levels": {
+        "beginner": "If you travel close to light speed or stand near a black hole, time passes slower for you than for someone standing still.",
+        "explorer": "Kinematic time dilation occurs because the speed of light must remain constant for all observers. Gravitational time dilation occurs because gravity stretches spacetime.",
+        "deepScience": "Proper time along a timelike worldline is τ = (1/c)∫ √(-g_μν dx^μ dx^ν). For Schwarzschild metric, dτ = dt √(1 - 2GM/rc² - v²/c²)."
+      },
+      "applications": ["GPS orbital drift adjustments (+38 μs/day)", "Particle collider muon lifespan dilation"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [5, 12, 13]
     },
     {
       "id": 4,
-      "title": "Relativity",
-      "icon": "⚡",
-      "description": "Einstein's theories describing the relationship between space, time, gravity, and motion - fundamental to modern physics.",
-      "difficulty": "intermediate",
-      "category": "Relativity",
-      "formula": "E = mc²",
-      "explanation": "Special relativity deals with motion and time. General relativity describes gravity as the curvature of spacetime. Both have been extensively tested and proven accurate.",
-      "applications": [
-        "Nuclear energy (E=mc²)",
-        "GPS and satellite systems",
-        "Particle physics experiments",
-        "Cosmology and universe understanding"
-      ],
-      "relatedMovies": [1, 2, 5],
-      "resources": [
-        "Special Theory of Relativity",
-        "General Theory of Relativity",
-        "Einstein's Field Equations"
-      ]
+      "slug": "spacetime",
+      "title": "Spacetime",
+      "icon": "🌐",
+      "category": "Physics",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The mathematical model that fuses the three dimensions of space and the one dimension of time into a single four-dimensional continuum.",
+      "formula": "ds^2 = -c^2 dt^2 + dx^2 + dy^2 + dz^2",
+      "formulaBreakdown": {
+        "meaning": "Minkowski flat spacetime invariant metric interval.",
+        "variables": [
+          { "symbol": "ds", "name": "Spacetime Interval", "value": "Invariant under all Lorentz transformations" },
+          { "symbol": "c dt", "name": "Time coordinate", "value": "Scaled by light speed" }
+        ],
+        "utility": "Calculating causal light cones, relativistic velocities, and geometric gravity.",
+        "example": "If ds² < 0 the interval is timelike (causally connected); if ds² > 0 it is spacelike (cannot communicate without exceeding c)."
+      },
+      "levels": {
+        "beginner": "Space and time are not separate: they are woven into a single 4-dimensional fabric called spacetime.",
+        "explorer": "Every object moves through spacetime at the speed of light. If you stand still, all your motion is through time; as you move through space, your motion through time slows down.",
+        "deepScience": "Spacetime curvature is measured by the Riemann tensor R^ρ_σμν = ∂_μ Γ^ρ_νσ - ∂_ν Γ^ρ_μσ + Γ^ρ_μλ Γ^λ_νσ - Γ^ρ_νλ Γ^λ_μσ representing the non-commutativity of covariant derivatives."
+      },
+      "applications": ["Cosmological expansion calculations", "Relativistic celestial mechanics"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [6, 11, 14]
     },
     {
       "id": 5,
-      "title": "Space Travel",
-      "icon": "🚀",
-      "description": "The technology and physics of traveling through space, including propulsion systems, orbital mechanics, and life support.",
-      "difficulty": "intermediate",
-      "category": "Aerospace",
-      "formula": "Δv = v_e × ln(m_0/m_f)",
-      "explanation": "Space travel requires understanding orbital mechanics, the Oberth effect, and Hohmann transfer orbits. Chemical rockets are the primary current method, with advanced concepts like ion drives and nuclear propulsion under development.",
-      "applications": [
-        "Satellites and space stations",
-        "Planetary exploration",
-        "Commercial spaceflight",
-        "Interplanetary missions"
-      ],
-      "relatedMovies": [1, 2, 3],
-      "resources": [
-        "Orbital Mechanics",
-        "Hohmann Transfer Orbit",
-        "Ion Propulsion Systems"
-      ]
+      "slug": "quantum-mechanics",
+      "title": "Quantum Mechanics",
+      "icon": "🌊",
+      "category": "Physics",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The fundamental physics describing the subatomic universe, where matter exhibits probabilistic wave-particle duality.",
+      "formula": "i\\hbar \\frac{\\partial}{\\partial t} \\Psi(\\mathbf{r}, t) = \\hat{H} \\Psi(\\mathbf{r}, t)",
+      "formulaBreakdown": {
+        "meaning": "Time-dependent Schrödinger wave equation.",
+        "variables": [
+          { "symbol": "\\Psi", "name": "Wavefunction", "value": "Complex probability amplitude" },
+          { "symbol": "\\hbar", "name": "Reduced Planck Constant", "value": "1.055 × 10⁻³⁴ J·s" },
+          { "symbol": "\\hat{H}", "name": "Hamiltonian Operator", "value": "Kinetic + Potential energy operators" }
+        ],
+        "utility": "Explaining atomic orbitals, semiconductor band structures, and chemical bonding.",
+        "example": "The probability of finding an electron in volume dV is P = |Ψ|² dV."
+      },
+      "levels": {
+        "beginner": "At microscopic scales, particles behave like ripples in water, existing in multiple states until observed.",
+        "explorer": "Quantum particles exist in superpositions of states described by probability wavefunctions. Measurement collapses the wave into a single reality.",
+        "deepScience": "State vectors |ψ⟩ evolve unitarily under U(t) = exp(-iHt/ħ). Non-commuting observables [A, B] ≠ 0 impose fundamental uncertainty limits: σ_A σ_B ≥ ½|⟨[A,B]⟩|."
+      },
+      "applications": ["Semiconductors and microprocessors", "Quantum computing", "Laser diodes", "MRI medical scanners"],
+      "relatedMovies": [4, 6],
+      "relatedMovieTitles": ["Gattaca", "Blade Runner 2049"],
+      "relatedWhatIfs": [19, 21]
     },
     {
       "id": 6,
-      "title": "Artificial Gravity",
-      "icon": "⬆️",
-      "description": "Methods of simulating gravity in space using centrifugal force or acceleration, crucial for long-duration space missions.",
-      "difficulty": "beginner",
-      "category": "Aerospace",
-      "formula": "g = ω²r",
-      "explanation": "In orbital habitats, rotating sections generate centrifugal acceleration simulating gravity. The rate of rotation and radius determine the artificial g-force. This is theoretically sound and has been partially tested.",
-      "applications": [
-        "Space station design",
-        "Long-duration space missions",
-        "Health in microgravity environments",
-        "Future deep space exploration"
-      ],
-      "relatedMovies": [1, 3, 5],
-      "resources": [
-        "Centrifugal Force",
-        "Rotating Space Habitats",
-        "Bone Density in Microgravity"
-      ]
+      "slug": "wave-particle-duality",
+      "title": "Wave-Particle Duality",
+      "icon": "〰️",
+      "category": "Physics",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The concept that every quantum entity may be described as either a discrete particle or a continuous wave.",
+      "formula": "\\lambda = \\frac{h}{p} = \\frac{h}{m v}, \\quad E = h f",
+      "formulaBreakdown": {
+        "meaning": "De Broglie wavelength relation and Planck-Einstein photon energy relation.",
+        "variables": [
+          { "symbol": "\\lambda", "name": "de Broglie Wavelength", "value": "m" },
+          { "symbol": "p", "name": "Momentum", "value": "kg·m/s" },
+          { "symbol": "h", "name": "Planck Constant", "value": "6.626 × 10⁻³⁴ J·s" }
+        ],
+        "utility": "Electron microscopes (resolving images at 0.05 nm using electron matter waves).",
+        "example": "An electron moving at 10⁶ m/s has wavelength λ = 6.626×10⁻³⁴ / (9.11×10⁻³¹ × 10⁶) ≈ 0.727 nanometers."
+      },
+      "levels": {
+        "beginner": "Light can act like a wave creating interference ripples, or like tiny bullet particles called photons.",
+        "explorer": "The famous double-slit experiment demonstrates that even massive particles like electrons create interference patterns when fired one at a time.",
+        "deepScience": "In quantum electrodynamics (QED), photons and electrons are field excitations; particle-like localization results from wavepacket collapse upon interaction with macroscopic measurement apparatus."
+      },
+      "applications": ["Transmission Electron Microscopy (TEM)", "Solar photovoltaic cells", "Quantum sensors"],
+      "relatedMovies": [1, 4],
+      "relatedMovieTitles": ["Interstellar", "Arrival"],
+      "relatedWhatIfs": [19, 21]
     },
     {
       "id": 7,
-      "title": "Quantum Physics",
-      "icon": "🌊",
-      "description": "The physics of the subatomic world, where particles behave according to probability waves and quantum mechanics.",
-      "difficulty": "advanced",
+      "slug": "thermodynamics",
+      "title": "Thermodynamics & Entropy",
+      "icon": "🔥",
       "category": "Physics",
-      "formula": "E = hf",
-      "explanation": "Quantum mechanics describes particles like electrons and photons. Particles can exist in superposition, entangle with each other, and exhibit wave-particle duality. This is the foundation of modern technology.",
-      "applications": [
-        "Semiconductor and computer technology",
-        "Laser technology",
-        "Medical imaging (PET scans)",
-        "Quantum computing (emerging)"
-      ],
-      "relatedMovies": [4, 6],
-      "resources": [
-        "Quantum Mechanics Basics",
-        "Wave-Particle Duality",
-        "Quantum Entanglement"
-      ]
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The laws governing energy conservation, heat transfer, and the irreversible increase of entropy in isolated systems.",
+      "formula": "\\Delta U = Q - W, \\quad S = k_B \\ln(\\Omega), \\quad \\Delta S \\ge 0",
+      "formulaBreakdown": {
+        "meaning": "First and Second Laws of Thermodynamics and Boltzmann's entropy formula.",
+        "variables": [
+          { "symbol": "U", "name": "Internal Energy", "value": "Joules" },
+          { "symbol": "S", "name": "Entropy", "value": "J/K" },
+          { "symbol": "\\Omega", "name": "Number of accessible microstates", "value": "Dimensionless" }
+        ],
+        "utility": "Efficiency limits of engines (Carnot limit η = 1 - T_c/T_h) and chemical spontaneity.",
+        "example": "A heat engine operating between 600K and 300K has maximum theoretical efficiency η_max = 1 - 300/600 = 50%."
+      },
+      "levels": {
+        "beginner": "Energy cannot be created or destroyed, only transformed. Disorder (entropy) always increases over time.",
+        "explorer": "The Second Law dictates that usable energy degrades into heat. Entropy gives time an irreversible direction—the Arrow of Time.",
+        "deepScience": "The Gibbs free energy ΔG = ΔH - TΔS governs chemical equilibria. Non-equilibrium thermodynamics shows living organisms export entropy to maintain low internal entropy states."
+      },
+      "applications": ["Power generation turbines", "Refrigeration cycles", "Chemical industrial engineering"],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"],
+      "relatedWhatIfs": [11, 20, 22]
     },
     {
       "id": 8,
-      "title": "Artificial Intelligence",
+      "slug": "electromagnetism",
+      "title": "Electromagnetism",
+      "icon": "🧲",
+      "category": "Physics",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The unified force governing electricity, magnetism, electromagnetic radiation, and light.",
+      "formula": "\\nabla \\cdot \\mathbf{E} = \\frac{\\rho}{\\varepsilon_0}, \\quad \\nabla \\times \\mathbf{B} = \\mu_0 \\mathbf{J} + \\mu_0\\varepsilon_0 \\frac{\\partial \\mathbf{E}}{\\partial t}",
+      "formulaBreakdown": {
+        "meaning": "Maxwell's Equations describing electric and magnetic field generation and propagation.",
+        "variables": [
+          { "symbol": "\\mathbf{E}, \\mathbf{B}", "name": "Electric and Magnetic Fields", "value": "V/m, Tesla" },
+          { "symbol": "c = 1/\\sqrt{\\mu_0\\varepsilon_0}", "name": "Speed of Light", "value": "299,792,458 m/s" }
+        ],
+        "utility": "Wireless communications, electrical power grids, electric motors, and optics.",
+        "example": "Accelerating electric charges radiate electromagnetic waves traveling at speed c = 3 × 10⁸ m/s."
+      },
+      "levels": {
+        "beginner": "Electricity and magnetism are two sides of the same coin. Moving electricity creates magnetism, and moving magnets creates electricity.",
+        "explorer": "Maxwell unified electricity and magnetism, proving light itself is an electromagnetic wave oscillating at 300,000 km/s.",
+        "deepScience": "In covariant tensor form, Maxwell equations are ∂_μ F^μν = μ_0 J^ν where F^μν = ∂^μ A^ν - ∂^ν A^μ is the electromagnetic field strength tensor exhibiting U(1) gauge symmetry."
+      },
+      "applications": ["Electric motors and generators", "Wi-Fi and satellite communications", "Particle accelerators"],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"],
+      "relatedWhatIfs": [26]
+    },
+    {
+      "id": 9,
+      "slug": "nuclear-physics",
+      "title": "Nuclear Physics",
+      "icon": "☢️",
+      "category": "Physics",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The study of atomic nuclei, their constituents (protons and neutrons), nuclear fission, fusion, and radioactive decay.",
+      "formula": "N(t) = N_0 e^{-\\lambda t}, \\quad E_B = (Z m_p + N m_n - M_{\\text{nucleus}}) c^2",
+      "formulaBreakdown": {
+        "meaning": "Radioactive decay law and nuclear binding energy mass-defect equation.",
+        "variables": [
+          { "symbol": "E_B", "name": "Nuclear Binding Energy", "value": "MeV" },
+          { "symbol": "T_{1/2} = \\ln(2)/\\lambda", "name": "Half-Life", "value": "Seconds / Years" }
+        ],
+        "utility": "Nuclear fission energy, radiometric carbon dating, and nuclear medicine.",
+        "example": "Fission of 1 gram of Uranium-235 yields ~8.2 × 10¹⁰ Joules (equal to burning 3 tons of coal)."
+      },
+      "levels": {
+        "beginner": "Atomic nuclei hold immense energy. Splitting heavy atoms (fission) or fusing light atoms (fusion) releases millions of times more energy than burning fuels.",
+        "explorer": "The strong nuclear force binds protons and neutrons together. When nuclei rearrange toward Iron-56 (the most stable nucleus), excess binding energy is released.",
+        "deepScience": "Governed by Quantum Chromodynamics (QCD) and the residual strong Yukawa potential V(r) = -g²(e^(-mr)/r). Fission occurs via quantum tunneling through the nuclear Coulomb barrier."
+      },
+      "applications": ["Nuclear power generation", "Radiocarbon archaeological dating", "Cancer radiation therapies"],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"],
+      "relatedWhatIfs": [20, 22, 23]
+    },
+    {
+      "id": 10,
+      "slug": "momentum-energy-conservation",
+      "title": "Momentum & Energy Conservation",
+      "icon": "🎯",
+      "category": "Physics",
+      "difficulty": "Beginner",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "Fundamental physical conservation laws stating total momentum and total energy in an isolated system remain constant.",
+      "formula": "\\sum \\mathbf{p}_i = \\text{constant}, \\quad \\sum E_i = \\text{constant}",
+      "formulaBreakdown": {
+        "meaning": "Conservation of linear momentum and total mechanical/mass-energy.",
+        "variables": [
+          { "symbol": "\\mathbf{p} = m \\mathbf{v}", "name": "Linear Momentum", "value": "kg·m/s" },
+          { "symbol": "E", "name": "Total Energy", "value": "Joules" }
+        ],
+        "utility": "Analyzing spacecraft collisions, rocket propulsion, and particle scattering.",
+        "example": "A rocket expelling propellant mass backward at velocity v_e gains forward momentum m_r Δv = -m_p v_e."
+      },
+      "levels": {
+        "beginner": "You can never get energy from nothing, and pushing something in one direction always pushes you in the opposite direction.",
+        "explorer": "Noether's Theorem proves energy conservation arises from time-translation symmetry, and momentum conservation arises from spatial-translation symmetry.",
+        "deepScience": "Under Lagrangian mechanics, if the Lagrangian L(q, q̇, t) is invariant under continuous group transformations δq_i = ε ψ_i, the Noether charge Q = ∑ (∂L/∂q̇_i) ψ_i is an exact constant of motion."
+      },
+      "applications": ["Rocket propulsion", "Vehicle crash safety design", "Particle physics discovery"],
+      "relatedMovies": [1, 3],
+      "relatedMovieTitles": ["Interstellar", "Gravity"],
+      "relatedWhatIfs": [1, 5, 22]
+    },
+    {
+      "id": 11,
+      "slug": "black-holes",
+      "title": "Black Holes",
+      "icon": "🕳️",
+      "category": "Space",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "Astronomical objects with gravitational fields so intense that nothing—not even light—can escape from beyond their event horizons.",
+      "formula": "r_s = \\frac{2GM}{c^2}, \\quad T_H = \\frac{\\hbar c^3}{8\\pi G M k_B}",
+      "formulaBreakdown": {
+        "meaning": "Schwarzschild radius and Hawking temperature equation.",
+        "variables": [
+          { "symbol": "r_s", "name": "Schwarzschild Radius", "value": "Event horizon radius (m)" },
+          { "symbol": "M", "name": "Mass", "value": "kg" }
+        ],
+        "utility": "Explaining quasars, gravitational wave mergers, and quantum gravity paradoxes.",
+        "example": "For a black hole with the mass of our Sun (1.989 × 10³⁰ kg), r_s ≈ 2.95 kilometers."
+      },
+      "levels": {
+        "beginner": "A black hole is an infinitely dense point in space where gravity is so strong that even light gets trapped forever.",
+        "explorer": "Crossing the event horizon is a point of no return. Outside observers see you freeze and fade away due to extreme gravitational time dilation.",
+        "deepScience": "Kerr rotating black holes exhibit frame-dragging ergospheres allowing rotational energy extraction (Penrose process). The black hole information paradox drives modern string theory and holographic duality (AdS/CFT)."
+      },
+      "applications": ["Gravitational wave astronomy (LIGO)", "Testing extreme General Relativity"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [6, 7, 13]
+    },
+    {
+      "id": 12,
+      "slug": "wormholes",
+      "title": "Wormholes",
+      "icon": "🌀",
+      "category": "Space",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Highly Speculative",
+      "confidenceColor": "#f97316",
+      "description": "Theoretical bridges through spacetime that could connect distant points in the universe.",
+      "formula": "ds^2 = -c^2 dt^2 + dr^2 + (b(r)^2 + r^2)(d\\theta^2 + \\sin^2\\theta d\\phi^2)",
+      "formulaBreakdown": {
+        "meaning": "Morris-Thorne traversable wormhole metric.",
+        "variables": [
+          { "symbol": "b(r)", "name": "Shape function", "value": "Defines throat geometry" }
+        ],
+        "utility": "Theoretical study of exotic matter and closed timelike curve causality bounds.",
+        "example": "Holding a 1-meter wormhole throat open requires negative energy equal to -1.9 × 10²⁷ kg (Jupiter's mass)."
+      },
+      "levels": {
+        "beginner": "A wormhole is a cosmic shortcut connecting two distant parts of the galaxy like a tunnel through space.",
+        "explorer": "Wormholes are mathematically allowed solutions to Einstein's equations, but keeping them traversable requires hypothetical negative-energy exotic matter.",
+        "deepScience": "Traversability requires violating the Null Energy Condition T_μν k^μ k^ν ≥ 0. Quantum inequalities place strict bounds on the magnitude and duration of negative energy fluctuations."
+      },
+      "applications": ["Theoretical quantum gravity research", "Topology change physics in General Relativity"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [6, 11, 14]
+    },
+    {
+      "id": 13,
+      "slug": "neutron-stars",
+      "title": "Neutron Stars & Pulsars",
+      "icon": "🌟",
+      "category": "Space",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "Superdense stellar remnants created by core-collapse supernovae, packed with degenerate neutrons.",
+      "formula": "P_{\\text{deg}} = \\frac{(3\\pi^2)^{2/3}\\hbar^2}{5 m_n} n_n^{5/3}, \\quad M_{\\text{TOV}} \\approx 2.17 M_\\odot",
+      "formulaBreakdown": {
+        "meaning": "Neutron degeneracy pressure and Tolman-Oppenheimer-Volkoff mass limit.",
+        "variables": [
+          { "symbol": "n_n", "name": "Neutron Number Density", "value": "~10⁴⁴ m⁻³ (Nuclear saturation density)" },
+          { "symbol": "M_{\\text{TOV}}", "name": "TOV Maximum Mass", "value": "~2.17 Solar Masses" }
+        ],
+        "utility": "Explaining pulsars, magnetars, and heavy element synthesis (kilonova gold/platinum production).",
+        "example": "A single sugar-cube of neutron star material has a mass of ~1 billion tons on Earth!"
+      },
+      "levels": {
+        "beginner": "A neutron star packs an entire sun into a ball the size of a city, spinning hundreds of times per second.",
+        "explorer": "Formed in supernovae, gravitational collapse crushes electrons and protons into neutrons. Pauli exclusion principle provides degeneracy pressure halting total collapse.",
+        "deepScience": "Equilibrium is modeled by the TOV equation dP/dr = -G(M+4πr³P/c²)(ρ+P/c²)/[r(r-2GM/c²)]. Magnetars possess magnetic fields B > 10¹¹ Tesla inducing quantum vacuum birefringence."
+      },
+      "applications": ["Pulsar timing arrays for gravitational wave detection", "High-energy nuclear physics benchmarks"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [27, 28]
+    },
+    {
+      "id": 14,
+      "slug": "supernovae",
+      "title": "Supernovae & Stellar Evolution",
+      "icon": "💥",
+      "category": "Space",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The catastrophic explosive death of massive stars, synthesizing and dispersing heavy elements across the cosmos.",
+      "formula": "E_{\\text{total}} \\approx \\frac{3}{5}\\frac{G M_{\\text{core}}^2}{R_{\\text{NS}}} \\approx 10^{46} \\text{ Joules (100 foe)}",
+      "formulaBreakdown": {
+        "meaning": "Gravitational binding energy released during core-collapse supernova.",
+        "variables": [
+          { "symbol": "E_{\\text{neutrino}}", "name": "Neutrino Energy", "value": "99% of total energy released" },
+          { "symbol": "E_{\\text{kinetic}}", "name": "Kinetic Shockwave", "value": "1% of energy (~10⁴⁴ J)" }
+        ],
+        "utility": "Type Ia supernovae act as 'Standard Candles' measuring the accelerated expansion of the universe.",
+        "example": "A single supernova outshines its entire host galaxy containing 100 billion stars for several weeks."
+      },
+      "levels": {
+        "beginner": "When a giant star runs out of nuclear fuel, its core collapses and explodes with the brightness of 100 billion stars.",
+        "explorer": "Supernovae forge elements heavier than iron through rapid neutron capture (r-process), dispersing the building blocks of planets and life into space.",
+        "deepScience": "Photodisintegration (⁵⁶Fe + γ → 13 ⁴He + 4n) and electron capture (e⁻ + p → n + ν_e) rob the core of thermal pressure in ~100 ms, causing freefall collapse until nuclear rebound shockwave triggers explosion."
+      },
+      "applications": ["Cosmological distance ladder & Dark Energy discovery", "Galactic chemical enrichment"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [27]
+    },
+    {
+      "id": 15,
+      "slug": "dark-matter-energy",
+      "title": "Dark Matter & Dark Energy",
+      "icon": "🌌",
+      "category": "Space",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Active Research",
+      "confidenceColor": "#06b6d4",
+      "description": "The mysterious components making up 95% of the universe: Dark Matter holding galaxies together, and Dark Energy accelerating cosmic expansion.",
+      "formula": "\\rho_{\\text{crit}} = \\frac{3 H_0^2}{8\\pi G}, \\quad \\Omega_m \\approx 0.31, \\quad \\Omega_\\Lambda \\approx 0.69",
+      "formulaBreakdown": {
+        "meaning": "Cosmological energy density budget of the universe (Lambda-CDM model).",
+        "variables": [
+          { "symbol": "\\Omega_m", "name": "Matter Density (Regular + Dark)", "value": "5% Regular + 26% Dark Matter" },
+          { "symbol": "\\Omega_\\Lambda", "name": "Dark Energy Density", "value": "69% Cosmological Constant" }
+        ],
+        "utility": "Predicting Cosmic Microwave Background anisotropies and large-scale galaxy filaments.",
+        "example": "Without dark matter's gravitational glue, spinning galaxies would fly apart because visible mass is insufficient."
+      },
+      "levels": {
+        "beginner": "Everything we can see (stars, gas, planets) makes up only 5% of the universe. The rest is invisible Dark Matter and repulsive Dark Energy.",
+        "explorer": "Dark matter does not interact with light or electromagnetism, only gravity. Dark energy is the mysterious pressure accelerating the expansion of space.",
+        "deepScience": "Dark matter candidates include WIMPs and axions. Dark energy is modeled by the cosmological constant Λ with equation of state w = P/ρ ≈ -1 in the Friedmann equation (ȧ/a)² = (8πG/3)ρ + Λc²/3."
+      },
+      "applications": ["Gravitational lensing surveys", "Cosmic structure formation simulations (Illustris / Millennium)"],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"],
+      "relatedWhatIfs": [4, 6]
+    },
+    {
+      "id": 16,
+      "slug": "exoplanets-orbital-mechanics",
+      "title": "Exoplanets & Orbital Mechanics",
+      "icon": "🪐",
+      "category": "Space",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The physics of planetary systems orbiting distant stars and mathematical orbital transfers.",
+      "formula": "\\frac{T^2}{a^3} = \\frac{4\\pi^2}{G(M + m)}, \\quad \\Delta v_1 = v_1 \\left(\\sqrt{\\frac{2r_2}{r_1 + r_2}} - 1\\right)",
+      "formulaBreakdown": {
+        "meaning": "Kepler's Third Law and Hohmann transfer orbit velocity change.",
+        "variables": [
+          { "symbol": "T", "name": "Orbital Period", "value": "Seconds / Years" },
+          { "symbol": "a", "name": "Semi-major axis", "value": "AU / Meters" }
+        ],
+        "utility": "Detecting exoplanets via transit spectroscopy and calculating fuel for Mars missions.",
+        "example": "A Hohmann transfer orbit from Earth (1 AU) to Mars (1.52 AU) takes ~259 days with minimal fuel."
+      },
+      "levels": {
+        "beginner": "Planets follow oval paths called ellipses around their stars. Traveling between planets requires curving orbits, not flying in straight lines.",
+        "explorer": "Spacecraft change orbits by firing engines at perigee and apogee to enter elliptical transfer orbits that intersect target planets.",
+        "deepScience": "Exoplanet radial velocity detection measures Doppler wobble v_rad = (2πG/T)^(1/3) (m_p sin i / M_*^(2/3)). Planetary atmospheric composition is probed during transit spectroscopy."
+      },
+      "applications": ["NASA Kepler & James Webb Space Telescope exoplanet discovery", "Mars mission flight planning"],
+      "relatedMovies": [1, 2, 3],
+      "relatedMovieTitles": ["Interstellar", "The Martian", "Gravity"],
+      "relatedWhatIfs": [8, 9, 10]
+    },
+    {
+      "id": 17,
+      "slug": "dna-genetics",
+      "title": "DNA & Genetic Code",
+      "icon": "🧬",
+      "category": "Biology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The molecular double-helix storing the biochemical instructions for development, functioning, and reproduction of life.",
+      "formula": "\\text{Complementary Base Pairs: } \\text{A} \\equiv \\text{T} \\quad (2\\text{ H-bonds}), \\quad \\text{G} \\equiv \\text{C} \\quad (3\\text{ H-bonds})",
+      "formulaBreakdown": {
+        "meaning": "Watson-Crick base pairing thermodynamics.",
+        "variables": [
+          { "symbol": "A, T, G, C", "name": "Nucleotides", "value": "Adenine, Thymine, Guanine, Cytosine" }
+        ],
+        "utility": "DNA sequencing, molecular diagnostics, and forensic genetic identification.",
+        "example": "The human genome contains 3.2 billion base pairs packaged into 23 chromosome pairs in every cell nucleus."
+      },
+      "levels": {
+        "beginner": "DNA is the biological recipe book inside every living cell, written with four chemical letters: A, T, C, and G.",
+        "explorer": "DNA instructions are transcribed into RNA and translated by ribosomes into proteins that perform all mechanical and biochemical work in the body.",
+        "deepScience": "The Central Dogma is mediated by RNA Polymerase II and aminoacyl-tRNA synthetases matching 64 codons to 20 amino acids with proofreading error rates < 10⁻⁸ per base pair."
+      },
+      "applications": ["Whole genome sequencing", "Forensic analysis", "Molecular evolutionary tracing"],
+      "relatedMovies": [4],
+      "relatedMovieTitles": ["Gattaca"],
+      "relatedWhatIfs": [17, 18]
+    },
+    {
+      "id": 18,
+      "slug": "genetic-engineering-crispr",
+      "title": "Genetic Engineering & CRISPR",
+      "icon": "✂️",
+      "category": "Biology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "Technologies allowing targeted insertion, deletion, and modification of DNA sequences in living organisms.",
+      "formula": "\\text{gRNA (20 nt)} + \\text{Cas9} + \\text{PAM (NGG)} \\to \\text{Target Cleavage} \\to \\text{HDR / Base Edit}",
+      "formulaBreakdown": {
+        "meaning": "CRISPR-Cas9 targeted genome editing mechanism.",
+        "variables": [
+          { "symbol": "\\text{gRNA}", "name": "Guide RNA", "value": "Synthetic 20-nucleotide targeting sequence" },
+          { "symbol": "\\text{PAM}", "name": "Protospacer Adjacent Motif", "value": "DNA binding recognition sequence" }
+        ],
+        "utility": "Curing genetic disorders, engineering disease-resistant crops, and anti-cancer CAR-T cell therapies.",
+        "example": "Base editors convert single target C·G pairs to T·A pairs with 90%+ efficiency and zero double-strand breaks."
+      },
+      "levels": {
+        "beginner": "CRISPR is molecular scissors that find a specific typo in DNA and rewrite it to cure genetic diseases.",
+        "explorer": "Prime and base editing allow scientists to fix point mutations and reprogram gene expression without causing messy DNA breaks.",
+        "deepScience": "Engineered Cas nucleases utilize R-loop formation driven by guide-target hybridization free energy ΔG_hyb to trigger HNH and RuvC endonuclease domains for double-strand cleavage."
+      },
+      "applications": ["FDA-approved Sickle Cell Gene Therapy", "Agricultural CRISPR crops", "Synthetic biology circuits"],
+      "relatedMovies": [4],
+      "relatedMovieTitles": ["Gattaca"],
+      "relatedWhatIfs": [15, 17]
+    },
+    {
+      "id": 19,
+      "slug": "evolution-regeneration",
+      "title": "Evolution & Cellular Regeneration",
+      "icon": "🦎",
+      "category": "Biology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Active Research",
+      "confidenceColor": "#06b6d4",
+      "description": "Mechanisms of natural selection, biological adaptation, and morphogenetic blastema tissue regeneration.",
+      "formula": "\\Delta p = \\frac{p q s}{1 - s q^2}, \\quad \\text{Morphogen: } \\frac{\\partial C}{\\partial t} = D \\nabla^2 C - k C",
+      "formulaBreakdown": {
+        "meaning": "Hardy-Weinberg allele frequency shift under natural selection and Turing reaction-diffusion morphogen equation.",
+        "variables": [
+          { "symbol": "s", "name": "Selection Coefficient", "value": "Relative fitness disadvantage" },
+          { "symbol": "D", "name": "Diffusion Coefficient", "value": "m²/s" }
+        ],
+        "utility": "Modeling antibiotic resistance, evolutionary lineages, and stem cell organogenesis.",
+        "example": "Axolotls dedifferentiate cells at wound sites into multipotent blastemas to regrow entire functional limbs in 40 days."
+      },
+      "levels": {
+        "beginner": "Evolution is how living things adapt to their environment over generations. Some animals like salamanders can regrow lost limbs.",
+        "explorer": "Regenerative species maintain blastema stem-cell formation pathways that mammals turned off to prevent infections and cancer.",
+        "deepScience": "Regeneration requires positional bioelectric voltage gradients (V_mem) across membrane ion channels directing Wnt/β-catenin and FGF signaling cascades."
+      },
+      "applications": ["Regenerative medicine & tissue engineering", "Combating antimicrobial resistance"],
+      "relatedMovies": [4],
+      "relatedMovieTitles": ["Gattaca"],
+      "relatedWhatIfs": [15, 18]
+    },
+    {
+      "id": 20,
+      "slug": "human-physiology-extreme",
+      "title": "Human Physiology & Extreme Survival",
+      "icon": "🫀",
+      "category": "Biology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The biological limits and adaptations of the human body under microgravity, extreme radiation, hypoxia, and ocean depths.",
+      "formula": "P_{O_2} = (P_{\\text{atm}} - P_{H_2O}) \\times F_{iO_2} - \\frac{P_{aCO_2}}{R}, \\quad D_{\\text{rad}} = \\frac{E}{m}",
+      "formulaBreakdown": {
+        "meaning": "Alveolar gas equation determining blood oxygenation and ionizing radiation absorbed dose.",
+        "variables": [
+          { "symbol": "P_{O_2}", "name": "Partial Oxygen Pressure", "value": "kPa (Lethal hypoxia below 4 kPa)" },
+          { "symbol": "D_{\\text{rad}}", "name": "Radiation Dose", "value": "Sieverts (Sv) / Grays (Gy)" }
+        ],
+        "utility": "Designing spacecraft life-support systems (ECLSS) and deep-sea diving gas mixtures.",
+        "example": "In microgravity, astronauts lose 1-1.5% of bone mineral density per month unless performing intense resistance training."
+      },
+      "levels": {
+        "beginner": "The human body requires stable air pressure, oxygen, and gravity to stay healthy. Space travel weakens bones and muscles.",
+        "explorer": "Space habitats must provide radiation shielding against solar proton storms and artificial gravity (centrifuges) to prevent cardiovascular deconditioning.",
+        "deepScience": "Microgravity induces cephalad fluid shifts increasing intracranial pressure (SANS syndrome) while cosmic heavy ions (HZE particles) induce complex double-strand DNA damage requiring enhanced cellular repair."
+      },
+      "applications": ["NASA astronaut health management", "High-altitude medicine", "Deep-sea saturation diving"],
+      "relatedMovies": [2, 3],
+      "relatedMovieTitles": ["The Martian", "Gravity"],
+      "relatedWhatIfs": [10, 16, 25]
+    },
+    {
+      "id": 21,
+      "slug": "artificial-intelligence",
+      "title": "Artificial Intelligence & Neural Networks",
       "icon": "🤖",
-      "description": "Computer systems designed to perform tasks that typically require human intelligence, including learning and problem-solving.",
-      "difficulty": "intermediate",
       "category": "Technology",
-      "formula": "A* = argmax P(action|state)",
-      "explanation": "AI uses machine learning, neural networks, and algorithms to process information and make decisions. Modern AI excels at pattern recognition but lacks true consciousness and general intelligence.",
-      "applications": [
-        "Virtual assistants and chatbots",
-        "Recommendation systems",
-        "Autonomous vehicles",
-        "Medical diagnosis and research"
-      ],
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "Machine learning architectures, neural networks, transformers, and the computational physics of artificial cognitive systems.",
+      "formula": "\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{Q K^T}{\\sqrt{d_k}}\\right) V",
+      "formulaBreakdown": {
+        "meaning": "Scaled Dot-Product Attention mechanism powering modern Transformer neural networks.",
+        "variables": [
+          { "symbol": "Q, K, V", "name": "Query, Key, Value Matrices", "value": "Token embedding representations" },
+          { "symbol": "d_k", "name": "Dimension Key", "value": "Scaling dimension preventing vanishing gradients" }
+        ],
+        "utility": "Large language models, autonomous vision, drug discovery, and automated reasoning.",
+        "example": "Training loss scales as a power law L(N, D) ∝ (N_c/N)^α_N + (D_c/D)^α_D with compute and dataset size."
+      },
+      "levels": {
+        "beginner": "AI systems learn from millions of examples by adjusting internal numerical weights to recognize images, translate languages, and answer questions.",
+        "explorer": "Deep neural networks use stacked layers of artificial neurons to create mathematical representations of concepts, optimized via backpropagation.",
+        "deepScience": "The Transformer architecture computes multi-head self-attention across dynamic context windows. AI alignment research investigates mechanistic interpretability and loss landscape geometry."
+      },
+      "applications": ["Autonomous vehicles", "AlphaFold protein structure prediction", "Robotic manipulation", "Scientific literature synthesis"],
       "relatedMovies": [5, 6],
-      "resources": [
-        "Machine Learning Fundamentals",
-        "Neural Networks",
-        "AI Ethics and Philosophy"
-      ]
+      "relatedMovieTitles": ["Ex Machina", "Blade Runner 2049"],
+      "relatedWhatIfs": [19]
+    },
+    {
+      "id": 22,
+      "slug": "quantum-computing",
+      "title": "Quantum Computing",
+      "icon": "💻",
+      "category": "Technology",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Active Research",
+      "confidenceColor": "#06b6d4",
+      "description": "Computation that harnesses quantum superposition and entanglement to solve intractable computational problems exponentially faster.",
+      "formula": "|\\psi\\rangle = \\alpha |0\\rangle + \\beta |1\\rangle, \\quad |\\alpha|^2 + |\\beta|^2 = 1",
+      "formulaBreakdown": {
+        "meaning": "Qubit quantum state representation on the Bloch Sphere.",
+        "variables": [
+          { "symbol": "\\alpha, \\beta", "name": "Complex Amplitudes", "value": "Probability amplitudes of basis states" }
+        ],
+        "utility": "Shor's algorithm (cracking RSA encryption in polynomial time) and Grover's search algorithm (O(√N)).",
+        "example": "A system of 50 entangled qubits represents 2⁵⁰ (~1.125 quadrillion) simultaneous states in superposition."
+      },
+      "levels": {
+        "beginner": "Classical computers use bits (0 or 1). Quantum computers use qubits (which can be 0 and 1 simultaneously), solving complex problems in seconds.",
+        "explorer": "Quantum computers use interference to cancel out wrong answers and amplify correct answers, revolutionizing cryptography and molecular simulations.",
+        "deepScience": "Physical qubits (superconducting transmon or trapped-ion) require Quantum Error Correction (surface codes with threshold error rate p < 1%) to maintain fault-tolerant logical qubits."
+      },
+      "applications": ["Molecular drug discovery & catalyst design", "Financial portfolio optimization", "Post-quantum lattice cryptography"],
+      "relatedMovies": [1, 6],
+      "relatedMovieTitles": ["Interstellar", "Blade Runner 2049"],
+      "relatedWhatIfs": [19, 21]
+    },
+    {
+      "id": 23,
+      "slug": "nuclear-fusion-energy",
+      "title": "Nuclear Fusion",
+      "icon": "⚛️",
+      "category": "Technology",
+      "difficulty": "Advanced",
+      "confidenceLabel": "Active Research",
+      "confidenceColor": "#06b6d4",
+      "description": "Harnessing the nuclear reactions that power the Sun to provide limitless, safe, zero-carbon electricity.",
+      "formula": "^2_1\\text{H} + ^3_1\\text{H} \\to ^4_2\\text{He} (3.5\\text{ MeV}) + ^1_0\\text{n} (14.1\\text{ MeV}) + 17.6\\text{ MeV}",
+      "formulaBreakdown": {
+        "meaning": "Deuterium-Tritium thermonuclear fusion reaction energy balance.",
+        "variables": [
+          { "symbol": "^2_1\\text{H}", "name": "Deuterium", "value": "Extracted from seawater" },
+          { "symbol": "^3_1\\text{H}", "name": "Tritium", "value": "Bred from Lithium blankets" }
+        ],
+        "utility": "Commercial baseload electricity and high-specific-impulse interplanetary rocket engines.",
+        "example": "1 gallon of seawater yields fusion energy equivalent to 300 gallons of gasoline with zero emissions."
+      },
+      "levels": {
+        "beginner": "Fusion is how the Sun shines. Recreating it on Earth provides infinite clean energy from seawater without any risk of nuclear meltdowns.",
+        "explorer": "Fusion combines light hydrogen nuclei at 100 million °C. Tokamak reactors use powerful magnetic fields to trap the blazing plasma away from reactor walls.",
+        "deepScience": "Achieving ignition requires exceeding the Lawson triple product criterion: n_e · T · τ_E ≥ 3 × 10²¹ keV·s/m³ using high-temperature superconducting (REBCO) magnetic coils."
+      },
+      "applications": ["Zero-carbon electrical grid power (ITER, CFS SPARC)", "Direct Fusion Drive space propulsion"],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"],
+      "relatedWhatIfs": [20, 23]
+    },
+    {
+      "id": 24,
+      "slug": "nanotechnology-molecular",
+      "title": "Nanotechnology & Materials Science",
+      "icon": "🔬",
+      "category": "Technology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Active Research",
+      "confidenceColor": "#06b6d4",
+      "description": "The manipulation of matter on an atomic, molecular, and supramolecular scale (1 to 100 nanometers) to build revolutionary materials.",
+      "formula": "\\sigma_{\\text{yield}} = \\sigma_0 + k_y d^{-1/2} \\quad \\text{(Hall-Petch)}, \\quad \\text{Graphene } \\sigma_t \\approx 130 \\text{ GPa}",
+      "formulaBreakdown": {
+        "meaning": "Hall-Petch grain boundary strengthening and graphene ultimate tensile strength.",
+        "variables": [
+          { "symbol": "d", "name": "Grain diameter", "value": "Nanometers" },
+          { "symbol": "\\sigma_t", "name": "Tensile Strength", "value": "130 GPa (200x stronger than structural steel)" }
+        ],
+        "utility": "Carbon nanotube space elevator tethers, targeted nanomedicine drug delivery, and supercapacitors.",
+        "example": "Graphene is a single-atom-thick hexagonal carbon honeycomb that conducts electricity faster than copper and is stronger than diamond."
+      },
+      "levels": {
+        "beginner": "Nanotechnology builds materials atom by atom, creating ultra-strong lightweight materials and microscopic medical robots.",
+        "explorer": "At nanoscale dimensions, quantum effects dominate material properties, dramatically altering electrical conductivity, strength, and chemical reactivity.",
+        "deepScience": "Molecular manufacturing utilizes mechanosynthesis and self-assembling block copolymers. Nanoparticle surface-area-to-volume ratio scales as 1/r, dramatically lowering melting temperatures via the Gibbs-Thomson effect."
+      },
+      "applications": ["Lipid nanoparticles for mRNA vaccines", "Carbon nanotube composite aerospace materials", "Quantum dot displays"],
+      "relatedMovies": [5, 6],
+      "relatedMovieTitles": ["Ex Machina", "Blade Runner 2049"],
+      "relatedWhatIfs": [19, 20]
+    },
+    {
+      "id": 25,
+      "slug": "space-travel-propulsion",
+      "title": "Space Travel & Advanced Propulsion",
+      "icon": "🚀",
+      "category": "Technology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Established Science",
+      "confidenceColor": "#22c55e",
+      "description": "The engineering and physics of rocket propulsion, specific impulse, ion drives, lightsails, and interstellar flight.",
+      "formula": "\\Delta v = v_e \\ln\\left(\\frac{m_0}{m_f}\\right) = g_0 I_{\\text{sp}} \\ln\\left(\\frac{m_0}{m_f}\\right)",
+      "formulaBreakdown": {
+        "meaning": "Tsiolkovsky Rocket Equation determining total velocity change from propellant expulsion.",
+        "variables": [
+          { "symbol": "\\Delta v", "name": "Delta-v Budget", "value": "m/s" },
+          { "symbol": "I_{\\text{sp}}", "name": "Specific Impulse", "value": "Seconds (Propellant efficiency)" },
+          { "symbol": "m_0 / m_f", "name": "Mass Ratio", "value": "Initial mass / Final dry mass" }
+        ],
+        "utility": "Calculating fuel requirements for Earth orbit, lunar landings, and deep-space missions.",
+        "example": "Chemical rockets achieve Isp ~450s. Ion drives achieve Isp ~3,000s, using 6x less fuel for deep-space cruising."
+      },
+      "levels": {
+        "beginner": "Rockets work by shooting high-speed gas backward to push the spacecraft forward through the vacuum of space.",
+        "explorer": "Chemical rockets provide high thrust to escape Earth's gravity, while electric ion thrusters provide high fuel efficiency for years of deep space exploration.",
+        "deepScience": "Advanced interstellar concepts include laser-pushed lightsails (Breakthrough Starshot, v ≈ 0.2c), antimatter-catalyzed propulsion, and magnetic fusion ramjets."
+      },
+      "applications": ["Interplanetary spacecraft trajectories", "Hall-effect ion satellite stationkeeping", "Solar sails (LightSail 2)"],
+      "relatedMovies": [1, 2, 3],
+      "relatedMovieTitles": ["Interstellar", "The Martian", "Gravity"],
+      "relatedWhatIfs": [5, 10, 20]
+    },
+    {
+      "id": 26,
+      "slug": "robotics-bci",
+      "title": "Robotics & Brain-Computer Interfaces (BCI)",
+      "icon": "🧠🦾",
+      "category": "Technology",
+      "difficulty": "Intermediate",
+      "confidenceLabel": "Active Research",
+      "confidenceColor": "#06b6d4",
+      "description": "Direct communication pathways between the brain and external prosthetic devices or computational systems.",
+      "formula": "V_{\\text{LFP}}(\\mathbf{r}, t) = \\frac{1}{4\\pi\\sigma}\\sum_i \\frac{I_i(t)}{|\\mathbf{r} - \\mathbf{r}_i|}, \\quad \\tau_{\\text{dyn}} = M(\\theta)\\ddot{\\theta} + C(\\theta,\\dot{\\theta})\\dot{\\theta} + G(\\theta)",
+      "formulaBreakdown": {
+        "meaning": "Extracellular local field potential volume conduction and rigid-body robotic manipulator dynamics.",
+        "variables": [
+          { "symbol": "V_{\\text{LFP}}", "name": "Extracellular Voltage", "value": "Microvolts recorded by microelectrode arrays" },
+          { "symbol": "\\tau", "name": "Robotic Joint Torques", "value": "N·m" }
+        ],
+        "utility": "Restoring motor control to paralyzed patients, prosthetic bionic limbs, and neurotechnology.",
+        "example": "Intracortical microelectrode arrays decode motor cortex neural firing rates to move robotic arms with sub-millimeter precision."
+      },
+      "levels": {
+        "beginner": "Brain-computer interfaces allow humans to control robotic arms, computers, and wheelchairs directly with their thoughts.",
+        "explorer": "Microelectrodes read tiny electrical voltage spikes from neurons in the motor cortex and translate them into digital commands using machine learning.",
+        "deepScience": "Neural decoding utilizes Kalman filters and recurrent neural networks (RNNs) to map spike trains into continuous velocity state vectors while minimizing neuroinflammatory gliosis."
+      },
+      "applications": ["Paralysis motor restoration", "Bionic prosthetic limbs", "Neural recording implants (Neuralink / Blackrock)"],
+      "relatedMovies": [5, 6],
+      "relatedMovieTitles": ["Ex Machina", "Blade Runner 2049"],
+      "relatedWhatIfs": [19]
     }
   ]
 }

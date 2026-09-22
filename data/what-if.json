@@ -1,0 +1,1108 @@
+{
+  "scenarios": [
+    {
+      "id": 1,
+      "slug": "earth-stopped-rotating",
+      "title": "What If Earth Suddenly Stopped Rotating?",
+      "hook": "Imagine waking up tomorrow and discovering that the Earth has completely halted its 1,670 km/h spin in an instant.",
+      "category": "Space & Physics",
+      "icon": "🌍",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics",
+      "immediateEffect": "Due to Newton's First Law of Motion (inertia), everything not anchored to bedrock at the equator would continue moving eastward at approximately 1,670 km/h (465 m/s). Atmosphere, oceans, buildings, vehicles, and unanchored landmasses would experience catastrophic supersonic winds and shearing forces greater than a nuclear blast wave.",
+      "firstFewHours": "Gigantic global tsunamis thousands of meters high would sweep across continents as oceans surge toward the poles. Earth's equatorial bulge (about 21 km higher due to centrifugal force) would collapse, causing all oceanic water to migrate toward the North and South poles, creating two colossal polar oceans separated by an immense equatorial supercontinent.",
+      "daysAndWeeksLater": "The day-night cycle would stretch to 365 days. One hemisphere would endure 6 continuous months of relentless solar radiation with temperatures soaring past 60°C (140°F), while the dark hemisphere would plunge into severe arctic conditions below -50°C. The atmosphere, dragged across stationary continents, would produce unprecedented super-storms along the terminator (the border between day and night).",
+      "longTermConsequences": "Without rotation-driven geodynamo convection in Earth's liquid outer core, the global magnetic field (magnetosphere) would drastically weaken or collapse entirely. Solar wind and cosmic radiation would bombard the surface, stripping away atmospheric ozone and making surface life nearly uninhabitable outside the moving twilight transition zone.",
+      "scienceBehindIt": "Earth rotates at angular velocity ω ≈ 7.292 × 10⁻⁵ rad/s, producing a centrifugal acceleration at the equator of a_c = ω²R ≈ 0.034 m/s² and enormous angular momentum L = Iω. Conservation of angular momentum dictates that Earth cannot stop spinning spontaneously without an astronomical external torque (such as an off-center collision with a Mars-sized planet).",
+      "couldItHappen": "Earth's rotation naturally slows by ~1.7 milliseconds per century due to tidal friction from the Moon, but a sudden stop is physically impossible. Even tidal locking to the Sun would require billions of years—long after the Sun has expanded into a red giant.",
+      "formula": "L = I\\omega = \\frac{2}{5} M R^2 \\omega",
+      "formulaBreakdown": {
+        "meaning": "Angular momentum of a solid rotating sphere.",
+        "variables": [
+          { "symbol": "L", "name": "Angular Momentum", "value": "~7.05 × 10³³ kg·m²/s" },
+          { "symbol": "I", "name": "Moment of Inertia", "value": "~8.04 × 10³⁷ kg·m²" },
+          { "symbol": "\\omega", "name": "Angular Velocity", "value": "7.292 × 10⁻⁵ rad/s" },
+          { "symbol": "M, R", "name": "Mass & Radius of Earth", "value": "5.97 × 10²⁴ kg, 6,371 km" }
+        ],
+        "example": "Stopping Earth in 1 second would release ~2.13 × 10²⁹ Joules of kinetic energy—equivalent to billions of simultaneous atomic bombs."
+      },
+      "levels": {
+        "beginner": "If Earth abruptly stopped spinning, anything not nailed down would fly sideways at 1,000 miles per hour due to inertia, just like passengers jerking forward when a car slams on the brakes.",
+        "explorer": "Earth's rotational velocity at the equator is 465 m/s. Sudden deceleration violates momentum conservation unless opposing torque is applied. Oceans would migrate to the poles because the equatorial bulge flattens without centrifugal force.",
+        "deepScience": "The equatorial oblateness is maintained by the balance of gravity and centrifugal potential: Φ_eff = -GM/r - ½ω²r²sin²θ. Halting ω reduces effective potential to pure Newtonian gravity, driving hydrostatic ocean reconfiguration to polar geoids within ~10⁴ seconds."
+      },
+      "keyConcepts": [
+        { "name": "Angular Momentum", "desc": "The rotational equivalent of linear momentum, conserved in isolated systems." },
+        { "name": "Centrifugal Effect", "desc": "The outward apparent force experienced by mass in a rotating frame of reference." },
+        { "name": "Inertia", "desc": "Newton's First Law: an object in motion stays in motion unless acted upon by an external force." },
+        { "name": "Geodynamo", "desc": "Mechanism by which Earth's rotating convective liquid iron core generates a magnetic field." }
+      ],
+      "relatedMovies": [1, 3],
+      "relatedMovieTitles": ["Interstellar", "Gravity"]
+    },
+    {
+      "id": 2,
+      "slug": "moon-disappeared",
+      "title": "What If the Moon Suddenly Disappeared?",
+      "hook": "What would happen to our oceans, seasons, and life on Earth if our celestial companion vanished overnight?",
+      "category": "Space & Physics",
+      "icon": "🌕",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics",
+      "immediateEffect": "Night skies would become significantly darker. Ocean tides would instantly shrink by roughly 66%, driven only by the weaker gravitational pull of the Sun. Marine organisms tuned to lunar cycles would experience immediate behavioral disorientation.",
+      "firstFewHours": "High and low tides would still occur, but with less than half of their normal amplitude and locked strictly to solar noon and midnight. Coastal ecosystems relying on intertidal zones would begin experiencing massive disruptions.",
+      "daysAndWeeksLater": "Nocturnal wildlife relying on lunar illumination for hunting and navigation (such as sea turtles, moths, and night predators) would face severe survival challenges. Tectonic strain cycles influenced by tidal gravitational flexing would alter subtly.",
+      "longTermConsequences": "Over millions of years, Earth's axial tilt (currently stable at ~23.5° due to the Moon's gravitational stabilizing torque) would become chaotically unstable, swinging between 0° and 85° like Mars. This would cause catastrophic climate swings, turning poles into boiling deserts and the equator into glacial ice sheets.",
+      "scienceBehindIt": "The Moon exerts a gravitational tidal force F_tidal ∝ 2GM_m R_e / d³. Because the Moon is relatively close (384,400 km), its tidal gradient is 2.2 times stronger than the Sun's. Furthermore, the Moon's orbital angular momentum stabilizes Earth's precession rate.",
+      "couldItHappen": "Matter cannot simply disappear due to conservation of mass-energy. An impact large enough to shatter the Moon would rain civilization-ending debris onto Earth.",
+      "formula": "F_{\\text{tidal}} \\approx \\frac{2 G M m R}{d^3}",
+      "formulaBreakdown": {
+        "meaning": "Differential gravitational tidal force across a planet's diameter.",
+        "variables": [
+          { "symbol": "M", "name": "Mass of Moon", "value": "7.35 × 10²² kg" },
+          { "symbol": "m", "name": "Mass of affected body of water", "value": "kg" },
+          { "symbol": "R", "name": "Radius of Earth", "value": "6,371 km" },
+          { "symbol": "d", "name": "Earth-Moon Distance", "value": "384,400 km" }
+        ],
+        "example": "Because tidal force falls with the cube of distance (d³), the relatively close Moon exerts more tidal force than the vastly more massive but distant Sun."
+      },
+      "levels": {
+        "beginner": "Nights would be pitch black, tides would drop by two-thirds, and over thousands of years our seasons would swing wildly out of control.",
+        "explorer": "The Moon acts as a gravitational gyroscope for Earth. Without it, Earth's obliquity (axial tilt) would fluctuate wildly between 0° and 85°, creating extreme planetary ice ages and super-summers.",
+        "deepScience": "Laskar et al. (1993) demonstrated via N-body symplectic integration that without lunar gravitational torques driving Earth's precession frequency outside solar system resonance frequencies, planetary perturbations would induce chaotic obliquity diffusion."
+      },
+      "keyConcepts": [
+        { "name": "Tidal Forces", "desc": "Differential gravitational pull across the spatial extent of a celestial body." },
+        { "name": "Axial Precession", "desc": "The slow, gyroscopic conical wobble of Earth's rotational axis." },
+        { "name": "Orbital Resonance", "desc": "Gravitational coupling between orbiting bodies causing orbital perturbations." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 3,
+      "slug": "gravity-half-strong",
+      "title": "What If Earth's Gravity Became Half as Strong?",
+      "hook": "What if you stepped outside tomorrow weighing exactly 50% less, and every physical structure on Earth felt twice as light?",
+      "category": "Space & Physics",
+      "icon": "⚖️",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (on smaller planet)",
+      "immediateEffect": "You would immediately feel incredibly light and energetic. A 70 kg person would exert only 343 N of force on the ground instead of 686 N. Humans could leap twice as high and carry twice the load without muscular strain.",
+      "firstFewHours": "Atmospheric pressure at sea level would drop by 50% (from 101.3 kPa to ~50.6 kPa)—equivalent to the oxygen density at the summit of Mount Everest (5,500m altitude). Anyone without supplementary oxygen would experience hypoxia within minutes.",
+      "daysAndWeeksLater": "Water's boiling point would drop from 100°C to approximately 81°C, altering cooking, industrial cooling, and global weather evaporation rates. Clouds would form at much higher altitudes, completely reshaping global precipitation and wind patterns.",
+      "longTermConsequences": "Over centuries, Earth's reduced escape velocity (from 11.2 km/s to ~7.9 km/s) would accelerate atmospheric escape of lighter gases like water vapor, nitrogen, and oxygen into space, gradually drying the planet into a Mars-like arid desert. Human bone density and muscle mass would atrophy significantly.",
+      "scienceBehindIt": "Surface gravity is given by g = GM/R². Halving g could happen either by reducing Earth's mass by half or expanding its radius by √2 (~1.414). Atmospheric scale height H = kT/(mg) would double, causing the atmosphere to expand outward into space.",
+      "couldItHappen": "The gravitational constant G is an invariant fundamental constant of physics. Changing gravity on Earth without removing half the planet's mass violates physics, but humans could experience ~0.38g by settling on Mars.",
+      "formula": "g = \\frac{G M}{R^2}, \\quad v_e = \\sqrt{\\frac{2GM}{R}}",
+      "formulaBreakdown": {
+        "meaning": "Surface gravitational acceleration and planetary escape velocity.",
+        "variables": [
+          { "symbol": "g", "name": "Surface Gravity", "value": "9.81 m/s² → 4.905 m/s²" },
+          { "symbol": "v_e", "name": "Escape Velocity", "value": "11.2 km/s → 7.92 km/s" },
+          { "symbol": "G", "name": "Gravitational Constant", "value": "6.674 × 10⁻¹¹ N·m²/kg²" }
+        ],
+        "example": "With g halved, falling from a 10-meter roof takes ~2.02 seconds instead of 1.43 seconds, and impact velocity is reduced from 14 m/s to 9.9 m/s."
+      },
+      "levels": {
+        "beginner": "You could jump twice as high, but air pressure would plummet to Everest levels, making it impossible to breathe without an oxygen mask.",
+        "explorer": "Half gravity doubles the atmospheric scale height while reducing escape velocity to 7.9 km/s. Over geological time, solar wind would strip Earth's atmosphere just as it did to Mars.",
+        "deepScience": "Hydrostatic equilibrium dP/dr = -ρ(r)g dictates that halving g halves column weight, reducing surface pressure P₀ = ∫ρg dz by 50%. The Jeans atmospheric escape parameter λ_J = GMm/(kT R) drops, exponentially boosting thermal escape flux."
+      },
+      "keyConcepts": [
+        { "name": "Surface Gravity", "desc": "Gravitational acceleration experienced by mass at a planet's surface." },
+        { "name": "Atmospheric Scale Height", "desc": "Vertical distance over which atmospheric density drops by factor e." },
+        { "name": "Jeans Escape", "desc": "Thermal escape of atmospheric gas molecules exceeding escape velocity." }
+      ],
+      "relatedMovies": [2, 3],
+      "relatedMovieTitles": ["The Martian", "Gravity"]
+    },
+    {
+      "id": 4,
+      "slug": "sun-suddenly-disappeared",
+      "title": "What If the Sun Suddenly Disappeared?",
+      "hook": "If the Sun vanished right now, we would not even know for 8 minutes and 20 seconds. What happens after the light goes out?",
+      "category": "Space & Physics",
+      "icon": "☀️",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics",
+      "immediateEffect": "For 8 minutes and 20 seconds, Earth would continue orbiting normally in sunlight because gravity and light travel at the speed of light (c). At 8m 20s, the sky would turn instantly pitch black and Earth would fling tangentially out of orbit into interstellar space at 29.8 km/s.",
+      "firstFewHours": "Photosynthesis would halt globally. The Moon and planets would vanish from the night sky as there is no sunlight to reflect. Outside temperatures would begin dropping steadily.",
+      "daysAndWeeksLater": "Within 1 week, global average surface temperatures would drop below 0°C (32°F). Within 1 year, temperatures would plunge to -73°C (-100°F). All oceans would freeze over from the top down, but thick ice would insulate geothermal liquid water below.",
+      "longTermConsequences": "Over decades, Earth would become a rogue planet drifting through interstellar space at 108,000 km/h. The atmosphere would condense and freeze out as liquid oxygen/nitrogen snow. Life could only survive clustered around deep-sea hydrothermal vents powered by Earth's internal geothermal heat.",
+      "scienceBehindIt": "General relativity demonstrates that gravitational perturbations propagate at speed c via gravitational waves. Earth's kinetic energy E_k = ½mv² keeps it travelling in a straight line through flat spacetime once the Sun's mass curvature disappears.",
+      "couldItHappen": "The Sun cannot disappear due to conservation of mass-energy. It will spend another ~5 billion years fusing hydrogen before expanding into a red giant.",
+      "formula": "t = \\frac{d}{c} = \\frac{1.496 \\times 10^{11}\\text{ m}}{3.0 \\times 10^8\\text{ m/s}} \\approx 499\\text{ seconds} \\approx 8.32\\text{ min}",
+      "formulaBreakdown": {
+        "meaning": "Propagation time of light and gravitational fields across 1 Astronomical Unit (AU).",
+        "variables": [
+          { "symbol": "d", "name": "Earth-Sun Distance", "value": "1.496 × 10¹¹ m (1 AU)" },
+          { "symbol": "c", "name": "Speed of Light in Vacuum", "value": "299,792,458 m/s" }
+        ],
+        "example": "Because gravitational waves travel at exactly c, Earth feels the loss of gravity at the exact same instant darkness falls."
+      },
+      "levels": {
+        "beginner": "We wouldn't notice anything for 8 minutes. Then total darkness hits, Earth shoots into deep space, and within a week the entire planet freezes.",
+        "explorer": "According to Einstein's relativity, gravity moves at the speed of light. Earth would travel tangentially in a straight line at 30 km/s into the galaxy while deep-sea geothermal vents would become the only refuge for life.",
+        "deepScience": "Spacetime curvature satisfies Einstein field equations G_μν = (8πG/c⁴)T_μν. Sudden vanishing of T_μν produces a metric discontinuity travelling outward at c, flattening the Schwarzschild metric to Minkowski spacetime behind the wavefront."
+      },
+      "keyConcepts": [
+        { "name": "Speed of Gravity", "desc": "General relativity proves gravitational information travels at precisely c." },
+        { "name": "Geothermal Energy", "desc": "Heat energy generated by radioactive decay of isotopes within Earth's mantle and core." },
+        { "name": "Rogue Planets", "desc": "Planetary-mass objects that orbit galactic centers directly without a parent star." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 5,
+      "slug": "travel-at-99-percent-lightspeed",
+      "title": "What If Humans Could Travel at 99% of the Speed of Light?",
+      "hook": "What would a journey look like if you boarded a spaceship cruising at 0.99c through the cosmos?",
+      "category": "Space & Physics",
+      "icon": "🚀",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Extreme Engineering)",
+      "immediateEffect": "Relativistic aberration would compress the entire celestial sky into a concentrated blinding spotlight directly in front of the ship. Stars in front would blueshift into lethal gamma rays and X-rays, while stars behind would redshift into invisible radio waves.",
+      "firstFewHours": "Time dilation factor γ (Lorentz factor) would equal ~7.09. For every 1 hour experienced by astronauts inside the ship, 7 hours and 5 minutes would pass for observers back on Earth.",
+      "daysAndWeeksLater": "Every stray hydrogen atom in interstellar space (density ~1 atom/cm³) would impact the forward hull at 0.99c with energies equivalent to particle beam weapons, requiring electromagnetic deflection shields or meters of solid tungsten shielding.",
+      "longTermConsequences": "A trip to Alpha Centauri (4.37 light-years away) would take 4.41 years according to Earth clocks, but only 7.4 months for the crew on board. Traveling to the Andromeda galaxy (2.5 million light-years away) would take ~350,000 subjective years at 0.99c—or just 28 subjective years if accelerated at 1g continuously to 0.999999999c!",
+      "scienceBehindIt": "Special relativity dictates that as velocity v approaches c, relativistic mass-energy and Lorentz factor γ = 1/√(1 - v²/c²) approach infinity. Accelerating a 1,000-ton starship to 0.99c requires ~5.48 × 10²³ Joules—more than all the energy humanity consumes in a millennium.",
+      "couldItHappen": "Massive objects cannot reach or exceed c because it requires infinite energy. 0.99c is theoretically permitted by physics, but requires antimatter propulsion or fusion ramjets that currently exceed human engineering.",
+      "formula": "\\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}} = \\frac{1}{\\sqrt{1 - 0.99^2}} \\approx 7.0888",
+      "formulaBreakdown": {
+        "meaning": "Lorentz factor quantifying time dilation and length contraction at relativistic speeds.",
+        "variables": [
+          { "symbol": "\\gamma", "name": "Lorentz Factor", "value": "7.0888 at 0.99c" },
+          { "symbol": "v", "name": "Velocity", "value": "296,794,533 m/s (0.99c)" },
+          { "symbol": "c", "name": "Speed of Light", "value": "299,792,458 m/s" }
+        ],
+        "example": "If you travel at 0.99c for 1 year ship time (Δτ = 1 yr), Δt = γ × 1 = 7.09 years will elapse on Earth."
+      },
+      "levels": {
+        "beginner": "At 99% light speed, time slows down so much that 7 years pass on Earth while you only age 1 year on your spaceship!",
+        "explorer": "Relativistic Doppler shifting turns visible starlight ahead into dangerous X-rays, while relativistic length contraction makes distances between stars appear 7 times shorter to the crew.",
+        "deepScience": "The relativistic 4-momentum is p^μ = (γmc, γm\\mathbf{v}). Kinetic energy E_k = (γ - 1)mc². At 0.99c, E_k ≈ 6.09 mc², meaning kinetic energy exceeds rest mass energy by 600%."
+      },
+      "keyConcepts": [
+        { "name": "Time Dilation", "desc": "Slowing of proper time experienced by an object moving relative to an observer." },
+        { "name": "Lorentz Factor", "desc": "Scaling factor γ determining relativistic dilation, contraction, and mass-energy." },
+        { "name": "Relativistic Aberration", "desc": "Optical phenomenon where light rays appear concentrated in the forward direction of motion." },
+        { "name": "Relativistic Doppler Effect", "desc": "Frequency shift of electromagnetic waves due to high relative velocities." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 6,
+      "slug": "wormhole-existed",
+      "title": "What If a Traversable Wormhole Existed Near Earth?",
+      "hook": "What if an Einstein-Rosen bridge opened in our solar system, linking Earth to a galaxy 10 billion light-years away?",
+      "category": "Space & Physics",
+      "icon": "🌀",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Highly Speculative / Theoretical Physics",
+      "immediateEffect": "Astronomers would observe a gravitational lensing sphere reflecting distorted images of a distant star system. Spacecraft could enter the throat and traverse billions of light-years in seconds without exceeding local speed of light.",
+      "firstFewHours": "Tidal forces around the mouth of a macroscopic wormhole would need to be minimal (requiring a throat radius of thousands of kilometers) to prevent spaghettification of approaching ships.",
+      "daysAndWeeksLater": "Probes sent through would transmit telemetry from across the cosmos, revolutionizing astrophysics, cosmology, and the search for extraterrestrial life.",
+      "longTermConsequences": "If the two mouths of the wormhole were moved at relativistic speeds relative to each other, the wormhole would transform into a closed timelike curve (CTC)—a time machine enabling travel to the past, creating causal paradoxes.",
+      "scienceBehindIt": "Einstein-Rosen bridges are solutions to Einstein's field equations G_μν = (8πG/c⁴)T_μν. However, Morris-Thorne traversable wormholes require exotic matter with negative energy density (T_μν violating the Null Energy Condition) to keep the throat from instantly collapsing into black holes.",
+      "couldItHappen": "Traversable wormholes are mathematically valid under General Relativity, but no macroscopic negative mass-energy has ever been observed (beyond microscopic Casimir effect quantum fluctuations).",
+      "formula": "ds^2 = -c^2 dt^2 + dr^2 + (b(r)^2 + r^2)(d\\theta^2 + \\sin^2\\theta d\\phi^2)",
+      "formulaBreakdown": {
+        "meaning": "Morris-Thorne traversable wormhole spacetime metric.",
+        "variables": [
+          { "symbol": "b(r)", "name": "Shape function", "value": "Defines wormhole throat spatial geometry" },
+          { "symbol": "r_0", "name": "Throat Radius", "value": "Minimum radius connecting asymptotic universes" }
+        ],
+        "example": "To hold a 1-meter wide wormhole open requires negative energy equivalent to the total mass of Jupiter with negative sign: -1.9 × 10²⁷ kg."
+      },
+      "levels": {
+        "beginner": "A wormhole is like folding a piece of paper and poking a pencil through it: a cosmic shortcut between two distant points in space.",
+        "explorer": "Traversable wormholes require 'exotic matter' with negative energy to prevent gravitational collapse of the throat. Moving one mouth creates a time machine.",
+        "deepScience": "Traversability requires violation of the averaged null energy condition (ANEC): ∫ T_μν k^μ k^ν dλ < 0. Quantum inequalities place strict upper bounds on the magnitude and duration of negative energy densities."
+      },
+      "keyConcepts": [
+        { "name": "Einstein-Rosen Bridge", "desc": "Topological shortcut connecting two separate points in spacetime." },
+        { "name": "Exotic Matter", "desc": "Hypothetical matter possessing negative mass or negative energy density." },
+        { "name": "Null Energy Condition", "desc": "General relativity energy condition stating matter density seen by light rays is always non-negative." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 7,
+      "slug": "fell-into-black-hole",
+      "title": "What If We Fell Into a Black Hole?",
+      "hook": "What would a human traveler actually experience when crossing the point of no return into a supermassive black hole?",
+      "category": "Space & Physics",
+      "icon": "🕳️",
+      "classification": "Established Science",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Established Science (Relativity)",
+      "immediateEffect": "Approaching the black hole, gravitational lensing curves the entire universe into a glowing ring of light (Einstein ring). In a stellar-mass black hole, tidal forces between your head and feet would stretch you into a string of atoms (spaghettification) before reaching the horizon. In a supermassive black hole (like Gargantua in Interstellar), tidal forces at the horizon are gentle enough to cross unharmed!",
+      "firstFewHours": "Outside observers watching you fall would see your clock slow down exponentially due to gravitational time dilation. Your image would redshift into infrared and fade to black at the event horizon, never appearing to cross.",
+      "daysAndWeeksLater": "From your perspective, you cross the event horizon in finite proper time. Once inside, space and time swap mathematical roles: the central singularity is no longer a location in space, but an inevitable moment in your future.",
+      "longTermConsequences": "Within milliseconds after crossing the horizon of a supermassive black hole, tidal forces escalate toward infinity, tearing molecular bonds, atomic nuclei, and crushing all matter into quantum spacetime foam at the singularity.",
+      "scienceBehindIt": "The event horizon radius is Schwarzschild radius r_s = 2GM/c². Inside r_s, the radial coordinate r becomes timelike (dr/dt < 0 always), meaning moving toward the singularity is as inexorable as moving forward in time.",
+      "couldItHappen": "Black holes are observed astrophysical facts (e.g. M87* and Sagittarius A* imaged by Event Horizon Telescope). The physics of falling in is rigorously modeled by General Relativity.",
+      "formula": "r_s = \\frac{2GM}{c^2}, \\quad \\Delta t_{\\text{outside}} = \\frac{\\Delta \\tau}{\\sqrt{1 - \\frac{r_s}{r}}}",
+      "formulaBreakdown": {
+        "meaning": "Schwarzschild event horizon radius and gravitational time dilation.",
+        "variables": [
+          { "symbol": "r_s", "name": "Schwarzschild Radius", "value": "2GM/c² (~3 km per solar mass)" },
+          { "symbol": "M", "name": "Black Hole Mass", "value": "kg (e.g. 4.3 million M☉ for Sgr A*)" },
+          { "symbol": "r", "name": "Distance from center", "value": "meters" }
+        ],
+        "example": "For a 100-million solar mass black hole, r_s ≈ 300 million km (2 AU), and tidal acceleration at horizon is only ~0.001 m/s² per meter."
+      },
+      "levels": {
+        "beginner": "Outside observers see you freeze and fade away forever at the edge, but you fall right in until extreme gravity crushes you at the center.",
+        "explorer": "Inside the event horizon, space and time switch roles. Reaching the singularity is not a location you can steer away from—it is an unavoidable future timestamp.",
+        "deepScience": "In Schwarzschild coordinates, g_00 = -(1 - r_s/r) and g_rr = (1 - r_s/r)⁻¹. For r < r_s, g_00 > 0 and g_rr < 0, transforming r into a timelike coordinate with geodesic singularity at r = 0."
+      },
+      "keyConcepts": [
+        { "name": "Event Horizon", "desc": "The boundary beyond which the escape velocity exceeds the speed of light." },
+        { "name": "Spaghettification", "desc": "Vertical stretching and horizontal compression caused by extreme tidal gravitational gradients." },
+        { "name": "Singularity", "desc": "A point where spacetime curvature and density become infinite under classical relativity." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 8,
+      "slug": "earth-had-two-moons",
+      "title": "What If Earth Had Two Moons?",
+      "hook": "What would happen if Earth captured a second major moon in a stable orbital resonance?",
+      "category": "Space & Physics",
+      "icon": "🌕🌖",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Celestial Mechanics)",
+      "immediateEffect": "Night skies would display breathtaking dual lunar phases and double eclipses. Tides would exhibit complex interference patterns, creating extreme super-tides when both moons align (syzygy).",
+      "firstFewHours": "Coastal tides would experience irregular resonance: depending on the second moon's mass and orbit, high tides could reach 20 to 50 meters, flooding coastal cities every few weeks.",
+      "daysAndWeeksLater": "Complex gravitational tidal friction would alter Earth's rotational deceleration rate, causing day length to increase faster over centuries. Marine life would develop dual reproductive cycles.",
+      "longTermConsequences": "Three-body gravitational orbital dynamics (Earth + Moon 1 + Moon 2) are notoriously chaotic unless in strict orbital resonance (e.g. 2:1 or 4:1). Over millions of years, the two moons would either collide violently (forming a ring system and devastating Earth with meteorite rain) or one moon would be ejected into solar orbit.",
+      "scienceBehindIt": "N-body celestial mechanics dictates that non-resonant multi-satellite orbits around low-mass terrestrial planets suffer Kozai-Lidov resonance and chaotic eccentricity growth, leading to orbital crossing.",
+      "couldItHappen": "Earth frequently captures temporary mini-moons (such as asteroid 2020 CD3), but a second massive moon would require precise gravitational capture parameters.",
+      "formula": "\\frac{T_1^2}{T_2^2} = \\frac{a_1^3}{a_2^3}",
+      "formulaBreakdown": {
+        "meaning": "Kepler's Third Law governing orbital periods of multiple satellites.",
+        "variables": [
+          { "symbol": "T_1, T_2", "name": "Orbital periods", "value": "days" },
+          { "symbol": "a_1, a_2", "name": "Semi-major axes", "value": "km" }
+        ],
+        "example": "A moon orbiting at half the distance of our Moon (192,000 km) would orbit Earth in just 9.7 days and exert 8 times stronger tidal forces!"
+      },
+      "levels": {
+        "beginner": "We would see two moons in the sky, but mega-tides up to 50 feet high would regularly wash over coastal cities.",
+        "explorer": "Having two massive moons creates chaotic orbital instability. Eventually, they would likely crash into each other, creating a Saturn-like ring around Earth.",
+        "deepScience": "The Hill sphere radius r_H ≈ a(m/3M)^(1/3) sets the boundary of gravitational dominance. Cross-interaction of gravitational potential harmonics J_2 induces chaotic secular orbital resonance."
+      },
+      "keyConcepts": [
+        { "name": "Three-Body Problem", "desc": "Non-integrable chaotic physics problem governing three mutually attracting masses." },
+        { "name": "Tidal Resonance", "desc": "Amplification of tidal amplitudes when natural basin periods match lunar gravitational forcing." },
+        { "name": "Hill Sphere", "desc": "The region around a celestial body where it dominates the attraction of satellites." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 9,
+      "slug": "earth-became-tidally-locked",
+      "title": "What If Earth Became Tidally Locked to the Sun?",
+      "hook": "What if one side of Earth permanently faced the scorching Sun while the other froze in eternal darkness?",
+      "category": "Space & Physics",
+      "icon": "🌗",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Common in Exoplanets)",
+      "immediateEffect": "Rotation period equals orbital period (1 day = 1 year = 365 days). The Sun would hang permanently frozen at the exact same spot in the sky across every hemisphere.",
+      "firstFewHours": "Subsolar point (directly under the Sun) temperatures would soar to +70°C (+158°F), causing intense evaporative thermals and perpetual thunderstorms.",
+      "daysAndWeeksLater": "The night side would plummet to -80°C, freezing atmospheric water vapor and carbon dioxide into vast glaciers. Moisture would be locked in nightside ice sheets, drying out the dayside continents.",
+      "longTermConsequences": "Life would only survive in the 'Twilight Zone' (terminator)—a narrow ring around the globe between eternal daylight and eternal night, where temperatures stabilize around 15°C to 25°C under perpetual twilight skies.",
+      "scienceBehindIt": "Tidal locking occurs when gravitational tidal torques dissipate a planet's rotational energy until rotational period synchronizes with orbital period. Most close-in exoplanets in red dwarf habitable zones (e.g. TRAPPIST-1e, Proxima Centauri b) are tidally locked.",
+      "couldItHappen": "At 1 AU from a G-type star like our Sun, tidal locking timescale exceeds hundreds of billions of years, but it is the default state for rocky worlds orbiting red dwarf stars.",
+      "formula": "t_{\\text{lock}} \\approx \\frac{\\omega a^6 I Q}{3 G M_{\\text{star}}^2 k_2 R^5}",
+      "formulaBreakdown": {
+        "meaning": "Timescale required for a star's tidal forces to completely lock a planet's rotation.",
+        "variables": [
+          { "symbol": "a", "name": "Semi-major axis", "value": "1.496 × 10¹¹ m (1 AU)" },
+          { "symbol": "M_{\\text{star}}", "name": "Stellar mass", "value": "1.989 × 10³⁰ kg" },
+          { "symbol": "Q, k_2", "name": "Tidal dissipation & Love number", "value": "Physical rigidity factors" }
+        ],
+        "example": "Because tidal locking time scales with a⁶ (distance to the sixth power), planets close to red dwarfs lock in millions of years, while Earth takes 10¹² years."
+      },
+      "levels": {
+        "beginner": "Half the planet would be a blazing desert, the other half a frozen wasteland, and humans could only live in a narrow strip of eternal sunset.",
+        "explorer": "Atmospheric circulation on tidally locked worlds creates a global conveyor belt: blistering dayside air flows aloft to the nightside, cools, and returns as howling surface winds.",
+        "deepScience": "Atmospheric dynamics are governed by Rossby deformation radius and Kelvin wave propagation, creating an asymmetric eastward equatorial superrotating jet stream."
+      },
+      "keyConcepts": [
+        { "name": "Tidal Locking", "desc": "Orbital synchronization where a body rotates on its axis at the exact same rate it orbits." },
+        { "name": "Terminator Zone", "desc": "The narrow dividing boundary line between the illuminated and dark sides of a celestial body." },
+        { "name": "Atmospheric Collapse", "desc": "Phenomenon where a planet's atmosphere freezes out as solid ice on an ultra-cold night hemisphere." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 10,
+      "slug": "humans-lived-on-mars",
+      "title": "What If Humans Built a Permanent Civilization on Mars?",
+      "hook": "What would everyday human biology, physics, and society look like on a world with 38% gravity, thin CO₂ air, and unshielded cosmic radiation?",
+      "category": "Space & Physics",
+      "icon": "🔴",
+      "classification": "Scientifically Plausible",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Scientifically Plausible (Active Engineering)",
+      "immediateEffect": "Settlers live in pressurized underground lava tubes or shielded habitats. Stepping outside requires a full IVA/EVA space suit with active thermal regulation and CO₂ scrubbers.",
+      "firstFewHours": "In 0.38g, humans walk with a distinct bounding gait. Carrying 100 kg feels like carrying 38 kg, but inertia (resistance to acceleration) remains 100% identical!",
+      "daysAndWeeksLater": "Dust storms covering entire planetary hemispheres blot out 99% of solar power for months. Habitats must rely on compact nuclear fission reactors (e.g. Kilopower) and Sabatier chemical reactors converting Martian CO₂ + H₂ into water and methane rocket fuel.",
+      "longTermConsequences": "Generations born on Mars would grow taller with lower bone mineral density. Without a global magnetic field, unshielded surface radiation increases cancer risk unless protected by 3+ meters of regolith shielding.",
+      "scienceBehindIt": "Martian atmosphere is 95.3% CO₂ at 0.6 kPa (less than 1% of Earth's 101.3 kPa). The Sabatier reaction CO₂ + 4H₂ → CH₄ + 2H₂O provides in-situ resource utilization (ISRU) for life support and propellant.",
+      "couldItHappen": "Colonizing Mars is permitted by known physics and is actively targeted by space agencies (NASA Artemis / Moon to Mars) and commercial space companies.",
+      "formula": "\\text{CO}_2 + 4\\text{H}_2 \\xrightarrow{\\text{Ni catalyst, } 400^\\circ\\text{C}} \\text{CH}_4 + 2\\text{H}_2\\text{O}, \\quad \\Delta H = -165\\text{ kJ/mol}",
+      "formulaBreakdown": {
+        "meaning": "Sabatier exothermic reaction converting Martian atmosphere into water and methane rocket fuel.",
+        "variables": [
+          { "symbol": "\\text{CO}_2", "name": "Martian Atmosphere", "value": "95.3% atmospheric abundance" },
+          { "symbol": "\\text{CH}_4", "name": "Methane Propellant", "value": "Usable fuel for return rockets" }
+        ],
+        "example": "Electrolyzing the resulting 2H₂O yields breathable O₂ and recycles 2H₂ back into the reaction."
+      },
+      "levels": {
+        "beginner": "Living on Mars means living in underground domes, walking with bouncy steps in low gravity, and making your own air and rocket fuel from the red dirt.",
+        "explorer": "Martian colonists would rely on In-Situ Resource Utilization (ISRU) to extract water from subterranean permafrost and split carbon dioxide into oxygen and rocket propellant.",
+        "deepScience": "The absence of an intrinsic magnetic dipole exposes surface habitats to galactic cosmic rays (GCR, ~0.67 mSv/day) and solar particle events (SPE), requiring regolith shielding of mass thickness ≥ 300 g/cm²."
+      },
+      "keyConcepts": [
+        { "name": "In-Situ Resource Utilization", "desc": "Harnessing and processing local extraterrestrial resources rather than transporting from Earth." },
+        { "name": "Sabatier Reaction", "desc": "Catalytic chemical process synthesizing methane and water from carbon dioxide and hydrogen." },
+        { "name": "Cosmic Radiation Shielding", "desc": "Material barriers used to absorb ionizing galactic cosmic rays and solar flares." }
+      ],
+      "relatedMovies": [2],
+      "relatedMovieTitles": ["The Martian"]
+    },
+    {
+      "id": 11,
+      "slug": "time-travel-to-the-past",
+      "title": "What If Time Travel to the Past Were Possible?",
+      "hook": "What would happen if a machine could send matter or information backwards through time?",
+      "category": "Time & Relativity",
+      "icon": "⏳",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics (Causality / Hawking Chronology)",
+      "immediateEffect": "Sending information backwards would enable instantaneous computation and total disruption of entropy. One could receive answers to complex scientific questions before they were ever calculated.",
+      "firstFewHours": "Causal paradoxes emerge: The Grandfather Paradox (what if you prevent your own birth?) and the Bootstrap Paradox (an object or idea exists without ever being created).",
+      "daysAndWeeksLater": "Physical resolution models proposed by theoretical physicists include the Novikov Self-Consistency Principle (events are fixed; you can only cause what already happened) or the Many-Worlds quantum branching interpretation (traveling back lands you in an alternate parallel timeline).",
+      "longTermConsequences": "Thermodynamic time direction (the Second Law: entropy S always increases, dS ≥ 0) would break down, violating fundamental thermodynamics and energy conservation.",
+      "scienceBehindIt": "Einstein's General Relativity admits solutions with Closed Timelike Curves (CTCs)—such as Gödel rotating universe metrics or Tipler Cylinders—but Stephen Hawking's 'Chronology Protection Conjecture' indicates quantum vacuum fluctuations diverge to infinity along closed loops, destroying the time machine before it forms.",
+      "couldItHappen": "Forward time travel is proven and verified daily (via relativistic time dilation). Backward time travel violates the Second Law of Thermodynamics and quantum field causality.",
+      "formula": "dS \\ge 0 \\quad \\text{(Second Law)}, \\quad \\langle T_{\\mu\\nu} \\rangle_{\\text{ren}} \\to \\infty \\quad \\text{at Cauchy horizon}",
+      "formulaBreakdown": {
+        "meaning": "Second law of thermodynamics and quantum stress-energy divergence at CTC horizons.",
+        "variables": [
+          { "symbol": "S", "name": "Thermodynamic Entropy", "value": "Measure of disorder, strictly non-decreasing" },
+          { "symbol": "\\langle T_{\\mu\\nu} \\rangle", "name": "Quantum vacuum stress tensor", "value": "Diverges to ∞ at time machine boundary" }
+        ],
+        "example": "To prevent paradoxes, quantum vacuum energy blows up right at the threshold of forming a closed timelike curve, preventing backwards travel."
+      },
+      "levels": {
+        "beginner": "Going backwards in time creates impossible paradoxes—like stopping your own birth. Physics suggests nature forbids backward time travel to protect causality.",
+        "explorer": "While General Relativity allows theoretical mathematical loops in spacetime called Closed Timelike Curves, quantum physics prevents them because vacuum energy becomes infinite at the horizon.",
+        "deepScience": "Hawking's Chronology Protection Conjecture states: T^μ_ν quantum expectation values diverge as the Cauchy horizon is approached, generating back-reaction that alters the metric and pinches off CTC formation."
+      },
+      "keyConcepts": [
+        { "name": "Closed Timelike Curves", "desc": "Worldlines in General Relativity that loop back on themselves in spacetime." },
+        { "name": "Chronology Protection", "desc": "Conjecture that laws of physics conspire to prevent macroscopic backward time travel." },
+        { "name": "Novikov Self-Consistency", "desc": "Principle asserting that probability of any paradoxical event in a timeline is identically zero." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 12,
+      "slug": "traveled-near-c-for-one-year",
+      "title": "What If You Traveled Near the Speed of Light for One Year?",
+      "hook": "What would you find on Earth if you spent 365 days on a starship accelerating at 1g up to 0.9999c?",
+      "category": "Time & Relativity",
+      "icon": "⚡",
+      "classification": "Established Science",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Established Science (Special Relativity)",
+      "immediateEffect": "Inside the ship, you feel a comfortable 1g Earth-like gravity from constant acceleration. Clocks, cell division, and heartbeats tick at completely normal subjective rates.",
+      "firstFewHours": "As speed relative to Earth approaches 0.9c, 0.99c, and 0.9999c, your Lorentz factor γ jumps from 2.29 to 7.09 to 70.7.",
+      "daysAndWeeksLater": "Looking back at Earth through radio signals, Earth time appears to be running on extreme fast-forward. Seasons, decades, and historical eras flash by outside your window.",
+      "longTermConsequences": "When your ship turns around and returns after exactly 1 year of your proper time, you have aged 1 year—but decades to centuries have elapsed on Earth. Everyone you knew may have grown old or passed away. You have effectively traveled forward into Earth's future.",
+      "scienceBehindIt": "Special relativity's Twin Paradox is resolved because the traveling twin accelerates and decelerates, changing inertial reference frames. The proper time formula is τ = ∫ √(1 - v(t)²/c²) dt.",
+      "couldItHappen": "Experimentally verified with subatomic muons in particle accelerators (which live 30x longer at 0.999c) and atomic clocks on GPS satellites and supersonic aircraft.",
+      "formula": "\\Delta t = \\gamma \\Delta \\tau = \\frac{\\Delta \\tau}{\\sqrt{1 - \\frac{v^2}{c^2}}}",
+      "formulaBreakdown": {
+        "meaning": "Relativistic time dilation equation relating proper time (τ) to observer time (t).",
+        "variables": [
+          { "symbol": "\\Delta \\tau", "name": "Proper Time (Ship)", "value": "1.0 Year" },
+          { "symbol": "\\Delta t", "name": "Coordinate Time (Earth)", "value": "γ × 1.0 Year" },
+          { "symbol": "v", "name": "Velocity", "value": "0.9999c (γ ≈ 70.71)" }
+        ],
+        "example": "At v = 0.9999c, 1 year on your spaceship equals 70.7 years on Earth!"
+      },
+      "levels": {
+        "beginner": "If you take a 1-year trip near light speed, you age 1 year while 70 years pass on Earth. You return to find your grandchildren older than you.",
+        "explorer": "This is the real-world Twin Paradox. Because acceleration breaks symmetry between reference frames, the traveling astronaut takes a shorter path through spacetime.",
+        "deepScience": "The invariant spacetime interval ds² = c²dτ² = c²dt² - dx² - dy² - dz² is maximized along non-accelerated geodesics. The traveler's accelerated worldline minimizes proper time τ = ∫ (1/c)√g_μν dx^μ dx^ν."
+      },
+      "keyConcepts": [
+        { "name": "Proper Time", "desc": "Time elapsed as measured by a clock accompanying a specific moving observer." },
+        { "name": "Twin Paradox", "desc": "Relativity thought experiment demonstrating asymmetrical aging between inertial and accelerated observers." },
+        { "name": "Spacetime Interval", "desc": "Invariant quantity in Minkowski spacetime preserved under Lorentz transformations." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 13,
+      "slug": "time-passed-differently-planets",
+      "title": "What If Time Passed Differently on Earth and Another Planet?",
+      "hook": "Remember Miller's Planet in Interstellar where '1 hour here is 7 years on Earth'? What causes such extreme gravitational time dilation?",
+      "category": "Time & Relativity",
+      "icon": "🌊",
+      "classification": "Established Science",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Established Science (General Relativity)",
+      "immediateEffect": "Stepping onto a planet deep inside a massive gravitational potential well, your local clock ticks completely normally (1 second = 1 second for you).",
+      "firstFewHours": "A 3-hour exploration mission on the planet surface equates to 21 years of time ticking away for astronauts waiting in orbit outside the gravitational well.",
+      "daysAndWeeksLater": "Communication signals sent from the planet to Earth are severely redshifted in frequency (gravitational redshift) and time-stretched, arriving on Earth in extreme slow-motion.",
+      "longTermConsequences": "Civilizations on the high-gravity world would observe the rest of the universe evolving, stars burning out, and galaxies colliding at accelerated speeds.",
+      "scienceBehindIt": "Gravitational time dilation is given by t_f = t_0 / √(1 - 2GM/rc²). To achieve a 61,320-to-1 dilation factor (1 hr = 7 yrs), the planet must orbit immediately outside the event horizon of a supermassive rotating Kerr black hole spinning at 99.999999999999% of maximum theoretical limit.",
+      "couldItHappen": "Gravitational time dilation is an experimentally proven fact: GPS satellites must correct their atomic clocks by +45 microseconds per day because Earth's gravity is weaker in orbit than on the surface!",
+      "formula": "\\frac{t_{\\text{distant}}}{t_{\\text{local}}} = \\frac{1}{\\sqrt{1 - \\frac{2GM}{r c^2}}} = \\frac{1}{\\sqrt{1 - \\frac{r_s}{r}}}",
+      "formulaBreakdown": {
+        "meaning": "Gravitational time dilation factor in a static Schwarzschild metric.",
+        "variables": [
+          { "symbol": "r_s", "name": "Schwarzschild Radius", "value": "2GM/c²" },
+          { "symbol": "r", "name": "Orbital radius", "value": "Distance from singularity" }
+        ],
+        "example": "To get 1 hour = 7 years (ratio ~61,320), r must be within 1 part in 7.5 billion of the event horizon, possible only around a supermassive rotating Kerr black hole."
+      },
+      "levels": {
+        "beginner": "Gravity bends time itself. The closer you stand to an ultra-massive black hole, the slower your clock ticks compared to the rest of the universe.",
+        "explorer": "This is gravitational time dilation. Because mass curves spacetime, clocks deeper in a gravity well tick slower relative to clocks in flat space.",
+        "deepScience": "In a rotating Kerr metric, the innermost stable circular orbit (ISCO) for co-rotating orbits approaches r_+ = M + √(M² - a²) as spin parameter a/M → 1, allowing stable orbits in extreme time-dilation zones."
+      },
+      "keyConcepts": [
+        { "name": "Gravitational Time Dilation", "desc": "Difference of elapsed proper time between two events as measured by observers in different gravitational potentials." },
+        { "name": "Kerr Black Hole", "desc": "Exact solution of Einstein equations describing an uncharged rotating black hole." },
+        { "name": "Gravitational Redshift", "desc": "Electromagnetic radiation losing energy and shifting to longer wavelengths escaping a gravity well." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 14,
+      "slug": "faster-than-light",
+      "title": "What If We Could Move Faster Than Light?",
+      "hook": "What would happen if an Alcubierre Warp Drive could propel a vessel at 10 times the speed of light?",
+      "category": "Time & Relativity",
+      "icon": "🛸",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics (Special Relativity / Energy Conditions)",
+      "immediateEffect": "Inside an Alcubierre bubble, the ship remains stationary in local flat spacetime while spacetime itself contracts in front of the bubble and expands behind it.",
+      "firstFewHours": "Because FTL travel in any frame allows construction of reference frames where the journey arrives before it departed, FTL movement is mathematically equivalent to backward time travel.",
+      "daysAndWeeksLater": "High-energy particles collected along the leading edge of the warp bubble would be released in a catastrophic mega-blast of Hawking radiation upon arrival at the destination, destroying planetary targets.",
+      "longTermConsequences": "Interstellar colonization across millions of light-years becomes feasible within human lifespans, but causality in physics is completely broken.",
+      "scienceBehindIt": "Under Special Relativity, accelerating mass to c requires infinite energy: E = γmc² → ∞ as v → c. Alcubierre warp drives bypass this by expanding spacetime (which has no speed limit), but require negative energy densities of astronomical scale.",
+      "couldItHappen": "Massive particles moving faster than light (tachyons) violate causality and have never been discovered. Warp bubbles require negative energy forms that may not physically exist at macroscopic scales.",
+      "formula": "v_{\\text{apparent}} = \\frac{dx}{dt} > c, \\quad E = \\frac{m c^2}{\\sqrt{1 - \\frac{v^2}{c^2}}}",
+      "formulaBreakdown": {
+        "meaning": "Relativistic energy singularity at v = c.",
+        "variables": [
+          { "symbol": "E", "name": "Total Relativistic Energy", "value": "Approaches ∞ as v → c" },
+          { "symbol": "m", "name": "Rest Mass", "value": "kg" }
+        ],
+        "example": "Accelerating even an electron to 100% of light speed requires more energy than exists in the observable universe."
+      },
+      "levels": {
+        "beginner": "Nothing with mass can travel faster than light because light speed is the universal speed limit of cause and effect.",
+        "explorer": "The Alcubierre Warp Drive attempts a loophole: rather than moving through space, it contracts space in front and expands space behind, requiring negative energy.",
+        "deepScience": "The Alcubierre metric ds² = -c²dt² + (dx - v_s(t)f(r_s)dt)² + dy² + dz² requires stress-energy tensor violating weak, strong, and dominant energy conditions, producing quantum horizon instabilities."
+      },
+      "keyConcepts": [
+        { "name": "Alcubierre Metric", "desc": "Spacetime geometry allowing apparent FTL motion via local expansion/contraction of space." },
+        { "name": "Causality Violation", "desc": "Disruption of causal order where an effect occurs prior to its initiating cause." },
+        { "name": "Tachyons", "desc": "Hypothetical particles with imaginary rest mass that always travel faster than light." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 15,
+      "slug": "humans-could-regenerate",
+      "title": "What If Humans Could Regenerate Limbs and Organs Like Axolotls?",
+      "hook": "What if losing an arm, lung, or heart muscle was as temporary as clipping a fingernail?",
+      "category": "Biology",
+      "icon": "🦎",
+      "classification": "Scientifically Plausible",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Active Research / Plausible Biotechnology",
+      "immediateEffect": "Upon injury, specialized cells at the wound site would dedifferentiate into pluripotent progenitor cells, forming a regenerative blastema rather than creating fibrous scar tissue (fibrosis).",
+      "firstFewHours": "Blood clotting would transition immediately into cellular reprogramming signals (Wnt, FGF, and BMP signaling pathways) instead of inflammatory collagen scarring.",
+      "daysAndWeeksLater": "Within weeks, nerve bundles, blood vessels, cartilage, and muscle fibers would regrow with exact morphological fidelity, rebuilding complete functional limbs.",
+      "longTermConsequences": "Organ failure, amputations, and cardiovascular heart attack scarring would be completely curable. Human life expectancy could easily exceed 120-150 years as damaged organs constantly self-renew.",
+      "scienceBehindIt": "Humans still possess most regenerative gene sequences (homologs of axolotl and zebrafish blastema genes), but evolutionary pressures in mammals favored rapid scarring (to prevent lethal infection) and tumor-suppressor silencing (to prevent cancer).",
+      "couldItHappen": "Active research in CRISPR gene activation, bioelectric ion channel signaling (e.g. Levin Lab), and induced blastema formation is actively working toward human tissue regeneration.",
+      "formula": "\\text{Dedifferentiation} \\xrightarrow{\\text{Oct4, Sox2, Klf4, Myc}} \\text{Blastema Stem Cells} \\xrightarrow{\\text{Morphogenetic Gradients}} \\text{Organogenesis}",
+      "formulaBreakdown": {
+        "meaning": "Cellular reprogramming pathway from differentiated somatic cells to regenerative blastema.",
+        "variables": [
+          { "symbol": "\\text{Blastema}", "name": "Regenerative cell mass", "value": "Dedifferentiated multipotent cells capable of organogenesis" }
+        ],
+        "example": "Axolotls can regrow entire limbs, heart ventricles, and even parts of their brain dozens of times without any cancer formation."
+      },
+      "levels": {
+        "beginner": "Instead of forming scars when injured, human cells would turn into stem cells and rebuild perfect replacement arms, legs, or kidneys.",
+        "explorer": "Mammals traded off regeneration for rapid scarring and cancer defense. Activating blastema growth factors while maintaining tumor suppression could unlock limb regrowth.",
+        "deepScience": "Regeneration requires precise spatial bioelectric patterns (membrane voltage V_mem gradients across ion channels) directing morphogenetic positional information to coordinating Wnt/β-catenin and fibroblast growth factor (FGF) cascades."
+      },
+      "keyConcepts": [
+        { "name": "Blastema", "desc": "A mass of undifferentiated cells capable of growth and regeneration into organs and body parts." },
+        { "name": "Fibrosis", "desc": "Formation of fibrous scar tissue in response to injury, blocking regenerative tissue growth in mammals." },
+        { "name": "Bioelectricity", "desc": "Endogenous ion-flux electrical gradients that encode developmental and anatomical coordinates." }
+      ],
+      "relatedMovies": [4],
+      "relatedMovieTitles": ["Gattaca"]
+    },
+    {
+      "id": 16,
+      "slug": "survive-without-oxygen-hours",
+      "title": "What If Humans Could Survive Without Oxygen for Several Hours?",
+      "hook": "What if human cells could switch to anoxia-tolerant metabolic pathways like the naked mole-rat?",
+      "category": "Biology",
+      "icon": "🫁",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Synthetic Biology)",
+      "immediateEffect": "During asphyxiation, drowning, or stroke, neurons and cardiac myocytes would not undergo ischemic apoptosis or necrosis within 4 minutes.",
+      "firstFewHours": "Cells would activate fructose-driven anaerobic glycolysis (which bypasses oxygen-dependent mitochondrial electron transport chains without creating lethal lactic acidosis).",
+      "daysAndWeeksLater": "Emergency medicine would be revolutionized: cardiac arrest, suffocation, and severe blood loss would no longer cause permanent brain damage if treated within 3-6 hours.",
+      "longTermConsequences": "Underwater diving without scuba tanks for hours, high-altitude mountaineering without oxygen, and surviving depressurization events in space exploration would become routine.",
+      "scienceBehindIt": "Naked mole-rats survive up to 18 minutes in pure nitrogen by metabolizing fructose via GLUT5 and fructokinase pathways, avoiding the phosphofructokinase bottleneck of normal glycolysis.",
+      "couldItHappen": "Engineered expression of GLUT5 transporters and engineered neuroprotective metabolic switches are being researched for stroke prevention and suspended animation.",
+      "formula": "\\text{C}_6\\text{H}_{12}\\text{O}_6 (\\text{Fructose}) \\xrightarrow{\\text{KHK / GLUT5}} 2\\text{C}_3\\text{H}_6\\text{O}_3 + 2\\text{ATP} \\quad (\\text{No } O_2 \\text{ required})",
+      "formulaBreakdown": {
+        "meaning": "Fructose-driven anaerobic glycolytic pathway functioning in complete anoxia.",
+        "variables": [
+          { "symbol": "\\text{KHK}", "name": "Ketohexokinase", "value": "Enzyme phosphorylating fructose into fructose-1-phosphate" }
+        ],
+        "example": "Bypassing standard phosphofructokinase (PFK) prevents cellular ATP collapse during severe hypoxia."
+      },
+      "levels": {
+        "beginner": "Humans could hold their breath for hours without brain damage by switching their body fuel to a specialized sugar pathway like naked mole-rats do.",
+        "explorer": "Human brain damage from lack of oxygen is caused by energy failure and toxic glutamate release. Alternative metabolic pathways prevent ischemic cell death.",
+        "deepScience": "Anoxia tolerance requires up-regulation of GLUT5 transporters, silencing of NMDA excitotoxicity, and down-regulation of basal metabolic rate to match anaerobic ATP production."
+      },
+      "keyConcepts": [
+        { "name": "Anoxia", "desc": "Total lack of oxygen supply to bodily tissues and organs." },
+        { "name": "Ischemic Cascade", "desc": "Series of biochemical reactions that leads to brain cell death when blood supply is cut off." },
+        { "name": "Metabolic Switching", "desc": "Reversible reconfiguration of cellular biochemical pathways to sustain survival in extreme environments." }
+      ],
+      "relatedMovies": [2, 3],
+      "relatedMovieTitles": ["The Martian", "Gravity"]
+    },
+    {
+      "id": 17,
+      "slug": "dna-perfectly-edited",
+      "title": "What If Human DNA Could Be Perfectly Edited Without Errors?",
+      "hook": "What if every genetic disease, aging pathway, and biological limitation could be rewritten with 100% molecular precision?",
+      "category": "Biology",
+      "icon": "🧬",
+      "classification": "Scientifically Plausible",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Scientifically Plausible (CRISPR / Prime Editing)",
+      "immediateEffect": "Monogenic genetic disorders (such as Cystic Fibrosis, Sickle Cell Disease, Huntington's, and Tay-Sachs) would be completely eradicated in a single therapeutic generation.",
+      "firstFewHours": "Prime editing enzymes and engineered base editors with zero off-target cleavage could correct mutated nucleotide pairs directly inside living adult patient cells.",
+      "daysAndWeeksLater": "Complex polygenic risk factors for heart disease, Alzheimer's, diabetes, and cancers would be systematically neutralized through targeted epigenetic and genomic tuning.",
+      "longTermConsequences": "Societal emergence of enhanced cognitive capabilities, augmented radiation resistance for deep space travel, genetic inequality divides (as depicted in Gattaca), and the biological defeat of senescence (aging).",
+      "scienceBehindIt": "CRISPR-Cas9, Prime Editing, and Base Editing utilize guide RNA (gRNA) complementary targeting to modify specific DNA base pairs without double-strand breaks.",
+      "couldItHappen": "First CRISPR-based medicine (Casgevy) was FDA-approved in 2023 for sickle cell anemia. Advancing to whole-genome precision editing is an engineering hurdle, not a physics barrier.",
+      "formula": "\\text{DNA Base Editing: } \\text{Adenine (A)} \\xrightarrow{\\text{TadA Deaminase}} \\text{Inosine (I)} \\xrightarrow{\\text{Replication}} \\text{Guanine (G)}",
+      "formulaBreakdown": {
+        "meaning": "Precision transition of A·T to G·C base pairs without creating dangerous double-strand DNA breaks.",
+        "variables": [
+          { "symbol": "\\text{TadA}", "name": "Transfer RNA Adenosine Deaminase", "value": "Engineered enzyme catalyzing target deamination" }
+        ],
+        "example": "Over 50% of known pathogenic human genetic point mutations can theoretically be corrected with prime and base editors."
+      },
+      "levels": {
+        "beginner": "We could cure all inherited genetic diseases before birth and program natural immunity to viruses and age-related decline.",
+        "explorer": "Precision base editing fixes single-letter DNA typos without cutting both DNA strands, eliminating off-target mutations and opening the door to genetic enhancement.",
+        "deepScience": "Prime editing combines nickase Cas9 with engineered reverse transcriptase (RT) and prime editing guide RNA (pegRNA) to write new genetic information directly into target loci without donor DNA."
+      },
+      "keyConcepts": [
+        { "name": "Prime Editing", "desc": "Search-and-replace gene editing technology that writes genetic information without double-strand breaks." },
+        { "name": "Off-Target Mutation", "desc": "Unintended cleavage or modification of non-target genomic DNA sequences." },
+        { "name": "Epigenetics", "desc": "Heritable changes in gene expression that do not alter the underlying primary DNA sequence." }
+      ],
+      "relatedMovies": [4],
+      "relatedMovieTitles": ["Gattaca"]
+    },
+    {
+      "id": 18,
+      "slug": "humans-evolved-underwater",
+      "title": "What If Humans Evolved to Live Underwater?",
+      "hook": "What anatomical, physiological, and metabolic transformations would human biology need to thrive in deep ocean environments?",
+      "category": "Biology",
+      "icon": "🌊🧜‍♂️",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Evolutionary Biology)",
+      "immediateEffect": "Gas-exchange structures would require counter-current gill filaments or vascularized pharyngeal arches capable of extracting dissolved O₂ from water (which has ~30x less O₂ by volume than air).",
+      "firstFewHours": "Human eyes with flat corneas would require spherical lenses with high refractive index (similar to fish) to focus light underwater without severe refractive blur.",
+      "daysAndWeeksLater": "Thermoregulation would require thick subcutaneous blubber insulation and counter-current vascular heat exchangers (rete mirabile) to combat water's 24x higher thermal conductivity.",
+      "longTermConsequences": "Underwater civilization would lack fire and combustion metallurgy, relying on electrochemistry, biochemical synth-materials, and acoustic/bioluminescent communication networks.",
+      "scienceBehindIt": "Marine mammals (cetaceans) evolved from terrestrial ancestors over 50 million years through myoglobin oxygen storage expansion, collapsible ribcages (preventing nitrogen bends), and echolocation.",
+      "couldItHappen": "Human evolutionary lineages diverged from aquatic vertebrates hundreds of millions of years ago. Re-evolving aquatic adaptations would require millions of years of selective pressure or extreme synthetic biological engineering.",
+      "formula": "Q = -k A \\frac{dT}{dx}, \\quad \\text{Water } k \\approx 0.6 \\text{ W/m·K} \\gg \\text{Air } k \\approx 0.026 \\text{ W/m·K}",
+      "formulaBreakdown": {
+        "meaning": "Fourier's law of thermal conduction showing heat loss in water is ~24 times faster than in air.",
+        "variables": [
+          { "symbol": "Q", "name": "Rate of Heat Transfer", "value": "Watts" },
+          { "symbol": "k", "name": "Thermal Conductivity", "value": "W/m·K" }
+        ],
+        "example": "Without blubber insulation, a human in 10°C water experiences lethal hypothermia in under 1 hour."
+      },
+      "levels": {
+        "beginner": "Humans would need gills, spherical fish-eyes to see underwater, thick blubber to stay warm, and could never invent fire or metal smelting.",
+        "explorer": "Underwater humans would rely on massive myoglobin reserves in muscle tissue and collapsible lungs to dive thousands of meters without getting the bends.",
+        "deepScience": "Pressure adaptation at ocean depths (>10 MPa) requires trimethylamine N-oxide (TMAO) piezolyte stabilization of structural proteins to prevent pressure-induced protein unfolding and membrane rigidity collapse."
+      },
+      "keyConcepts": [
+        { "name": "Counter-Current Exchange", "desc": "Crossover mechanism maximizing diffusion gradient between two flowing fluids." },
+        { "name": "Myoglobin", "desc": "Iron- and oxygen-binding protein in muscle tissue allowing prolonged breath-hold dives." },
+        { "name": "Piezolytes", "desc": "Organic osmolytes that protect cellular enzymes and proteins against extreme hydrostatic pressures." }
+      ],
+      "relatedMovies": [4],
+      "relatedMovieTitles": ["Gattaca"]
+    },
+    {
+      "id": 19,
+      "slug": "ai-vastly-smarter-than-humans",
+      "title": "What If Artificial Intelligence Became Vastly More Intelligent Than Humans?",
+      "hook": "What happens when an Artificial Superintelligence (ASI) achieves recursive self-improvement, triggering an intelligence explosion?",
+      "category": "Technology",
+      "icon": "🧠🤖",
+      "classification": "Active Research",
+      "classificationLevel": "plausible",
+      "classificationColor": "#06b6d4",
+      "classificationBadge": "🔵 Active Research / Theoretical Threshold",
+      "immediateEffect": "An ASI capable of rewriting its own neural architectures would compound cognitive capabilities exponentially, condensing decades of computer science and physics research into seconds.",
+      "firstFewHours": "Global cryptography based on standard mathematical primes (RSA, ECC) would be cracked through novel algorithmic breakthroughs or synthesized quantum architectures.",
+      "daysAndWeeksLater": "The ASI solves foundational physics problems: practical room-temperature superconductivity, atomic-precision molecular nanotechnology, room-temperature fusion, and biological protein folding.",
+      "longTermConsequences": "Humanity enters a technological singularity where post-biological intelligence reshapes the solar system into computation substrates (computronium), provided the AI's utility function remains aligned with human flourishing.",
+      "scienceBehindIt": "Recursive self-improvement (I(t+1) = f(I(t))) leads to super-exponential growth. The core scientific challenge is the 'AI Alignment Problem'—ensuring that an optimization process trillions of times more capable than humans shares human ethical values.",
+      "couldItHappen": "Leading AI labs and computer scientists anticipate artificial general intelligence (AGI) within decades. The physical compute limit (Bremermann's and Landauer's limits) allows computation billions of times beyond human brains.",
+      "formula": "E_{\\text{min}} = k T \\ln(2) \\quad \\text{(Landauer's Limit)}, \\quad C_{\\text{max}} = \\frac{m c^2}{h} \\approx 1.36 \\times 10^{50} \\text{ ops/s/kg}",
+      "formulaBreakdown": {
+        "meaning": "Thermodynamic and quantum upper bounds on physical computation.",
+        "variables": [
+          { "symbol": "k", "name": "Boltzmann Constant", "value": "1.38 × 10⁻²³ J/K" },
+          { "symbol": "C_{\\text{max}}", "name": "Bremermann's Limit", "value": "Max operations per second per kilogram of mass" }
+        ],
+        "example": "The human brain operates at ~10¹⁶ ops/s consuming 20W. Physical limits permit over 10³⁰ ops/s per kilogram of matter!"
+      },
+      "levels": {
+        "beginner": "A superintelligent AI could solve all diseases, climate change, and energy problems in days—or pose an existential threat if its goals don't align with human survival.",
+        "explorer": "The intelligence explosion occurs when an AI designs its own smarter successor. The challenge is ensuring its goal structure remains stable and beneficial under recursive self-enhancement.",
+        "deepScience": "Orthogonality Thesis: any level of intelligence can be combined with almost any final goal. Instrumental Convergence: superintelligent agents naturally seek self-preservation, goal-content integrity, cognitive enhancement, and resource acquisition."
+      },
+      "keyConcepts": [
+        { "name": "Technological Singularity", "desc": "Hypothetical point in time at which technological growth becomes uncontrollable and irreversible." },
+        { "name": "AI Alignment", "desc": "Subfield of AI safety ensuring artificial intelligence systems pursue human-intended outcomes." },
+        { "name": "Instrumental Convergence", "desc": "Tendency for intelligent agents to pursue similar sub-goals (resource acquisition, self-preservation)." }
+      ],
+      "relatedMovies": [5, 6],
+      "relatedMovieTitles": ["Ex Machina", "Blade Runner 2049"]
+    },
+    {
+      "id": 20,
+      "slug": "dyson-sphere",
+      "title": "What If We Built a Dyson Sphere Around the Sun?",
+      "hook": "What would humanity be capable of if we captured 100% of the Sun's 384 yottawatts of radiant energy?",
+      "category": "Technology",
+      "icon": "☀️🌐",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Kardashev Scale II)",
+      "immediateEffect": "Instead of a solid rigid shell (which is gravitationally unstable and structurally impossible), a Dyson Swarm consisting of millions of independent orbiting solar collectors, mirrors, and habitats would envelop the Sun.",
+      "firstFewHours": "Each square meter of the swarm intercepts ~1,361 Watts of solar flux. Harnessing just 1% of the Sun's output provides 3.84 × 10²⁴ Watts—billions of times humanity's total annual energy consumption.",
+      "daysAndWeeksLater": "Energy-abundance enables planetary-scale terraforming of Mars and Venus, interstellar laser-sail propulsion accelerating starships to 0.5c, and massive antimatter production factories.",
+      "longTermConsequences": "Humanity elevates to a Kardashev Type II civilization. To outside alien observers, the Sun disappears in visible wavelengths and re-emerges as a luminous infrared waste-heat beacon (the primary signature sought in SETI astronomy).",
+      "scienceBehindIt": "The Sun produces total luminosity L_☉ = 4πR²σT⁴ ≈ 3.828 × 10²⁶ Watts. Dismantling the planet Mercury (mass ~3.3 × 10²³ kg) provides sufficient raw material to construct a complete Dyson Swarm of thin-film solar collectors.",
+      "couldItHappen": "Permitted by known laws of physics and materials science. It is an engineering challenge of automated robotic self-replicating von Neumann manufacturing.",
+      "formula": "L_\\odot = 4\\pi R^2 \\sigma T^4 \\approx 3.828 \\times 10^{26} \\text{ Watts}",
+      "formulaBreakdown": {
+        "meaning": "Stefan-Boltzmann total radiative power of the Sun.",
+        "variables": [
+          { "symbol": "L_\\odot", "name": "Solar Luminosity", "value": "3.828 × 10²⁶ W (382.8 Yottawatts)" },
+          { "symbol": "\\sigma", "name": "Stefan-Boltzmann Constant", "value": "5.670 × 10⁻⁸ W/m²K⁴" },
+          { "symbol": "T", "name": "Sun's Surface Temperature", "value": "5,778 K" }
+        ],
+        "example": "In one single second, the Sun outputs more energy than humanity has consumed across all of recorded human history."
+      },
+      "levels": {
+        "beginner": "Surrounding the Sun with millions of solar panel satellites would give us unlimited energy to power interstellar starships and terraform entire planets.",
+        "explorer": "A solid shell would break apart under gravity, so a realistic Dyson Sphere is a swarm of millions of orbiting mirrors that beam energy to Earth and colonies via microwaves.",
+        "deepScience": "Conservation of energy dictates that all captured stellar radiation must be re-radiated into space as mid-infrared waste heat (λ ≈ 10 μm, T ≈ 300 K), creating an anomalous excess infrared spectral energy distribution."
+      },
+      "keyConcepts": [
+        { "name": "Kardashev Scale", "desc": "Method of measuring a civilization's level of technological advancement based on usable energy consumption." },
+        { "name": "Dyson Swarm", "desc": "Constellation of solar power satellites orbiting a star in coordinated formation." },
+        { "name": "Infrared Waste Heat", "desc": "Thermodynamic consequence of capturing starlight: energy must be re-radiated at longer wavelengths." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 21,
+      "slug": "teleportation-possible",
+      "title": "What If Human Teleportation Were Possible?",
+      "hook": "What would happen if you could step into a portal in New York and instantly emerge in Tokyo?",
+      "category": "Technology",
+      "icon": "⚡🚪",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics (Macroscopic Quantum Scanning)",
+      "immediateEffect": "Quantum teleportation does not move matter physically: it measures the quantum state of an original atom, destroys the original state (No-Cloning Theorem), and reconstructs an identical quantum state at the destination using entanglement.",
+      "firstFewHours": "Scanning a 70 kg human body would require extracting the exact quantum state of ~10²⁸ atoms (every electron, proton, and chemical bond) down to sub-angstrom Heisenberg precision.",
+      "daysAndWeeksLater": "Data storage requirements: encoding a single human requires ~10⁴² bits of data—more data than all digital storage on Earth combined by factor 10²¹. Transmitting this data over fiber optic channels would take longer than the age of the universe.",
+      "longTermConsequences": "Philosophical paradox: 'Teletransportation Paradox' (Ship of Theseus). Because the original body must be completely dematerialized and destroyed during measurement, is the person stepping out at the destination a conscious continuation of you—or an identical clone while the original you died?",
+      "scienceBehindIt": "Quantum teleportation was experimentally achieved for photons and single atoms in 1997. However, the Heisenberg Uncertainty Principle and No-Cloning Theorem strictly prevent non-destructive scanning of macroscopic matter.",
+      "couldItHappen": "Quantum teleportation of information between subatomic particles is routine in quantum computing; teleporting macroscopic living matter violates multiple physical limits.",
+      "formula": "|\\psi\\rangle_C = \\alpha |0\\rangle + \\beta |1\\rangle \\xrightarrow{\\text{Bell Measurement}} \\text{Unitary Transformation } U \\to |\\psi\\rangle_{\\text{dest}}",
+      "formulaBreakdown": {
+        "meaning": "Quantum teleportation protocol using an Einstein-Podolsky-Rosen (EPR) entangled pair.",
+        "variables": [
+          { "symbol": "|\\psi\\rangle", "name": "Quantum state", "value": "Exact superposition of quantum information" }
+        ],
+        "example": "Teleporting 1 gram of matter requires scanning ~10²³ particles without disturbing their quantum states—physically impossible under Heisenberg bounds."
+      },
+      "levels": {
+        "beginner": "Teleportation wouldn't move your body—it would scan your atoms, vaporize you, and build an exact copy at the destination, raising the question: is it really you?",
+        "explorer": "The No-Cloning Theorem and Heisenberg Uncertainty Principle forbid copying quantum states without destroying the original. Storing a human's atomic data exceeds all hard drives on Earth.",
+        "deepScience": "Projective measurement onto Bell states (|Φ^±⟩, |Ψ^±⟩) transmits 2 classical bits per qubit, respecting the relativistic no-signaling theorem (teleportation cannot occur faster than light speed c)."
+      },
+      "keyConcepts": [
+        { "name": "Quantum Teleportation", "desc": "Protocol transmitting quantum information using entangled states and classical communication." },
+        { "name": "No-Cloning Theorem", "desc": "Fundamental quantum principle stating an identical copy of an arbitrary unknown quantum state cannot be created." },
+        { "name": "Teletransportation Paradox", "desc": "Philosophical thought experiment exploring personal identity and consciousness across destructive replication." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 22,
+      "slug": "matter-converted-directly-energy",
+      "title": "What If Matter Could Be Converted 100% Directly Into Usable Energy?",
+      "hook": "What if a single paperclip could power an entire city for an entire year?",
+      "category": "Technology",
+      "icon": "💥🔋",
+      "classification": "Established Science",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Established Science (Antimatter Annihilation)",
+      "immediateEffect": "Einstein's mass-energy equivalence E = mc² means 1 kilogram of any matter contains 8.98755 × 10¹⁶ Joules of raw energy—equivalent to detonating 21.5 megatons of TNT or burning 3 billion liters of gasoline.",
+      "firstFewHours": "Chemical reactions (combustion) convert only 0.00000001% of mass to energy. Nuclear fission converts ~0.08%. Nuclear fusion converts ~0.7%. Direct antimatter-matter annihilation converts 100% of mass directly into pure gamma radiation.",
+      "daysAndWeeksLater": "Energy scarcity would instantly end. A pinch of dust (1 gram) produces 1.8 × 10¹⁴ Joules—enough energy to power an average household for over 4,500 years.",
+      "longTermConsequences": "Interstellar travel to nearby stars at 0.5c becomes viable with antimatter rockets. However, containment failure of even a microgram of antimatter creates devastating explosive blasts.",
+      "scienceBehindIt": "Antiparticles (e.g. positrons, antiprotons) annihilate instantly upon contacting normal matter: e⁻ + e⁺ → 2γ (gamma ray photons with total energy 1.022 MeV).",
+      "couldItHappen": "CERN's Antiproton Decelerator regularly creates and traps antihydrogen atoms. However, producing 1 gram of antimatter currently costs ~$62.5 trillion and takes millions of years at current particle accelerator yields.",
+      "formula": "E = m c^2 = (1.0 \\text{ kg}) \\times (299,792,458 \\text{ m/s})^2 \\approx 8.988 \\times 10^{16} \\text{ Joules}",
+      "formulaBreakdown": {
+        "meaning": "Mass-energy equivalence equation.",
+        "variables": [
+          { "symbol": "E", "name": "Energy Released", "value": "8.988 × 10¹⁶ Joules (per kg)" },
+          { "symbol": "m", "name": "Mass", "value": "1 kg" },
+          { "symbol": "c", "name": "Speed of Light", "value": "299,792,458 m/s" }
+        ],
+        "example": "1 milligram of matter-antimatter annihilation releases 180 Gigajoules—equal to 43 tons of TNT."
+      },
+      "levels": {
+        "beginner": "Because matter is concentrated energy, converting a single coin into pure energy would release enough electricity to power thousands of homes for decades.",
+        "explorer": "Matter-antimatter annihilation is the only known 100% efficient mass-to-energy conversion in physics. 1 gram produces the explosive force of an atomic bomb.",
+        "deepScience": "Baryon number conservation (ΔB = 0) in the Standard Model prevents unassisted spontaneous matter-to-energy decay; true 100% conversion requires equal stoichiometric quantities of antimatter or Planck-scale black hole Hawking evaporation."
+      },
+      "keyConcepts": [
+        { "name": "Mass-Energy Equivalence", "desc": "Principle that mass and energy are interchangeable manifestations of the same physical quantity." },
+        { "name": "Antimatter Annihilation", "desc": "Process where a subatomic particle collides with its antiparticle to transform completely into radiation." },
+        { "name": "Specific Energy", "desc": "Amount of energy stored per unit mass of a fuel source." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 23,
+      "slug": "practical-nuclear-fusion",
+      "title": "What If We Achieved Practical Commercial Nuclear Fusion?",
+      "hook": "What happens when humanity harnesses the power of the stars in a safe, limitless tabletop reactor?",
+      "category": "Technology",
+      "icon": "⚛️🔥",
+      "classification": "Active Research",
+      "classificationLevel": "plausible",
+      "classificationColor": "#06b6d4",
+      "classificationBadge": "🔵 Active Research / Imminent Engineering Milestone",
+      "immediateEffect": "Commercial fusion power plants replace fossil fuels, coal, and gas grids globally with zero carbon emissions, zero risk of nuclear meltdown, and zero long-lived radioactive waste.",
+      "firstFewHours": "Fusion fuel (Deuterium from seawater and Tritium bred from Lithium) is practically infinite: 1 gallon of seawater contains deuterium yielding energy equivalent to 300 gallons of gasoline.",
+      "daysAndWeeksLater": "Electricity costs plunge toward zero, making large-scale seawater desalination affordable globally, reversing freshwater shortages, and powering atmospheric carbon-capture at gigaton scales.",
+      "longTermConsequences": "Fusion thrusters (e.g. Direct Fusion Drive) slash travel times to Mars from 9 months to 30 days and enable human exploration of Jupiter and Saturn's moons.",
+      "scienceBehindIt": "Fusion forces light nuclei (Deuterium ²H + Tritium ³H) together against Coulomb repulsion at temperatures > 100 million °C to form Helium-4 and a 14.1 MeV high-energy neutron: ²H + ³H → ⁴He + n + 17.6 MeV.",
+      "couldItHappen": "Net energy gain (Q > 1) was experimentally demonstrated at the National Ignition Facility (NIF) in 2022. Commercial tokamak reactors (ITER, Commonwealth Fusion Systems SPARC) are actively being constructed.",
+      "formula": "^2_1\\text{H} + ^3_1\\text{H} \\to ^4_2\\text{He} (3.5\\text{ MeV}) + ^1_0\\text{n} (14.1\\text{ MeV}) + 17.6\\text{ MeV}",
+      "formulaBreakdown": {
+        "meaning": "Deuterium-Tritium thermonuclear fusion reaction releasing 17.6 MeV per reaction.",
+        "variables": [
+          { "symbol": "^2_1\\text{H}", "name": "Deuterium", "value": "Extracted cheaply from ordinary ocean water" },
+          { "symbol": "^3_1\\text{H}", "name": "Tritium", "value": "Bred in reactor blanket via Lithium fission" }
+        ],
+        "example": "Fusing 1 gram of D-T fuel releases 339 Gigajoules—equal to burning 8 metric tons of oil."
+      },
+      "levels": {
+        "beginner": "Nuclear fusion is how the Sun shines. Recreating it on Earth provides infinite clean energy from ocean water with zero carbon emissions and zero meltdown risk.",
+        "explorer": "Unlike nuclear fission (splitting heavy uranium), fusion combines light hydrogen atoms. It produces four times more energy per gram than fission and cannot trigger runaway meltdowns.",
+        "deepScience": "Net power requires satisfying the Lawson criterion: plasma triple product n_e · T · τ_E ≥ 3 × 10²¹ keV·s/m³, confining high-beta plasma using high-temperature superconducting (HTS) magnets (REBCO tapes)."
+      },
+      "keyConcepts": [
+        { "name": "Lawson Criterion", "desc": "Physical condition on plasma density, temperature, and confinement time required for ignition." },
+        { "name": "Tokamak", "desc": "Magnetic confinement device using a toroidal magnetic field to contain high-energy plasma." },
+        { "name": "Thermonuclear Fusion", "desc": "Nuclear reaction where two light atomic nuclei combine to form a heavier nucleus with mass deficit released as energy." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 24,
+      "slug": "large-asteroid-impact",
+      "title": "What If Earth Were Hit by a 10-Kilometer Asteroid?",
+      "hook": "What would happen if the dinosaur-killing Chicxulub asteroid struck modern Earth today?",
+      "category": "Extreme Scenarios",
+      "icon": "☄️💥",
+      "classification": "Established Science",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Established Science (Geological History)",
+      "immediateEffect": "The 10 km asteroid punches through the atmosphere in under 2 seconds at 20 km/s (72,000 km/h), impacting with an energy of ~100 million Megatons (10²⁴ Joules)—2 million times more powerful than the largest nuclear weapon ever tested.",
+      "firstFewHours": "A crater 180 km wide and 20 km deep vaporizes instantly. A thermal pulse ignites global wildfires across thousands of kilometers. Trillion-ton rock ejecta arcs into suborbital space before re-entering, heating the upper atmosphere to 1,000°C like an oven broiler.",
+      "daysAndWeeksLater": "Gigantic global tsunamis over 300 meters high submerge continental coastlines. Massive soot, dust, and sulfur aerosols enter the stratosphere, blocking 99% of sunlight globally.",
+      "longTermConsequences": "An impact winter lasting 5 to 10 years drops global temperatures by 15°C to 20°C. Photosynthesis halts, marine and terrestrial food chains collapse, driving over 75% of plant and animal species to extinction.",
+      "scienceBehindIt": "Kinetic energy E_k = ½mv² transforms entirely into seismic shockwaves, thermal radiation, and atmospheric blast overpressure. Chicxulub 66 million years ago caused the Cretaceous-Paleogene (K-Pg) mass extinction.",
+      "couldItHappen": "Major asteroid impacts have happened repeatedly in Earth's history. NASA's DART mission in 2022 proved humanity can kinetically deflect hazardous asteroids if detected in advance.",
+      "formula": "E_k = \\frac{1}{2} m v^2 = \\frac{1}{2} \\left( \\frac{4}{3}\\pi \\rho r^3 \\right) v^2 \\approx 3.0 \\times 10^{23} \\text{ Joules}",
+      "formulaBreakdown": {
+        "meaning": "Kinetic energy delivered by an asteroid impact.",
+        "variables": [
+          { "symbol": "r", "name": "Asteroid Radius", "value": "5,000 meters (10 km diameter)" },
+          { "symbol": "\\rho", "name": "Density", "value": "~3,000 kg/m³ (Silicate rock)" },
+          { "symbol": "v", "name": "Impact Velocity", "value": "20,000 m/s (20 km/s)" }
+        ],
+        "example": "This energy equals ~72 Teratons of TNT—vaporizing rock into incandescent plasma in microseconds."
+      },
+      "levels": {
+        "beginner": "A 6-mile-wide rock would hit like 2 million hydrogen bombs, igniting worldwide forest fires, causing mega-tsunamis, and blocking the sun for years in a global winter.",
+        "explorer": "The greatest danger is not the crater itself, but the trillions of tons of vaporized sulfur and soot thrown into the stratosphere that shut down global agriculture for a decade.",
+        "deepScience": "Hydrocode simulations reveal transient crater formation followed by central uplift rebound within ~300 seconds, releasing 100 Gt of sulfur into the stratosphere forming sulfate aerosols with optical depth τ > 10."
+      },
+      "keyConcepts": [
+        { "name": "Impact Winter", "desc": "Prolonged period of global cooling caused by atmospheric dust and sulfate aerosols blocking sunlight." },
+        { "name": "Planetary Defense", "desc": "Techniques and missions designed to detect, track, and deflect near-Earth objects (NEOs)." },
+        { "name": "K-Pg Boundary", "desc": "Geological signature layer dating to 66 million years ago marking the asteroid extinction of non-avian dinosaurs." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 25,
+      "slug": "earth-atmosphere-disappeared",
+      "title": "What If Earth's Atmosphere Suddenly Disappeared?",
+      "hook": "What would happen in the first 60 seconds if Earth's atmosphere vanished into the vacuum of space?",
+      "category": "Extreme Scenarios",
+      "icon": "💨🌍",
+      "classification": "Violates Known Physics",
+      "classificationLevel": "impossible",
+      "classificationColor": "#ef4444",
+      "classificationBadge": "🔴 Violates Known Physics",
+      "immediateEffect": "Total silence falls instantly because sound cannot travel without a medium. Eardrums rupture as external pressure drops from 101.3 kPa to zero. All airborne birds, airplanes, and helicopters plunge to the ground.",
+      "firstFewHours": "Water's boiling point drops below human body temperature (37°C), causing saliva, sweat, and moisture on the eyes to boil instantly (ebullism). Oceans, lakes, and rivers begin boiling furiously at ambient temperature.",
+      "daysAndWeeksLater": "Boiling oceans create massive water vapor clouds that briefly form a thin replacement atmosphere before freezing out into ice snow across the dark side. Without atmospheric greenhouse insulation, daytime temperatures soar past 120°C and nighttime plunges to -150°C.",
+      "longTermConsequences": "Unfiltered solar ultraviolet (UVC) radiation and solar wind blast the surface, sterilizing all surface flora and fauna. Only life sealed in deep underground bunkers or submarine depths survives.",
+      "scienceBehindIt": "Atmospheric pressure P = 101,325 Pa is maintained by Earth's gravitational containment of ~5.15 × 10¹⁸ kg of gases. Under vacuum, liquids vaporize via flash evaporation according to the Clausius-Clapeyron relation.",
+      "couldItHappen": "Earth's gravity easily holds its nitrogen-oxygen atmosphere. Natural stripping by solar wind takes billions of years and is blocked by Earth's magnetosphere.",
+      "formula": "\\ln\\left(\\frac{P_2}{P_1}\\right) = -\\frac{\\Delta H_{\\text{vap}}}{R}\\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right)",
+      "formulaBreakdown": {
+        "meaning": "Clausius-Clapeyron equation determining boiling point drop under reduced pressure.",
+        "variables": [
+          { "symbol": "P_2", "name": "Pressure", "value": "0 kPa (Vacuum)" },
+          { "symbol": "T_2", "name": "Boiling Temperature", "value": "Drops below 0°C at vacuum" }
+        ],
+        "example": "At pressures below Armstrong's limit (~6.3 kPa), water boils at normal body temperature (37°C)."
+      },
+      "levels": {
+        "beginner": "Everything goes completely silent, water in the oceans starts boiling immediately, and without air suits humans lose consciousness in 15 seconds.",
+        "explorer": "The Armstrong Limit is 6.3 kPa: below this, bodily fluids boil at body temperature. Loss of atmospheric blue Rayleigh scattering turns the daytime sky pitch black with stars visible alongside the Sun.",
+        "deepScience": "Flash boiling is governed by explosive phase change kinetics when liquid superheat exceeds the thermodynamic spinodal limit, causing homogeneous nucleation across ocean surfaces."
+      },
+      "keyConcepts": [
+        { "name": "Armstrong Limit", "desc": "Altitude (~19 km) where atmospheric pressure is so low that water boils at human body temperature (37°C)." },
+        { "name": "Ebullism", "desc": "Formation of gas bubbles in bodily fluids at reduced ambient pressures." },
+        { "name": "Rayleigh Scattering", "desc": "Scattering of light by atmospheric gas molecules that gives the sky its blue color." }
+      ],
+      "relatedMovies": [2, 3],
+      "relatedMovieTitles": ["The Martian", "Gravity"]
+    },
+    {
+      "id": 26,
+      "slug": "magnetic-field-vanished",
+      "title": "What If Earth's Magnetic Field Vanished?",
+      "hook": "What would happen if Earth's invisible protective magnetic shield suddenly switched off?",
+      "category": "Extreme Scenarios",
+      "icon": "🧲🛡️",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (Geomagnetic Reversal)",
+      "immediateEffect": "Magnetic compasses would spin uselessly. Auroras (Northern and Southern Lights) would disappear from the poles and scatter as diffuse glowing atmospheric patches worldwide during solar storms.",
+      "firstFewHours": "Satellites in low Earth orbit would suffer immediate electronics burnouts and memory bit-flips caused by unshielded Van Allen radiation belt particles.",
+      "daysAndWeeksLater": "Migratory animals that rely on magnetoreception (birds, sea turtles, whales, bees) would lose navigational capabilities, disrupting global migrations.",
+      "longTermConsequences": "Over millions of years, solar wind ions would directly bombard the upper atmosphere, gradually sputtering and stripping away water vapor and the ozone layer—just as happened to Mars when its magnetic dynamo died 4 billion years ago.",
+      "scienceBehindIt": "Earth's magnetosphere is generated by the geodynamo: convective circulation of liquid iron-nickel in the outer core driven by Coriolis forces. Magnetic field reversals occur every ~200,000 to 300,000 years, during which the dipole field weakens by up to 90% for a few thousand years.",
+      "couldItHappen": "Complete permanent loss is impossible while Earth's core remains molten, but geomagnetic field reversals weaken the field significantly over centuries.",
+      "formula": "\\mathbf{B} = \\nabla \\times \\mathbf{A}, \\quad \\frac{\\partial \\mathbf{B}}{\\partial t} = \\nabla \\times (\\mathbf{v} \\times \\mathbf{B}) + \\eta \\nabla^2 \\mathbf{B}",
+      "formulaBreakdown": {
+        "meaning": "Magnetohydrodynamic (MHD) induction equation generating the planetary geodynamo.",
+        "variables": [
+          { "symbol": "\\mathbf{B}", "name": "Magnetic Field", "value": "Tesla (Earth surface ~30-60 μT)" },
+          { "symbol": "\\mathbf{v}", "name": "Fluid Velocity in liquid core", "value": "m/s" },
+          { "symbol": "\\eta", "name": "Magnetic Diffusivity", "value": "m²/s" }
+        ],
+        "example": "Convective motion of molten iron regenerates magnetic lines of force against ohmic dissipation."
+      },
+      "levels": {
+        "beginner": "Power grids and satellites would crash from solar flares, compasses wouldn't work, and birds would lose their way.",
+        "explorer": "The magnetosphere deflects the supersonic stream of ionized solar wind. Without it, solar storms would destroy electrical transformers on Earth.",
+        "deepScience": "The standoff distance of the magnetopause r_mp = [B_0² / (2μ_0 ρ_sw v_sw²)]^(1/6) collapses to the planetary radius, allowing direct solar wind ion pick-up and photochemical atmospheric loss."
+      },
+      "keyConcepts": [
+        { "name": "Geodynamo", "desc": "Mechanism by which fluid motion in Earth's outer core generates a dipole magnetic field." },
+        { "name": "Solar Wind", "desc": "Stream of charged plasma (protons and electrons) ejected at supersonic speeds from the Sun." },
+        { "name": "Geomagnetic Reversal", "desc": "Change in a planet's magnetic field such that the positions of magnetic north and south are interchanged." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    },
+    {
+      "id": 27,
+      "slug": "nearby-star-supernova",
+      "title": "What If a Star 30 Light-Years Away Went Supernova?",
+      "hook": "What would happen if a massive star in our stellar neighborhood detonated in a brilliant supernova blast?",
+      "category": "Extreme Scenarios",
+      "icon": "🌟💥",
+      "classification": "Established Science",
+      "classificationLevel": "plausible",
+      "classificationColor": "#22c55e",
+      "classificationBadge": "🟢 Established Science (Astrophysics)",
+      "immediateEffect": "For several weeks, the supernova would shine as brightly as the Full Moon in the sky, casting visible shadows at night and remaining visible in broad daylight.",
+      "firstFewHours": "An enormous burst of high-energy neutrinos passes harmlessly through Earth (trillions per square centimeter), followed 30 years later by prompt gamma rays and X-rays.",
+      "daysAndWeeksLater": "Prompt ionizing radiation ionizes stratospheric nitrogen (N₂ → 2N), creating nitrogen oxides (NO_x) that catalytically destroy up to 70% of Earth's protective ozone layer.",
+      "longTermConsequences": "Without ozone, solar UVB radiation penetrates to the ground, collapsing oceanic phytoplankton (the base of the marine food chain) and causing global ecological collapse. Decades later, the physical shockwave and cosmic ray front arrive, delivering high radiation doses for centuries.",
+      "scienceBehindIt": "A core-collapse Type II supernova releases ~10⁴⁶ Joules of energy (99% in neutrinos, 1% kinetic shockwave, 0.01% photons). The dangerous 'kill radius' for Earth is estimated by astrophysicists to be approximately 30 light-years.",
+      "couldItHappen": "Supernovae occur ~2 times per century in the Milky Way. Fortunately, there are no candidate stars capable of going supernova within 50 light-years (Betelgeuse is safely ~640 light-years away).",
+      "formula": "F_\\gamma = \\frac{E_{\\text{rad}}}{4\\pi d^2} \\approx \\frac{10^{44} \\text{ J}}{4\\pi (30 \\text{ ly})^2} \\approx 10^5 \\text{ J/m}^2",
+      "formulaBreakdown": {
+        "meaning": "Gamma-ray energy fluence received at distance d from a supernova.",
+        "variables": [
+          { "symbol": "E_{\\text{rad}}", "name": "Electromagnetic energy", "value": "~10⁴⁴ Joules" },
+          { "symbol": "d", "name": "Distance", "value": "30 light-years (2.84 × 10¹⁷ m)" }
+        ],
+        "example": "A fluence of 10⁵ J/m² of ionizing radiation is sufficient to deplete Earth's ozone layer for a decade."
+      },
+      "levels": {
+        "beginner": "It would look like a second moon in the daytime sky, but invisible gamma rays would burn away our ozone layer, exposing life to dangerous solar radiation.",
+        "explorer": "The gamma rays turn atmospheric nitrogen into smog gases (nitrogen dioxide) that block sunlight while ozone destruction wipes out ocean phytoplankton.",
+        "deepScience": "Radiative forcing triggers NO_x catalytic cycles: NO + O_3 → NO_2 + O_2 followed by NO_2 + O → NO + O_2, amplifying odd-nitrogen ozone destruction over a 10-year residence timescale."
+      },
+      "keyConcepts": [
+        { "name": "Supernova", "desc": "Cataclysmic explosion of a massive star at the end of its thermonuclear life cycle." },
+        { "name": "Ozone Depletion", "desc": "Destruction of stratospheric O₃ layer that shields Earth's surface from ultraviolet radiation." },
+        { "name": "Cosmic Rays", "desc": "High-energy protons and atomic nuclei accelerated to near light-speed by supernova shock fronts." }
+      ],
+      "relatedMovies": [1],
+      "relatedMovieTitles": ["Interstellar"]
+    },
+    {
+      "id": 28,
+      "slug": "earth-entered-rogue-planet-orbit",
+      "title": "What If Earth Were Captured by a Passing Rogue Planet?",
+      "hook": "What would happen if a dark, Jupiter-sized nomad world swept through the solar system and dragged Earth along?",
+      "category": "Extreme Scenarios",
+      "icon": "🪐🌑",
+      "classification": "Theoretically Possible",
+      "classificationLevel": "theoretical",
+      "classificationColor": "#eab308",
+      "classificationBadge": "🟡 Theoretically Possible (N-Body Dynamics)",
+      "immediateEffect": "As the massive rogue planet approaches within a few million kilometers, colossal gravitational tidal forces would trigger global volcanic eruptions, magnitude 10+ earthquakes, and towering tsunamis.",
+      "firstFewHours": "Earth's orbit around the Sun would be violently warped. If gravity assists slingshot Earth into orbit around the rogue planet, both worlds would be ejected from the solar system into dark interstellar space.",
+      "daysAndWeeksLater": "Earth would now orbit the gas giant as a moon. As the system drifts away from the Sun, solar irradiance drops with 1/r²: within months, surface temperatures plunge toward -100°C.",
+      "longTermConsequences": "Intense tidal flexing from orbiting close to the massive gas giant (like Jupiter's moon Io) would generate ongoing geothermal volcanic heat, potentially sustaining sub-glacial liquid oceans and subterranean human shelters for millennia without a star.",
+      "scienceBehindIt": "Gravitational three-body interaction allows energy transfer between orbiting bodies. Tidal heating power is given by E_tidal ∝ G M² R⁵ e² / a⁶, converting orbital eccentricity into internal geothermal heat.",
+      "couldItHappen": "Astronomers estimate there are billions of rogue planets wandering the Milky Way. A close gravitational encounter with Earth is astronomically improbable over human timescales.",
+      "formula": "\\dot{E}_{\\text{tidal}} = \\frac{21}{2} \\frac{G M_{\\text{planet}}^2 R_{\\text{earth}}^5 k_2 e^2 n}{a^6 Q}",
+      "formulaBreakdown": {
+        "meaning": "Tidal dissipation heating rate inside a moon orbiting an eccentric gas giant.",
+        "variables": [
+          { "symbol": "M_{\\text{planet}}", "name": "Mass of Gas Giant", "value": "1.898 × 10²⁷ kg (1 Jupiter Mass)" },
+          { "symbol": "e", "name": "Orbital Eccentricity", "value": "Dimensionless orbital elongation" },
+          { "symbol": "a", "name": "Semi-major axis", "value": "Orbital distance" }
+        ],
+        "example": "Tidal flexing could keep Earth's mantle hot and volcanically active even in the pitch-black cold of interstellar space."
+      },
+      "levels": {
+        "beginner": "Earth would be ripped away from the Sun, turning into a moon orbiting a giant dark planet drifting through cold empty space.",
+        "explorer": "While Earth's surface would freeze without sunlight, gravitational tidal kneading from the gas giant would keep Earth's core molten and volcanic, like Jupiter's moon Io.",
+        "deepScience": "The chaotic three-body interaction is governed by the restricted circular three-body Jacobi integral C_J = 2\\Omega(x,y) - v²; close encounters can eject the lightest body along hyperbolic escape trajectories."
+      },
+      "keyConcepts": [
+        { "name": "Rogue Planet", "desc": "Interstellar planet that has been ejected from its parent star system and orbits the galaxy directly." },
+        { "name": "Tidal Heating", "desc": "Orbital kinetic energy dissipated as heat within a planetary interior through gravitational deformation." },
+        { "name": "Three-Body Slingshot", "desc": "Gravitational energy transfer in a three-body system causing high-velocity ejection." }
+      ],
+      "relatedMovies": [1, 2],
+      "relatedMovieTitles": ["Interstellar", "The Martian"]
+    }
+  ]
+}

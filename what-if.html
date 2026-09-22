@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHAT IF? - Theoretical Science Scenarios | SciFiLens</title>
+    <meta name="description" content="Explore theoretical scientific scenarios and hypothetical physics questions. What would happen if Earth stopped rotating, the Moon disappeared, or humans moved at 99% light speed?">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
+                    <path d="M1 12h6m6 0h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                </svg>
+                <span>SciFiLens</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="movies.html" class="nav-link">Movies</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link active">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
+                <li><a href="experiments.html" class="nav-link">Experiments</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-header" style="position: relative; overflow: hidden; padding: 4rem 1.5rem 3rem 1.5rem; text-align: center;">
+        <div class="stars"></div>
+        <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
+            <div class="confidence-badge" style="background: rgba(6, 182, 212, 0.2); color: #38bdf8; border-color: rgba(6, 182, 212, 0.4); margin-bottom: 1rem;">
+                🌌 Theoretical Physics Laboratory
+            </div>
+            <h1 style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: 1px; line-height: 1.15; margin-bottom: 1rem; background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                WHAT IF?
+            </h1>
+            <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 750px; margin: 0 auto 2rem auto; line-height: 1.6;">
+                What would happen if a hypothetical scientific scenario actually occurred? Explore rigorous, multi-stage scientific breakdowns grounded in physics, astrophysics, biology, and relativity.
+            </p>
+
+            <!-- Search & Filter Controls -->
+            <div style="max-width: 550px; margin: 0 auto; display: flex; gap: 0.5rem;">
+                <input type="text" id="whatIfSearchInput" class="search-input" placeholder="Search scenarios (e.g. Earth rotation, black hole, Dyson sphere)..." style="width: 100%; padding: 0.85rem 1.25rem; font-size: 1rem;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <section class="what-if-container" style="max-width: 1400px; margin: 0 auto; padding: 1rem var(--spacing-xl) 5rem var(--spacing-xl);">
+        
+        <!-- Category Filter Tabs -->
+        <div class="category-tabs" id="whatIfCategoryTabs" style="justify-content: center; margin-bottom: 2rem;">
+            <button class="category-tab-btn active" data-category="all">All Scenarios (<span id="totalScenariosCount">28</span>)</button>
+            <button class="category-tab-btn" data-category="Space & Physics">🚀 Space & Physics</button>
+            <button class="category-tab-btn" data-category="Time & Relativity">⏳ Time & Relativity</button>
+            <button class="category-tab-btn" data-category="Biology">🧬 Biology</button>
+            <button class="category-tab-btn" data-category="Technology">🤖 Technology</button>
+            <button class="category-tab-btn" data-category="Extreme Scenarios">☄️ Extreme Scenarios</button>
+        </div>
+
+        <!-- Plausibility & Results Filter Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+            <div id="whatIfCount" style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">
+                Showing 28 theoretical scenarios
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <label for="plausibilityFilter" style="font-size: 0.85rem; color: var(--text-secondary);">Scientific Plausibility:</label>
+                <select id="plausibilityFilter" class="sort-select" style="padding: 0.4rem 1rem; font-size: 0.85rem;">
+                    <option value="all">All Classifications</option>
+                    <option value="plausible">🟢 Scientifically Plausible</option>
+                    <option value="theoretical">🟡 Theoretically Possible</option>
+                    <option value="unlikely">🟠 Extremely Unlikely</option>
+                    <option value="impossible">🔴 Violates Known Physics</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Scenario Cards Grid -->
+        <div class="what-if-grid" id="whatIfGrid">
+            <!-- Rendered by js/what-if.js -->
+        </div>
+    </section>
+
+    <!-- 7-Section Scenario Deep-Dive Modal -->
+    <div class="modal" id="scenarioModal">
+        <div class="modal-content scenario-modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-body" id="scenarioModalBody">
+                <!-- Dynamically populated by js/what-if.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SciFiLens</h3>
+                <p>Exploring the intersection of science and cinema</p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="concepts.html">Science Concepts Hub</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SciFiLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/what-if.js"></script>
+</body>
+</html>

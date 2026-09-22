@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz - SciFiLens</title>
+    <title>Sci-Fi Science Quiz - SciFiLens</title>
+    <meta name="description" content="Test your physics and sci-fi movie knowledge with our interactive science quiz. Can you distinguish real science from Hollywood fiction?">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +24,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link">Movies</a></li>
-                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link active">Quiz</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -50,87 +53,200 @@
         </div>
     </nav>
 
-    <!-- Quiz Container -->
-    <div class="quiz-container">
-        <!-- Start Screen -->
+    <!-- Main Quiz Section -->
+    <main class="quiz-container">
+        <!-- 1. Start Screen -->
         <section class="quiz-start" id="quizStart">
             <div class="stars"></div>
             <div class="quiz-start-content">
-                <h1>Science Fiction Science Quiz</h1>
-                <p>Test your knowledge about the real science behind science-fiction movies. Can you distinguish between scientific fact and movie fiction?</p>
-                <button class="btn btn-primary" id="startQuizBtn">
-                    <span>Start Quiz</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <div class="confidence-badge" style="background: rgba(0, 102, 255, 0.2); color: #60a5fa; border-color: rgba(0, 102, 255, 0.4); margin-bottom: 1.25rem;">
+                    🧪 Interactive Knowledge Arena
+                </div>
+                <h1 class="quiz-hero-title">Science Fiction Science Quiz</h1>
+                <p class="quiz-hero-subtitle">
+                    Can you separate verified astrophysical fact from Hollywood cinematic fiction? Test your physics, relativity, and cinema knowledge across 10 curated questions.
+                </p>
+
+                <div class="quiz-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">⏱️</span>
+                        <div>
+                            <strong>10 Questions</strong>
+                            <span>Real-time elapsed timer</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <div>
+                            <strong>Multi-Difficulty</strong>
+                            <span>Beginner to Advanced</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💡</span>
+                        <div>
+                            <strong>Deep Explanations</strong>
+                            <span>Physics breakdown on each</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎬</span>
+                        <div>
+                            <strong>Movie Connections</strong>
+                            <span>Interstellar, Martian & more</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-start-actions">
+                    <button class="btn btn-primary btn-glow" id="startQuizBtn">
+                        <span>Launch Science Quiz</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
-        <!-- Quiz Screen -->
-        <section class="quiz-screen" id="quizScreen" style="display: none;">
-            <div class="quiz-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+        <!-- 2. Interactive Question Screen -->
+        <section class="quiz-question-screen" id="quizQuestionScreen" style="display: none;">
+            <div class="quiz-header">
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="quizProgressFill" style="width: 10%;"></div>
                 </div>
-                <div class="progress-text">
-                    <span id="questionNumber">Question 1 of 10</span>
-                    <span id="scoreDisplay">Score: 0</span>
+                <div class="quiz-meta">
+                    <div class="quiz-meta-left">
+                        <span class="question-counter" id="questionCounter">Question 1 of 10</span>
+                        <span class="question-difficulty-tag" id="questionDifficultyTag">Intermediate</span>
+                    </div>
+                    <div class="quiz-meta-right">
+                        <span class="quiz-timer" id="quizTimer">⏱️ 0:00</span>
+                        <span class="quiz-live-score" id="quizLiveScore">Score: 0</span>
+                    </div>
                 </div>
             </div>
 
             <div class="quiz-content">
-                <div class="question-container">
-                    <h2 id="questionText"></h2>
+                <div class="question-card" id="questionCard">
+                    <h2 class="question-text" id="questionText">Loading Question...</h2>
+                    <div class="options-container" id="optionsContainer"></div>
                 </div>
 
-                <div class="options-container" id="optionsContainer"></div>
+                <!-- Instant Physics Feedback Card -->
+                <div class="feedback-container" id="feedbackContainer" style="display: none;">
+                    <div class="feedback-header">
+                        <div class="feedback-badge" id="feedbackBadge">
+                            <span class="feedback-icon" id="feedbackIcon">✓</span>
+                            <h3 class="feedback-title" id="feedbackTitle">Correct!</h3>
+                        </div>
+                    </div>
+                    <p class="feedback-explanation" id="feedbackExplanation"></p>
+                    
+                    <div class="feedback-movie-box" id="feedbackMovieBox" style="display: none;">
+                        <span class="movie-box-icon">🎬</span>
+                        <div>
+                            <strong style="color: #38bdf8; font-size: 0.85rem; display: block;">Cinematic Connection</strong>
+                            <span class="movie-box-text" id="feedbackMovieText"></span>
+                        </div>
+                    </div>
 
-                <div class="button-group">
-                    <button class="btn btn-secondary" id="prevBtn" style="display: none;">
-                        Previous
-                    </button>
-                    <button class="btn btn-primary" id="nextBtn" style="display: none;">
-                        Next
-                    </button>
+                    <div class="feedback-actions">
+                        <button class="btn btn-primary btn-glow next-btn" id="nextQuestionBtn">
+                            <span id="nextBtnText">Next Question</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Answer Feedback -->
-        <div class="answer-feedback" id="answerFeedback" style="display: none;">
-            <div class="feedback-content">
-                <div class="feedback-icon" id="feedbackIcon"></div>
-                <h3 id="feedbackTitle"></h3>
-                <p id="feedbackText"></p>
-                <div class="movie-connection" id="feedbackMovie" style="display: none;">
-                    <h4>Featured In:</h4>
-                    <p id="feedbackMovieText"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Results Screen -->
-        <section class="quiz-results" id="quizResults" style="display: none;">
+        <!-- 3. Results Screen -->
+        <section class="quiz-results-screen" id="quizResultsScreen" style="display: none;">
             <div class="stars"></div>
             <div class="results-content">
-                <h1>Quiz Complete!</h1>
-                <div class="final-score" id="finalScore"></div>
-                <p id="resultMessage"></p>
-                
-                <div class="results-breakdown" id="resultsBreakdown"></div>
+                <div class="results-header">
+                    <!-- Circular Score Gauge -->
+                    <div class="score-circle-wrapper">
+                        <svg viewBox="0 0 120 120" class="circle-svg">
+                            <circle cx="60" cy="60" r="50" class="circle-bg"></circle>
+                            <circle cx="60" cy="60" r="50" class="circle-progress" id="circleProgress" stroke-dasharray="314.159" stroke-dashoffset="314.159"></circle>
+                        </svg>
+                        <div class="score-center-text">
+                            <span class="score-percentage" id="scorePercentage">0%</span>
+                            <span class="score-fraction" id="scoreFraction">0 / 10</span>
+                        </div>
+                    </div>
 
-                <div class="button-group">
-                    <button class="btn btn-secondary" id="retakeBtn">
-                        Retake Quiz
+                    <div class="results-title-group">
+                        <span class="mastery-rank-badge" id="masteryRankBadge">Cosmic Mastermind</span>
+                        <h2 class="results-title" id="resultsTitle">Outstanding Work!</h2>
+                        <p class="results-subtitle" id="resultsSubtitle"></p>
+                    </div>
+                </div>
+
+                <!-- Stats Summary Cards -->
+                <div class="results-stats">
+                    <div class="stat-card stat-correct">
+                        <span class="stat-icon">✓</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="correctCount">0</span>
+                            <span class="stat-label">Correct Answers</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-incorrect">
+                        <span class="stat-icon">✗</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="incorrectCount">0</span>
+                            <span class="stat-label">Incorrect</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-time">
+                        <span class="stat-icon">⏱️</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="timeSpent">0:00</span>
+                            <span class="stat-label">Total Time</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-accuracy">
+                        <span class="stat-icon">⚡</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="accuracyRate">0%</span>
+                            <span class="stat-label">Scientific Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="results-actions">
+                    <button class="btn btn-primary btn-glow" id="retryQuizBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                        </svg>
+                        <span>Retry Quiz</span>
                     </button>
-                    <a href="index.html" class="btn btn-primary">
-                        Back to Home
+                    <button class="btn btn-secondary" id="reviewAnswersBtn">
+                        <span>Review All Answers</span>
+                    </button>
+                    <a href="what-if.html" class="btn btn-secondary">
+                        <span>Explore What If?</span>
                     </a>
+                    <a href="concepts.html" class="btn btn-secondary">
+                        <span>Study Concepts Hub</span>
+                    </a>
+                </div>
+
+                <!-- Collapsible Answers Review Section -->
+                <div class="quiz-review-section" id="quizReviewSection" style="display: none;">
+                    <h3 class="review-heading">Detailed Question Review & Scientific Explanations</h3>
+                    <div class="review-list" id="reviewList"></div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -143,7 +259,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
@@ -152,8 +270,7 @@
                 <h4>Learn</h4>
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="concepts.html">Documentation & Formulas</a></li>
                 </ul>
             </div>
         </div>

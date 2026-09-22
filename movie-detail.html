@@ -10,7 +10,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +23,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link active">Movies</a></li>
-                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link">Quiz</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -53,7 +55,7 @@
     <!-- Loading State -->
     <div class="loading" id="loadingState">
         <div class="spinner"></div>
-        <p>Loading movie details...</p>
+        <p>Analyzing scientific accuracy and film physics...</p>
     </div>
 
     <!-- Movie Detail Content -->
@@ -91,35 +93,44 @@
                     
                     <div class="accuracy-badge">
                         <div class="accuracy-score" id="accuracyScore"></div>
-                        <span>Scientific Accuracy</span>
+                        <span>Scientific Accuracy Rating</span>
                     </div>
 
                     <p class="movie-description" id="movieDescription"></p>
 
                     <div class="concepts-section">
-                        <h3>Key Scientific Concepts</h3>
+                        <h3>Key Scientific Concepts (Click to inspect)</h3>
                         <div class="concepts-list" id="conceptsList"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Science Behind the Movie Section -->
+        <!-- Science Behind the Movie Section with 3-Level Depth -->
         <section class="science-behind-section">
             <div class="section-header">
                 <h2 class="section-title">The Science Behind the Movie</h2>
-                <p class="section-subtitle">Detailed explanations of the scientific concepts featured</p>
+                <p class="section-subtitle">In-depth explanations of core physical principles featured in the film</p>
             </div>
             <div class="science-concepts" id="scienceConcepts"></div>
         </section>
 
-        <!-- Movie vs Reality Section -->
+        <!-- Movie vs Reality Signature Pipeline Section -->
         <section class="comparison-section">
             <div class="section-header">
-                <h2 class="section-title">Movie vs Reality</h2>
-                <p class="section-subtitle">How accurately does the film represent real science?</p>
+                <h2 class="section-title">Movie Claim vs Real Science</h2>
+                <p class="section-subtitle">Rigorous breakdown comparing cinematic claims with empirical laws of physics</p>
             </div>
             <div class="comparison-cards" id="comparisonCards"></div>
+        </section>
+
+        <!-- Related What-If Scenarios Section -->
+        <section class="what-if-movie-section" style="padding: var(--spacing-3xl) var(--spacing-xl); max-width: 1400px; margin: 0 auto;" id="movieWhatIfSection">
+            <div class="section-header">
+                <h2 class="section-title">🌌 Related "What If?" Scenarios</h2>
+                <p class="section-subtitle">Theoretical scientific explorations directly connected to this film's themes</p>
+            </div>
+            <div class="what-if-grid" id="movieWhatIfGrid" style="margin-top: 1.5rem;"></div>
         </section>
 
         <!-- Related Movies Section -->
@@ -143,7 +154,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
@@ -153,7 +166,6 @@
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>

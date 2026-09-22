@@ -1,24 +1,50 @@
 /**
- * SciFiLens - Homepage
+ * SciFiLens - Homepage Logic
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Load featured movies
-    const moviesData = await fetchJSON('data/movies.json');
-    const scienceData = await fetchJSON('data/science-concepts.json');
+    // Load movies, what-if scenarios, and concepts
+    const [moviesData, whatIfData, scienceData] = await Promise.all([
+        fetchJSON('data/movies.json'),
+        fetchJSON('data/what-if.json'),
+        fetchJSON('data/science-concepts.json')
+    ]);
     
-    if (moviesData) {
+    if (whatIfData && whatIfData.scenarios) {
+        displayHomepageWhatIfs(whatIfData.scenarios.slice(0, 3));
+    }
+
+    if (moviesData && moviesData.movies) {
         displayFeaturedMovies(moviesData.movies.slice(0, 6));
-    }
-    
-    if (scienceData) {
-        displayScienceCategories(scienceData.concepts);
-    }
-    
-    if (moviesData) {
         displayAccuracyRatings(moviesData.movies.slice(0, 4));
     }
+    
+    if (scienceData && scienceData.concepts) {
+        displayScienceCategories(scienceData.concepts.slice(0, 8));
+    }
 });
+
+function displayHomepageWhatIfs(scenarios) {
+    const container = document.getElementById('homepageWhatIfGrid');
+    if (!container) return;
+
+    container.innerHTML = scenarios.map(s => `
+        <div class="what-if-card" onclick="window.location.href='what-if.html?scenario=${s.slug || s.id}'">
+            <div>
+                <div class="what-if-card-header">
+                    <div class="what-if-card-icon">${s.icon || '🌍'}</div>
+                    <span class="plausibility-badge ${s.classificationLevel || 'theoretical'}">${s.classification}</span>
+                </div>
+                <div class="what-if-card-category">${s.category}</div>
+                <h3 class="what-if-card-title">${s.title}</h3>
+                <p class="what-if-card-hook">"${s.hook}"</p>
+            </div>
+            <div class="what-if-card-footer">
+                <span style="font-size: 0.8rem; color: #38bdf8; font-weight: 600;">Explore 7-Stage Breakdown →</span>
+            </div>
+        </div>
+    `).join('');
+}
 
 function displayFeaturedMovies(movies) {
     const container = document.getElementById('featuredMovies');
@@ -48,7 +74,7 @@ function displayFeaturedMovies(movies) {
                     </div>
                     <div class="concepts-tags">
                         ${movie.concepts.slice(0, 3).map(concept => 
-                            `<span class="concept-tag">${concept}</span>`
+                            `<span class="concept-tag" data-concept="${concept}">${concept}</span>`
                         ).join('')}
                     </div>
                 </div>
@@ -62,8 +88,8 @@ function displayScienceCategories(concepts) {
     if (!container) return;
     
     container.innerHTML = concepts.map(concept => `
-        <div class="category-card" onclick="window.location.href='science.html'">
-            <div class="category-icon">${concept.icon}</div>
+        <div class="category-card" onclick="window.location.href='concepts.html?concept=${concept.slug || concept.id}'">
+            <div class="category-icon">${concept.icon || '⚛️'}</div>
             <h3 class="category-title">${concept.title}</h3>
             <p class="category-description">${concept.description}</p>
         </div>

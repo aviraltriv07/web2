@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science Explorer - SciFiLens</title>
+    <title>Real Science Explorer - SciFiLens</title>
+    <meta name="description" content="Discover the real physics, cosmology, and biology behind science-fiction concepts.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +24,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link">Movies</a></li>
-                <li><a href="science.html" class="nav-link active">Science</a></li>
+                <li><a href="science.html" class="nav-link active">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link">Quiz</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -53,15 +56,15 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="stars"></div>
-        <h1>Science Explorer</h1>
-        <p>Discover the real physics and science behind science-fiction concepts</p>
+        <h1>Real Science Explorer</h1>
+        <p>Discover the real physics, astrophysics, and biology underlying sci-fi concepts</p>
     </section>
 
     <!-- Filters Section -->
     <section class="science-container">
         <aside class="filters-panel">
             <div class="filter-group">
-                <h3>Search</h3>
+                <h3>Search Concepts</h3>
                 <input type="text" id="searchInput" class="search-input" placeholder="Search concepts...">
             </div>
 
@@ -88,31 +91,45 @@
 
     <!-- Science Detail Modal -->
     <div class="modal" id="scienceModal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 800px;">
             <button class="modal-close" aria-label="Close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-icon" id="modalIcon"></div>
-                <h2 id="modalTitle"></h2>
-                <div class="modal-description" id="modalDescription"></div>
+            <div class="modal-body" id="scienceModalBody">
+                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                    <div class="modal-icon" id="modalIcon" style="font-size: 2.5rem; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: var(--radius-md);"></div>
+                    <div>
+                        <h2 id="modalTitle" style="margin: 0; font-size: 1.75rem; color: #ffffff;"></h2>
+                        <div id="modalCategoryBadge" style="margin-top: 0.25rem;"></div>
+                    </div>
+                </div>
+
+                <div class="modal-description" id="modalDescription" style="font-size: 1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;"></div>
+
+                <!-- 3-Tier Depth Switcher -->
+                <div style="margin: 1.25rem 0;">
+                    <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); letter-spacing: 0.5px; margin-bottom: 0.5rem;">
+                        Scientific Explanation Depth
+                    </div>
+                    <div class="level-switcher" id="scienceLevelSwitcher">
+                        <button class="level-btn active" data-level="beginner">🟢 Beginner</button>
+                        <button class="level-btn" data-level="explorer">🟡 Explorer</button>
+                        <button class="level-btn" data-level="deepScience">🔴 Deep Science</button>
+                    </div>
+                    <div class="level-content-box beginner" id="scienceLevelBox"></div>
+                </div>
                 
-                <div class="modal-section">
-                    <h3>Key Formula</h3>
-                    <div class="formula" id="modalFormula"></div>
+                <div class="modal-section" id="modalFormulaSection">
+                    <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.5rem;">Key Formula & Mathematical Principle</h3>
+                    <div id="modalFormulaContainer"></div>
                 </div>
 
                 <div class="modal-section">
-                    <h3>Related Movies</h3>
+                    <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.5rem;">Featured in Movies</h3>
                     <div class="modal-movies" id="modalMovies"></div>
                 </div>
 
                 <div class="modal-section">
-                    <h3>Real-World Applications</h3>
+                    <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.5rem;">Real-World Applications</h3>
                     <ul class="applications-list" id="applicationsList"></ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3>Learn More</h3>
-                    <div class="resources-list" id="resourcesList"></div>
                 </div>
             </div>
         </div>
@@ -129,7 +146,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
@@ -139,7 +158,6 @@
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>

@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Gravitational Time Dilation",
       "icon": "⏰",
-      "description": "Observe how time passes differently near massive objects due to gravitational fields",
+      "description": "Observe how time passes differently near massive objects due to general relativistic gravitational time dilation.",
       "category": "Relativity",
       "difficulty": "Advanced",
       "controls": [
@@ -12,44 +12,55 @@
           "name": "mass",
           "label": "Object Mass (kg)",
           "type": "range",
-          "min": 1000000,
-          "max": 100000000,
-          "step": 1000000,
-          "value": 10000000,
+          "min": 1000000000000000000000,
+          "max": 2000000000000000000000000000000,
+          "step": 10000000000000000000000000,
+          "value": 5972000000000000000000000,
           "unit": "kg"
         },
         {
           "name": "distance",
-          "label": "Distance from Object (m)",
+          "label": "Distance from Center (m)",
           "type": "range",
-          "min": 100,
-          "max": 10000,
-          "step": 100,
-          "value": 1000,
+          "min": 1000,
+          "max": 100000000,
+          "step": 10000,
+          "value": 6371000,
           "unit": "m"
         }
       ],
+      "presets": [
+        { "name": "🌍 Earth Surface", "mass": 5.972e24, "distance": 6371000 },
+        { "name": "🛰️ GPS Orbit (20,200 km)", "mass": 5.972e24, "distance": 26571000 },
+        { "name": "☀️ Solar Surface", "mass": 1.989e30, "distance": 696340000 },
+        { "name": "⚡ Neutron Star (1.4 M☉)", "mass": 2.78e30, "distance": 12000 }
+      ],
       "results": [
         {
-          "label": "Time Dilation Factor",
-          "unit": "",
-          "formula": "1 - (2GM)/(c²r)"
+          "label": "Time Dilation Factor (γ_g)",
+          "unit": "ratio",
+          "formula": "√(1 - 2GM/rc²)"
         },
         {
-          "label": "Time Difference Per Day",
-          "unit": "microseconds",
-          "formula": "(1 - TDF) × 86400000000"
+          "label": "Time Difference vs Deep Space",
+          "unit": "μs / day",
+          "formula": "(1 - γ_g) × 86,400 × 10⁶ μs"
+        },
+        {
+          "label": "Gravitational Redshift (z)",
+          "unit": "shift",
+          "formula": "(1 / γ_g) - 1"
         }
       ],
-      "explanation": "Einstein's general relativity predicts that time flows slower in stronger gravitational fields. This effect has been measured with atomic clocks at different altitudes. Near massive objects like neutron stars or black holes, this effect becomes dramatic.",
-      "relatedMovies": ["Interstellar", "Arrival"],
-      "formula": "Δt = t₀√(1 - 2GM/c²r)"
+      "explanation": "Einstein's general theory of relativity demonstrates that spacetime curves in the presence of mass and energy. Clocks closer to a massive gravitational source tick slower relative to clocks situated further away in weaker gravitational fields. This principle is vital for GPS satellites, which must compensate for time dilation every single second to maintain GPS navigation accuracy.",
+      "relatedMovies": ["Interstellar", "Arrival", "Contact"],
+      "formula": "Δt = Δt₀ · √(1 - 2GM / rc²)"
     },
     {
       "id": 2,
-      "title": "Escape Velocity",
+      "title": "Escape Velocity Simulator",
       "icon": "🚀",
-      "description": "Calculate the minimum velocity needed to escape a celestial body's gravitational pull",
+      "description": "Calculate the exact launch speed required for an unpropelled projectile to break free from a planet or star's gravitational field.",
       "category": "Orbital Mechanics",
       "difficulty": "Intermediate",
       "controls": [
@@ -57,44 +68,56 @@
           "name": "mass",
           "label": "Celestial Body Mass (kg)",
           "type": "range",
-          "min": 1000000000000000000000000,
-          "max": 10000000000000000000000000,
-          "step": 100000000000000000000000,
-          "value": 6000000000000000000000000,
+          "min": 10000000000000000000000,
+          "max": 2000000000000000000000000000000,
+          "step": 1000000000000000000000000,
+          "value": 5972000000000000000000000,
           "unit": "kg"
         },
         {
           "name": "radius",
           "label": "Celestial Body Radius (m)",
           "type": "range",
-          "min": 100000,
-          "max": 10000000,
-          "step": 100000,
+          "min": 10000,
+          "max": 700000000,
+          "step": 50000,
           "value": 6371000,
           "unit": "m"
         }
       ],
+      "presets": [
+        { "name": "🌕 Moon", "mass": 7.342e22, "radius": 1737400 },
+        { "name": "🔴 Mars", "mass": 6.417e23, "radius": 3389500 },
+        { "name": "🌍 Earth", "mass": 5.972e24, "radius": 6371000 },
+        { "name": "🪐 Jupiter", "mass": 1.898e27, "radius": 69911000 },
+        { "name": "☀️ The Sun", "mass": 1.989e30, "radius": 696340000 }
+      ],
       "results": [
         {
-          "label": "Escape Velocity",
+          "label": "Escape Velocity (v_e)",
           "unit": "m/s",
-          "formula": "√(2GM/R)"
+          "formula": "√(2GM / R)"
         },
         {
-          "label": "Escape Velocity",
+          "label": "Escape Velocity (km/s)",
           "unit": "km/s",
-          "formula": "√(2GM/R) / 1000"
+          "formula": "v_e / 1,000"
+        },
+        {
+          "label": "Surface Gravity (g)",
+          "unit": "m/s²",
+          "formula": "GM / R²"
         }
       ],
-      "explanation": "Escape velocity is the minimum speed needed for an object to escape from the gravitational attraction of a body without further propulsion. For Earth, this is about 11.2 km/s. For more massive objects, escape velocity is higher.",
-      "relatedMovies": ["The Martian", "Gravity"],
-      "formula": "v_e = √(2GM/R)"
+      "explanation": "Escape velocity is the minimum kinetic energy required per unit mass to completely overcome the gravitational potential well of a celestial body without additional thrust. For Earth, escaping the surface requires approximately 11.2 km/s (40,320 km/h).",
+      "relatedMovies": ["The Martian", "Gravity", "Apollo 13", "Interstellar"],
+      "formula": "v_e = √(2GM / R)"
     },
     {
       "id": 3,
-      "title": "Orbital Motion",
+      "title": "Orbital Velocity & Period",
       "icon": "🛰️",
-      "description": "Simulate orbital velocity and understand circular orbital mechanics",
+      "description": "Simulate stable circular orbits around central masses and discover the direct relationship between orbital altitude, velocity, and orbital period.",
       "category": "Orbital Mechanics",
       "difficulty": "Intermediate",
       "controls": [
@@ -103,122 +126,165 @@
           "label": "Central Body Mass (kg)",
           "type": "range",
           "min": 1000000000000000000000000,
-          "max": 10000000000000000000000000,
-          "step": 100000000000000000000000,
-          "value": 6000000000000000000000000,
+          "max": 2000000000000000000000000000000,
+          "step": 1000000000000000000000000,
+          "value": 5972000000000000000000000,
           "unit": "kg"
         },
         {
           "name": "distance",
           "label": "Orbital Radius (m)",
           "type": "range",
-          "min": 100000,
-          "max": 400000000,
-          "step": 1000000,
-          "value": 6700000,
+          "min": 6500000,
+          "max": 450000000,
+          "step": 100000,
+          "value": 6771000,
           "unit": "m"
         }
       ],
+      "presets": [
+        { "name": "🛰️ ISS Orbit (~400 km)", "mass": 5.972e24, "distance": 6771000 },
+        { "name": "📡 Geostationary (35,786 km)", "mass": 5.972e24, "distance": 42164000 },
+        { "name": "🌕 Moon Orbit (384,400 km)", "mass": 5.972e24, "distance": 384400000 },
+        { "name": "☀️ Earth around Sun (1 AU)", "mass": 1.989e30, "distance": 149600000000 }
+      ],
       "results": [
         {
-          "label": "Orbital Velocity",
-          "unit": "m/s",
-          "formula": "√(GM/r)"
+          "label": "Orbital Velocity (v_orb)",
+          "unit": "km/s",
+          "formula": "√(GM / r) / 1,000"
         },
         {
-          "label": "Orbital Period",
-          "unit": "hours",
-          "formula": "2π√(r³/GM) / 3600"
+          "label": "Orbital Period (T)",
+          "unit": "minutes / hours",
+          "formula": "2π · √(r³ / GM)"
+        },
+        {
+          "label": "Centripetal Acceleration",
+          "unit": "m/s²",
+          "formula": "v² / r"
         }
       ],
-      "explanation": "Objects in stable circular orbit maintain constant velocity determined by the balance between gravitational force and centrifugal acceleration. Closer orbits require higher velocities. This principle governs all satellite operations.",
-      "relatedMovies": ["Gravity", "2001: A Space Odyssey"],
-      "formula": "v = √(GM/r)"
+      "explanation": "In a stable circular orbit, gravitational attraction provides exactly the necessary centripetal force to keep the satellite in free-fall around the planet. Lower orbits require much higher velocities to avoid spiraling inward, whereas higher orbits travel slower and take significantly longer to complete a single revolution.",
+      "relatedMovies": ["Gravity", "2001: A Space Odyssey", "Interstellar"],
+      "formula": "v = √(GM / r)  |  T = 2π√(r³ / GM)"
     },
     {
       "id": 4,
-      "title": "Projectile Motion",
+      "title": "Projectile Trajectory Motion",
       "icon": "🏹",
-      "description": "Explore how objects move under gravity with an initial velocity",
+      "description": "Calculate ballistic 2D kinematics under gravitational acceleration, including maximum height, flight time, and total horizontal range.",
       "category": "Classical Mechanics",
       "difficulty": "Beginner",
       "controls": [
         {
           "name": "velocity",
-          "label": "Initial Velocity (m/s)",
+          "label": "Launch Velocity (m/s)",
           "type": "range",
-          "min": 0,
-          "max": 100,
+          "min": 10,
+          "max": 250,
           "step": 5,
-          "value": 50,
+          "value": 60,
           "unit": "m/s"
         },
         {
           "name": "angle",
           "label": "Launch Angle (degrees)",
           "type": "range",
-          "min": 0,
-          "max": 90,
+          "min": 5,
+          "max": 85,
           "step": 5,
           "value": 45,
           "unit": "°"
+        },
+        {
+          "name": "gravity",
+          "label": "Gravity Acceleration (m/s²)",
+          "type": "range",
+          "min": 1.6,
+          "max": 25.0,
+          "step": 0.1,
+          "value": 9.81,
+          "unit": "m/s²"
         }
+      ],
+      "presets": [
+        { "name": "🌍 Earth (9.81 m/s², 45°)", "velocity": 60, "angle": 45, "gravity": 9.81 },
+        { "name": "🌕 Moon (1.62 m/s², 45°)", "velocity": 60, "angle": 45, "gravity": 1.62 },
+        { "name": "🔴 Mars (3.72 m/s², 45°)", "velocity": 60, "angle": 45, "gravity": 3.72 },
+        { "name": "🪐 Jupiter (24.79 m/s², 45°)", "velocity": 60, "angle": 45, "gravity": 24.79 }
       ],
       "results": [
         {
-          "label": "Maximum Height",
-          "unit": "meters",
-          "formula": "(v₀²sin²θ) / (2g)"
+          "label": "Maximum Apex Height (H)",
+          "unit": "m",
+          "formula": "(v₀² · sin²θ) / (2g)"
         },
         {
-          "label": "Range",
-          "unit": "meters",
-          "formula": "(v₀²sin(2θ)) / g"
+          "label": "Total Horizontal Range (R)",
+          "unit": "m",
+          "formula": "(v₀² · sin(2θ)) / g"
         },
         {
-          "label": "Flight Time",
+          "label": "Total Flight Time (t)",
           "unit": "seconds",
-          "formula": "(2v₀sinθ) / g"
+          "formula": "(2v₀ · sinθ) / g"
         }
       ],
-      "explanation": "Projectile motion combines horizontal motion at constant velocity with vertical motion under constant acceleration due to gravity. The optimal launch angle for maximum range is 45 degrees.",
-      "relatedMovies": ["The Martian"],
-      "formula": "y = x·tanθ - (gx²)/(2v₀²cos²θ)"
+      "explanation": "Projectile motion decomposes into independent horizontal motion at constant velocity and vertical motion under constant gravitational acceleration. In a vacuum, maximum range is achieved at an angle of exactly 45 degrees. On low-gravity worlds like the Moon or Mars, objects travel far higher and further for the exact same initial launch velocity.",
+      "relatedMovies": ["The Martian", "Armageddon", "Starship Troopers"],
+      "formula": "R = (v₀² sin 2θ) / g  |  H = (v₀² sin²θ) / 2g"
     },
     {
       "id": 5,
       "title": "Black Hole Event Horizon",
       "icon": "🕳️",
-      "description": "Calculate the Schwarzschild radius - the boundary of a black hole",
+      "description": "Calculate the Schwarzschild radius, photon sphere, and tidal forces for stellar and supermassive black holes.",
       "category": "Astrophysics",
       "difficulty": "Advanced",
       "controls": [
         {
           "name": "mass",
-          "label": "Black Hole Mass (Solar Masses)",
+          "label": "Black Hole Mass (Solar Masses M☉)",
           "type": "range",
           "min": 3,
           "max": 1000000000,
-          "step": 10,
-          "value": 1000,
+          "step": 1,
+          "value": 10,
           "unit": "M☉"
         }
       ],
+      "presets": [
+        { "name": "⭐ Cygnus X-1 (Stellar 21 M☉)", "mass": 21 },
+        { "name": "🌌 Sagittarius A* (Milky Way 4.3M M☉)", "mass": 4300000 },
+        { "name": "🕳️ Gargantua (Interstellar 100M M☉)", "mass": 100000000 },
+        { "name": "💥 M87* (Supermassive 6.5B M☉)", "mass": 6500000000 }
+      ],
       "results": [
         {
-          "label": "Schwarzschild Radius",
-          "unit": "kilometers",
+          "label": "Schwarzschild Radius (r_s)",
+          "unit": "km",
           "formula": "2GM / c²"
         },
         {
-          "label": "Surface Area",
+          "label": "Photon Sphere Radius (r_ph)",
+          "unit": "km",
+          "formula": "1.5 × r_s"
+        },
+        {
+          "label": "Innermost Stable Orbit (ISCO)",
+          "unit": "km",
+          "formula": "3 × r_s"
+        },
+        {
+          "label": "Event Horizon Area",
           "unit": "km²",
-          "formula": "4πr²"
+          "formula": "4π · r_s²"
         }
       ],
-      "explanation": "The Schwarzschild radius defines the event horizon of a black hole - the point of no return. Even light cannot escape beyond this radius. For a solar-mass black hole, this is about 3 km. For supermassive black holes, it can be millions of kilometers.",
-      "relatedMovies": ["Interstellar"],
-      "formula": "r_s = 2GM/c²"
+      "explanation": "The Schwarzschild radius defines the event horizon of a non-rotating black hole — the cosmic boundary where escape velocity equals the speed of light. Inside this boundary, all future light cones point toward the singularity. Outside the event horizon lies the photon sphere at 1.5 r_s, where photons can orbit in unstable circles, and the ISCO at 3 r_s, where matter safely forms glowing accretion disks.",
+      "relatedMovies": ["Interstellar", "Event Horizon", "Black Hole"],
+      "formula": "r_s = 2GM / c²  |  r_ph = 3GM / c²"
     }
   ]
 }

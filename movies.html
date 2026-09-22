@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies - SciFiLens</title>
+    <meta name="description" content="Explore science-fiction films and their scientific accuracy ratings, physics claims, and real-world science foundations.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +24,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link active">Movies</a></li>
-                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link">Quiz</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -53,8 +56,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="stars"></div>
-        <h1>Movie Library</h1>
-        <p>Discover science-fiction films and their scientific foundations</p>
+        <h1>Sci-Fi Movie Library</h1>
+        <p>Discover science-fiction masterpieces and their empirical scientific foundations</p>
     </section>
 
     <!-- Filters Section -->
@@ -117,7 +120,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
@@ -127,7 +132,6 @@
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>

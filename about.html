@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - SciFiLens</title>
+    <meta name="description" content="About SciFiLens - Exploring the intersection of science fiction cinema, theoretical physics, and empirical science.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +24,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link">Movies</a></li>
-                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link">Quiz</a></li>
                 <li><a href="about.html" class="nav-link active">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -54,73 +57,40 @@
     <section class="page-header">
         <div class="stars"></div>
         <h1>About SciFiLens</h1>
-        <p>Bridging the gap between cinema and science</p>
+        <p>Bridging the gap between cinema, theoretical physics, and scientific curiosity</p>
     </section>
 
     <!-- About Content -->
     <section class="about-container">
         <div class="about-section">
             <h2>Our Mission</h2>
-            <p>SciFiLens is dedicated to exploring the fascinating intersection between science fiction and real science. We believe that the best sci-fi films are grounded in real physics and scientific principles, and we're passionate about helping audiences understand the science behind the movies they love.</p>
+            <p>SciFiLens is dedicated to exploring the fascinating intersection between science fiction and real science. We believe that great science fiction elevates our curiosity and drives scientific progress. Our mission is to explain the real physics, astrophysics, biology, and chemistry behind cinema and theoretical questions.</p>
         </div>
 
         <div class="about-section">
             <h2>What We Do</h2>
-            <p>We analyze popular science-fiction movies and break down the real scientific concepts they feature. Our platform provides:</p>
+            <p>We analyze science-fiction movies, theoretical "What If?" scenarios, and core physical principles. Our platform provides:</p>
             <ul class="about-list">
-                <li><strong>Movie Analysis:</strong> In-depth looks at the science in your favorite films</li>
-                <li><strong>Scientific Accuracy Ratings:</strong> Detailed assessments of how realistic each movie's science is</li>
-                <li><strong>Educational Content:</strong> Learn about real physics, relativity, quantum mechanics, and more</li>
-                <li><strong>Interactive Experiments:</strong> Experiment with physics concepts and see them in action</li>
-                <li><strong>Quizzes:</strong> Test your knowledge about science and science fiction</li>
+                <li><strong>🌌 WHAT IF? Scenarios:</strong> Rigorous 7-stage consequences of theoretical scientific events (e.g. Earth halting its rotation, light-speed travel, solar disappearance).</li>
+                <li><strong>🎬 Movie Claim vs. Reality:</strong> Structured scientific analysis contrasting movie claims with established laws of physics.</li>
+                <li><strong>🔬 3-Tier Explanations:</strong> Multi-depth scientific breakdowns tailored for Beginners, Explorers, and Deep Science enthusiasts.</li>
+                <li><strong>⚡ Interactive Simulators:</strong> Real-time calculators for relativistic time dilation, planetary gravity, and orbital velocity.</li>
+                <li><strong>⚖️ Scientific Accuracy & Confidence Ratings:</strong> Clearly categorizing claims as Established Science, Theoretical, Active Research, Speculative, or Violating Known Physics.</li>
             </ul>
         </div>
 
         <div class="about-section">
-            <h2>The Science Behind Science Fiction</h2>
-            <p>Science fiction has always been about exploring "what if" scenarios grounded in real science. Some of the greatest sci-fi films accurately represent complex scientific concepts, while others take creative liberties. Our goal is to help you understand which is which.</p>
-            <p>Whether it's the mind-bending relativity of Interstellar, the rigorous physics of The Martian, or the speculative biology of Arrival, we break down the science and explain what's real, what's theoretical, and what's just pure fiction.</p>
+            <h2>Our Scientific Approach</h2>
+            <p>We consult peer-reviewed physics literature, General Relativity metrics, quantum mechanical bounds, and NASA/ESA mission data. We celebrate cinematic imagination while rigorously respecting the laws of physics and thermodynamics.</p>
         </div>
 
         <div class="about-section">
-            <h2>Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>📽️ Movie Library</h3>
-                    <p>Explore a curated collection of science-fiction films analyzed for scientific accuracy</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🔬 Science Explorer</h3>
-                    <p>Learn about the real scientific concepts that appear in your favorite movies</p>
-                </div>
-                <div class="feature-card">
-                    <h3>⚗️ Interactive Labs</h3>
-                    <p>Experiment with physics concepts and see how they work in action</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🧪 Quiz</h3>
-                    <p>Test your knowledge about science fiction and real science</p>
-                </div>
+            <h2>Explore SciFiLens</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a href="what-if.html" class="btn btn-primary">Explore WHAT IF?</a>
+                <a href="concepts.html" class="btn btn-secondary">Science Concepts Hub</a>
+                <a href="movies.html" class="btn btn-secondary">Movie Library</a>
             </div>
-        </div>
-
-        <div class="about-section">
-            <h2>Our Approach</h2>
-            <p>We use scientific literature, academic research, and expert consultation to ensure the accuracy of our content. Every scientific claim is verified, and every movie analysis is thorough and fair.</p>
-            <p>We believe that science is not boring—it's fascinating. And science fiction is the perfect gateway to understanding the real universe around us.</p>
-        </div>
-
-        <div class="about-section">
-            <h2>Technology</h2>
-            <p>SciFiLens is built with modern web technologies to provide a fast, responsive, and beautiful user experience. Our platform is designed to be accessible, interactive, and educational.</p>
-            <p>We're continuously improving and expanding our content, so check back often for new movies, concepts, experiments, and quizzes.</p>
-        </div>
-
-        <div class="about-section contact-section">
-            <h2>Get In Touch</h2>
-            <p>Have questions? Want to suggest a movie or scientific concept? We'd love to hear from you!</p>
-            <p>Email: <a href="mailto:hello@scifilens.com">hello@scifilens.com</a></p>
-            <p>Follow us on social media for the latest updates and science-fiction news.</p>
         </div>
     </section>
 
@@ -135,7 +105,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
@@ -145,7 +117,6 @@
                 <ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>

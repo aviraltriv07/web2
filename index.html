@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SciFiLens - Explore Science Behind Science Fiction</title>
+    <title>SciFiLens - Science Fiction, Explained by Science</title>
+    <meta name="description" content="Explore the real science behind science fiction movies, theoretical What-If scenarios, physics equations, and interactive simulators.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="1"></circle>
                     <path d="M12 1v6m0 6v6"></path>
@@ -23,13 +24,15 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="movies.html" class="nav-link">Movies</a></li>
-                <li><a href="science.html" class="nav-link">Science</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
                 <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                 <li><a href="quiz.html" class="nav-link">Quiz</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -54,17 +57,26 @@
     <section class="hero">
         <div class="stars"></div>
         <div class="hero-content">
+            <div class="confidence-badge" style="background: rgba(6, 182, 212, 0.2); color: #38bdf8; border-color: rgba(6, 182, 212, 0.4); margin-bottom: 1.25rem;">
+                🚀 Cinema Meets Fundamental Physics
+            </div>
             <h1 class="hero-title">SCIENCE FICTION, EXPLAINED BY SCIENCE</h1>
-            <p class="hero-subtitle">Explore the science behind the movies that imagine the impossible.</p>
+            <p class="hero-subtitle">Explore whether concepts shown in iconic movies and theoretical scenarios are scientifically possible, speculative, or impossible according to real physics.</p>
             <div class="hero-buttons">
-                <a href="movies.html" class="btn btn-primary">
-                    <span>Explore Movies</span>
+                <a href="what-if.html" class="btn btn-primary" style="background: linear-gradient(135deg, #0066ff, #06b6d4); box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);">
+                    <span>Explore WHAT IF? Scenarios</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </a>
-                <a href="science.html" class="btn btn-secondary">
-                    <span>Explore Science</span>
+                <a href="movies.html" class="btn btn-secondary">
+                    <span>Movie Library</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+                <a href="concepts.html" class="btn btn-secondary" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">
+                    <span>Concepts & Simulators</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
@@ -74,20 +86,40 @@
         <div class="hero-glow"></div>
     </section>
 
+    <!-- WHAT IF? Showcase Section on Homepage -->
+    <section class="what-if-showcase-section" style="padding: var(--spacing-3xl) var(--spacing-xl); max-width: 1400px; margin: 0 auto;">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <span class="plausibility-badge theoretical" style="margin-bottom: 0.5rem;">New Feature</span>
+                <h2 class="section-title">🌌 WHAT IF? Theoretical Scenarios</h2>
+                <p class="section-subtitle">What would happen if hypothetical scientific events actually occurred?</p>
+            </div>
+            <a href="what-if.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.25rem;">
+                View All 28 Scenarios →
+            </a>
+        </div>
+        <div class="what-if-grid" id="homepageWhatIfGrid" style="margin-top: 1.5rem;"></div>
+    </section>
+
     <!-- Featured Movies Section -->
     <section class="featured-section">
         <div class="section-header">
-            <h2 class="section-title">Featured Movies</h2>
-            <p class="section-subtitle">Cinematic masterpieces grounded in real science</p>
+            <h2 class="section-title">Featured Sci-Fi Movies</h2>
+            <p class="section-subtitle">Cinematic masterpieces analyzed against the real laws of physics</p>
         </div>
         <div class="featured-grid" id="featuredMovies"></div>
     </section>
 
-    <!-- Science Categories Section -->
+    <!-- Science Categories & Knowledge System -->
     <section class="science-categories-section">
-        <div class="section-header">
-            <h2 class="section-title">Explore the Science</h2>
-            <p class="section-subtitle">Discover the real physics behind your favorite movies</p>
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h2 class="section-title">Science Concepts Knowledge Base</h2>
+                <p class="section-subtitle">Explore core physics, space, biology, and technology principles</p>
+            </div>
+            <a href="concepts.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.25rem;">
+                Interactive Concepts Hub & Simulators →
+            </a>
         </div>
         <div class="categories-grid" id="scienceCategories"></div>
     </section>
@@ -96,7 +128,7 @@
     <section class="accuracy-section">
         <div class="section-header">
             <h2 class="section-title">How Accurate Is Science Fiction?</h2>
-            <p class="section-subtitle">Scientific accuracy ratings of iconic films</p>
+            <p class="section-subtitle">Educational accuracy ratings comparing cinematic claims with reality</p>
         </div>
         <div class="accuracy-container" id="accuracyRatings"></div>
     </section>
@@ -112,7 +144,9 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="movies.html">Movies</a></li>
-                    <li><a href="science.html">Science</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
                     <li><a href="experiments.html">Experiments</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
                 </ul>
