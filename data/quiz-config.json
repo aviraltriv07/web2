@@ -1,0 +1,566 @@
+{
+  "meta": {
+    "title": "Which Scientist Are You?",
+    "subtitle": "Discover your scientific archetype, personality traits, and sci-fi cinema twin",
+    "questionsCount": 8
+  },
+  "traits": {
+    "Analytical": {
+      "name": "Analytical Rigor",
+      "icon": "🧠",
+      "description": "Mathematical precision, logical deduction, and empirical scrutiny."
+    },
+    "Creative": {
+      "name": "Creative Intuition",
+      "icon": "💡",
+      "description": "Thought experiments, out-of-the-box paradigms, and cosmic curiosity."
+    },
+    "Practical": {
+      "name": "Practical Engineering",
+      "icon": "⚙️",
+      "description": "Hands-on problem solving, rapid prototyping, and resourcefulness."
+    },
+    "Collaborative": {
+      "name": "Collaboration & Empathy",
+      "icon": "🤝",
+      "description": "Team synergy, cross-discipline bridging, and ethical foresight."
+    },
+    "Risk": {
+      "name": "Scientific Audacity",
+      "icon": "⚡",
+      "description": "Venturing into the unknown, challenging dogmas, and fearless trial."
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "category": "Emergency Scenario",
+      "text": "Your deep-space research vessel suffers a primary reactor failure near a gravitational anomaly. What is your immediate priority?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Derive the exact gravitational gradient to calculate how many minutes of safe orbit remain.",
+          "weights": {
+            "Analytical": 3,
+            "Risk": 1
+          }
+        },
+        {
+          "id": "b",
+          "text": "Splice the secondary coolant conduits with spare parts to keep the core from melting down.",
+          "weights": {
+            "Practical": 3,
+            "Risk": 1
+          }
+        },
+        {
+          "id": "c",
+          "text": "Attempt an untested slingshot maneuver using the black hole's tidal pull for emergency thrust.",
+          "weights": {
+            "Creative": 2,
+            "Risk": 3
+          }
+        },
+        {
+          "id": "d",
+          "text": "Call mission control and align engineering and crew protocols to coordinate a collective evacuation or fix.",
+          "weights": {
+            "Collaborative": 3,
+            "Analytical": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "category": "Scientific Discovery",
+      "text": "During deep-field telescope telemetry, you discover an anomalous signal that blatantly contradicts the Standard Model of physics. You:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hypothesize that our foundational understanding of spacetime is incomplete and draft a radical new theoretical framework.",
+          "weights": {
+            "Creative": 3,
+            "Analytical": 2
+          }
+        },
+        {
+          "id": "b",
+          "text": "Dismantle and recalibrate the sensors to eliminate every possible hardware and optical aberration.",
+          "weights": {
+            "Practical": 3,
+            "Analytical": 1
+          }
+        },
+        {
+          "id": "c",
+          "text": "Publish the raw telemetry openly so global observatories can independently reproduce the anomaly.",
+          "weights": {
+            "Collaborative": 3,
+            "Creative": 1
+          }
+        },
+        {
+          "id": "d",
+          "text": "Rerun millions of automated Monte Carlo simulations to calculate exact statistical significance.",
+          "weights": {
+            "Analytical": 3,
+            "Practical": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "category": "Ideal Environment",
+      "text": "If you could design your ultimate scientific research sanctuary, it would be:",
+      "options": [
+        {
+          "id": "a",
+          "text": "A quiet solar-observatory tower filled with chalkboards, classical music, and pure equations.",
+          "weights": {
+            "Analytical": 2,
+            "Creative": 2
+          }
+        },
+        {
+          "id": "b",
+          "text": "A high-voltage maker workshop overflowing with 3D printers, laser cutters, oscilloscopes, and rocket prototypes.",
+          "weights": {
+            "Practical": 3,
+            "Risk": 1
+          }
+        },
+        {
+          "id": "c",
+          "text": "An interdisciplinary biosphere hub where biologists, linguists, and computer scientists exchange radical ideas daily.",
+          "weights": {
+            "Collaborative": 3,
+            "Creative": 2
+          }
+        },
+        {
+          "id": "d",
+          "text": "A rugged mobile laboratory truck traversing volcanic craters and planetary impact basins in the field.",
+          "weights": {
+            "Risk": 3,
+            "Practical": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "category": "First Contact",
+      "text": "An interstellar probe intercepts a complex, non-repeating alien broadcast. How do you approach the transmission?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Analyze the signal's mathematical prime factorizations and harmonic Fourier frequencies.",
+          "weights": {
+            "Analytical": 3,
+            "Creative": 1
+          }
+        },
+        {
+          "id": "b",
+          "text": "Examine how the signal's non-linear structure might reflect the psychology and grammar of the senders.",
+          "weights": {
+            "Collaborative": 3,
+            "Creative": 2
+          }
+        },
+        {
+          "id": "c",
+          "text": "Construct an automated hardware transceiver capable of broadcasting an immediate greeting pulse.",
+          "weights": {
+            "Practical": 3,
+            "Risk": 2
+          }
+        },
+        {
+          "id": "d",
+          "text": "Ponder the cosmic existential impact: what does this tell us about humanity's loneliest question?",
+          "weights": {
+            "Creative": 3,
+            "Collaborative": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "category": "Ethical Crossroads",
+      "text": "An experimental synthetic biology cure can save an infected research outpost, but deploying it breaks planetary quarantine protocols. You:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deploy the cure immediately—human lives outweigh bureaucratic safety regulations.",
+          "weights": {
+            "Risk": 3,
+            "Practical": 1
+          }
+        },
+        {
+          "id": "b",
+          "text": "Quickly isolate the compound's chemical structure in a makeshift glovebox to eliminate unforeseen toxic off-targets.",
+          "weights": {
+            "Practical": 2,
+            "Analytical": 2
+          }
+        },
+        {
+          "id": "c",
+          "text": "Assemble the outpost council to transparently weigh the collective moral and ecological fallout before choosing.",
+          "weights": {
+            "Collaborative": 3,
+            "Analytical": 1
+          }
+        },
+        {
+          "id": "d",
+          "text": "Synthesize a safer, modified analog based on fundamental microbiological principles.",
+          "weights": {
+            "Creative": 2,
+            "Analytical": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "category": "Cosmic Mystery",
+      "text": "Which fundamental mystery of the cosmos ignites your greatest passion?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unifying quantum mechanics and general relativity into a single Master Equation.",
+          "weights": {
+            "Analytical": 3,
+            "Creative": 2
+          }
+        },
+        {
+          "id": "b",
+          "text": "Building fusion engines and terraforming machines to turn Mars into a living world.",
+          "weights": {
+            "Practical": 3,
+            "Risk": 2
+          }
+        },
+        {
+          "id": "c",
+          "text": "Discovering whether machine consciousness can truly experience love and moral wonder.",
+          "weights": {
+            "Creative": 2,
+            "Collaborative": 3
+          }
+        },
+        {
+          "id": "d",
+          "text": "Detecting biosignatures on Europa or Enceladus that prove life is a cosmic imperative.",
+          "weights": {
+            "Creative": 3,
+            "Risk": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "category": "Artificial Intelligence",
+      "text": "Your ship's onboard AI aborts a critical trajectory burn, declaring that the destination asteroid field poses an 89% collision hazard. You:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Audit the AI's neural weighting algorithms and Bayesian probability vectors to spot false positives.",
+          "weights": {
+            "Analytical": 3,
+            "Creative": 1
+          }
+        },
+        {
+          "id": "b",
+          "text": "Take manual joystick control—no computer knows ship handling in turbulence better than a human pilot.",
+          "weights": {
+            "Practical": 2,
+            "Risk": 3
+          }
+        },
+        {
+          "id": "c",
+          "text": "Engage the AI in philosophical dialogue to understand what assumptions it made about mission success.",
+          "weights": {
+            "Collaborative": 3,
+            "Creative": 2
+          }
+        },
+        {
+          "id": "d",
+          "text": "Improvise an alternative orbital transfer that skirts the asteroid field using moon gravity assists.",
+          "weights": {
+            "Creative": 3,
+            "Practical": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "category": "Problem-Solving Style",
+      "text": "When confronting a challenge that senior scientists insist is mathematically 'impossible', you:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Challenge the unstated axioms—impossible problems are usually just based on faulty starting premises.",
+          "weights": {
+            "Creative": 3,
+            "Analytical": 2
+          }
+        },
+        {
+          "id": "b",
+          "text": "Don't bother arguing with theorems; build a working desktop prototype and demonstrate it running.",
+          "weights": {
+            "Practical": 3,
+            "Risk": 2
+          }
+        },
+        {
+          "id": "c",
+          "text": "Break the math down into rigorous sub-lemmas until the exact point of failure is pinpointed.",
+          "weights": {
+            "Analytical": 3,
+            "Practical": 1
+          }
+        },
+        {
+          "id": "d",
+          "text": "Host an open hackathon bringing together physicists, artists, and mechanics to view the problem from unseen angles.",
+          "weights": {
+            "Collaborative": 3,
+            "Creative": 2
+          }
+        }
+      ]
+    }
+  ],
+  "scientists": [
+    {
+      "id": "einstein",
+      "name": "Albert Einstein",
+      "title": "The Theoretical Visionary",
+      "icon": "🌌",
+      "tagline": "Spacetime Architect & Thought Experimenter",
+      "bio": "You perceive the universe through elegant symmetry, geometric thought experiments, and fearless curiosity. When observation contradicts accepted dogma, you don't patch the old equations—you reimagine reality itself.",
+      "quote": "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world.",
+      "vector": {
+        "Analytical": 0.95,
+        "Creative": 0.92,
+        "Practical": 0.35,
+        "Collaborative": 0.40,
+        "Risk": 0.65
+      },
+      "cinematicTwin": {
+        "character": "Murph Cooper & Prof. Brand",
+        "movie": "Interstellar",
+        "movieId": 1,
+        "description": "Like Murph solving the riddle of gravitational propulsion on a bedroom chalkboard, your intuition pierces the veil of spacetime to bend physics to human need."
+      },
+      "recommendedMovies": [1, 10, 5],
+      "recommendedExperiment": {
+        "id": 1,
+        "name": "Gravitational Time Dilation"
+      }
+    },
+    {
+      "id": "watney_tesla",
+      "name": "Mark Watney & Nikola Tesla",
+      "title": "The Ingenious Practical Problem Solver",
+      "icon": "⚡",
+      "tagline": "Grit, Chemical Ingenuity & Applied Survival",
+      "bio": "Abstract theory is useless if it can't keep you breathing. You live where duct tape meets chemical reactions and raw ingenuity. When marooned by disaster, you stay calm and science your way out.",
+      "quote": "I'm going to have to science the heck out of this.",
+      "vector": {
+        "Analytical": 0.65,
+        "Creative": 0.75,
+        "Practical": 0.98,
+        "Collaborative": 0.50,
+        "Risk": 0.85
+      },
+      "cinematicTwin": {
+        "character": "Mark Watney",
+        "movie": "The Martian",
+        "movieId": 2,
+        "description": "Like Watney burning hydrazine rocket fuel for water and planting potatoes on Mars, you turn impossible survival constraints into masterclasses of applied engineering."
+      },
+      "recommendedMovies": [2, 7, 22],
+      "recommendedExperiment": {
+        "id": 2,
+        "name": "Escape Velocity"
+      }
+    },
+    {
+      "id": "curie",
+      "name": "Marie Curie",
+      "title": "The Fearless Trailblazing Pioneer",
+      "icon": "☢️",
+      "tagline": "Unwavering Laboratory Stamina & Frontier Courage",
+      "bio": "You venture directly into the dangerous, unseen forces of nature where others hesitate. Combining relentless experimental endurance with fearless curiosity, you extract fundamental truths from raw, perilous matter.",
+      "quote": "Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less.",
+      "vector": {
+        "Analytical": 0.85,
+        "Creative": 0.50,
+        "Practical": 0.95,
+        "Collaborative": 0.40,
+        "Risk": 0.95
+      },
+      "cinematicTwin": {
+        "character": "Dr. Ryan Stone",
+        "movie": "Gravity",
+        "movieId": 3,
+        "description": "Like Dr. Stone battling orbital debris cascades in deep vacuum, your stamina, focus, and indomitable courage conquer the harshest frontiers."
+      },
+      "recommendedMovies": [3, 15, 36],
+      "recommendedExperiment": {
+        "id": 5,
+        "name": "Black Hole Event Horizon"
+      }
+    },
+    {
+      "id": "turing",
+      "name": "Alan Turing",
+      "title": "The Algorithmic & AI Pioneer",
+      "icon": "🤖",
+      "tagline": "Cryptanalyst & Architect of Machine Consciousness",
+      "bio": "You see reality through the prism of computational states, recursion, and patterns. Long before silicon machines existed, you mapped the foundations of artificial intelligence and decoded wartime enigmas.",
+      "quote": "Sometimes it is the people no one can imagine anything of who do the things no one can imagine.",
+      "vector": {
+        "Analytical": 0.98,
+        "Creative": 0.85,
+        "Practical": 0.65,
+        "Collaborative": 0.30,
+        "Risk": 0.55
+      },
+      "cinematicTwin": {
+        "character": "Alan Turing & Caleb Smith",
+        "movie": "The Imitation Game / Ex Machina",
+        "movieId": 31,
+        "description": "Like Turing building the electromechanical Bombe machine, you pierce through obfuscation to define what it truly means to compute, reason, and be alive."
+      },
+      "recommendedMovies": [31, 14, 11],
+      "recommendedExperiment": {
+        "id": 4,
+        "name": "Projectile Motion"
+      }
+    },
+    {
+      "id": "sagan",
+      "name": "Carl Sagan",
+      "title": "The Cosmic Visionary & Astrobiologist",
+      "icon": "🪐",
+      "tagline": "Cosmic Ambassador & Seeker of Extraterrestrial Wonders",
+      "bio": "You look at the pale blue dot with profound humility and infinite curiosity. For you, science is not merely technical equations, but an awe-inspiring human odyssey to understand our place among billions of galaxies.",
+      "quote": "Somewhere, something incredible is waiting to be known.",
+      "vector": {
+        "Analytical": 0.70,
+        "Creative": 0.95,
+        "Practical": 0.45,
+        "Collaborative": 0.90,
+        "Risk": 0.65
+      },
+      "cinematicTwin": {
+        "character": "Dr. Ellie Arroway",
+        "movie": "Contact",
+        "movieId": 10,
+        "description": "Like Dr. Ellie Arroway listening to radio pulses from Vega through desert antennas, you pursue cosmic answers that unite and elevate humanity's spirit."
+      },
+      "recommendedMovies": [10, 1, 4],
+      "recommendedExperiment": {
+        "id": 3,
+        "name": "Orbital Motion"
+      }
+    },
+    {
+      "id": "johnson",
+      "name": "Katherine Johnson",
+      "title": "The Celestial Trajectory Navigator",
+      "icon": "🚀",
+      "tagline": "Master of Orbital Mechanics & Precision Trajectories",
+      "bio": "When lives hang on decimal points, everyone turns to you. With quiet confidence and zero margin for error, you calculate the celestial trajectories that propel human explorers across the void and guide them safely home.",
+      "quote": "Like what you do, and then you will do your best.",
+      "vector": {
+        "Analytical": 0.98,
+        "Creative": 0.58,
+        "Practical": 0.85,
+        "Collaborative": 0.85,
+        "Risk": 0.35
+      },
+      "cinematicTwin": {
+        "character": "Katherine Johnson & Romilly",
+        "movie": "Hidden Figures",
+        "movieId": 34,
+        "description": "Like Katherine calculating Glenn's Friendship 7 orbital re-entry angles by hand, your mathematical precision is the ultimate lifeline of exploration."
+      },
+      "recommendedMovies": [34, 21, 22],
+      "recommendedExperiment": {
+        "id": 3,
+        "name": "Orbital Motion"
+      }
+    },
+    {
+      "id": "banks",
+      "name": "Dr. Louise Banks",
+      "title": "The Empathic Cognitive Synthesizer",
+      "icon": "🔮",
+      "tagline": "Linguistic Pioneer & Non-Linear Temporal Thinker",
+      "bio": "You understand that the highest frontier of science is not physics alone, but empathy and communication. By dismantling prejudice and embracing non-linear cognition, you decipher alien minds and bridge divided civilizations.",
+      "quote": "Language is the foundation of civilization. It is the glue that holds a people together, and it is the first weapon drawn in a conflict.",
+      "vector": {
+        "Analytical": 0.75,
+        "Creative": 0.92,
+        "Practical": 0.40,
+        "Collaborative": 0.98,
+        "Risk": 0.75
+      },
+      "cinematicTwin": {
+        "character": "Dr. Louise Banks",
+        "movie": "Arrival",
+        "movieId": 4,
+        "description": "Like Louise entering the Heptapod chamber unprotected to learn their circular written language, your empathy unlocks dimensions that raw calculation cannot fathom."
+      },
+      "recommendedMovies": [4, 26, 10],
+      "recommendedExperiment": {
+        "id": 1,
+        "name": "Gravitational Time Dilation"
+      }
+    },
+    {
+      "id": "feynman",
+      "name": "Richard Feynman",
+      "title": "The Intuitive Quantum Iconoclast",
+      "icon": "⚛️",
+      "tagline": "Playful Genius, Lockpicker & Quantum Visualizer",
+      "bio": "You refuse to be bored by dogma or intimidated by authority. You translate complex quantum mechanics into playful, intuitive sketches, questioning everything while discovering the joyful, quirky laws of subatomic reality.",
+      "quote": "I would rather have questions that can't be answered than answers that can't be questioned.",
+      "vector": {
+        "Analytical": 0.88,
+        "Creative": 0.96,
+        "Practical": 0.78,
+        "Collaborative": 0.70,
+        "Risk": 0.82
+      },
+      "cinematicTwin": {
+        "character": "Dr. Ian Malcolm",
+        "movie": "Jurassic Park",
+        "movieId": 9,
+        "description": "Like Dr. Ian Malcolm predicting non-linear chaos dynamics with a drop of water and irreverent flair, you spot unpredictable beauty where others see rigid order."
+      },
+      "recommendedMovies": [9, 6, 48],
+      "recommendedExperiment": {
+        "id": 5,
+        "name": "Black Hole Event Horizon"
+      }
+    }
+  ]
+}
