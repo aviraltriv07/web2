@@ -133,31 +133,46 @@ function displayConcepts() {
         return;
     }
     
-    grid.innerHTML = filteredConcepts.map(concept => `
-        <div class="science-card" onclick="showConceptModal(${concept.id})" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-                    <div class="science-card-icon">${concept.icon || '⚛️'}</div>
-                    <span class="confidence-badge ${getConfidenceClass(concept.confidenceLabel || 'Established Science')}">
-                        ${concept.confidenceLabel || 'Established Science'}
-                    </span>
-                </div>
-                <h3 class="science-card-title">${concept.title}</h3>
-                <p class="science-card-description">${concept.description}</p>
-                ${concept.formula ? `
-                    <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.9rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">
-                        ${concept.formula}
+    grid.innerHTML = filteredConcepts.map(concept => {
+        const likeBtnHtml = typeof renderConceptLikeButton === 'function'
+            ? renderConceptLikeButton(concept.id, 'Like', '')
+            : `<button class="like-btn concept-like-btn" data-concept-id="${concept.id}" onclick="handleConceptLikeClick(event, '${concept.id}')"><span class="like-heart-icon">♡</span> <span class="like-btn-label">Like</span></button>`;
+
+        return `
+            <div class="science-card" onclick="showConceptModal(${concept.id})" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div class="science-card-icon">${concept.icon || '⚛️'}</div>
+                            <span class="confidence-badge ${getConfidenceClass(concept.confidenceLabel || 'Established Science')}">
+                                ${concept.confidenceLabel || 'Established Science'}
+                            </span>
+                        </div>
+                        <div onclick="event.stopPropagation()">
+                            ${likeBtnHtml}
+                        </div>
                     </div>
-                ` : ''}
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">${concept.category}</span>
-                <div class="difficulty-badge ${(concept.difficulty || 'intermediate').toLowerCase()}">
-                    ${concept.difficulty || 'Intermediate'}
+                    <h3 class="science-card-title">${concept.title}</h3>
+                    <p class="science-card-description">${concept.description}</p>
+                    ${concept.formula ? `
+                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.9rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">
+                            ${concept.formula}
+                        </div>
+                    ` : ''}
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">${concept.category}</span>
+                    <div class="difficulty-badge ${(concept.difficulty || 'intermediate').toLowerCase()}">
+                        ${concept.difficulty || 'Intermediate'}
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
+
+    if (typeof syncAllLikeButtons === 'function') {
+        syncAllLikeButtons();
+    }
 }
 
 function setupModalFunctionality() {

@@ -135,6 +135,14 @@ function displayMovieInfo() {
     const description = document.getElementById('movieDescription');
     if (description) description.textContent = currentMovie.description;
     
+    // Like Button
+    const likeContainer = document.getElementById('movieDetailLikeContainer');
+    if (likeContainer) {
+        likeContainer.innerHTML = typeof renderMovieLikeButton === 'function'
+            ? renderMovieLikeButton(currentMovie.id, 'Like Movie', 'detail-like-btn')
+            : `<button class="like-btn movie-like-btn detail-like-btn" data-movie-id="${currentMovie.id}" onclick="handleMovieLikeClick(event, '${currentMovie.id}')"><span class="like-heart-icon">♡</span> <span class="like-btn-label">Like Movie</span></button>`;
+    }
+
     // Concepts
     const conceptsList = document.getElementById('conceptsList');
     if (conceptsList) {
@@ -143,6 +151,10 @@ function displayMovieInfo() {
                 ⚛️ ${concept}
             </button>
         `).join('');
+    }
+
+    if (typeof syncAllLikeButtons === 'function') {
+        syncAllLikeButtons();
     }
 }
 

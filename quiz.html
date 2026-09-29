@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sci-Fi Science Quiz - SciFiLens</title>
-    <meta name="description" content="Test your physics and sci-fi movie knowledge with our interactive science quiz. Can you distinguish real science from Hollywood fiction?">
+    <title>Scientist Personality Quiz & Science Trivia - SciFiLens</title>
+    <meta name="description" content="Discover which legendary scientist and sci-fi movie twin you are most similar to, or test your science fiction movie accuracy IQ with SciFiLens.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -53,85 +54,110 @@
         </div>
     </nav>
 
-    <!-- Main Quiz Section -->
-    <main class="quiz-container">
-        <!-- 1. Start Screen -->
-        <section class="quiz-start" id="quizStart">
+    <!-- Quiz Main Wrapper -->
+    <div class="quiz-container">
+        <!-- Quiz Mode Selector Tabs -->
+        <div class="quiz-mode-nav" role="tablist" aria-label="Quiz Type Selection">
+            <button class="quiz-mode-tab active" id="tabScientistMode" role="tab" aria-selected="true" onclick="switchQuizMode('scientist')">
+                <span class="tab-icon">🔬</span>
+                <span class="tab-text">
+                    <span class="tab-label">Which Scientist Are You?</span>
+                    <span class="tab-sub">Archetype & Movie Twin Match</span>
+                </span>
+                <span class="tab-pill">Popular</span>
+            </button>
+            <button class="quiz-mode-tab" id="tabTriviaMode" role="tab" aria-selected="false" onclick="switchQuizMode('trivia')">
+                <span class="tab-icon">🎬</span>
+                <span class="tab-text">
+                    <span class="tab-label">Movie Science IQ</span>
+                    <span class="tab-sub">Fact vs. Fiction Trivia</span>
+                </span>
+            </button>
+        </div>
+
+        <!-- 1. SCIENTIST QUIZ START SCREEN -->
+        <section class="quiz-start" id="scientistStart">
             <div class="stars"></div>
             <div class="quiz-start-content">
-                <div class="confidence-badge" style="background: rgba(0, 102, 255, 0.2); color: #60a5fa; border-color: rgba(0, 102, 255, 0.4); margin-bottom: 1.25rem;">
-                    🧪 Interactive Knowledge Arena
+                <div class="quiz-badge-pill">
+                    <span class="pill-dot"></span> 8 Dilemmas • 8 Scientist Archetypes • 1 Cinematic Twin
                 </div>
-                <h1 class="quiz-hero-title">Science Fiction Science Quiz</h1>
-                <p class="quiz-hero-subtitle">
-                    Can you separate verified astrophysical fact from Hollywood cinematic fiction? Test your physics, relativity, and cinema knowledge across 10 curated questions.
+                <h1 class="glow-title">Which Scientist Are You?</h1>
+                <p class="quiz-hero-desc">
+                    Are you a visionary theorist like <strong>Albert Einstein</strong>, a gritty survival engineer like <strong>Mark Watney</strong>, or a cosmic explorer like <strong>Carl Sagan</strong>? Navigate 8 high-stakes research scenarios to discover your scientific archetype, 5-trait cognitive fingerprint, and sci-fi cinema twin.
                 </p>
 
-                <div class="quiz-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">⏱️</span>
-                        <div>
-                            <strong>10 Questions</strong>
-                            <span>Real-time elapsed timer</span>
-                        </div>
+                <div class="quiz-feature-tags">
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">🧠</span>
+                        <span>5 Trait Dimensions</span>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎯</span>
-                        <div>
-                            <strong>Multi-Difficulty</strong>
-                            <span>Beginner to Advanced</span>
-                        </div>
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">🎬</span>
+                        <span>Sci-Fi Movie Twin</span>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">💡</span>
-                        <div>
-                            <strong>Deep Explanations</strong>
-                            <span>Physics breakdown on each</span>
-                        </div>
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">⚡</span>
+                        <span>Instant Archetype Match</span>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎬</span>
-                        <div>
-                            <strong>Movie Connections</strong>
-                            <span>Interstellar, Martian & more</span>
-                        </div>
+                    <div class="quiz-feature-tag">
+                        <span class="tag-icon">🍿</span>
+                        <span>Curated Watchlist</span>
                     </div>
                 </div>
 
-                <div class="quiz-start-actions">
-                    <button class="btn btn-primary btn-glow" id="startQuizBtn">
-                        <span>Launch Science Quiz</span>
+                <div class="start-action-wrap">
+                    <button class="btn btn-primary btn-large glow-btn" id="startScientistQuizBtn">
+                        <span>Begin Scientist Discovery</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Interactive Question Screen -->
-        <section class="quiz-question-screen" id="quizQuestionScreen" style="display: none;">
-            <div class="quiz-header">
-                <div class="quiz-progress-bar">
-                    <div class="quiz-progress-fill" id="quizProgressFill" style="width: 10%;"></div>
+        <!-- 2. TRIVIA QUIZ START SCREEN -->
+        <section class="quiz-start" id="triviaStart" style="display: none;">
+            <div class="stars"></div>
+            <div class="quiz-start-content">
+                <div class="quiz-badge-pill">
+                    <span class="pill-dot"></span> 10 Questions • Scientific Accuracy • Instant Explanations
                 </div>
-                <div class="quiz-meta">
-                    <div class="quiz-meta-left">
-                        <span class="question-counter" id="questionCounter">Question 1 of 10</span>
-                        <span class="question-difficulty-tag" id="questionDifficultyTag">Intermediate</span>
-                    </div>
-                    <div class="quiz-meta-right">
-                        <span class="quiz-timer" id="quizTimer">⏱️ 0:00</span>
-                        <span class="quiz-live-score" id="quizLiveScore">Score: 0</span>
-                    </div>
+                <h1>Science Fiction Science Quiz</h1>
+                <p>Test your knowledge about the real physics, biology, and mechanics behind iconic science-fiction films. Can you distinguish between Hollywood imagination and verifiable science?</p>
+                
+                <div class="start-action-wrap">
+                    <button class="btn btn-primary btn-large" id="startTriviaQuizBtn">
+                        <span>Start Trivia Challenge</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ACTIVE QUIZ QUESTION SCREEN (Shared) -->
+        <section class="quiz-screen" id="quizScreen" style="display: none;">
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="questionNumber">Question 1 of 8</span>
+                    <span id="quizStatusIndicator" class="quiz-status-indicator">Select an option</span>
                 </div>
             </div>
 
             <div class="quiz-content">
-                <div class="question-card" id="questionCard">
-                    <h2 class="question-text" id="questionText">Loading Question...</h2>
-                    <div class="options-container" id="optionsContainer"></div>
+                <div class="question-header-badge" id="questionCategory" style="display: none;"></div>
+                <div class="question-container">
+                    <h2 id="questionText">Loading question...</h2>
                 </div>
+
+                <!-- Options Container -->
+                <div class="options-container" id="optionsContainer"></div>
 
                 <!-- Instant Physics Feedback Card -->
                 <div class="feedback-container" id="feedbackContainer" style="display: none;">
@@ -150,89 +176,63 @@
                             <span class="movie-box-text" id="feedbackMovieText"></span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="feedback-actions">
-                        <button class="btn btn-primary btn-glow next-btn" id="nextQuestionBtn">
-                            <span id="nextBtnText">Next Question</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                    </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="prevBtn" style="display: none;">
+                        ← Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn" style="display: none;">
+                        Next →
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- 3. Results Screen -->
-        <section class="quiz-results-screen" id="quizResultsScreen" style="display: none;">
+        <!-- Trivia Feedback Banner (Only used in Trivia mode) -->
+        <div class="answer-feedback" id="answerFeedback" style="display: none;">
+            <div class="feedback-content">
+                <div class="feedback-icon" id="feedbackIcon"></div>
+                <div class="feedback-details">
+                    <h3 id="feedbackTitle"></h3>
+                    <p id="feedbackText"></p>
+                    <div class="movie-connection" id="feedbackMovie" style="display: none;">
+                        <h4>Featured In:</h4>
+                        <p id="feedbackMovieText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. SCIENTIST RESULTS SCREEN -->
+        <section class="quiz-results scientist-results-container" id="scientistResults" style="display: none;">
+            <div class="stars"></div>
+            <div class="scientist-results-content" id="scientistResultsInner">
+                <!-- Dynamically rendered via quiz.js -->
+            </div>
+        </section>
+
+        <!-- 5. TRIVIA RESULTS SCREEN -->
+        <section class="quiz-results" id="triviaResults" style="display: none;">
             <div class="stars"></div>
             <div class="results-content">
-                <div class="results-header">
-                    <!-- Circular Score Gauge -->
-                    <div class="score-circle-wrapper">
-                        <svg viewBox="0 0 120 120" class="circle-svg">
-                            <circle cx="60" cy="60" r="50" class="circle-bg"></circle>
-                            <circle cx="60" cy="60" r="50" class="circle-progress" id="circleProgress" stroke-dasharray="314.159" stroke-dashoffset="314.159"></circle>
-                        </svg>
-                        <div class="score-center-text">
-                            <span class="score-percentage" id="scorePercentage">0%</span>
-                            <span class="score-fraction" id="scoreFraction">0 / 10</span>
-                        </div>
-                    </div>
+                <h1>Trivia Complete!</h1>
+                <div class="final-score" id="finalScore"></div>
+                <p id="resultMessage"></p>
+                
+                <div class="results-breakdown" id="resultsBreakdown"></div>
+                
+                <div id="triviaSupabaseBanner"></div>
 
-                    <div class="results-title-group">
-                        <span class="mastery-rank-badge" id="masteryRankBadge">Cosmic Mastermind</span>
-                        <h2 class="results-title" id="resultsTitle">Outstanding Work!</h2>
-                        <p class="results-subtitle" id="resultsSubtitle"></p>
-                    </div>
-                </div>
-
-                <!-- Stats Summary Cards -->
-                <div class="results-stats">
-                    <div class="stat-card stat-correct">
-                        <span class="stat-icon">✓</span>
-                        <div class="stat-info">
-                            <span class="stat-value" id="correctCount">0</span>
-                            <span class="stat-label">Correct Answers</span>
-                        </div>
-                    </div>
-                    <div class="stat-card stat-incorrect">
-                        <span class="stat-icon">✗</span>
-                        <div class="stat-info">
-                            <span class="stat-value" id="incorrectCount">0</span>
-                            <span class="stat-label">Incorrect</span>
-                        </div>
-                    </div>
-                    <div class="stat-card stat-time">
-                        <span class="stat-icon">⏱️</span>
-                        <div class="stat-info">
-                            <span class="stat-value" id="timeSpent">0:00</span>
-                            <span class="stat-label">Total Time</span>
-                        </div>
-                    </div>
-                    <div class="stat-card stat-accuracy">
-                        <span class="stat-icon">⚡</span>
-                        <div class="stat-info">
-                            <span class="stat-value" id="accuracyRate">0%</span>
-                            <span class="stat-label">Scientific Accuracy</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="results-actions">
-                    <button class="btn btn-primary btn-glow" id="retryQuizBtn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="23 4 23 10 17 10"></polyline>
-                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                        </svg>
-                        <span>Retry Quiz</span>
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="retakeTriviaBtn">
+                        Retake Trivia
                     </button>
-                    <button class="btn btn-secondary" id="reviewAnswersBtn">
-                        <span>Review All Answers</span>
+                    <button class="btn btn-primary" onclick="switchQuizMode('scientist')">
+                        Try "Which Scientist Are You?"
                     </button>
-                    <a href="what-if.html" class="btn btn-secondary">
-                        <span>Explore What If?</span>
+                    <a href="index.html" class="btn btn-secondary">
+                        Back to Home
                     </a>
                     <a href="concepts.html" class="btn btn-secondary">
                         <span>Study Concepts Hub</span>
@@ -247,6 +247,12 @@
             </div>
         </section>
     </main>
+
+    <!-- Toast Notification for Share / Copy -->
+    <div class="toast-notification" id="toastNotification">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toastMessage">Copied to clipboard!</span>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -279,6 +285,9 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/likes.js"></script>
     <script src="js/main.js"></script>
     <script src="js/quiz.js"></script>
 </body>

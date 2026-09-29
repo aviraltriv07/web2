@@ -1,40 +1,81 @@
 /**
- * SciFiLens - Modern Science Fiction Science Quiz
- * Complete interactive quiz engine with live timer, animated score gauge, and full answer review.
+ * SciFiLens - Interactive Quiz Controller
+ * Features dual modes:
+ * 1. Which Scientist Are You? (Archetype matching, 5-trait breakdown, cinematic twin)
+ * 2. Movie Science IQ (Fact vs. Fiction movie trivia)
  */
 
-let quizQuestions = [];
-let currentQuestionIndex = 0;
-let score = 0;
-let userAnswers = []; // Array of { selectedIndex, isCorrect, timeTaken }
-let quizTimerInterval = null;
-let secondsElapsed = 0;
-let isAnswerLocked = false;
+// Quiz Modes
+const MODE_SCIENTIST = 'scientist';
+const MODE_TRIVIA = 'trivia';
 
+// Global State
+let currentMode = MODE_SCIENTIST;
+let scientistConfig = null;
+let triviaQuestions = [];
+let moviesCatalog = [];
+let experimentsCatalog = [];
+
+// Scientist Quiz State
+let scientistCurrentIndex = 0;
+let scientistUserAnswers = []; // array of option indices
+
+// Trivia Quiz State
+let triviaCurrentIndex = 0;
+let triviaScore = 0;
+let triviaUserAnswers = [];
+
+// Cache of last calculated scientist result for clipboard sharing
+let lastScientistResult = null;
+
+// Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const quizData = await fetchJSON('data/quiz-questions.json');
-        if (quizData && Array.isArray(quizData.questions)) {
-            quizQuestions = quizData.questions;
-        } else {
-            console.error('Quiz questions could not be loaded.');
-        }
-    } catch (err) {
-        console.error('Failed to initialize quiz data:', err);
+    // Fetch all necessary data concurrently
+    const [configData, triviaData, moviesData, expData] = await Promise.all([
+        fetchJSON('data/quiz-config.json'),
+        fetchJSON('data/quiz-questions.json'),
+        fetchJSON('data/movies.json'),
+        fetchJSON('data/experiments.json')
+    ]);
+
+    if (configData) scientistConfig = configData;
+    if (triviaData && triviaData.questions) triviaQuestions = triviaData.questions;
+    if (moviesData && moviesData.movies) moviesCatalog = moviesData.movies;
+    if (expData && expData.experiments) experimentsCatalog = expData.experiments;
+
+    setupUIEventListeners();
+
+    // Check URL search parameters for initial mode
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get('mode') || urlParams.get('type');
+    if (modeParam === 'trivia') {
+        switchQuizMode(MODE_TRIVIA, false);
+    } else {
+        switchQuizMode(MODE_SCIENTIST, false);
     }
     
     setupQuizEventListeners();
 });
 
-function setupQuizEventListeners() {
-    const startBtn = document.getElementById('startQuizBtn');
-    if (startBtn) {
-        startBtn.addEventListener('click', startQuiz);
+/**
+ * Setup Button & Event Listeners
+ */
+function setupUIEventListeners() {
+    // Start Buttons
+    const startScientistBtn = document.getElementById('startScientistQuizBtn');
+    if (startScientistBtn) {
+        startScientistBtn.addEventListener('click', startScientistQuiz);
     }
-    
-    const nextBtn = document.getElementById('nextQuestionBtn');
-    if (nextBtn) {
-        nextBtn.addEventListener('click', handleNextQuestion);
+
+    const startTriviaBtn = document.getElementById('startTriviaQuizBtn');
+    if (startTriviaBtn) {
+        startTriviaBtn.addEventListener('click', startTriviaQuiz);
+    }
+
+    // Trivia Retake
+    const retakeTriviaBtn = document.getElementById('retakeTriviaBtn');
+    if (retakeTriviaBtn) {
+        retakeTriviaBtn.addEventListener('click', startTriviaQuiz);
     }
 
     const retryBtn = document.getElementById('retryQuizBtn');
@@ -71,355 +112,851 @@ function setupQuizEventListeners() {
     });
 }
 
-function startQuiz() {
-    if (!quizQuestions || quizQuestions.length === 0) {
-        alert('Quiz questions are loading, please try again in a moment.');
+/**
+ * Switch between Scientist Match and Trivia Quizzes
+ */
+function switchQuizMode(mode, updateUrl = true) {
+    currentMode = mode;
+
+    // Update Tab Classes and ARIA
+    const tabScientist = document.getElementById('tabScientistMode');
+    const tabTrivia = document.getElementById('tabTriviaMode');
+
+    if (tabScientist && tabTrivia) {
+        const isScientist = mode === MODE_SCIENTIST;
+        tabScientist.classList.toggle('active', isScientist);
+        tabScientist.setAttribute('aria-selected', isScientist ? 'true' : 'false');
+
+        tabTrivia.classList.toggle('active', !isScientist);
+        tabTrivia.setAttribute('aria-selected', !isScientist ? 'true' : 'false');
+    }
+
+    // Hide active screens and results
+    const quizScreen = document.getElementById('quizScreen');
+    const scientistResults = document.getElementById('scientistResults');
+    const triviaResults = document.getElementById('triviaResults');
+    const answerFeedback = document.getElementById('answerFeedback');
+
+    if (quizScreen) quizScreen.style.display = 'none';
+    if (scientistResults) scientistResults.style.display = 'none';
+    if (triviaResults) triviaResults.style.display = 'none';
+    if (answerFeedback) answerFeedback.style.display = 'none';
+
+    // Show appropriate start screen
+    const scientistStart = document.getElementById('scientistStart');
+    const triviaStart = document.getElementById('triviaStart');
+
+    if (mode === MODE_SCIENTIST) {
+        if (scientistStart) scientistStart.style.display = 'flex';
+        if (triviaStart) triviaStart.style.display = 'none';
+    } else {
+        if (scientistStart) scientistStart.style.display = 'none';
+        if (triviaStart) triviaStart.style.display = 'flex';
+    }
+
+    if (updateUrl) {
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('mode', mode);
+        window.history.replaceState({}, '', newUrl);
+    }
+}
+
+/* ============================================================
+   1. SCIENTIST PERSONALITY QUIZ FLOW
+   ============================================================ */
+
+function startScientistQuiz() {
+    if (!scientistConfig || !scientistConfig.questions) {
+        console.error('Scientist quiz config not loaded');
         return;
     }
 
-    currentQuestionIndex = 0;
-    score = 0;
-    userAnswers = [];
-    secondsElapsed = 0;
-    isAnswerLocked = false;
+    scientistCurrentIndex = 0;
+    scientistUserAnswers = [];
 
-    // Reset review section
-    const reviewSection = document.getElementById('quizReviewSection');
-    if (reviewSection) reviewSection.style.display = 'none';
+    document.getElementById('scientistStart').style.display = 'none';
+    document.getElementById('triviaStart').style.display = 'none';
+    document.getElementById('scientistResults').style.display = 'none';
+    document.getElementById('quizScreen').style.display = 'block';
 
-    // Switch screen views
-    document.getElementById('quizStart').style.display = 'none';
-    document.getElementById('quizQuestionScreen').style.display = 'block';
-    document.getElementById('quizResultsScreen').style.display = 'none';
-
-    // Start live timer
-    startTimer();
-
-    // Display first question
-    displayQuestion();
+    displayScientistQuestion();
 }
 
-function startTimer() {
-    clearInterval(quizTimerInterval);
-    secondsElapsed = 0;
-    updateTimerDisplay();
-
-    quizTimerInterval = setInterval(() => {
-        secondsElapsed++;
-        updateTimerDisplay();
-    }, 1000);
-}
-
-function stopTimer() {
-    clearInterval(quizTimerInterval);
-}
-
-function updateTimerDisplay() {
-    const timerEl = document.getElementById('quizTimer');
-    if (timerEl) {
-        timerEl.textContent = `⏱️ ${formatTime(secondsElapsed)}`;
-    }
-}
-
-function formatTime(totalSeconds) {
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
-
-function displayQuestion() {
-    if (currentQuestionIndex >= quizQuestions.length) {
-        endQuiz();
+function displayScientistQuestion() {
+    const questions = scientistConfig.questions;
+    if (scientistCurrentIndex >= questions.length) {
+        finishScientistQuiz();
         return;
     }
 
-    isAnswerLocked = false;
-    const question = quizQuestions[currentQuestionIndex];
-    const total = quizQuestions.length;
-    const qNumber = currentQuestionIndex + 1;
+    const question = questions[scientistCurrentIndex];
+    const total = questions.length;
 
-    // Update Progress and Meta
-    const progressFill = document.getElementById('quizProgressFill');
+    // Progress Bar
+    const progressFill = document.getElementById('progressFill');
     if (progressFill) {
-        const percentage = ((qNumber - 1) / total) * 100;
-        progressFill.style.width = `${Math.max(percentage, 5)}%`;
+        const progressPct = ((scientistCurrentIndex + 1) / total) * 100;
+        progressFill.style.width = `${progressPct}%`;
     }
 
-    const counter = document.getElementById('questionCounter');
-    if (counter) counter.textContent = `Question ${qNumber} of ${total}`;
-
-    const diffTag = document.getElementById('questionDifficultyTag');
-    if (diffTag) {
-        const diff = question.difficulty || 'Intermediate';
-        diffTag.textContent = diff.charAt(0).toUpperCase() + diff.slice(1);
-        diffTag.className = `question-difficulty-tag diff-${diff.toLowerCase()}`;
+    // Progress Text
+    const questionNumber = document.getElementById('questionNumber');
+    if (questionNumber) {
+        questionNumber.textContent = `Scenario ${scientistCurrentIndex + 1} of ${total}`;
     }
 
-    const liveScore = document.getElementById('quizLiveScore');
-    if (liveScore) liveScore.textContent = `Score: ${score}`;
+    const statusIndicator = document.getElementById('quizStatusIndicator');
+    if (statusIndicator) {
+        const isAnswered = scientistUserAnswers[scientistCurrentIndex] !== undefined;
+        statusIndicator.textContent = isAnswered ? 'Answer chosen' : 'Choose your approach';
+        statusIndicator.style.color = isAnswered ? '#22c55e' : 'var(--accent-cyan)';
+    }
 
-    // Update Question Text
+    // Category Badge
+    const categoryBadge = document.getElementById('questionCategory');
+    if (categoryBadge) {
+        if (question.category) {
+            categoryBadge.textContent = question.category;
+            categoryBadge.style.display = 'inline-block';
+        } else {
+            categoryBadge.style.display = 'none';
+        }
+    }
+
+    // Question Text
     const questionText = document.getElementById('questionText');
-    if (questionText) questionText.textContent = question.question;
+    if (questionText) {
+        questionText.textContent = question.text;
+    }
 
-    // Render Options with Letters A, B, C, D
+    // Options
     const optionsContainer = document.getElementById('optionsContainer');
-    const letters = ['A', 'B', 'C', 'D'];
-    
-    optionsContainer.innerHTML = question.options.map((option, index) => `
-        <button type="button" class="option" data-index="${index}" onclick="selectOption(${index})">
-            <span class="option-badge">${letters[index]}</span>
-            <span class="option-text">${option}</span>
-            <span class="option-indicator"></span>
-        </button>
-    `).join('');
-
-    // Hide feedback container smoothly
-    const feedback = document.getElementById('feedbackContainer');
-    if (feedback) feedback.style.display = 'none';
-
-    // Update Next button label
-    const nextBtnText = document.getElementById('nextBtnText');
-    if (nextBtnText) {
-        nextBtnText.textContent = currentQuestionIndex === quizQuestions.length - 1 ? 'View Final Results 🏆' : 'Next Question';
-    }
-
-    // Smooth scroll to top of quiz question
-    const questionScreen = document.getElementById('quizQuestionScreen');
-    if (questionScreen && window.scrollY > questionScreen.offsetTop) {
-        questionScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-function selectOption(optionIndex) {
-    if (isAnswerLocked) return;
-    isAnswerLocked = true;
-
-    const question = quizQuestions[currentQuestionIndex];
-    const isCorrect = optionIndex === question.correct;
-
-    if (isCorrect) {
-        score++;
-    }
-
-    // Save answer record
-    userAnswers[currentQuestionIndex] = {
-        question: question.question,
-        options: question.options,
-        selectedIndex: optionIndex,
-        correctIndex: question.correct,
-        isCorrect: isCorrect,
-        explanation: question.explanation,
-        movieConnection: question.movieConnection
-    };
-
-    // Update Live Score display
-    const liveScore = document.getElementById('quizLiveScore');
-    if (liveScore) liveScore.textContent = `Score: ${score}`;
-
-    // Highlight options visually
-    const optionButtons = document.querySelectorAll('.options-container .option');
-    optionButtons.forEach((btn, index) => {
-        btn.disabled = true;
-        btn.classList.remove('selected', 'correct', 'incorrect');
-
-        if (index === question.correct) {
-            btn.classList.add('correct');
-        }
-        if (index === optionIndex && !isCorrect) {
-            btn.classList.add('incorrect');
-        }
-        if (index === optionIndex) {
-            btn.classList.add('selected');
-        }
-    });
-
-    // Show instant detailed feedback
-    showFeedback(question, isCorrect);
-}
-
-function showFeedback(question, isCorrect) {
-    const feedback = document.getElementById('feedbackContainer');
-    const badge = document.getElementById('feedbackBadge');
-    const icon = document.getElementById('feedbackIcon');
-    const title = document.getElementById('feedbackTitle');
-    const explanation = document.getElementById('feedbackExplanation');
-    const movieBox = document.getElementById('feedbackMovieBox');
-    const movieText = document.getElementById('feedbackMovieText');
-
-    if (!feedback) return;
-
-    if (isCorrect) {
-        badge.className = 'feedback-badge correct';
-        icon.textContent = '✓';
-        title.textContent = 'Correct! Spot On 🚀';
-    } else {
-        badge.className = 'feedback-badge incorrect';
-        icon.textContent = '✗';
-        title.textContent = 'Not Quite! 🌌';
-    }
-
-    if (explanation) {
-        explanation.textContent = question.explanation;
-    }
-
-    if (question.movieConnection && movieBox && movieText) {
-        movieText.textContent = question.movieConnection;
-        movieBox.style.display = 'flex';
-    } else if (movieBox) {
-        movieBox.style.display = 'none';
-    }
-
-    feedback.style.display = 'block';
-
-    // Smooth scroll down to feedback if needed on small screens
-    if (window.innerWidth < 768) {
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-}
-
-function handleNextQuestion() {
-    if (!isAnswerLocked) {
-        alert('Please select an answer before proceeding.');
-        return;
-    }
-
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizQuestions.length) {
-        displayQuestion();
-    } else {
-        endQuiz();
-    }
-}
-
-function endQuiz() {
-    stopTimer();
-
-    // Fill progress bar to 100%
-    const progressFill = document.getElementById('quizProgressFill');
-    if (progressFill) progressFill.style.width = '100%';
-
-    // Hide question screen and show results
-    document.getElementById('quizQuestionScreen').style.display = 'none';
-    const resultsScreen = document.getElementById('quizResultsScreen');
-    resultsScreen.style.display = 'block';
-
-    const total = quizQuestions.length;
-    const percentage = Math.round((score / total) * 100);
-    const incorrect = total - score;
-
-    // Animate Circular Score SVG Gauge
-    const circle = document.getElementById('circleProgress');
-    const radius = 50;
-    const circumference = 2 * Math.PI * radius; // ~314.159
-
-    if (circle) {
-        circle.style.strokeDasharray = `${circumference}`;
-        circle.style.strokeDashoffset = `${circumference}`;
-        
-        // Trigger reflow & animate
-        setTimeout(() => {
-            const offset = circumference - (percentage / 100) * circumference;
-            circle.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            circle.style.strokeDashoffset = `${offset}`;
-
-            // Set color based on score
-            if (percentage >= 80) {
-                circle.style.stroke = '#22c55e'; // Emerald green
-            } else if (percentage >= 50) {
-                circle.style.stroke = '#06b6d4'; // Cyan
-            } else {
-                circle.style.stroke = '#f59e0b'; // Amber
-            }
-        }, 100);
-    }
-
-    // Set Text Displays
-    document.getElementById('scorePercentage').textContent = `${percentage}%`;
-    document.getElementById('scoreFraction').textContent = `${score} / ${total}`;
-    document.getElementById('correctCount').textContent = `${score}`;
-    document.getElementById('incorrectCount').textContent = `${incorrect}`;
-    document.getElementById('timeSpent').textContent = formatTime(secondsElapsed);
-    document.getElementById('accuracyRate').textContent = `${percentage}%`;
-
-    // Dynamic Title & Rank Badge
-    const rankBadge = document.getElementById('masteryRankBadge');
-    const titleEl = document.getElementById('resultsTitle');
-    const subtitleEl = document.getElementById('resultsSubtitle');
-
-    if (percentage === 100) {
-        rankBadge.textContent = '🌌 Cosmic Mastermind';
-        rankBadge.className = 'mastery-rank-badge rank-expert';
-        titleEl.textContent = 'Perfection! Absolute Cosmic Mastery!';
-        subtitleEl.textContent = 'You distinguished every single nuance of astrophysics and cinema science. You are ready to consult on the next Christopher Nolan sci-fi film!';
-    } else if (percentage >= 80) {
-        rankBadge.textContent = '⚛️ Theoretical Physicist';
-        rankBadge.className = 'mastery-rank-badge rank-expert';
-        titleEl.textContent = 'Outstanding Scientific Acumen!';
-        subtitleEl.textContent = 'You have a formidable grasp of general relativity, orbital mechanics, and scientific principles behind science fiction masterpieces.';
-    } else if (percentage >= 60) {
-        rankBadge.textContent = '🚀 Astrophysics Explorer';
-        rankBadge.className = 'mastery-rank-badge rank-intermediate';
-        titleEl.textContent = 'Great Job! Solid Foundation!';
-        subtitleEl.textContent = 'You know your real science from fiction well. A bit more exploration in our Science Concepts Hub will make you an expert.';
-    } else {
-        rankBadge.textContent = '🔬 Science Cadet';
-        rankBadge.className = 'mastery-rank-badge rank-beginner';
-        titleEl.textContent = 'Good Effort! Keep Exploring!';
-        subtitleEl.textContent = 'Cinema often bends the laws of physics for dramatic effect. Dive into our interactive experiments to discover how real physics works!';
-    }
-
-    // Render Answers Review list
-    renderReviewList();
-
-    // Scroll to results
-    resultsScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function renderReviewList() {
-    const reviewList = document.getElementById('reviewList');
-    if (!reviewList) return;
-
-    reviewList.innerHTML = userAnswers.map((ans, idx) => {
-        const letters = ['A', 'B', 'C', 'D'];
-        const isCorrect = ans.isCorrect;
-        const chosenText = ans.options[ans.selectedIndex] || 'None';
-        const correctText = ans.options[ans.correctIndex];
-
+    optionsContainer.innerHTML = question.options.map((opt, idx) => {
+        const isSelected = scientistUserAnswers[scientistCurrentIndex] === idx;
         return `
-            <div class="review-item ${isCorrect ? 'review-correct' : 'review-incorrect'}">
-                <div class="review-item-header">
-                    <span class="review-q-num">Q${idx + 1}</span>
-                    <span class="review-status-badge ${isCorrect ? 'badge-correct' : 'badge-incorrect'}">
-                        ${isCorrect ? '✓ Correct' : '✗ Incorrect'}
-                    </span>
-                    <h4 class="review-question-title">${ans.question}</h4>
-                </div>
-
-                <div class="review-choices">
-                    <div class="choice-row ${isCorrect ? 'choice-correct' : 'choice-user-incorrect'}">
-                        <span class="choice-label">Your Answer:</span>
-                        <span class="choice-value">(${letters[ans.selectedIndex]}) ${chosenText}</span>
-                    </div>
-                    ${!isCorrect ? `
-                        <div class="choice-row choice-correct">
-                            <span class="choice-label">Correct Answer:</span>
-                            <span class="choice-value">(${letters[ans.correctIndex]}) ${correctText}</span>
-                        </div>
-                    ` : ''}
-                </div>
-
-                <div class="review-explanation-box">
-                    <strong>Scientific Principle:</strong> ${ans.explanation}
-                    ${ans.movieConnection ? `
-                        <div class="review-movie-note">
-                            <strong>🎬 Cinema Context:</strong> ${ans.movieConnection}
-                        </div>
-                    ` : ''}
-                </div>
+            <div class="option ${isSelected ? 'selected' : ''}" onclick="selectScientistOption(${idx})">
+                <div class="option-radio"></div>
+                <div class="option-text">${opt.text}</div>
             </div>
         `;
     }).join('');
+
+    // Navigation Buttons
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (prevBtn) {
+        prevBtn.style.display = scientistCurrentIndex > 0 ? 'inline-flex' : 'none';
+        prevBtn.onclick = goToScientistPrevious;
+    }
+
+    if (nextBtn) {
+        nextBtn.style.display = 'inline-flex';
+        nextBtn.textContent = scientistCurrentIndex === total - 1 ? 'Analyze My Scientist Match ✨' : 'Next Question →';
+        nextBtn.onclick = goToScientistNext;
+    }
+
+    // Hide trivia feedback
+    const feedback = document.getElementById('answerFeedback');
+    if (feedback) feedback.style.display = 'none';
+}
+
+function selectScientistOption(optionIndex) {
+    scientistUserAnswers[scientistCurrentIndex] = optionIndex;
+
+    // Update option selection styling
+    const optionElements = document.querySelectorAll('#optionsContainer .option');
+    optionElements.forEach((el, idx) => {
+        el.classList.toggle('selected', idx === optionIndex);
+    });
+
+    const statusIndicator = document.getElementById('quizStatusIndicator');
+    if (statusIndicator) {
+        statusIndicator.textContent = 'Answer chosen';
+        statusIndicator.style.color = '#22c55e';
+    }
+}
+
+function goToScientistPrevious() {
+    if (scientistCurrentIndex > 0) {
+        scientistCurrentIndex--;
+        displayScientistQuestion();
+    }
+}
+
+function goToScientistNext() {
+    if (scientistUserAnswers[scientistCurrentIndex] === undefined) {
+        showToast('Please select an approach before continuing');
+        return;
+    }
+
+    scientistCurrentIndex++;
+    if (scientistCurrentIndex >= scientistConfig.questions.length) {
+        finishScientistQuiz();
+    } else {
+        displayScientistQuestion();
+    }
+}
+
+/**
+ * Score calculation and archetype matching
+ */
+function finishScientistQuiz() {
+    document.getElementById('quizScreen').style.display = 'none';
+    const resultsContainer = document.getElementById('scientistResults');
+    resultsContainer.style.display = 'block';
+
+    const traitKeys = ['Analytical', 'Creative', 'Practical', 'Collaborative', 'Risk'];
+
+    // 1. Tally raw user trait points
+    const userRawTraits = { Analytical: 0, Creative: 0, Practical: 0, Collaborative: 0, Risk: 0 };
+
+    scientistUserAnswers.forEach((ansIndex, qIndex) => {
+        const question = scientistConfig.questions[qIndex];
+        if (question && question.options[ansIndex] && question.options[ansIndex].weights) {
+            const weights = question.options[ansIndex].weights;
+            for (const [trait, val] of Object.entries(weights)) {
+                if (userRawTraits[trait] !== undefined) {
+                    userRawTraits[trait] += val;
+                }
+            }
+        }
+    });
+
+    // 2. Calculate maximum possible trait scores across all questions for scaling
+    const maxPossibleTraits = { Analytical: 0, Creative: 0, Practical: 0, Collaborative: 0, Risk: 0 };
+    scientistConfig.questions.forEach(q => {
+        traitKeys.forEach(trait => {
+            const maxValInQ = Math.max(...q.options.map(opt => (opt.weights && opt.weights[trait]) || 0));
+            maxPossibleTraits[trait] += maxValInQ;
+        });
+    });
+
+    // 3. User normalized trait vector (0.0 to 1.0) and display percentages (15% to 98%)
+    const userVector = {};
+    const userTraitsPct = {};
+
+    traitKeys.forEach(trait => {
+        const maxVal = Math.max(maxPossibleTraits[trait], 1);
+        const ratio = userRawTraits[trait] / maxVal;
+        // Bound normalized vector
+        userVector[trait] = Math.max(0.1, Math.min(1.0, ratio));
+        // Display percentage for visual progress bars
+        userTraitsPct[trait] = Math.max(15, Math.min(98, Math.round(ratio * 100)));
+    });
+
+    // 4. Calculate similarity against all scientist archetypes
+    const rankedScientists = scientistConfig.scientists.map(scientist => {
+        const sVector = scientist.vector;
+
+        // Vector dot product & norms for Cosine Similarity
+        let dotProduct = 0;
+        let normUser = 0;
+        let normScientist = 0;
+        let euclideanDistSq = 0;
+
+        traitKeys.forEach(t => {
+            const u = userVector[t];
+            const s = sVector[t] || 0.5;
+
+            dotProduct += u * s;
+            normUser += u * u;
+            normScientist += s * s;
+            euclideanDistSq += (u - s) * (u - s);
+        });
+
+        const cosineSim = dotProduct / (Math.sqrt(normUser) * Math.sqrt(normScientist));
+        const euclideanDist = Math.sqrt(euclideanDistSq);
+        const maxDist = Math.sqrt(traitKeys.length); // sqrt(5) ≈ 2.236
+        const proximity = Math.max(0, 1 - (euclideanDist / maxDist));
+
+        // Combined blend score scaled to 76% - 98%
+        const rawScore = (cosineSim * 0.65 + proximity * 0.35);
+        const matchPct = Math.round(75 + (rawScore * 23));
+
+        return {
+            scientist,
+            score: Math.min(98, Math.max(76, matchPct))
+        };
+    });
+
+    // Sort descending
+    rankedScientists.sort((a, b) => b.score - a.score);
+
+    const primaryMatch = rankedScientists[0];
+    const secondaryMatch = rankedScientists[1];
+
+    // Store for sharing
+    lastScientistResult = {
+        primary: primaryMatch,
+        secondary: secondaryMatch,
+        traitsPct: userTraitsPct
+    };
+
+    // Render results view
+    renderScientistResults(primaryMatch, secondaryMatch, userTraitsPct);
+
+    // Scroll to results
+    window.scrollTo({ top: resultsContainer.offsetTop - 80, behavior: 'smooth' });
+}
+
+/**
+ * Render the Holographic Scientist Results Screen
+ */
+function renderScientistResults(primaryMatch, secondaryMatch, userTraitsPct) {
+    const container = document.getElementById('scientistResultsInner');
+    if (!container) return;
+
+    const s = primaryMatch.scientist;
+    const twin = s.cinematicTwin;
+
+    // Lookup movie poster from catalog if available
+    let twinPosterUrl = 'images/posters/1-interstellar.jpg';
+    if (twin && twin.movieId) {
+        const matchedMovie = moviesCatalog.find(m => m.id === twin.movieId);
+        if (matchedMovie && matchedMovie.posterUrl) {
+            twinPosterUrl = matchedMovie.posterUrl;
+        }
+    }
+
+    // Lookup curated recommendation movies
+    const recMovies = (s.recommendedMovies || []).map(id => {
+        return moviesCatalog.find(m => m.id === id);
+    }).filter(Boolean);
+
+    // Lookup experiment
+    let expDetails = null;
+    if (s.recommendedExperiment && s.recommendedExperiment.id) {
+        expDetails = experimentsCatalog.find(e => e.id === s.recommendedExperiment.id);
+    }
+
+    const traitKeys = ['Analytical', 'Creative', 'Practical', 'Collaborative', 'Risk'];
+
+    container.innerHTML = `
+        <!-- HERO CARD -->
+        <div class="scientist-hero-card">
+            <div class="scientist-hero-glow"></div>
+            <div class="scientist-avatar-wrap">
+                <span>${s.icon}</span>
+            </div>
+            <div class="match-percentage-badge">
+                <span class="match-dot"></span>
+                <span>${primaryMatch.score}% Scientific Archetype Match</span>
+            </div>
+            <h1 class="scientist-name">${s.name}</h1>
+            <div class="scientist-title">${s.title}</div>
+            <div class="scientist-tagline">"${s.tagline}"</div>
+            <p class="scientist-bio">${s.bio}</p>
+
+            <div class="scientist-quote-box">
+                <div class="scientist-quote-text">"${s.quote}"</div>
+                <div class="scientist-quote-author">— ${s.name}</div>
+            </div>
+        </div>
+
+        <!-- TWO COLUMN BREAKDOWN -->
+        <div class="results-grid-two-col">
+            <!-- Col 1: Traits Fingerprint -->
+            <div class="results-panel-card traits-analysis-card">
+                <h3 class="card-section-title">
+                    <span>🧠</span> Your Cognitive Trait Fingerprint
+                </h3>
+                <p class="card-section-desc">
+                    Your answers mapped across 5 core dimensions of scientific inquiry and problem solving:
+                </p>
+                <div class="trait-bars-list">
+                    ${traitKeys.map(key => {
+                        const meta = (scientistConfig.traits && scientistConfig.traits[key]) || { name: key, icon: '•', description: '' };
+                        const score = userTraitsPct[key] || 50;
+                        return `
+                            <div class="trait-item">
+                                <div class="trait-meta">
+                                    <div class="trait-title-wrap">
+                                        <span class="trait-icon">${meta.icon}</span>
+                                        <span class="trait-name">${meta.name}</span>
+                                    </div>
+                                    <span class="trait-score-val">${score}%</span>
+                                </div>
+                                <div class="trait-progress-track">
+                                    <div class="trait-progress-bar" style="width: ${score}%;"></div>
+                                </div>
+                                <div class="trait-desc">${meta.description}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+
+            <!-- Col 2: Cinematic Movie Twin -->
+            <div class="results-panel-card cinematic-twin-card">
+                <h3 class="card-section-title">
+                    <span>🎬</span> Your Sci-Fi Cinema Twin
+                </h3>
+                <p class="card-section-desc">
+                    The science-fiction movie character who mirrors your exact problem-solving mindset:
+                </p>
+                
+                <div class="twin-spotlight">
+                    <img class="twin-poster-thumb" src="${twinPosterUrl}" alt="${twin ? twin.movie : 'Movie'}" onerror="this.src='images/posters/1-interstellar.jpg'">
+                    <div class="twin-info">
+                        <div class="twin-character-name">${twin ? twin.character : 'Science Explorer'}</div>
+                        <div class="twin-movie-title">${twin ? twin.movie : ''}</div>
+                        <p class="twin-desc">${twin ? twin.description : ''}</p>
+                    </div>
+                </div>
+
+                <!-- Secondary Affinity Banner -->
+                ${secondaryMatch ? `
+                    <div class="secondary-affinity-card">
+                        <span class="secondary-icon">${secondaryMatch.scientist.icon}</span>
+                        <div class="secondary-text">
+                            <h4>Secondary Scientific Affinity: ${secondaryMatch.scientist.name}</h4>
+                            <p>${secondaryMatch.score}% Affinity • ${secondaryMatch.scientist.title}</p>
+                        </div>
+                    </div>
+                ` : ''}
+
+                ${twin && twin.movieId ? `
+                    <div class="twin-action-btn" style="margin-top: 1.25rem;">
+                        <a href="movie-detail.html?id=${twin.movieId}" class="btn btn-secondary" style="width: 100%; text-align: center;">
+                            <span>Explore the Science of ${twin.movie}</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+
+        <!-- CURATED RECOMMENDATIONS -->
+        <div class="curated-recommendations">
+            <h3 class="card-section-title">
+                <span>🍿</span> Curated For Your Scientific Mind
+            </h3>
+            <p class="card-section-desc">
+                Films and physics experiments aligned with the ${s.title} archetype:
+            </p>
+
+            <div class="rec-grid">
+                ${recMovies.map(movie => `
+                    <a href="movie-detail.html?id=${movie.id}" class="rec-card">
+                        <div class="rec-card-header">
+                            <span class="rec-type-badge">Featured Movie</span>
+                            <span class="rec-accuracy-badge">${movie.accuracy?.percentage || 85}% Accurate</span>
+                        </div>
+                        <h4>${movie.title} (${movie.year})</h4>
+                        <p>${movie.description ? movie.description.slice(0, 105) + '...' : 'Explore real science in cinema.'}</p>
+                        <span class="rec-card-link">View Scientific Accuracy →</span>
+                    </a>
+                `).join('')}
+
+                ${expDetails ? `
+                    <a href="experiments.html" class="rec-card" style="border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.05);">
+                        <div class="rec-card-header">
+                            <span class="rec-type-badge" style="color: #4ade80;">Physics Lab</span>
+                            <span class="rec-accuracy-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15);">Interactive</span>
+                        </div>
+                        <h4>${expDetails.title}</h4>
+                        <p>${expDetails.description ? expDetails.description.slice(0, 105) + '...' : 'Interactive simulation grounded in real physics.'}</p>
+                        <span class="rec-card-link">Launch Experiment Calculator →</span>
+                    </a>
+                ` : ''}
+            </div>
+        </div>
+
+        <!-- SUPABASE PROFILE SYNC NOTIFICATION BANNER -->
+        <div id="scientistSupabaseBanner" style="max-width: 900px; margin: 1.5rem auto 0 auto;"></div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="results-actions-wrap">
+            <button class="btn btn-primary" id="copyResultsBtn" onclick="copyScientistProfile()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Share / Copy Scientist Card</span>
+            </button>
+            <button class="btn btn-secondary" onclick="startScientistQuiz()">
+                <span>Retake Discovery Quiz</span>
+            </button>
+            <button class="btn btn-secondary" onclick="switchQuizMode('trivia')">
+                <span>Test Movie Science IQ</span>
+            </button>
+            <a href="index.html" class="btn btn-secondary">
+                <span>Back to Home</span>
+            </a>
+        </div>
+    `;
+
+    handleQuizCompletionSave({
+        quizId: 'scientist-archetype',
+        quizName: `Scientist Archetype: ${s.name}`,
+        score: primaryMatch.score,
+        totalQuestions: 8,
+        percentage: primaryMatch.score,
+        containerId: 'scientistSupabaseBanner'
+    });
+}
+
+/**
+ * Copy formatted scientist archetype result to clipboard
+ */
+function copyScientistProfile() {
+    if (!lastScientistResult) return;
+
+    const { primary, traitsPct } = lastScientistResult;
+    const s = primary.scientist;
+    const twin = s.cinematicTwin;
+
+    const shareText = 
+`🔬 My SciFiLens Scientist Match: ${s.name} (${s.title}) — ${primary.score}% Affinity!
+🎬 Sci-Fi Cinema Twin: ${twin.character} in '${twin.movie}'
+🧠 Cognitive DNA:
+• Analytical Rigor: ${traitsPct.Analytical}%
+• Creative Intuition: ${traitsPct.Creative}%
+• Practical Engineering: ${traitsPct.Practical}%
+• Collaboration & Empathy: ${traitsPct.Collaborative}%
+• Scientific Audacity: ${traitsPct.Risk}%
+
+Discover which scientist and sci-fi twin you are on SciFiLens!`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareText).then(() => {
+            showToast('Scientist Card copied to clipboard!');
+        }).catch(() => {
+            fallbackCopyText(shareText);
+        });
+    } else {
+        fallbackCopyText(shareText);
+    }
+}
+
+function fallbackCopyText(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        showToast('Scientist Card copied to clipboard!');
+    } catch (err) {
+        console.error('Copy failed:', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+/**
+ * Toast Notification Utility
+ */
+function showQuizToast(message, type = 'info') {
+    if (typeof window.showToast === 'function') {
+        window.showToast(message, type);
+    } else {
+        const toast = document.getElementById('toastNotification');
+        const toastMsg = document.getElementById('toastMessage');
+
+        if (toast && toastMsg) {
+            toastMsg.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3200);
+        }
+    }
+}
+
+/* ============================================================
+   2. MOVIE SCIENCE TRIVIA QUIZ FLOW (Preserved & Enhanced)
+   ============================================================ */
+
+function startTriviaQuiz() {
+    triviaCurrentIndex = 0;
+    triviaScore = 0;
+    triviaUserAnswers = [];
+
+    document.getElementById('scientistStart').style.display = 'none';
+    document.getElementById('triviaStart').style.display = 'none';
+    document.getElementById('triviaResults').style.display = 'none';
+    document.getElementById('scientistResults').style.display = 'none';
+    document.getElementById('quizScreen').style.display = 'block';
+
+    displayTriviaQuestion();
+}
+
+function displayTriviaQuestion() {
+    if (triviaCurrentIndex >= triviaQuestions.length) {
+        endTriviaQuiz();
+        return;
+    }
+
+    const question = triviaQuestions[triviaCurrentIndex];
+    const total = triviaQuestions.length;
+
+    // Hide feedback from previous step
+    const feedback = document.getElementById('answerFeedback');
+    if (feedback) feedback.style.display = 'none';
+
+    // Progress
+    const progressFill = document.getElementById('progressFill');
+    if (progressFill) {
+        progressFill.style.width = `${((triviaCurrentIndex + 1) / total) * 100}%`;
+    }
+
+    const questionNumber = document.getElementById('questionNumber');
+    if (questionNumber) {
+        questionNumber.textContent = `Question ${triviaCurrentIndex + 1} of ${total}`;
+    }
+
+    const statusIndicator = document.getElementById('quizStatusIndicator');
+    if (statusIndicator) {
+        statusIndicator.textContent = `Score: ${triviaScore}`;
+        statusIndicator.style.color = 'var(--accent-cyan)';
+    }
+
+    // Category
+    const categoryBadge = document.getElementById('questionCategory');
+    if (categoryBadge) {
+        categoryBadge.textContent = question.difficulty ? `Difficulty: ${question.difficulty}` : 'Movie Trivia';
+        categoryBadge.style.display = 'inline-block';
+    }
+
+    // Question Text
+    const questionText = document.getElementById('questionText');
+    if (questionText) {
+        questionText.textContent = question.question;
+    }
+
+    // Options
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = question.options.map((opt, idx) => {
+        const isSelected = triviaUserAnswers[triviaCurrentIndex] === idx;
+        return `
+            <div class="option ${isSelected ? 'selected' : ''}" onclick="selectTriviaOption(${idx})">
+                <div class="option-radio"></div>
+                <div class="option-text">${opt}</div>
+            </div>
+        `;
+    }).join('');
+
+    // Navigation Buttons
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (prevBtn) {
+        prevBtn.style.display = triviaCurrentIndex > 0 ? 'inline-flex' : 'none';
+        prevBtn.onclick = goToTriviaPrevious;
+    }
+
+    if (nextBtn) {
+        nextBtn.style.display = 'inline-flex';
+        nextBtn.textContent = triviaCurrentIndex === total - 1 ? 'Finish Trivia' : 'Next Question →';
+        nextBtn.onclick = goToTriviaNext;
+    }
+}
+
+function selectTriviaOption(optionIndex) {
+    const question = triviaQuestions[triviaCurrentIndex];
+    triviaUserAnswers[triviaCurrentIndex] = optionIndex;
+
+    const isCorrect = optionIndex === question.correct;
+    if (isCorrect && !question._scored) {
+        triviaScore++;
+        question._scored = true;
+    }
+
+    // Update UI
+    document.querySelectorAll('#optionsContainer .option').forEach((opt, idx) => {
+        opt.classList.remove('selected', 'correct', 'incorrect');
+        if (idx === optionIndex) {
+            opt.classList.add('selected');
+        }
+        if (idx === question.correct) {
+            opt.classList.add('correct');
+        } else if (idx === optionIndex && !isCorrect) {
+            opt.classList.add('incorrect');
+        }
+    });
+
+    const statusIndicator = document.getElementById('quizStatusIndicator');
+    if (statusIndicator) {
+        statusIndicator.textContent = `Score: ${triviaScore}`;
+    }
+
+    showTriviaFeedback(question, isCorrect);
+}
+
+function showTriviaFeedback(question, isCorrect) {
+    const feedback = document.getElementById('answerFeedback');
+    const feedbackIcon = document.getElementById('feedbackIcon');
+    const feedbackTitle = document.getElementById('feedbackTitle');
+    const feedbackText = document.getElementById('feedbackText');
+    const feedbackMovie = document.getElementById('feedbackMovie');
+    const feedbackMovieText = document.getElementById('feedbackMovieText');
+
+    if (!feedback) return;
+
+    if (feedbackIcon) {
+        feedbackIcon.textContent = isCorrect ? '✓' : '✗';
+        feedbackIcon.style.color = isCorrect ? '#22c55e' : '#ef4444';
+    }
+
+    if (feedbackTitle) {
+        feedbackTitle.textContent = isCorrect ? 'Correct!' : 'Incorrect';
+        feedbackTitle.style.color = isCorrect ? '#22c55e' : '#ef4444';
+    }
+
+    if (feedbackText) {
+        feedbackText.textContent = question.explanation;
+    }
+
+    if (feedbackMovie && feedbackMovieText) {
+        if (question.movieConnection) {
+            feedbackMovie.style.display = 'block';
+            feedbackMovieText.textContent = question.movieConnection;
+        } else {
+            feedbackMovie.style.display = 'none';
+        }
+    }
+
+    feedback.style.display = 'block';
+}
+
+function goToTriviaPrevious() {
+    if (triviaCurrentIndex > 0) {
+        triviaCurrentIndex--;
+        displayTriviaQuestion();
+    }
+}
+
+function goToTriviaNext() {
+    if (triviaUserAnswers[triviaCurrentIndex] === undefined) {
+        showToast('Please select an answer before proceeding');
+        return;
+    }
+
+    triviaCurrentIndex++;
+    if (triviaCurrentIndex >= triviaQuestions.length) {
+        endTriviaQuiz();
+    } else {
+        displayTriviaQuestion();
+    }
+}
+
+function endTriviaQuiz() {
+    document.getElementById('quizScreen').style.display = 'none';
+    const feedback = document.getElementById('answerFeedback');
+    if (feedback) feedback.style.display = 'none';
+
+    document.getElementById('triviaResults').style.display = 'block';
+
+    const total = triviaQuestions.length;
+    const percentage = Math.round((triviaScore / total) * 100);
+
+    const finalScoreEl = document.getElementById('finalScore');
+    if (finalScoreEl) finalScoreEl.textContent = `${triviaScore}/${total}`;
+
+    let message = '';
+    if (percentage >= 90) {
+        message = "Outstanding! You're a true sci-fi physics virtuoso with an acute eye for real scientific principles!";
+    } else if (percentage >= 80) {
+        message = "Excellent work! You have a strong grasp of the science behind cinematic science fiction.";
+    } else if (percentage >= 70) {
+        message = "Good job! You easily navigate between Hollywood dramatization and empirical reality.";
+    } else if (percentage >= 60) {
+        message = "Not bad! Explore our movie analyses and interactive physics labs to elevate your knowledge.";
+    } else {
+        message = "Keep learning! Check out our movie library to discover where cinema meets real physics.";
+    }
+
+    const resultMessageEl = document.getElementById('resultMessage');
+    if (resultMessageEl) resultMessageEl.textContent = message;
+
+    const breakdown = document.getElementById('resultsBreakdown');
+    if (breakdown) {
+        breakdown.innerHTML = `
+            <div class="breakdown-item">
+                <span class="breakdown-label">Correct Answers</span>
+                <span class="breakdown-value">${triviaScore}/${total}</span>
+            </div>
+            <div class="breakdown-item">
+                <span class="breakdown-label">Accuracy Score</span>
+                <span class="breakdown-value">${percentage}%</span>
+            </div>
+            <div class="breakdown-item">
+                <span class="breakdown-label">Evaluation Difficulty</span>
+                <span class="breakdown-value">Intermediate to Advanced</span>
+            </div>
+        `;
+    }
+
+    // Auto-save to Supabase if logged in, or prompt if guest
+    handleQuizCompletionSave({
+        quizId: 'trivia-iq',
+        quizName: 'Movie Science IQ Trivia',
+        score: triviaScore,
+        totalQuestions: total,
+        percentage: percentage,
+        containerId: 'triviaSupabaseBanner'
+    });
+}
+
+/**
+ * Handle Supabase quiz save or guest notification
+ */
+async function handleQuizCompletionSave({ quizId, quizName, score, totalQuestions, percentage, containerId }) {
+    const container = document.getElementById(containerId);
+    let user = null;
+    if (window.SciFiLensSupabase && typeof window.SciFiLensSupabase.getCurrentUser === 'function') {
+        try {
+            user = await window.SciFiLensSupabase.getCurrentUser();
+        } catch (e) {}
+    }
+
+    if (user) {
+        // Authenticated user: Automatically save to Supabase
+        try {
+            await window.SciFiLensSupabase.recordQuizAttempt({
+                quizId,
+                quizName,
+                score,
+                totalQuestions,
+                percentage
+            });
+
+            if (container) {
+                container.innerHTML = `
+                    <div class="quiz-saved-badge" style="background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.35); color: #4ade80; padding: 0.85rem 1.25rem; border-radius: 8px; margin: 1.25rem 0; text-align: center; font-size: 0.92rem;">
+                        <span>✓ Quiz score automatically recorded in your SciFiLens profile!</span>
+                        <a href="profile.html" class="btn btn-secondary" style="display: inline-block; padding: 0.3rem 0.8rem; font-size: 0.8rem; margin-left: 0.75rem; vertical-align: middle;">View Profile →</a>
+                    </div>
+                `;
+            }
+
+            if (typeof showToast === 'function') {
+                showToast(`Quiz score saved to your profile! 🏆`, 'success');
+            }
+        } catch (err) {
+            console.error('Failed to auto-save quiz score:', err);
+        }
+    } else {
+        // Guest user: show friendly encouragement to save scores
+        if (container) {
+            container.innerHTML = `
+                <div class="quiz-guest-banner" style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); padding: 0.9rem 1.25rem; border-radius: 8px; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+                    <div style="font-size: 0.9rem; color: #cbd5e1;">
+                        <strong style="color: #38bdf8;">Save Your Science Progress:</strong> Log in to save your quiz scores and track your physics learning on SciFiLens.
+                    </div>
+                    <a href="login.html" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.85rem; text-decoration: none; white-space: nowrap;">
+                        <span>Log In / Sign Up</span>
+                    </a>
+                </div>
+            `;
+        }
+    }
 }
 
 function toggleReviewSection() {
@@ -436,10 +973,3 @@ function toggleReviewSection() {
         if (reviewBtn) reviewBtn.textContent = 'Review All Answers';
     }
 }
-
-function restartQuiz() {
-    startQuiz();
-}
-
-// Global exposure for inline handlers
-window.selectOption = selectOption;

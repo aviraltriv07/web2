@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Details - SciFiLens</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -89,9 +90,12 @@
                 </div>
 
                 <div class="movie-info-section">
-                    <h1 class="movie-detail-title" id="movieTitle"></h1>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
+                        <h1 class="movie-detail-title" id="movieTitle" style="margin-bottom: 0;"></h1>
+                        <div id="movieDetailLikeContainer"></div>
+                    </div>
                     
-                    <div class="accuracy-badge">
+                    <div class="accuracy-badge" style="margin-top: 1rem;">
                         <div class="accuracy-score" id="accuracyScore"></div>
                         <span>Scientific Accuracy Rating</span>
                     </div>
@@ -174,6 +178,9 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/likes.js"></script>
     <script src="js/main.js"></script>
     <script src="js/movie-detail.js"></script>
 </body>

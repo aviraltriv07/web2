@@ -477,10 +477,202 @@ function getConfidenceClass(label) {
     if (l.includes('active')) return 'active-research';
     if (l.includes('speculative')) return 'speculative';
     if (l.includes('impossible')) return 'impossible';
-    return 'established';
 }
 
-window.openGlobalConceptModal = openGlobalConceptModal;
+/* ============================================================
+   GLOBAL TOAST NOTIFICATION SYSTEM
+   ============================================================ */
+
+function showToast(message, type = 'info', action = null, duration = 4000) {
+    let container = document.getElementById('scifilensToastContainer');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'scifilensToastContainer';
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+
+    let icon = 'ℹ️';
+    if (type === 'success') icon = '✓';
+    if (type === 'error') icon = '✕';
+    if (type === 'warning') icon = '⚠️';
+
+    let actionBtnHtml = '';
+    if (action && action.text) {
+        if (action.url) {
+            actionBtnHtml = `<a href="${action.url}" class="toast-action-btn">${action.text}</a>`;
+        } else if (typeof action.callback === 'function') {
+            actionBtnHtml = `<button type="button" class="toast-action-btn" id="toastActionBtn">${action.text}</button>`;
+        }
+    }
+
+    toast.innerHTML = `
+        <div class="toast-icon-wrap">${icon}</div>
+        <div class="toast-message">${message}</div>
+        ${actionBtnHtml}
+        <button class="toast-close" aria-label="Close">&times;</button>
+    `;
+
+    container.appendChild(toast);
+
+    if (action && typeof action.callback === 'function') {
+        const btn = toast.querySelector('#toastActionBtn');
+        if (btn) btn.addEventListener('click', () => {
+            action.callback();
+            removeToast(toast);
+        });
+    }
+
+    const closeBtn = toast.querySelector('.toast-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => removeToast(toast));
+    }
+
+    const timeout = setTimeout(() => {
+        removeToast(toast);
+    }, duration);
+
+    function removeToast(el) {
+        clearTimeout(timeout);
+        el.classList.add('toast-exit');
+        setTimeout(() => {
+            if (el.parentNode) el.parentNode.removeChild(el);
+        }, 300);
+    }
+}
+window.showToast = showToast;
+
+/* ============================================================
+   CENTRALIZED AUTHENTICATION & NAVBAR STATE
+   ============================================================ */
+
+async function updateNavbarAuthState() {
+    const navMenu = document.querySelector('.nav-menu');
+    const profileBtns = document.querySelectorAll('.profile-btn');
+    const currentPath = window.location.pathname;
+
+    let user = null;
+    let profile = null;
+
+    if (window.SciFiLensSupabase && typeof window.SciFiLensSupabase.getCurrentUser === 'function') {
+        try {
+            user = await window.SciFiLensSupabase.getCurrentUser();
+            if (user) {
+                profile = await window.SciFiLensSupabase.getUserProfile(user.id);
+            }
+        } catch (e) {
+            console.warn('Auth check in navbar notice:', e);
+        }
+    }
+
+    // Clean previous dynamic auth items
+    if (navMenu) {
+        const oldAuth = navMenu.querySelector('#navAuthItem');
+        const oldLogout = navMenu.querySelector('#navLogoutItem');
+        if (oldAuth) oldAuth.remove();
+        if (oldLogout) oldLogout.remove();
+
+        if (user) {
+            // Logged in items: My SciFiLens & Logout
+            const isProfileActive = currentPath.includes('profile.html');
+            const authLi = document.createElement('li');
+            authLi.id = 'navAuthItem';
+            authLi.innerHTML = `<a href="profile.html" class="nav-link ${isProfileActive ? 'active' : ''}">My SciFiLens</a>`;
+            navMenu.appendChild(authLi);
+
+            const logoutLi = document.createElement('li');
+            logoutLi.id = 'navLogoutItem';
+            logoutLi.innerHTML = `<a href="#" class="nav-link logout-link" onclick="handleNavbarLogout(event)" title="Sign out of SciFiLens">Logout</a>`;
+            navMenu.appendChild(logoutLi);
+        } else {
+            // Logged out item: Login / Sign Up
+            const isLoginActive = currentPath.includes('login.html');
+            const authLi = document.createElement('li');
+            authLi.id = 'navAuthItem';
+            authLi.innerHTML = `<a href="login.html" class="nav-link ${isLoginActive ? 'active' : ''}">Login</a>`;
+            navMenu.appendChild(authLi);
+        }
+    }
+
+    // Update Profile Action Buttons
+    profileBtns.forEach(btn => {
+        if (user) {
+            btn.setAttribute('title', `Logged in as ${profile?.full_name || user.email}`);
+            btn.onclick = (e) => {
+                e.preventDefault();
+                window.location.href = 'profile.html';
+            };
+
+            const avatarUrl = profile?.avatar_url || user.user_metadata?.avatar_url || user.user_metadata?.picture;
+            if (avatarUrl) {
+                btn.innerHTML = `<img src="${avatarUrl}" alt="Avatar" class="nav-avatar-img" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'nav-avatar-fallback\\'>👤</div>';">`;
+            } else {
+                const initial = (profile?.full_name || user.email || 'U').charAt(0).toUpperCase();
+                btn.innerHTML = `<div class="nav-avatar-initial">${initial}</div>`;
+            }
+            btn.classList.add('logged-in');
+        } else {
+            btn.setAttribute('title', 'Login / Sign Up');
+            btn.onclick = (e) => {
+                e.preventDefault();
+                window.location.href = 'login.html';
+            };
+            btn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            `;
+            btn.classList.remove('logged-in');
+        }
+    });
+
+    updateNavigation();
+}
+
+async function handleNavbarLogout(event) {
+    if (event) event.preventDefault();
+    if (window.SciFiLensSupabase && window.SciFiLensSupabase.authSignOut) {
+        try {
+            await window.SciFiLensSupabase.authSignOut();
+            showToast('You have been logged out.', 'info');
+            
+            // If on profile page, redirect to home
+            if (window.location.pathname.includes('profile.html')) {
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 400);
+            } else {
+                updateNavbarAuthState();
+                if (typeof syncAllLikeButtons === 'function') {
+                    syncAllLikeButtons();
+                }
+            }
+        } catch (err) {
+            console.error('Logout error:', err);
+            showToast('Error logging out. Please try again.', 'error');
+        }
+    }
+}
+window.handleNavbarLogout = handleNavbarLogout;
+window.updateNavbarAuthState = updateNavbarAuthState;
+
+function setupAuthListener() {
+    if (window.SciFiLensSupabase) {
+        const client = window.SciFiLensSupabase.getSupabase();
+        if (client && client.auth) {
+            client.auth.onAuthStateChange((event, session) => {
+                updateNavbarAuthState();
+                if (typeof initLikesSystem === 'function') {
+                    initLikesSystem();
+                }
+            });
+        }
+    }
+}
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -490,6 +682,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('.modal');
     setupModal('.experiment-modal');
     setupOmniSearch();
+    updateNavbarAuthState();
+    setupAuthListener();
 
     // Attach click listeners to any .concept-tag dynamically
     document.addEventListener('click', (e) => {
@@ -500,3 +694,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

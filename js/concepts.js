@@ -261,29 +261,44 @@ function displayConceptCards() {
         return;
     }
 
-    grid.innerHTML = filteredConcepts.map(c => `
-        <div class="science-card" onclick="openConceptEncyclopediaModal(${c.id})" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-                    <div class="science-card-icon">${c.icon || '⚛️'}</div>
-                    <span class="confidence-badge ${getConfidenceClass(c.confidenceLabel || 'Established Science')}">
-                        ${c.confidenceLabel || 'Established Science'}
-                    </span>
-                </div>
-                <h3 class="science-card-title">${c.title}</h3>
-                <p class="science-card-description">${c.description}</p>
-                ${c.formula ? `
-                    <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.95rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">
-                        ${c.formula}
+    grid.innerHTML = filteredConcepts.map(c => {
+        const likeBtnHtml = typeof renderConceptLikeButton === 'function'
+            ? renderConceptLikeButton(c.id, 'Like', '')
+            : `<button class="like-btn concept-like-btn" data-concept-id="${c.id}" onclick="handleConceptLikeClick(event, '${c.id}')"><span class="like-heart-icon">♡</span> <span class="like-btn-label">Like</span></button>`;
+
+        return `
+            <div class="science-card" onclick="openConceptEncyclopediaModal(${c.id})" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div class="science-card-icon">${c.icon || '⚛️'}</div>
+                            <span class="confidence-badge ${getConfidenceClass(c.confidenceLabel || 'Established Science')}">
+                                ${c.confidenceLabel || 'Established Science'}
+                            </span>
+                        </div>
+                        <div onclick="event.stopPropagation()">
+                            ${likeBtnHtml}
+                        </div>
                     </div>
-                ` : ''}
+                    <h3 class="science-card-title">${c.title}</h3>
+                    <p class="science-card-description">${c.description}</p>
+                    ${c.formula ? `
+                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.95rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">
+                            ${c.formula}
+                        </div>
+                    ` : ''}
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">${c.category}</span>
+                    <span class="difficulty-badge ${(c.difficulty || 'intermediate').toLowerCase()}">${c.difficulty || 'Intermediate'}</span>
+                </div>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">${c.category}</span>
-                <span class="difficulty-badge ${(c.difficulty || 'intermediate').toLowerCase()}">${c.difficulty || 'Intermediate'}</span>
-            </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
+
+    if (typeof syncAllLikeButtons === 'function') {
+        syncAllLikeButtons();
+    }
 }
 
 function openConceptEncyclopediaModal(conceptId) {
@@ -340,8 +355,12 @@ function openConceptEncyclopediaModal(conceptId) {
         </a>
     `).join('');
 
+    const modalLikeBtn = typeof renderConceptLikeButton === 'function'
+        ? renderConceptLikeButton(concept.id, 'Like Concept', 'detail-like-btn')
+        : '';
+
     body.innerHTML = `
-        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.25rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.25rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
             <div style="display: flex; gap: 1rem; align-items: center;">
                 <div style="font-size: 2.5rem; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-md); border: 1px solid var(--border-color); flex-shrink: 0;">
                     ${concept.icon || '⚛️'}
@@ -353,6 +372,9 @@ function openConceptEncyclopediaModal(conceptId) {
                     <h2 style="font-size: 1.75rem; color: #ffffff; margin: 0; line-height: 1.2;">${concept.title}</h2>
                     <div style="font-size: 0.85rem; color: #38bdf8; font-weight: 600; margin-top: 0.25rem;">${concept.category} • Difficulty: ${concept.difficulty || 'Intermediate'}</div>
                 </div>
+            </div>
+            <div>
+                ${modalLikeBtn}
             </div>
         </div>
 

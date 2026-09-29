@@ -1,0 +1,143 @@
+import json
+
+raw_items = [
+    # Space Exploration
+    ("Interstellar", "Movie", "An astronaut crew travels through a wormhole to find a new home for humanity."),
+    ("The Expanse", "Series", "A tense political thriller set across a colonized solar system."),
+    ("The Martian", "Movie", "An astronaut is mistakenly stranded on Mars and must survive using science."),
+    ("Star Trek: Strange New Worlds", "Series", "Captain Pike and his crew explore new frontiers in the galaxy."),
+    ("Gravity", "Movie", "Two astronauts fight to survive after disaster strikes their space shuttle."),
+    ("Firefly", "Series", "A renegade crew travels the outer fringes of the galaxy in a spaceship."),
+    ("Ad Astra", "Movie", "An astronaut ventures to the edge of the solar system to find his father."),
+    ("Battlestar Galactica", "Series", "The last remnants of humanity search for the mythical planet Earth."),
+    ("First Man", "Movie", "A dramatic look at Neil Armstrong’s dangerous mission to the moon."),
+    ("For All Mankind", "Series", "An alternate history where the global space race never ended."),
+    ("Moon", "Movie", "An astronaut nears the end of his solo shift on the moon and discovers a dark secret."),
+    ("Lost in Space", "Series", "A family fights for survival after crash-landing on an alien planet."),
+    ("Sunshine", "Movie", "A team of astronauts attempts to reignite the dying sun with a nuclear bomb."),
+    ("Stargate SG-1", "Series", "A military team explores the universe using ancient alien teleportation devices."),
+    ("Europa Report", "Movie", "A documentary-style look at a crew searching for life on Jupiter's moon."),
+    ("Foundation", "Series", "A band of exiles fights to save humanity during the fall of a galactic empire."),
+    ("Aniara", "Movie", "A spaceship heading to Mars is thrown off course into deep space."),
+
+    # AI, Cyberpunk & Robotics
+    ("Blade Runner 2049", "Movie", "A replicant blade runner unearths a secret that could plunge society into chaos."),
+    ("Westworld", "Series", "Androids in a futuristic theme park begin to gain consciousness."),
+    ("Ex Machina", "Movie", "A programmer is invited to administer a Turing test to an advanced AI humanoid."),
+    ("Altered Carbon", "Series", "Consciousness is digitized and transferred into new bodies in a dystopian future."),
+    ("The Matrix", "Movie", "A hacker learns the mind-bending truth about his reality from cyber-rebels."),
+    ("Black Mirror", "Series", "An anthology exploring the dark, twisted consequences of modern technology."),
+    ("Her", "Movie", "A lonely writer develops an unconventional relationship with an advanced operating system."),
+    ("Severance", "Series", "Employees undergo a surgical procedure to separate their work and personal memories."),
+    ("Upgrade", "Movie", "A paralyzed man uses an experimental AI implant to avenge his wife's death."),
+    ("Humans", "Series", "Highly developed robotic servants transform the dynamics of everyday families."),
+    ("I, Robot", "Movie", "A technophobic detective investigates a crime that may have been committed by a robot."),
+    ("Love, Death & Robots", "Series", "An animated anthology featuring diverse, futuristic, and technological stories."),
+    ("Ghost in the Shell", "Movie", "A cyborg security agent hunts a mysterious hacker in a cybernetic future."),
+    ("Person of Interest", "Series", "An ex-CIA agent and a billionaire programmer use an AI to prevent violent crimes."),
+    ("Minority Report", "Movie", "A future police officer is accused of a murder he has not yet committed."),
+    ("Devs", "Series", "A software engineer investigates a secretive quantum computing division at her company."),
+    ("Chappie", "Movie", "A law-enforcement robot is stolen and reprogrammed with the ability to think and feel."),
+
+    # Time Travel & Multiverses
+    ("Dark", "Series", "A missing child setting off a frantic search across four generations of a fractured town."),
+    ("Arrival", "Movie", "A linguist races to communicate with alien visitors before global war erupts."),
+    ("Steins;Gate", "Series", "A group of friends accidentally invent a microwave capable of sending text messages to the past."),
+    ("Looper", "Movie", "Time-traveling assassins kill targets sent back from the future by crime syndicates."),
+    ("12 Monkeys", "Series", "A time traveler returns to the past to stop a deadly plague from destroying humanity."),
+    ("Tenet", "Movie", "A secret agent manipulates the flow of time to prevent World War III."),
+    ("Russian Doll", "Series", "A woman is caught in a mysterious loop, dying and restarting the same night repeatedly."),
+    ("Source Code", "Movie", "A soldier wakes up in another man's body to stop a train bombing within eight minutes."),
+    ("Travelers", "Series", "Operatives from the future send their consciousness into 21st-century hosts to save Earth."),
+    ("Predestination", "Movie", "A temporal agent embarks on a final time-traveling assignment to catch an elusive bomber."),
+    ("Timeless", "Series", "A team travels through history to stop a mysterious organization from altering the past."),
+    ("The Butterfly Effect", "Movie", "A man alters his past childhood memories, causing unforeseen terrible consequences in the present."),
+    ("Fringe", "Series", "An FBI agent works with a scientist to investigate strange phenomena bridging parallel universes."),
+    ("Coherence", "Movie", "Strange things begin to happen when a passing comet disrupts reality at a dinner party."),
+    ("Counterpart", "Series", "A low-level UN employee discovers his agency guards a gateway to a parallel dimension."),
+    ("Primer", "Movie", "Two engineers accidentally invent a time machine and struggle with the ethical fallout."),
+
+    # Dystopian & Post-Apocalyptic
+    ("Children of Men", "Movie", "In a world facing total human infertility, a pregnant woman must be protected."),
+    ("The Handmaid's Tale", "Series", "A woman fights to survive in a totalitarian society that treats women as property."),
+    ("Snowpiercer", "Movie", "Remnants of humanity inhabit a perpetually moving train divided by rigid social classes."),
+    ("The 100", "Series", "Juvenile delinquents are sent back to a radiation-soaked Earth to see if it is habitable."),
+    ("Mad Max: Fury Road", "Movie", "A woman rebels against a tyrannical ruler in a desert wasteland with the help of a drifter."),
+    ("Silo", "Series", "Men and women live in a giant underground bunker with strict rules they believe protect them."),
+    ("The Road", "Movie", "A father and son journey through a bleak, post-apocalyptic landscape trying to survive."),
+    ("Station Eleven", "Series", "Survivors of a devastating flu pandemic rebuild their lives through art and community."),
+    ("Oblivion", "Movie", "A drone repairman on a nearly abandoned Earth questions everything he knows about his mission."),
+    ("Sweet Tooth", "Series", "A half-human, half-deer boy searches for a new beginning in a post-apocalyptic world."),
+    ("District 9", "Movie", "An extraterrestrial race forced to live in slum-like conditions on Earth finds an unexpected ally."),
+    ("Snowpiercer", "Series", "A television adaptation expanding on the class warfare aboard the world-circling train."),
+    ("V for Vendetta", "Movie", "A shadowy freedom fighter uses terrorist tactics to fight an oppressive totalitarian state."),
+    ("The Man in the High Castle", "Series", "An alternate universe where the Axis powers won World War II and divided America."),
+    ("The Book of Eli", "Movie", "A nomad protects a sacred book that holds the key to saving humanity's future."),
+    ("Colony", "Series", "A family fights to stay together in an occupied Los Angeles under alien military rule."),
+
+    # Alien Contact & Invasions
+    ("Annihilation", "Movie", "A biologist signs up for a dangerous expedition into an expanding environmental anomaly."),
+    ("The X-Files", "Series", "Two FBI agents investigate paranormal activity and a massive government alien conspiracy."),
+    ("Contact", "Movie", "A scientist finds definitive radio evidence of extraterrestrial intelligence and builds a transport machine."),
+    ("Falling Skies", "Series", "Survivors band together to fight back against a hostile alien force occupying Earth."),
+    ("Edge of Tomorrow", "Movie", "A soldier fighting aliens finds himself trapped in a time loop every time he dies."),
+    ("War of the Worlds", "Series", "Modern survivors navigate the brutal aftermath of a sudden, devastating alien attack."),
+    ("Signs", "Movie", "A farming family discovers mysterious crop circles that signal an impending global invasion."),
+    ("V", "Series", "An alien race arrives on Earth claiming peace, but harbors a sinister hidden agenda."),
+    ("Cloverfield", "Movie", "A group of friends documents a massive monster attack destroying New York City."),
+    ("Roswell, New Mexico", "Series", "The daughter of undocumented immigrants uncovers a shocking truth about her teenage crush."),
+    ("The Abyss", "Movie", "A search-and-recovery team encounters a mysterious aquatic species in the deep ocean."),
+    ("Sense8", "Series", "Eight strangers from around the world are mentally and emotionally linked by an evolution."),
+    ("Super 8", "Movie", "Small-town teenagers witness a train crash and notice strange events following it."),
+    ("Defiance", "Series", "Humans and aliens try to build a new society together on a radically transformed Earth."),
+
+    # Mind-Bending & Hard Sci-Fi
+    ("Inception", "Movie", "A thief who steals corporate secrets through dream-sharing technology is tasked with planting an idea."),
+    ("Stranger Things", "Series", "Small-town kids uncover secret government experiments and a terrifying alternate dimension."),
+    ("The Prestige", "Movie", "Two rival magicians use futuristic teleportation science to create the ultimate illusion."),
+    ("Orphan Black", "Series", "A woman discovers she is one of many clones caught in a deadly conspiracy."),
+    ("Eternal Sunshine of the Spotless Mind", "Movie", "A couple undergoes a medical procedure to erase each other from their memories."),
+    ("Maniac", "Series", "Two strangers connect during a mind-bending pharmaceutical trial for a new drug."),
+    ("Vanilla Sky", "Movie", "A wealthy publisher finds his reality blurring after a disfiguring car accident."),
+    ("Tales from the Loop", "Series", "Mind-expanding stories exploring the townspeople living above an experimental physics machine."),
+    ("The Truman Show", "Movie", "An insurance salesman discovers his entire life is a secretly recorded reality television show."),
+    ("Mr. Robot", "Series", "A brilliant cyber-security engineer gets dragged into a massive anti-corporate hacking conspiracy."),
+    ("Donnie Darko", "Movie", "A troubled teenager is plagued by visions of a man in a large bunny suit predicting the apocalypse."),
+    ("Dollhouse", "Series", "A secret organization wipes the minds of individuals to imprint them with temporary new personalities."),
+    ("Gattaca", "Movie", "A genetically inferior man assumes a false identity to pursue his dream of space travel."),
+    ("The OA", "Series", "A blind woman returns home with her sight restored and recruits others for a secret mission."),
+    ("The Andromeda Strain", "Movie", "Scientists race against time to study a deadly extraterrestrial organism brought to Earth."),
+    ("Continuum", "Series", "A detective from the year 2077 gets trapped in the present day hunting down terrorists."),
+    ("Crimes of the Future", "Movie", "Human biological evolution accelerates in a world where pain and infection have disappeared.")
+]
+
+with open(r'c:\Users\Admin\OneDrive\Desktop\web2\data\movies.json', 'r', encoding='utf-8') as f:
+    existing_movies = json.load(f)['movies']
+
+def normalize(s):
+    return s.lower().replace("'", "").replace("’", "").replace(":", "").replace("-", "").replace(",", "").replace(".", "").replace(" ", "")
+
+existing_dict = {normalize(m['title']): m for m in existing_movies}
+
+existing_found = []
+missing_items = []
+
+for title, mtype, desc in raw_items:
+    norm = normalize(title)
+    # Special cases: "Twelve Monkeys" in existing vs "12 Monkeys" in user list
+    if norm == "12monkeys" and "twelvemonkeys" in existing_dict and mtype == "Movie":
+        existing_found.append((title, mtype, existing_dict["twelvemonkeys"]))
+    elif norm in existing_dict:
+        # Check if type matches or if it's the movie
+        existing_found.append((title, mtype, existing_dict[norm]))
+    else:
+        missing_items.append((title, mtype, desc))
+
+print(f"Total list items: {len(raw_items)}")
+print(f"Already existing ({len(existing_found)}):")
+for t, mt, m in existing_found:
+    print(f"  - [{m['id']}] {m['title']} ({m.get('year')}) [matched {t} ({mt})]")
+
+print(f"\nMissing to be added ({len(missing_items)}):")
+for t, mt, d in missing_items:
+    print(f"  - {t} ({mt})")

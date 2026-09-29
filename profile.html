@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My SciFiLens - User Dashboard & Science Profile</title>
+    <meta name="description" content="View your personalized SciFiLens profile, saved favorite movies, bookmarked science concepts, and quiz score history.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
+                    <path d="M1 12h6m6 0h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                </svg>
+                <span>SciFiLens</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="movies.html" class="nav-link">Movies</a></li>
+                <li><a href="science.html" class="nav-link">Real Science</a></li>
+                <li><a href="what-if.html" class="nav-link what-if-link">WHAT IF?</a></li>
+                <li><a href="concepts.html" class="nav-link">Concepts</a></li>
+                <li><a href="experiments.html" class="nav-link">Experiments</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search" title="Search (Ctrl+K)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="profile-btn" aria-label="Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Profile Container -->
+    <main class="profile-container">
+        <!-- Loading State -->
+        <div class="loading" id="profileLoading">
+            <div class="spinner"></div>
+            <p>Loading your SciFiLens personal hub...</p>
+        </div>
+
+        <!-- Authenticated Profile View -->
+        <div id="profileContent" style="display: none;">
+            <!-- 1. Profile Hero Card -->
+            <section class="profile-hero-card">
+                <div class="profile-hero-content">
+                    <div class="profile-user-info-wrap">
+                        <div class="profile-avatar-container" id="avatarContainer">
+                            <div class="profile-avatar-fallback" id="avatarFallback">U</div>
+                            <img src="" alt="User Avatar" class="profile-avatar-img" id="avatarImage" style="display: none;" onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';">
+                            
+                            <!-- Avatar Upload Overlay -->
+                            <label class="avatar-upload-overlay" for="avatarFileInput" title="Upload new avatar to Supabase Storage">
+                                <span>📷</span>
+                                <span>Change</span>
+                            </label>
+                            <input type="file" id="avatarFileInput" accept="image/*" style="display: none;" onchange="handleAvatarUpload(event)">
+                        </div>
+
+                        <div class="profile-user-details">
+                            <h1 id="userNameDisplay">
+                                <span id="userNameText">Cosmic Explorer</span>
+                                <button type="button" class="btn btn-secondary" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" onclick="promptEditName()" title="Edit Name">✏️ Edit</button>
+                            </h1>
+                            <div class="profile-email-badge">
+                                <span>✉️</span>
+                                <span id="userEmailText">user@example.com</span>
+                            </div>
+                            <div class="profile-meta-tags">
+                                <span class="profile-tag" id="memberSinceTag">📅 Member since 2024</span>
+                                <span class="profile-tag" style="background: rgba(6, 182, 212, 0.12); color: #38bdf8; border-color: rgba(6, 182, 212, 0.3);">
+                                    🛡️ Verified Sci-Fi Citizen
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <a href="quiz.html" class="btn btn-primary" style="padding: 0.6rem 1.25rem;">
+                            <span>Take a Quiz</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                        <button type="button" class="btn btn-secondary" onclick="handleNavbarLogout(event)" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Dashboard Metrics Grid -->
+            <section class="dashboard-stats-grid">
+                <div class="stat-metric-card">
+                    <div class="stat-icon-wrap" style="background: rgba(124, 58, 237, 0.12); border-color: rgba(124, 58, 237, 0.3);">
+                        <span>🏆</span>
+                    </div>
+                    <div>
+                        <div class="stat-metric-value" id="statQuizCount">0</div>
+                        <div class="stat-metric-label">Quizzes Completed</div>
+                    </div>
+                </div>
+
+                <div class="stat-metric-card">
+                    <div class="stat-icon-wrap" style="background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.3);">
+                        <span>📊</span>
+                    </div>
+                    <div>
+                        <div class="stat-metric-value" id="statAvgScore">0%</div>
+                        <div class="stat-metric-label">Average Quiz Score</div>
+                    </div>
+                </div>
+
+                <div class="stat-metric-card">
+                    <div class="stat-icon-wrap" style="background: rgba(244, 63, 94, 0.12); border-color: rgba(244, 63, 94, 0.3);">
+                        <span>🎬</span>
+                    </div>
+                    <div>
+                        <div class="stat-metric-value" id="statMoviesCount">0</div>
+                        <div class="stat-metric-label">Liked Sci-Fi Movies</div>
+                    </div>
+                </div>
+
+                <div class="stat-metric-card">
+                    <div class="stat-icon-wrap" style="background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.3);">
+                        <span>⚛️</span>
+                    </div>
+                    <div>
+                        <div class="stat-metric-value" id="statConceptsCount">0</div>
+                        <div class="stat-metric-label">Liked Science Concepts</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Section Navigation Tabs -->
+            <div class="profile-section-tabs">
+                <button type="button" class="profile-tab-btn active" data-tab="quizzes" onclick="switchProfileTab('quizzes')">
+                    <span>🧠</span>
+                    <span>My Quiz Scores</span>
+                    <span class="tab-counter-badge" id="tabQuizBadge">0</span>
+                </button>
+                <button type="button" class="profile-tab-btn" data-tab="movies" onclick="switchProfileTab('movies')">
+                    <span>🎬</span>
+                    <span>Liked Movies</span>
+                    <span class="tab-counter-badge" id="tabMovieBadge">0</span>
+                </button>
+                <button type="button" class="profile-tab-btn" data-tab="concepts" onclick="switchProfileTab('concepts')">
+                    <span>🔬</span>
+                    <span>Liked Concepts</span>
+                    <span class="tab-counter-badge" id="tabConceptBadge">0</span>
+                </button>
+            </div>
+
+            <!-- TAB 1: QUIZ SCORES -->
+            <section class="profile-tab-pane active" id="paneQuizzes">
+                <div class="quiz-history-list" id="quizHistoryList"></div>
+            </section>
+
+            <!-- TAB 2: LIKED MOVIES -->
+            <section class="profile-tab-pane" id="paneMovies">
+                <div class="liked-movies-grid" id="likedMoviesGrid"></div>
+            </section>
+
+            <!-- TAB 3: LIKED CONCEPTS -->
+            <section class="profile-tab-pane" id="paneConcepts">
+                <div class="liked-concepts-grid" id="likedConceptsGrid"></div>
+            </section>
+        </div>
+
+        <!-- Unauthenticated Guest Gate -->
+        <div id="guestGate" style="display: none;" class="empty-state-box">
+            <div class="empty-state-icon">🔒</div>
+            <h2 class="empty-state-title">Login Required</h2>
+            <p class="empty-state-desc">
+                Please sign in to access your personalized SciFiLens profile, liked movies, bookmarked science concepts, and quiz attempt history.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="login.html" class="btn btn-primary" style="padding: 0.75rem 1.75rem;">Log In to SciFiLens</a>
+                <a href="login.html?mode=signup" class="btn btn-secondary" style="padding: 0.75rem 1.75rem;">Create New Account</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SciFiLens</h3>
+                <p>Exploring the intersection of science and cinema</p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="science.html">Real Science</a></li>
+                    <li><a href="what-if.html">What If?</a></li>
+                    <li><a href="concepts.html">Concepts Hub</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="SUPABASE_SETUP.md">Supabase Docs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SciFiLens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase & App Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/likes.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

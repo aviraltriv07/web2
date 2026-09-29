@@ -55,8 +55,15 @@ function displayFeaturedMovies(movies) {
             ? `<img src="${movie.posterUrl}" alt="${movie.title} poster" class="movie-poster-image" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'movie-poster-fallback\\'>${movie.poster || '🎬'}</div>';">`
             : `<div class="movie-poster-fallback">${movie.poster || '🎬'}</div>`;
 
+        const likeBtnHtml = typeof renderMovieLikeButton === 'function'
+            ? renderMovieLikeButton(movie.id, 'Like', '')
+            : `<button class="like-btn movie-like-btn" data-movie-id="${movie.id}" onclick="handleMovieLikeClick(event, '${movie.id}')"><span class="like-heart-icon">♡</span> <span class="like-btn-label">Like</span></button>`;
+
         return `
-            <div class="movie-card" onclick="window.location.href='movie-detail.html?id=${movie.id}'">
+            <div class="movie-card" style="position: relative;" onclick="window.location.href='movie-detail.html?id=${movie.id}'">
+                <div class="movie-card-like-badge" onclick="event.stopPropagation()">
+                    ${likeBtnHtml}
+                </div>
                 <div class="movie-poster">
                     ${posterHtml}
                 </div>
@@ -81,6 +88,10 @@ function displayFeaturedMovies(movies) {
             </div>
         `;
     }).join('');
+
+    if (typeof syncAllLikeButtons === 'function') {
+        syncAllLikeButtons();
+    }
 }
 
 function displayScienceCategories(concepts) {
