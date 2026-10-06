@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setupFilterUI();
         setupEventListeners();
         displayConcepts();
+        updateConceptCount();
     }
     
     setupModalFunctionality();
@@ -111,7 +112,7 @@ function applyFilters() {
 function updateConceptCount() {
     const countElement = document.getElementById('conceptsCount');
     if (countElement) {
-        countElement.textContent = `Showing ${filteredConcepts.length} of ${allConcepts.length} concepts`;
+        countElement.textContent = `Showing ${filteredConcepts.length} of ${allConcepts.length} science topics`;
     }
 }
 
