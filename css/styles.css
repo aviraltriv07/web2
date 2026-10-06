@@ -1363,7 +1363,7 @@ section {
 
 .science-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-xl);
 }
 
@@ -3115,9 +3115,13 @@ input[type="range"]::-moz-range-thumb {
 
     .featured-grid,
     .categories-grid,
-    .science-grid,
     .experiments-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .science-grid {
+        /* tablet: 2 columns minimum, cards no narrower than 280px */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
 
     .movie-detail-wrapper {
@@ -3250,8 +3254,12 @@ input[type="range"]::-moz-range-thumb {
 
     .featured-grid,
     .categories-grid,
-    .science-grid,
     .experiments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .science-grid {
+        /* mobile: single column */
         grid-template-columns: 1fr;
     }
 
@@ -3346,6 +3354,14 @@ input[type="range"]::-moz-range-thumb {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     width: fit-content;
+    /* Prevent individual characters from stacking vertically */
+    white-space: normal;       /* allow max 2-line wrap at word boundaries */
+    word-break: normal;        /* never break mid-character */
+    overflow-wrap: normal;     /* only break at word boundaries */
+    min-width: 6.5rem;         /* keeps badge at least wide enough for the text */
+    flex-shrink: 0;            /* don't let flex layout squish the badge */
+    text-align: center;
+    line-height: 1.3;
 }
 
 .confidence-badge.established,
@@ -5553,7 +5569,9 @@ input[type="range"]::-moz-range-thumb {
 .equation-card,
 .card {
     min-width: 0;
-    word-break: break-word;
+    /* Use overflow-wrap instead of word-break to avoid character-by-character wrapping */
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 /* KaTeX and formula specific containers */
@@ -5620,5 +5638,101 @@ div[style*="Cambria Math"] {
     overflow-y: hidden;
     box-sizing: border-box;
     padding: 0.75rem !important;
+}
+
+/* ============================================================
+   CONCEPTS PAGE — RESPONSIVE LAYOUT & TEXT-WRAP FIXES
+   (Layout only — theme, colors, and typography unchanged)
+   ============================================================ */
+
+/* Prevent horizontal overflow on the concepts section */
+.concepts-main-section,
+.science-grid-wrapper {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Clamp section padding so it never overflows on narrow viewports */
+.concepts-main-section {
+    padding-left: clamp(1rem, 3vw, var(--spacing-xl, 2rem));
+    padding-right: clamp(1rem, 3vw, var(--spacing-xl, 2rem));
+}
+
+/* ---- Card header row: icon + badge + like button ----
+   The inline flex in concepts.js uses justify-content: space-between.
+   We reinforce it here so the row wraps gracefully instead of crushing. */
+.science-card > div > div:first-child {
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    min-width: 0;
+}
+
+/* Icon + badge inner group stays on one line */
+.science-card > div > div:first-child > div:first-child {
+    flex-wrap: nowrap !important;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+/* Icon never shrinks */
+.science-card-icon {
+    flex-shrink: 0 !important;
+}
+
+/* Badge inside a card: allow word-wrap but never char-by-char */
+.science-card .confidence-badge,
+.science-card .plausibility-badge {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    min-width: 5rem;
+    flex-shrink: 1;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.55rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* Like button container — never shrink */
+.science-card > div > div:first-child > div:last-child {
+    flex-shrink: 0;
+}
+
+/* Like button — absolutely no text wrapping */
+.science-card .like-btn,
+.science-card .concept-like-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-width: max-content !important;
+}
+
+/* ---- Responsive breakpoints for the concepts grid ---- */
+
+/* Large desktop: up to 4 columns, cards never narrower than 280px */
+@media (min-width: 1200px) {
+    .science-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+/* Tablet: exactly 2 columns so cards stay readable */
+@media (max-width: 1024px) and (min-width: 601px) {
+    .science-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 column, full width */
+@media (max-width: 600px) {
+    .science-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .concepts-main-section {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
 }
 

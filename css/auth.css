@@ -154,6 +154,10 @@
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     user-select: none;
     backdrop-filter: blur(8px);
+    /* Prevent text from wrapping or stacking character-by-character */
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: max-content;
 }
 
 .like-btn:hover {
