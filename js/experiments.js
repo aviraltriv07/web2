@@ -170,7 +170,7 @@ function renderExperimentsGrid() {
             <p class="experiment-card-description">${exp.description}</p>
 
             <div class="experiment-card-formula-preview">
-                <code>${exp.formula || 'Physical Equation'}</code>
+                <code>\\[ ${exp.formula || 'Physical Equation'} \\]</code>
             </div>
 
             <div class="experiment-card-footer">
@@ -230,7 +230,7 @@ function openExperiment(expId) {
     document.getElementById('experimentDifficulty').textContent = exp.difficulty;
     document.getElementById('experimentDescription').textContent = exp.description;
     document.getElementById('experimentExplanation').textContent = exp.explanation;
-    document.getElementById('experimentFormula').innerHTML = `<code>${exp.formula}</code>`;
+    document.getElementById('experimentFormula').innerHTML = `<code>\\[ ${exp.formula} \\]</code>`;
 
     // Populate Related Movies
     const moviesContainer = document.getElementById('relatedMoviesTags');
@@ -264,6 +264,7 @@ function openExperiment(expId) {
     const modal = document.getElementById('experimentModal');
     if (modal) {
         modal.classList.add('active');
+    if (window.renderMath) window.renderMath(document.body);
     }
 
     // Start 60fps Canvas Animation
@@ -393,7 +394,7 @@ function updatePhysicalResults(exp) {
                 <span class="result-main-value">${r.value}</span>
                 <span class="result-unit">${r.unit}</span>
             </div>
-            <div class="result-formula-tag">Eq: ${r.formula}</div>
+            <div class="result-formula-tag">Eq: \\[ ${r.formula} \\]</div>
         </div>
     `).join('');
 

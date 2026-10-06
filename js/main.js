@@ -141,6 +141,59 @@ function getScoreColor(score) {
     return '#ef4444';
 }
 
+// Math Rendering Helper
+window.renderMath = function(element) {
+    if (window.renderMathInElement && element) {
+        window.renderMathInElement(element, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false}
+            ],
+            throwOnError: false
+        });
+    }
+};
+
+// Auto-render math when DOM changes
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.renderMath) {
+        window.renderMath(document.body);
+        
+        const observer = new MutationObserver((mutations) => {
+            let shouldRender = false;
+            for (const mutation of mutations) {
+                // Ignore KaTeX generated nodes to prevent infinite loop
+                let isKatex = true;
+                for (let i = 0; i < mutation.addedNodes.length; i++) {
+                    const node = mutation.addedNodes[i];
+                    if (node.nodeType === 1 && (node.classList.contains('katex') || node.classList.contains('katex-display'))) {
+                        continue;
+                    }
+                    if (node.nodeType === 1 && node.querySelector('.katex')) {
+                        continue; // If it contains katex, maybe it was modified by katex? Wait, no.
+                    }
+                    isKatex = false;
+                    break;
+                }
+                
+                if (!isKatex && mutation.addedNodes.length > 0) {
+                    shouldRender = true;
+                    break;
+                }
+            }
+            if (shouldRender) {
+                observer.disconnect();
+                window.renderMath(document.body);
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+});
+
 /* ============================================================
    GLOBAL OMNI-SEARCH & DISCOVERY SYSTEM
    ============================================================ */
@@ -175,6 +228,7 @@ function setupOmniSearch() {
 
     function openSearch() {
         modal.classList.add('active');
+    if (window.renderMath) window.renderMath(document.body);
         input.value = '';
         input.focus();
         loadSearchData();
@@ -384,7 +438,7 @@ async function openGlobalConceptModal(conceptNameOrId) {
 
     const formulaHtml = concept.formulaBreakdown ? `
         <div class="equation-card">
-            <div class="equation-display">${concept.formula}</div>
+            <div class="equation-display">\\[ ${concept.formula} \\]</div>
             <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.75rem;">${concept.formulaBreakdown.meaning}</p>
             <div class="equation-variables">
                 ${(concept.formulaBreakdown.variables || []).map(v => `
@@ -400,7 +454,7 @@ async function openGlobalConceptModal(conceptNameOrId) {
                 </div>
             ` : ''}
         </div>
-    ` : (concept.formula ? `<div class="equation-card"><div class="equation-display">${concept.formula}</div></div>` : '');
+    ` : (concept.formula ? `<div class="equation-card"><div class="equation-display">\\[ ${concept.formula} \\]</div></div>` : '');
 
     const levels = concept.levels || {
         beginner: concept.description,
@@ -467,6 +521,7 @@ async function openGlobalConceptModal(conceptNameOrId) {
     }
 
     modal.classList.add('active');
+    if (window.renderMath) window.renderMath(document.body);
 }
 
 function getConfidenceClass(label) {
