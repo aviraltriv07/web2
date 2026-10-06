@@ -165,7 +165,7 @@ function openScenarioModal(scenarioId) {
     // Formula card markup
     const formulaHtml = scenario.formulaBreakdown ? `
         <div class="equation-card">
-            <div class="equation-display">${scenario.formula}</div>
+            <div class="equation-display">\\[ ${scenario.formula} \\]</div>
             <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.75rem;">${scenario.formulaBreakdown.meaning}</p>
             <div class="equation-variables">
                 ${(scenario.formulaBreakdown.variables || []).map(v => `
@@ -325,6 +325,7 @@ function openScenarioModal(scenarioId) {
     }
 
     modal.classList.add('active');
+    if (window.renderMath) window.renderMath(document.body);
 }
 
 function resetWhatIfFilters() {

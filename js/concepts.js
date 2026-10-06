@@ -283,9 +283,7 @@ function displayConceptCards() {
                     <h3 class="science-card-title">${c.title}</h3>
                     <p class="science-card-description">${c.description}</p>
                     ${c.formula ? `
-                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.95rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">
-                            ${c.formula}
-                        </div>
+                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.95rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">\\[ ${c.formula} \\]</div>
                     ` : ''}
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
@@ -311,7 +309,7 @@ function openConceptEncyclopediaModal(conceptId) {
 
     const formulaHtml = concept.formulaBreakdown ? `
         <div class="equation-card">
-            <div class="equation-display">${concept.formula}</div>
+            <div class="equation-display">\\[ ${concept.formula} \\]</div>
             <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.75rem;">${concept.formulaBreakdown.meaning}</p>
             <div class="equation-variables">
                 ${(concept.formulaBreakdown.variables || []).map(v => `
@@ -332,7 +330,7 @@ function openConceptEncyclopediaModal(conceptId) {
                 </div>
             ` : ''}
         </div>
-    ` : (concept.formula ? `<div class="equation-card"><div class="equation-display">${concept.formula}</div></div>` : '');
+    ` : (concept.formula ? `<div class="equation-card"><div class="equation-display">\\[ ${concept.formula} \\]</div></div>` : '');
 
     const levels = concept.levels || {
         beginner: concept.description,
@@ -442,6 +440,7 @@ function openConceptEncyclopediaModal(conceptId) {
     }
 
     modal.classList.add('active');
+    if (window.renderMath) window.renderMath(document.body);
 }
 
 function checkConceptsURLParams() {

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <script>
+        const formula1 = "F_{\\text{tidal}} \\approx \\frac{2 G M m R}{d^3}";
+        document.getElementById('test1').innerHTML = `\\[ ${formula1} \\]`;
+        
+        const formula2 = "L = I\\omega = \\frac{2}{5} M R^2 \\omega";
+        document.getElementById('test2').innerHTML = `\\[ ${formula2} \\]`;
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false}
+            ],
+            throwOnError: false
+        });
+    </script>
+</body>
+</html>

@@ -155,9 +155,7 @@ function displayConcepts() {
                     <h3 class="science-card-title">${concept.title}</h3>
                     <p class="science-card-description">${concept.description}</p>
                     ${concept.formula ? `
-                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.9rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">
-                            ${concept.formula}
-                        </div>
+                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.9rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">\\[ ${concept.formula} \\]</div>
                     ` : ''}
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
@@ -242,7 +240,7 @@ async function showConceptModal(conceptId) {
         if (concept.formulaBreakdown) {
             formulaContainer.innerHTML = `
                 <div class="equation-card">
-                    <div class="equation-display">${concept.formula}</div>
+                    <div class="equation-display">\\[ ${concept.formula} \\]</div>
                     <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.75rem;">${concept.formulaBreakdown.meaning}</p>
                     <div class="equation-variables">
                         ${(concept.formulaBreakdown.variables || []).map(v => `
@@ -255,7 +253,7 @@ async function showConceptModal(conceptId) {
                 </div>
             `;
         } else if (concept.formula) {
-            formulaContainer.innerHTML = `<div class="formula">${concept.formula}</div>`;
+            formulaContainer.innerHTML = `<div class="formula">\\[ ${concept.formula} \\]</div>`;
         } else {
             formulaContainer.innerHTML = '<p style="color: var(--text-secondary); font-size: 0.85rem;">Qualitative physical principle.</p>';
         }
@@ -286,6 +284,7 @@ async function showConceptModal(conceptId) {
     }
     
     modal.classList.add('active');
+    if (window.renderMath) window.renderMath(document.body);
 }
 
 window.showConceptModal = showConceptModal;
