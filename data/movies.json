@@ -2597,6 +2597,2235 @@
         51,
         52
       ]
+    },
+    {
+      "id": 54,
+      "title": "Aliens",
+      "year": 1986,
+      "director": "James Cameron",
+      "genre": "Action, Sci-Fi, Thriller",
+      "poster": "👽",
+      "posterUrl": "images/posters/54-aliens.jpg",
+      "backdrop": "🚀",
+      "posterColor": {
+        "from": "#1f2937",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+      "description": "A Colonial Marine squad is sent to a remote colony where they encounter a deadly extraterrestrial species and a lone survivor who may know how to stop it.",
+      "scientificAccuracy": 3.6,
+      "concepts": [
+        "Xenobiology",
+        "Space Marines",
+        "Planetary Defense",
+        "Colonialism"
+      ],
+      "runtime": "137 min",
+      "scientificConcepts": [
+        {
+          "name": "Xenobiology",
+          "explanation": "The xenomorph is a fictional alien built from imaginative biological principles rather than real science."
+        },
+        {
+          "name": "Planetary Defense",
+          "explanation": "The military response is a cinematic take on defending a colony from an unknown threat."
+        },
+        {
+          "name": "Space Logistics",
+          "explanation": "The film depicts the practical challenges of deep-space military and rescue operations with some realism."
+        }
+      ],
+      "accuracy": {
+        "movie": "The basic danger of unknown organisms in space is plausible, though the creature and tactics are highly fictional.",
+        "reality": "Alien life remains speculative, and the xenomorph is pure science-fiction design rather than a realistic biological model.",
+        "percentage": 64
+      },
+      "relatedMovies": [
+        43,
+        1,
+        3
+      ]
+    },
+    {
+      "id": 55,
+      "title": "Ad Astra",
+      "year": 2019,
+      "director": "James Gray",
+      "genre": "Sci-Fi, Drama, Adventure",
+      "poster": "🪐",
+      "posterUrl": "images/posters/55-ad_astra.jpg",
+      "backdrop": "🌑",
+      "posterColor": {
+        "from": "#1e293b",
+        "to": "#0f172a"
+      },
+      "posterImage": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+      "description": "An astronaut travels to the edge of the solar system to find his missing father while confronting the human cost of deep-space exploration.",
+      "scientificAccuracy": 4.0,
+      "concepts": [
+        "Deep Space Travel",
+        "Radiation",
+        "Solar System Exploration",
+        "Human Isolation"
+      ],
+      "runtime": "123 min",
+      "scientificConcepts": [
+        {
+          "name": "Deep-Space Travel",
+          "explanation": "The movie draws on realistic constraints of long-duration space missions and communication delays."
+        },
+        {
+          "name": "Radiation Risks",
+          "explanation": "It incorporates the reality that astronauts face severe radiation hazards beyond Earth orbit."
+        },
+        {
+          "name": "Solar System Dynamics",
+          "explanation": "The film uses simplified but credible orbital and transit ideas to frame the journey."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is careful with many technical details, especially spacecraft operations and deep-space conditions.",
+        "reality": "Long-distance travel remains technologically difficult, but the film's depiction is grounded in realistic space-science constraints.",
+        "percentage": 76
+      },
+      "relatedMovies": [
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "id": 56,
+      "title": "Europa Report",
+      "year": 2013,
+      "director": "Sebastian Cordero",
+      "genre": "Sci-Fi, Thriller",
+      "poster": "🧊",
+      "posterUrl": "images/posters/56-europa_report.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%)",
+      "description": "A crew on a mission to Europa, one of Jupiter's moons, uncovers extraordinary evidence of life beneath the icy surface.",
+      "scientificAccuracy": 4.1,
+      "concepts": [
+        "Europa",
+        "Astrobiology",
+        "Cryosphere",
+        "Jovian Moons"
+      ],
+      "runtime": "90 min",
+      "scientificConcepts": [
+        {
+          "name": "Europa",
+          "explanation": "The film focuses on the real scientific interest in Europa's subsurface ocean and possible habitability."
+        },
+        {
+          "name": "Astrobiology",
+          "explanation": "Its central premise follows a plausible search for extraterrestrial microbial life beneath ice."
+        },
+        {
+          "name": "Deep-Space Risk",
+          "explanation": "The crew's isolation and equipment problems reflect realistic mission challenges."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is grounded in real astrobiology and mission planning questions surrounding Jupiter's moons.",
+        "reality": "Europa remains a leading candidate for extraterrestrial habitability, though direct evidence of life has not been found.",
+        "percentage": 80
+      },
+      "relatedMovies": [
+        2,
+        43,
+        1
+      ]
+    },
+    {
+      "id": 57,
+      "title": "High Life",
+      "year": 2018,
+      "director": "Claire Denis",
+      "genre": "Sci-Fi, Drama, Thriller",
+      "poster": "☄️",
+      "posterUrl": "images/posters/57-high_life.jpg",
+      "backdrop": "🌑",
+      "posterColor": {
+        "from": "#14213d",
+        "to": "#000000"
+      },
+      "posterImage": "linear-gradient(135deg, #14213d 0%, #000000 100%)",
+      "description": "A group of prisoners and scientists travel through space toward a black hole, confronting isolation, fear, and the violence of survival.",
+      "scientificAccuracy": 3.3,
+      "concepts": [
+        "Deep Space",
+        "Black Holes",
+        "Human Behavior",
+        "Space Prison"
+      ],
+      "runtime": "110 min",
+      "scientificConcepts": [
+        {
+          "name": "Space Isolation",
+          "explanation": "The movie effectively depicts the psychological consequences of long-term confinement in space."
+        },
+        {
+          "name": "Black Hole Physics",
+          "explanation": "The distant black hole is a symbolic backdrop rather than a precise scientific model."
+        },
+        {
+          "name": "Extreme Environments",
+          "explanation": "The film emphasizes the physical and mental strain of human survival in unusual conditions."
+        }
+      ],
+      "accuracy": {
+        "movie": "The human and environmental stakes are realistic, while the black-hole setting remains highly speculative and symbolic.",
+        "reality": "Human behavior under deep-space constraints is an established concern, while black-hole encounters are beyond current capability.",
+        "percentage": 60
+      },
+      "relatedMovies": [
+        1,
+        6,
+        54
+      ]
+    },
+    {
+      "id": 58,
+      "title": "Event Horizon",
+      "year": 1997,
+      "director": "Paul W.S. Anderson",
+      "genre": "Horror, Sci-Fi, Thriller",
+      "poster": "🕳️",
+      "posterUrl": "images/posters/58-event_horizon.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#1a1a1a",
+        "to": "#3b0764"
+      },
+      "posterImage": "linear-gradient(135deg, #1a1a1a 0%, #3b0764 100%)",
+      "description": "A rescue crew investigates a lost starship that has returned from a mission beyond the edge of the solar system with terrifying consequences.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "Wormholes",
+        "Interstellar Travel",
+        "Cosmic Horror",
+        "Spacecraft Engineering"
+      ],
+      "runtime": "96 min",
+      "scientificConcepts": [
+        {
+          "name": "Wormhole Concepts",
+          "explanation": "The film weaponizes speculative wormhole physics as a gateway to a hostile realm."
+        },
+        {
+          "name": "Deep-Space Isolation",
+          "explanation": "The horror relies on the realism of communication delays and psychological strain in deep space."
+        },
+        {
+          "name": "The Unknown",
+          "explanation": "It uses the idea that unexplored spacetime could be dangerous as a dramatic device."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film borrows from real concerns about deep-space travel, but its otherworldly dimension is dramatic fiction.",
+        "reality": "Wormholes remain theoretical, and wormhole travel is not yet physically possible.",
+        "percentage": 45
+      },
+      "relatedMovies": [
+        1,
+        43,
+        54
+      ]
+    },
+    {
+      "id": 59,
+      "title": "Aniara",
+      "year": 2018,
+      "director": "Pella Kågerman, Hugo Lilja",
+      "genre": "Sci-Fi, Drama",
+      "poster": "🛸",
+      "posterUrl": "images/posters/59-aniara.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%)",
+      "description": "A spaceship carrying colonists to Mars is thrown off course and drifts for years as its passengers confront the meaning of life and purpose.",
+      "scientificAccuracy": 3.8,
+      "concepts": [
+        "Interplanetary Travel",
+        "Long-Duration Spaceflight",
+        "Existentialism",
+        "Deep Space"
+      ],
+      "runtime": "106 min",
+      "scientificConcepts": [
+        {
+          "name": "Long-Duration Flight",
+          "explanation": "The film reflects real challenges of supporting a crew in closed systems over extended missions."
+        },
+        {
+          "name": "Trajectory Drift",
+          "explanation": "It frames a plausible course deviation that leaves the ship stranded in deep space."
+        },
+        {
+          "name": "Human Adaptation",
+          "explanation": "The emotional and social response is grounded in realistic psychology of confinement."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is scientifically plausible in broad strokes, especially the social and engineering challenges of long missions.",
+        "reality": "Deep-space travel is hard but not impossible; the film's core premise is a dramatic extrapolation of known limits.",
+        "percentage": 70
+      },
+      "relatedMovies": [
+        2,
+        55,
+        56
+      ]
+    },
+    {
+      "id": 60,
+      "title": "Solaris",
+      "year": 1972,
+      "director": "Andrei Tarkovsky",
+      "genre": "Drama, Mystery, Sci-Fi",
+      "poster": "🌊",
+      "posterUrl": "images/posters/60-solaris_1972.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%)",
+      "description": "A psychologist travels to a space station orbiting a mysterious planet that appears to manipulate memory and emotion in unsettling ways.",
+      "scientificAccuracy": 3.9,
+      "concepts": [
+        "Planetary Science",
+        "Memory",
+        "Deep Space",
+        "Consciousness"
+      ],
+      "runtime": "167 min",
+      "scientificConcepts": [
+        {
+          "name": "Memory and Consciousness",
+          "explanation": "The film explores realistic questions about how memory shapes identity."
+        },
+        {
+          "name": "Planetary Research",
+          "explanation": "Its approach to alien contact is more philosophical than technological, which suits the film's tone."
+        },
+        {
+          "name": "Psychology of Isolation",
+          "explanation": "The emotional strain of long-duration missions is convincingly portrayed."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is less about engineering accuracy and more about the psychology of space exploration and alien contact.",
+        "reality": "These ideas are rooted in legitimate questions about consciousness, memory, and long-term isolation.",
+        "percentage": 72
+      },
+      "relatedMovies": [
+        1,
+        59,
+        43
+      ]
+    },
+    {
+      "id": 61,
+      "title": "Solaris",
+      "year": 2002,
+      "director": "Steven Soderbergh",
+      "genre": "Drama, Mystery, Sci-Fi",
+      "poster": "🌊",
+      "posterUrl": "images/posters/61-solaris_2002.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#1e293b",
+        "to": "#0f172a"
+      },
+      "posterImage": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+      "description": "A scientist on a space station confronts a mysterious and emotionally powerful presence connected to the planet Solaris.",
+      "scientificAccuracy": 3.6,
+      "concepts": [
+        "Planetary Science",
+        "Remote Operations",
+        "Consciousness",
+        "Alien Contact"
+      ],
+      "runtime": "99 min",
+      "scientificConcepts": [
+        {
+          "name": "Planetary Research",
+          "explanation": "The setting reflects the scientific idea of studying an alien world from orbit."
+        },
+        {
+          "name": "Consciousness",
+          "explanation": "It revisits core philosophical questions about identity and memory."
+        },
+        {
+          "name": "Human Interface",
+          "explanation": "The station shows the everyday reality of operating in a tightly controlled space environment."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its science is more atmospheric and philosophical than technical, with a strong focus on human emotion and perception.",
+        "reality": "The underlying ideas are grounded in real debates about consciousness, memory, and the unknowns of alien worlds.",
+        "percentage": 68
+      },
+      "relatedMovies": [
+        60,
+        59,
+        1
+      ]
+    },
+    {
+      "id": 62,
+      "title": "The Black Hole",
+      "year": 1979,
+      "director": "Gary Nelson",
+      "genre": "Adventure, Family, Sci-Fi",
+      "poster": "🕳️",
+      "posterUrl": "images/posters/62-the_black_hole.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#1f2937"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #1f2937 100%)",
+      "description": "A research vessel investigates a mysterious black hole while a crew of astronauts confronts the dangers of the unknown and the cost of obsession.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Black Holes",
+        "Space Exploration",
+        "Gravity",
+        "Cosmic Mystery"
+      ],
+      "runtime": "98 min",
+      "scientificConcepts": [
+        {
+          "name": "Black Holes",
+          "explanation": "The film explores a black hole as the ultimate cosmic mystery, even if it does so with 1970s-era science assumptions."
+        },
+        {
+          "name": "Gravity",
+          "explanation": "The film uses gravity as a dramatic force that shapes the dangers of deep space exploration."
+        },
+        {
+          "name": "Spacecraft Engineering",
+          "explanation": "It imagines a future mission with large, theatrical spacecraft systems and dramatic crew dynamics."
+        }
+      ],
+      "accuracy": {
+        "movie": "The black hole concept is imaginative and evocative, but the film's physics is far from modern understanding.",
+        "reality": "Black holes are real astrophysical objects, but the film's depiction is significantly simplified and stylized.",
+        "percentage": 44
+      },
+      "relatedMovies": [
+        1,
+        58,
+        57
+      ]
+    },
+    {
+      "id": 63,
+      "title": "Silent Running",
+      "year": 1972,
+      "director": "Douglas Trumbull",
+      "genre": "Drama, Sci-Fi",
+      "poster": "🌿",
+      "posterUrl": "images/posters/63-silent_running.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#14532d",
+        "to": "#052e16"
+      },
+      "posterImage": "linear-gradient(135deg, #14532d 0%, #052e16 100%)",
+      "description": "A lone astronaut remains on a space station tending to remaining forests while the rest of humanity moves on and leaves him with a difficult choice.",
+      "scientificAccuracy": 3.5,
+      "concepts": [
+        "Space Habitats",
+        "Ecology",
+        "Sustainability",
+        "Off-World Living"
+      ],
+      "runtime": "89 min",
+      "scientificConcepts": [
+        {
+          "name": "Orbital Habitats",
+          "explanation": "The film imagines autonomous green ecosystems in orbit as an extension of ecological and space-faring ideas."
+        },
+        {
+          "name": "Ecological Stewardship",
+          "explanation": "It presents environmental preservation as a central moral and practical concern."
+        },
+        {
+          "name": "Human Settlement",
+          "explanation": "It explores how future societies might manage habitat sustainability beyond Earth."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's ecology-first worldbuilding is imaginative but grounded in real concerns about sustainability and habitat design.",
+        "reality": "Off-world ecological habitats are scientifically plausible, though the scale and autonomy in the film are highly stylized.",
+        "percentage": 62
+      },
+      "relatedMovies": [
+        2,
+        55,
+        59
+      ]
+    },
+    {
+      "id": 64,
+      "title": "Moon",
+      "year": 2009,
+      "director": "Duncan Jones",
+      "genre": "Drama, Mystery, Sci-Fi",
+      "poster": "🌙",
+      "posterUrl": "images/posters/64-moon.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#374151"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #374151 100%)",
+      "description": "A lone lunar miner discovers a shocking truth about his identity and the purpose of his mission while isolated on the far side of the Moon.",
+      "scientificAccuracy": 4.2,
+      "concepts": [
+        "Lunar Mining",
+        "Isolation",
+        "Habitation",
+        "Corporate Space"
+      ],
+      "runtime": "97 min",
+      "scientificConcepts": [
+        {
+          "name": "Lunar Operations",
+          "explanation": "The film is careful about the practicalities of living and working on the Moon."
+        },
+        {
+          "name": "Human Factors",
+          "explanation": "Its psychological realism is grounded in how isolation and routine can distort identity."
+        },
+        {
+          "name": "Mining Infrastructure",
+          "explanation": "It conveys the engineering logic of using local resources in off-world operations."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is notably grounded in realistic lunar operations and the social realities of long-term off-world work.",
+        "reality": "Moon operations are plausible, though the movie's corporate and psychological elements are dramatized for narrative effect.",
+        "percentage": 82
+      },
+      "relatedMovies": [
+        2,
+        55,
+        2
+      ]
+    },
+    {
+      "id": 65,
+      "title": "Back to the Future",
+      "year": 1985,
+      "director": "Robert Zemeckis",
+      "genre": "Comedy, Adventure, Sci-Fi",
+      "poster": "⏱️",
+      "posterUrl": "images/posters/65-back_to_the_future.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#7c2d12",
+        "to": "#f59e0b"
+      },
+      "posterImage": "linear-gradient(135deg, #7c2d12 0%, #f59e0b 100%)",
+      "description": "A teenager accidentally travels back in time and must ensure his parents fall in love before he vanishes from existence.",
+      "scientificAccuracy": 2.1,
+      "concepts": [
+        "Time Travel",
+        "Temporal Paradox",
+        "Historical Change",
+        "Flux Capacitor"
+      ],
+      "runtime": "116 min",
+      "scientificConcepts": [
+        {
+          "name": "Time Paradox",
+          "explanation": "The movie embraces a classic time-travel paradox in a highly entertaining form."
+        },
+        {
+          "name": "Causal Loops",
+          "explanation": "The plot explores how small changes in the past can reshape the future."
+        },
+        {
+          "name": "Popular Physics",
+          "explanation": "It fuses real scientific curiosity with a deliberately fictionalized technology."
+        }
+      ],
+      "accuracy": {
+        "movie": "The movie's time machine is intentionally fictional and not physically grounded in modern theory.",
+        "reality": "Time travel remains unobserved in known physics, though some relativistic effects are real."
+      },
+      "relatedMovies": [
+        27,
+        48,
+        50
+      ]
+    },
+    {
+      "id": 66,
+      "title": "Back to the Future Part II",
+      "year": 1989,
+      "director": "Robert Zemeckis",
+      "genre": "Comedy, Adventure, Sci-Fi",
+      "poster": "🕒",
+      "posterUrl": "images/posters/66-back_to_the_future_2.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#7c2d12",
+        "to": "#2563eb"
+      },
+      "posterImage": "linear-gradient(135deg, #7c2d12 0%, #2563eb 100%)",
+      "description": "Marty and Doc race through alternate 1985, 2015, and 1955 timelines as they try to fix a future altered by their actions.",
+      "scientificAccuracy": 2.0,
+      "concepts": [
+        "Time Travel",
+        "Alternate Futures",
+        "Timeline Branching",
+        "Temporal Chaos"
+      ],
+      "runtime": "108 min",
+      "scientificConcepts": [
+        {
+          "name": "Alternate Timelines",
+          "explanation": "The film treats timelines as mutable and branching in a very fictional way."
+        },
+        {
+          "name": "Temporal Causality",
+          "explanation": "It explores how actions in one era can dramatically change the conditions of another."
+        },
+        {
+          "name": "Speculative Engineering",
+          "explanation": "The DeLorean-based machine is a playful fiction designed around narrative logic rather than physics."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film treats time travel as a highly flexible narrative engine rather than a realistic engine of physics.",
+        "reality": "Time travel remains speculative, and no known mechanism supports such manipulation.",
+        "percentage": 30
+      },
+      "relatedMovies": [
+        65,
+        67,
+        50
+      ]
+    },
+    {
+      "id": 67,
+      "title": "Back to the Future Part III",
+      "year": 1990,
+      "director": "Robert Zemeckis",
+      "genre": "Comedy, Adventure, Western",
+      "poster": "🤠",
+      "posterUrl": "images/posters/67-back_to_the_future_3.jpg",
+      "backdrop": "🌅",
+      "posterColor": {
+        "from": "#78350f",
+        "to": "#fbbf24"
+      },
+      "posterImage": "linear-gradient(135deg, #78350f 0%, #fbbf24 100%)",
+      "description": "Doc and Marty travel to the Wild West to fix the DeLorean and find a way to return home before time closes the loop.",
+      "scientificAccuracy": 2.0,
+      "concepts": [
+        "Time Travel",
+        "Western Setting",
+        "Causal Loops",
+        "Historical Travel"
+      ],
+      "runtime": "118 min",
+      "scientificConcepts": [
+        {
+          "name": "Historical Travel",
+          "explanation": "The plot uses time travel to revisit historical periods in a playful and adventure-focused way."
+        },
+        {
+          "name": "Temporal Continuity",
+          "explanation": "It preserves the causality logic introduced earlier while keeping the story entertaining."
+        },
+        {
+          "name": "Narrative Engineering",
+          "explanation": "The technology is a dramatic device, not a realistic scientific model."
+        }
+      ],
+      "accuracy": {
+        "movie": "This entry continues the franchise's stylized time-travel logic without claiming scientific realism.",
+        "reality": "Time travel remains physically unsupported by current science."
+      },
+      "relatedMovies": [
+        65,
+        66,
+        27
+      ]
+    },
+    {
+      "id": 68,
+      "title": "Looper",
+      "year": 2012,
+      "director": "Rian Johnson",
+      "genre": "Action, Crime, Sci-Fi",
+      "poster": "🧭",
+      "posterUrl": "images/posters/68-looper.jpg",
+      "backdrop": "🌃",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#7c3aed"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #7c3aed 100%)",
+      "description": "A hired assassin in a future crime syndicate is assigned to kill his future self and discovers the brutal consequences of time manipulation.",
+      "scientificAccuracy": 2.4,
+      "concepts": [
+        "Time Travel",
+        "Future Crime",
+        "Closed Loops",
+        "Temporal Consequences"
+      ],
+      "runtime": "119 min",
+      "scientificConcepts": [
+        {
+          "name": "Closed Time Loops",
+          "explanation": "The plot uses a classic closed-loop concept to examine cause and effect."
+        },
+        {
+          "name": "Temporal Ethics",
+          "explanation": "It demonstrates how a time-travel system can produce moral and psychological complexity."
+        },
+        {
+          "name": "Speculative Prediction",
+          "explanation": "The future world is built from extrapolated social and technological trends rather than hard physics."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film explores a compelling time-loop scenario, but it does not adhere to known physical principles.",
+        "reality": "Time travel is not known to be possible, and present-day physics offers no working mechanism."
+      },
+      "relatedMovies": [
+        27,
+        31,
+        48
+      ]
+    },
+    {
+      "id": 69,
+      "title": "Tenet",
+      "year": 2020,
+      "director": "Christopher Nolan",
+      "genre": "Action, Sci-Fi, Thriller",
+      "poster": "🌀",
+      "posterUrl": "images/posters/69-tenet.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#1e293b"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+      "description": "An agent operates inside a world where time moves backward for objects and people, forcing him to prevent global catastrophe.",
+      "scientificAccuracy": 2.5,
+      "concepts": [
+        "Time Reversal",
+        "Entropy",
+        "Inverted Time",
+        "Temporal Strategy"
+      ],
+      "runtime": "150 min",
+      "scientificConcepts": [
+        {
+          "name": "Entropy and Time",
+          "explanation": "The film plays with the relationship between entropy, causality, and the direction of time."
+        },
+        {
+          "name": "Time Reversal",
+          "explanation": "The concept is an invented physical system built to serve the plot rather than physics."
+        },
+        {
+          "name": "Temporal Strategy",
+          "explanation": "It uses deliberate visual cues to make reverse-time logic legible to the audience."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film leans into a fascinating but entirely fictional implementation of reversed temporal flow.",
+        "reality": "Time reversal and macroscopic entropy inversion remain beyond our current physical understanding."
+      },
+      "relatedMovies": [
+        27,
+        65,
+        68
+      ]
+    },
+    {
+      "id": 70,
+      "title": "Donnie Darko",
+      "year": 2001,
+      "director": "Richard Kelly",
+      "genre": "Drama, Sci-Fi, Thriller",
+      "poster": "🛸",
+      "posterUrl": "images/posters/70-donnie_darko.jpg",
+      "backdrop": "🌙",
+      "posterColor": {
+        "from": "#1f2937",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+      "description": "A troubled teenager experiences visions of a mysterious man in a rabbit costume and begins to question reality, fate, and time itself.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "Time Loops",
+        "Reality Fracture",
+        "Fate",
+        "Psychology"
+      ],
+      "runtime": "113 min",
+      "scientificConcepts": [
+        {
+          "name": "Time Loops",
+          "explanation": "The film treats time as highly unstable and narratively self-referential."
+        },
+        {
+          "name": "Fractured Reality",
+          "explanation": "Its story is built around altered perception and destabilized causality."
+        },
+        {
+          "name": "Psychological Interpretation",
+          "explanation": "Real-world mental health and emotional experience are central to the film's dread."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film uses time-travel and existential themes to create a surreal, psychologically complex story.",
+        "reality": "It stays within the realm of speculative fiction rather than scientific realism."
+      },
+      "relatedMovies": [
+        27,
+        31,
+        65
+      ]
+    },
+    {
+      "id": 71,
+      "title": "The Matrix Reloaded",
+      "year": 2003,
+      "director": "Lana Wachowski, Lilly Wachowski",
+      "genre": "Action, Sci-Fi",
+      "poster": "💠",
+      "posterUrl": "images/posters/71-the_matrix_reloaded.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#000000"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #000000 100%)",
+      "description": "Neo and humanity face new threats as the Matrix deeper reveals the architecture of a simulated reality and the struggle for control.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "Virtual Reality",
+        "Simulation Hypothesis",
+        "AI Control",
+        "Consciousness"
+      ],
+      "runtime": "138 min",
+      "scientificConcepts": [
+        {
+          "name": "Simulation Hypothesis",
+          "explanation": "The film examines the idea that reality could be a simulation generated by a highly advanced intelligence."
+        },
+        {
+          "name": "Artificial Intelligence",
+          "explanation": "It explores machine intelligence and human dependence on computational systems."
+        },
+        {
+          "name": "Consciousness",
+          "explanation": "The film asks whether awareness can exist without a biological substrate."
+        }
+      ],
+      "accuracy": {
+        "movie": "The simulation idea is a philosophical concept, not a scientific claim. The film uses it to explore identity and agency.",
+        "reality": "A true simulation of reality is possible in theory but remains unproven and wholly beyond current capability.",
+        "percentage": 46
+      },
+      "relatedMovies": [
+        12,
+        15,
+        18
+      ]
+    },
+    {
+      "id": 72,
+      "title": "Minority Report",
+      "year": 2002,
+      "director": "Steven Spielberg",
+      "genre": "Action, Crime, Sci-Fi",
+      "poster": "🧠",
+      "posterUrl": "images/posters/72-minority_report.jpg",
+      "backdrop": "🧊",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%)",
+      "description": "A precrime officer is accused of a murder before it happens, forcing him to question the justice system and his own future.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Predictive Policing",
+        "Policing Tech",
+        "Precrime",
+        "Privacy"
+      ],
+      "runtime": "145 min",
+      "scientificConcepts": [
+        {
+          "name": "Predictive Analytics",
+          "explanation": "The film uses the idea of predicting crimes before they happen to explore social and ethical implications."
+        },
+        {
+          "name": "Surveillance Society",
+          "explanation": "It presents a dystopian version of mass surveillance and data-driven governance."
+        },
+        {
+          "name": "Ethics of Automation",
+          "explanation": "The movie asks whether predictive systems can ever be fair, transparent, and accountable."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's predictive systems are speculative, but the social themes are grounded in real privacy and governance concerns.",
+        "reality": "Algorithmic prediction is a real technology, though it remains imperfect and ethically complex.",
+        "percentage": 52
+      },
+      "relatedMovies": [
+        15,
+        18,
+        31
+      ]
+    },
+    {
+      "id": 73,
+      "title": "Tron",
+      "year": 1982,
+      "director": "Steven Lisberger",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "⚡",
+      "posterUrl": "images/posters/73-tron.jpg",
+      "backdrop": "💻",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#2563eb"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #2563eb 100%)",
+      "description": "A computer programmer is digitized and trapped in a virtual world where he must survive a deadly game controlled by a master system.",
+      "scientificAccuracy": 2.7,
+      "concepts": [
+        "Virtual Worlds",
+        "Cybernetic Systems",
+        "Digital Realms",
+        "AI Worlds"
+      ],
+      "runtime": "96 min",
+      "scientificConcepts": [
+        {
+          "name": "Virtual Environments",
+          "explanation": "The film imagines programmable worlds and digital identities as a natural extension of computing."
+        },
+        {
+          "name": "Computer Simulation",
+          "explanation": "It presents a stylized digital space where rules and realities are algorithmically controlled."
+        },
+        {
+          "name": "Cybernetics",
+          "explanation": "The concepts reflect early ideas about the convergence of humans and machines."
+        }
+      ],
+      "accuracy": {
+        "movie": "The digital world is more imaginative than scientifically accurate, but it captures classic cybernetic ideas."
+      },
+      "relatedMovies": [
+        14,
+        15,
+        18
+      ]
+    },
+    {
+      "id": 74,
+      "title": "Tron: Legacy",
+      "year": 2010,
+      "director": "Joseph Kosinski",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🖥️",
+      "posterUrl": "images/posters/74-tron_legacy.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #1d4ed8 100%)",
+      "description": "A son searches for his missing father inside a digital world that is more alive and dangerous than anyone imagined.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Virtual Reality",
+        "Digital Consciousness",
+        "Cybernetic Worlds",
+        "Simulation"
+      ],
+      "runtime": "125 min",
+      "scientificConcepts": [
+        {
+          "name": "Simulation",
+          "explanation": "The film extends the idea of a computer-generated environment into a richer, more immersive system."
+        },
+        {
+          "name": "Digital Identity",
+          "explanation": "It explores how human identity might persist in a software-defined world."
+        },
+        {
+          "name": "Immersive Systems",
+          "explanation": "The aesthetics and logic of the world are based on real ideas about software ecosystems and simulation."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film uses virtual-world logic to tell a mythic story rather than to model physics realistically.",
+        "reality": "Immersive digital worlds are a plausible research direction, but true sentient simulation remains speculative.",
+        "percentage": 40
+      },
+      "relatedMovies": [
+        73,
+        15,
+        18
+      ]
+    },
+    {
+      "id": 75,
+      "title": "Ready Player One",
+      "year": 2018,
+      "director": "Steven Spielberg",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🎮",
+      "posterUrl": "images/posters/75-ready_player_one.jpg",
+      "backdrop": "🕹️",
+      "posterColor": {
+        "from": "#6d28d9",
+        "to": "#0f172a"
+      },
+      "posterImage": "linear-gradient(135deg, #6d28d9 0%, #0f172a 100%)",
+      "description": "In a dystopian future, people escape into a virtual universe and compete in a high-stakes treasure hunt for control over the economy.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "VR",
+        "Virtual Economies",
+        "Digital Escape",
+        "Social Isolation"
+      ],
+      "runtime": "140 min",
+      "scientificConcepts": [
+        {
+          "name": "Virtual Reality",
+          "explanation": "The film treats VR as a highly immersive environment that shapes daily life and social behavior."
+        },
+        {
+          "name": "Digital Economies",
+          "explanation": "It extrapolates from existing digital platforms and online economies to imagine new forms of value."
+        },
+        {
+          "name": "Technology Dependence",
+          "explanation": "The story emphasizes how digital life can reshape social identity and human behavior."
+        }
+      ],
+      "accuracy": {
+        "movie": "The future media landscape is plausible, though the film exaggerates the social effects of VR and digital dependence.",
+        "reality": "Virtual reality and digital worlds are real and expanding, but they remain constrained by hardware and human biology.",
+        "percentage": 48
+      },
+      "relatedMovies": [
+        15,
+        18,
+        31
+      ]
+    },
+    {
+      "id": 76,
+      "title": "Total Recall",
+      "year": 1990,
+      "director": "Paul Verhoeven",
+      "genre": "Action, Sci-Fi, Thriller",
+      "poster": "🧭",
+      "posterUrl": "images/posters/76-total_recall.jpg",
+      "backdrop": "🌍",
+      "posterColor": {
+        "from": "#1e293b",
+        "to": "#0f172a"
+      },
+      "posterImage": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+      "description": "A man with implanted memories travels to Mars to uncover whether his life is true or a manufactured fiction designed by an elite power.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Memory Implantation",
+        "Mars Colonization",
+        "Identity",
+        "Corporate Control"
+      ],
+      "runtime": "113 min",
+      "scientificConcepts": [
+        {
+          "name": "Memory Manipulation",
+          "explanation": "The idea of implanted memories is a speculative biotech concept, not current medical reality."
+        },
+        {
+          "name": "Mars Settlement",
+          "explanation": "The film imagines a terraformed or heavily engineered Martian world."
+        },
+        {
+          "name": "Identity",
+          "explanation": "It asks whether consciousness can be separated from genuine experience."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's biotechnology and Mars setting are fictional but reflect broader debates about memory and colonization.",
+        "reality": "Mars missions are scientifically realistic, but memory editing remains speculative and far from current practice.",
+        "percentage": 42
+      },
+      "relatedMovies": [
+        2,
+        15,
+        18
+      ]
+    },
+    {
+      "id": 77,
+      "title": "A.I. Artificial Intelligence",
+      "year": 2001,
+      "director": "Steven Spielberg",
+      "genre": "Drama, Sci-Fi",
+      "poster": "🤖",
+      "posterUrl": "images/posters/77-ai_artificial_intelligence.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#2563eb"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #2563eb 100%)",
+      "description": "A humanoid robot child searches for love and acceptance as he navigates a future shaped by artificial life and human emotion.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Artificial Intelligence",
+        "Human Identity",
+        "Machine Consciousness",
+        "Emotion"
+      ],
+      "runtime": "146 min",
+      "scientificConcepts": [
+        {
+          "name": "Machine Consciousness",
+          "explanation": "The film explores whether artificial beings can possess emotions, self-awareness, and intentionality."
+        },
+        {
+          "name": "Robotics",
+          "explanation": "It extrapolates from real robotics and AI into a future where humanlike machines are common."
+        },
+        {
+          "name": "Human-AI Relations",
+          "explanation": "The story raises ethical and emotional questions about creating agents that seek love and belonging."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's emotional and ethical treatment of AI is philosophically rich, while the technologies remain speculative.",
+        "reality": "Modern AI is impressive but still far from possessing human-like consciousness or authentic emotional experience.",
+        "percentage": 54
+      },
+      "relatedMovies": [
+        15,
+        74,
+        18
+      ]
+    },
+    {
+      "id": 78,
+      "title": "Dark City",
+      "year": 1998,
+      "director": "Alex Proyas",
+      "genre": "Mystery, Sci-Fi, Noir",
+      "poster": "🌃",
+      "posterUrl": "images/posters/78-dark_city.jpg",
+      "backdrop": "🌙",
+      "posterColor": {
+        "from": "#1f2937",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+      "description": "A man wakes with amnesia in a city where reality itself changes, and he must uncover the truth behind an impossible world.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Reality Control",
+        "Identity",
+        "Simulation",
+        "Urban Architecture"
+      ],
+      "runtime": "100 min",
+      "scientificConcepts": [
+        {
+          "name": "Reality Manipulation",
+          "explanation": "The film imagines an urban environment whose rules change under external control."
+        },
+        {
+          "name": "Identity",
+          "explanation": "It asks how memory and context shape a person's sense of self."
+        },
+        {
+          "name": "Psychological Space",
+          "explanation": "The city becomes a metaphor for how perception and environment can shape reality."
+        }
+      ],
+      "accuracy": {
+        "movie": "It presents a stylized metaphysical world rather than a scientifically literal one.",
+        "reality": "Reality manipulation remains purely speculative and outside known physical law."
+      },
+      "relatedMovies": [
+        71,
+        15,
+        27
+      ]
+    },
+    {
+      "id": 79,
+      "title": "Upgrade",
+      "year": 2018,
+      "director": "Leigh Whannell",
+      "genre": "Action, Sci-Fi, Thriller",
+      "poster": "🧠",
+      "posterUrl": "images/posters/79-upgrade.jpg",
+      "backdrop": "⚙️",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #1d4ed8 100%)",
+      "description": "A paralyzed man receives an experimental neural implant that gives him enhanced abilities while he seeks revenge against his attackers.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Neural Implants",
+        "Bionics",
+        "AI Control",
+        "Human Enhancement"
+      ],
+      "runtime": "100 min",
+      "scientificConcepts": [
+        {
+          "name": "Neural Interfaces",
+          "explanation": "The film extrapolates from existing brain-computer interface research into a more invasive and powerful system."
+        },
+        {
+          "name": "Biorobotics",
+          "explanation": "It imagines what could happen if human movement and cognition were enhanced through machine integration."
+        },
+        {
+          "name": "Ethics of Enhancement",
+          "explanation": "The movie raises questions about control, consent, and the side effects of neurotechnology."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is a plausible speculative take on neuroprosthetics and AI-driven enhancement, though greatly amplified for drama.",
+        "reality": "Brain-computer interfaces are active research areas, but full neural control remains far from mainstream reality.",
+        "percentage": 55
+      },
+      "relatedMovies": [
+        15,
+        77,
+        18
+      ]
+    },
+    {
+      "id": 80,
+      "title": "Strange Days",
+      "year": 1995,
+      "director": "Kathryn Bigelow",
+      "genre": "Crime, Drama, Sci-Fi",
+      "poster": "🎧",
+      "posterUrl": "images/posters/80-strange_days.jpg",
+      "backdrop": "🌃",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#7c2d12"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #7c2d12 100%)",
+      "description": "A criminal courier delivers immersive sensory recordings that allow people to relive intense experiences, exposing a dark social underworld.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "Sensory Recording",
+        "Virtual Experience",
+        "Cybercrime",
+        "Immersion"
+      ],
+      "runtime": "145 min",
+      "scientificConcepts": [
+        {
+          "name": "Sensory Simulation",
+          "explanation": "The film imagines recording and replaying human sensation and emotion as a form of digital media."
+        },
+        {
+          "name": "Immersive Media",
+          "explanation": "It forecasts the rise of highly detailed digital experiences and interactive media."
+        },
+        {
+          "name": "Social Technology",
+          "explanation": "The film treats media as both a social tool and a source of danger."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its core premise is speculative but aligned with the real push toward immersive media and sensory interfaces.",
+        "reality": "Biofeedback and immersive media are active research areas, but perfect sensory recording remains beyond scientific reality.",
+        "percentage": 49
+      },
+      "relatedMovies": [
+        75,
+        15,
+        79
+      ]
+    },
+    {
+      "id": 81,
+      "title": "Johnny Mnemonic",
+      "year": 1995,
+      "director": "Robert Longo",
+      "genre": "Action, Sci-Fi, Thriller",
+      "poster": "🧠",
+      "posterUrl": "images/posters/81-johnny_mnemonic.jpg",
+      "backdrop": "⚡",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#4f46e5"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #4f46e5 100%)",
+      "description": "A data courier with a memory chip in his head carries dangerous information through a dystopian cybernetically enhanced world.",
+      "scientificAccuracy": 2.7,
+      "concepts": [
+        "Data Storage",
+        "Memory Chips",
+        "Cybersecurity",
+        "Transhumanism"
+      ],
+      "runtime": "96 min",
+      "scientificConcepts": [
+        {
+          "name": "Neural Storage",
+          "explanation": "The film explores the idea of embedding information directly in a human brain."
+        },
+        {
+          "name": "Cyber Infrastructure",
+          "explanation": "It emphasizes the idea that digital data is central to power and commerce."
+        },
+        {
+          "name": "Cybernetics",
+          "explanation": "The film sits in the tradition of imagining the human mind as fragile in a networked world."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's memory-chip premise is rooted in speculation rather than current biology or computer science.",
+        "reality": "Digital data storage is real, but embedding it in the human brain remains beyond current technology.",
+        "percentage": 38
+      },
+      "relatedMovies": [
+        74,
+        79,
+        15
+      ]
+    },
+    {
+      "id": 82,
+      "title": "Existenz",
+      "year": 1999,
+      "director": "David Cronenberg",
+      "genre": "Sci-Fi, Thriller",
+      "poster": "🧩",
+      "posterUrl": "images/posters/82-existenz.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#7c3aed"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #7c3aed 100%)",
+      "description": "A game designer is pulled into a violent conspiracy surrounding a new immersive game system that challenges the boundary between fiction and reality.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "Immersive Games",
+        "Identity",
+        "Virtual Interfaces",
+        "Narrative Collapse"
+      ],
+      "runtime": "109 min",
+      "scientificConcepts": [
+        {
+          "name": "Immersive Interface",
+          "explanation": "The film treats virtual worlds as intimate and psychologically manipulative experiences."
+        },
+        {
+          "name": "Perception",
+          "explanation": "It explores the way sensory experiences can distort identity and reality."
+        },
+        {
+          "name": "Human-Machine Integration",
+          "explanation": "The story examines how deeply digital experiences can reshape a person."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is a philosophical exercise in immersion, not a scientific model of reality.",
+        "reality": "Immersive media is a real and growing domain, but fully dissolving the boundary between perception and reality remains fictional.",
+        "percentage": 43
+      },
+      "relatedMovies": [
+        75,
+        80,
+        15
+      ]
+    },
+    {
+      "id": 83,
+      "title": "Chappie",
+      "year": 2015,
+      "director": "Neill Blomkamp",
+      "genre": "Action, Crime, Sci-Fi",
+      "poster": "🤖",
+      "posterUrl": "images/posters/83-chappie.jpg",
+      "backdrop": "🚔",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #1d4ed8 100%)",
+      "description": "A law-enforcement robot gains self-awareness and begins to question the world around him as humanity struggles to define what makes a being sentient.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "AI Sentience",
+        "Robotics",
+        "Ethics",
+        "Machine Rights"
+      ],
+      "runtime": "120 min",
+      "scientificConcepts": [
+        {
+          "name": "AI Off-World Systems",
+          "explanation": "The film extrapolates from current robotics and machine learning to imagine a more sentient autonomous system."
+        },
+        {
+          "name": "Ethics of Agency",
+          "explanation": "It asks whether a machine with self-awareness should be treated as a person or a tool."
+        },
+        {
+          "name": "Machine Learning",
+          "explanation": "The film reflects active research in adaptive autonomy and robotics."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film explores the ethical and emotional implications of AI but uses a dramatic, highly fictionalized technology stack.",
+        "reality": "Robotics and machine learning are real, but sentience and moral agency in machines remain unresolved questions.",
+        "percentage": 50
+      },
+      "relatedMovies": [
+        15,
+        77,
+        74
+      ]
+    },
+    {
+      "id": 84,
+      "title": "Children of Men",
+      "year": 2006,
+      "director": "Alfonso Cuarón",
+      "genre": "Drama, Sci-Fi, Thriller",
+      "poster": "👶",
+      "posterUrl": "images/posters/84-children_of_men.jpg",
+      "backdrop": "🌍",
+      "posterColor": {
+        "from": "#1f2937",
+        "to": "#374151"
+      },
+      "posterImage": "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
+      "description": "In a near-future world where humanity has become infertile, society slips toward collapse while a single hope appears.",
+      "scientificAccuracy": 3.7,
+      "concepts": [
+        "Fertility Crisis",
+        "Population Collapse",
+        "Societal Decay",
+        "Human Survival"
+      ],
+      "runtime": "109 min",
+      "scientificConcepts": [
+        {
+          "name": "Demographic Collapse",
+          "explanation": "The film imagines a society that has lost reproductive capacity on a civilization-wide scale."
+        },
+        {
+          "name": "Social Fragility",
+          "explanation": "It shows how political and economic systems can collapse under demographic stress."
+        },
+        {
+          "name": "Human Biology",
+          "explanation": "The story centers on a real biological concern: fertility and reproductive viability."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is built on a scientifically grounded idea: a fertility crisis would reshape societies and politics."
+      },
+      "relatedMovies": [
+        31,
+        17,
+        35
+      ]
+    },
+    {
+      "id": 85,
+      "title": "Mad Max: Fury Road",
+      "year": 2015,
+      "director": "George Miller",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🏜️",
+      "posterUrl": "images/posters/85-mad_max_fury_road.jpg",
+      "backdrop": "🔥",
+      "posterColor": {
+        "from": "#7c2d12",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #7c2d12 0%, #111827 100%)",
+      "description": "A lone drifter and a fugitive queen flee a warlord across a ruthless desert in a battle for survival and freedom.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "Resource Scarcity",
+        "Collapse",
+        "Desert Survival",
+        "Post-Apocalypse"
+      ],
+      "runtime": "120 min",
+      "scientificConcepts": [
+        {
+          "name": "Resource Depletion",
+          "explanation": "The film frames a society where water and fuel are scarce and political power depends on access to them."
+        },
+        {
+          "name": "Desert Ecology",
+          "explanation": "It portrays a harsh environment where survival depends on adaptation and depletion of resources."
+        },
+        {
+          "name": "Civilizational Failure",
+          "explanation": "The story reflects how social systems can collapse under climate and infrastructure pressure."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its environmental and political themes are grounded in real resource-depletion and collapse concerns.",
+        "reality": "Resource scarcity and infrastructure failure are realistic risk factors, even if the movie exaggerates them for drama."
+      },
+      "relatedMovies": [
+        31,
+        84,
+        39
+      ]
+    },
+    {
+      "id": 86,
+      "title": "Furiosa: A Mad Max Saga",
+      "year": 2024,
+      "director": "George Miller",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🪖",
+      "posterUrl": "images/posters/86-furiosa_a_mad_max_saga.jpg",
+      "backdrop": "🏜️",
+      "posterColor": {
+        "from": "#7c2d12",
+        "to": "#1f2937"
+      },
+      "posterImage": "linear-gradient(135deg, #7c2d12 0%, #1f2937 100%)",
+      "description": "A young warrior escapes captivity and becomes the architect of her own survival in a brutal world of war, scarcity, and desperation.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Resource War",
+        "Collapse",
+        "Mobility",
+        "Desert Survival"
+      ],
+      "runtime": "148 min",
+      "scientificConcepts": [
+        {
+          "name": "Resource Scarcity",
+          "explanation": "The film creates a plausible world where energy and water become political and economic currency."
+        },
+        {
+          "name": "Extreme Environments",
+          "explanation": "Life under harsh ecological conditions shapes both the social order and personal survival."
+        },
+        {
+          "name": "Post-Apocalyptic Thinking",
+          "explanation": "It explores how technological and social systems adapt when infrastructure erodes."
+        }
+      ],
+      "accuracy": {
+        "movie": "The world is highly stylized, but the political logic of resource scarcity is grounded in real concerns.",
+        "reality": "Collapse scenarios have realistic underpinnings, even when the film amplifies them into a mythic narrative."
+      },
+      "relatedMovies": [
+        85,
+        84,
+        31
+      ]
+    },
+    {
+      "id": 87,
+      "title": "Snowpiercer",
+      "year": 2013,
+      "director": "Bong Joon-ho",
+      "genre": "Action, Drama, Sci-Fi",
+      "poster": "🚆",
+      "posterUrl": "images/posters/87-snowpiercer.jpg",
+      "backdrop": "❄️",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#60a5fa"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #60a5fa 100%)",
+      "description": "In a world buried by an ice age, the last remnants of humanity survive aboard a perpetual train that hides a brutal class system.",
+      "scientificAccuracy": 3.6,
+      "concepts": [
+        "Climate Collapse",
+        "Closed Ecology",
+        "Class Divide",
+        "Human Survival"
+      ],
+      "runtime": "126 min",
+      "scientificConcepts": [
+        {
+          "name": "Climate Catastrophe",
+          "explanation": "The film reflects the realistic risk of severe climate disruption and civilizational collapse."
+        },
+        {
+          "name": "Closed Environments",
+          "explanation": "A self-contained train is a plausible extreme adaptation in a world with almost no natural support."
+        },
+        {
+          "name": "Societal Stratification",
+          "explanation": "The class system is a metaphor for how fragile systems intensify inequality under conditions of scarcity."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its climate premise is plausible, and the train is a vivid portrayal of social and ecological dependence.",
+        "reality": "Climate disaster scenarios are grounded in real research, even though the specific train-based world is wholly fictional."
+      },
+      "relatedMovies": [
+        84,
+        31,
+        85
+      ]
+    },
+    {
+      "id": 88,
+      "title": "Wall-E",
+      "year": 2008,
+      "director": "Andrew Stanton",
+      "genre": "Animation, Adventure, Sci-Fi",
+      "poster": "🤖",
+      "posterUrl": "images/posters/88-wall_e.jpg",
+      "backdrop": "🪐",
+      "posterColor": {
+        "from": "#1d4ed8",
+        "to": "#0f172a"
+      },
+      "posterImage": "linear-gradient(135deg, #1d4ed8 0%, #0f172a 100%)",
+      "description": "A waste-collecting robot on a garbage-filled Earth discovers the possibility of hope and meaning in a world abandoned by humanity.",
+      "scientificAccuracy": 3.4,
+      "concepts": [
+        "Planetary Pollution",
+        "Robotics",
+        "Ecosystem Recovery",
+        "Human Departure"
+      ],
+      "runtime": "98 min",
+      "scientificConcepts": [
+        {
+          "name": "Waste Management",
+          "explanation": "The film uses a plausible concept of waste accumulation and the challenge of reusing vast amounts of trash."
+        },
+        {
+          "name": "Robotics",
+          "explanation": "Wall-E's simple self-directed behavior is built on realistic autonomous systems and sensor-driven behavior."
+        },
+        {
+          "name": "Planetary Recovery",
+          "explanation": "The movie imagines a future where humans must rebuild ecosystems and social systems after environmental collapse."
+        }
+      ],
+      "accuracy": {
+        "movie": "It is a playful but grounded depiction of waste, automation, and ecological repair.",
+        "reality": "Pollution, waste systems, and ecosystem recovery are real world problems, even if the instant end of humanity is fantasy."
+      },
+      "relatedMovies": [
+        84,
+        85,
+        77
+      ]
+    },
+    {
+      "id": 89,
+      "title": "The Road",
+      "year": 2009,
+      "director": "John Hillcoat",
+      "genre": "Drama, Thriller, Sci-Fi",
+      "poster": "🛣️",
+      "posterUrl": "images/posters/89-the_road.jpg",
+      "backdrop": "🔥",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#7c2d12"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #7c2d12 100%)",
+      "description": "A father and son traverse a burned-out wasteland in search of safety as they confront hunger, fear, and the collapse of civilization.",
+      "scientificAccuracy": 3.7,
+      "concepts": [
+        "Post-Apocalypse",
+        "Food Scarcity",
+        "Civilizational Collapse",
+        "Human Survival"
+      ],
+      "runtime": "111 min",
+      "scientificConcepts": [
+        {
+          "name": "Resource Scarcity",
+          "explanation": "The film's bleak world reflects the practical challenge of living in a depopulated, infrastructure-free environment."
+        },
+        {
+          "name": "Psychology of Collapse",
+          "explanation": "It frames the social consequences of disaster in a way that is deeply grounded in real human behavior."
+        },
+        {
+          "name": "Survival Mechanics",
+          "explanation": "The story depends on real-world risks such as starvation, exposure, and social violence."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its depiction of survival is realistic in emotional and material terms, even if the collapse mechanism is stylized.",
+        "reality": "The film's underlying survival concerns are grounded in real risks of disaster, scarcity, and social breakdown."
+      },
+      "relatedMovies": [
+        84,
+        85,
+        87
+      ]
+    },
+    {
+      "id": 90,
+      "title": "A Quiet Place",
+      "year": 2018,
+      "director": "John Krasinski",
+      "genre": "Drama, Horror, Sci-Fi",
+      "poster": "🤫",
+      "posterUrl": "images/posters/90-a_quiet_place.jpg",
+      "backdrop": "🌲",
+      "posterColor": {
+        "from": "#14532d",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #14532d 0%, #111827 100%)",
+      "description": "A family must survive a ruthless alien threat by remaining silent in a world where sound means death.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Alien Predation",
+        "Sensory Adaptation",
+        "Survival Strategies",
+        "Sound Ecology"
+      ],
+      "runtime": "90 min",
+      "scientificConcepts": [
+        {
+          "name": "Sensory Ecology",
+          "explanation": "The film uses the real idea that sound can be an efficient signal to predators and prey."
+        },
+        {
+          "name": "Survival Adaptation",
+          "explanation": "Family tactics reflect the universal logic of managing risk in dangerous ecosystems."
+        },
+        {
+          "name": "Alien Biology",
+          "explanation": "The alien's adaptation to sound is a purely fictional invention."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's survival logic is plausible, though the alien biology is entirely fictional.",
+        "reality": "Predator-prey sensitivity to sound is real, but a sound-seeking extraterrestrial remains speculative."
+      },
+      "relatedMovies": [
+        43,
+        84,
+        94
+      ]
+    },
+    {
+      "id": 91,
+      "title": "A Quiet Place Part II",
+      "year": 2020,
+      "director": "John Krasinski",
+      "genre": "Drama, Horror, Sci-Fi",
+      "poster": "🤫",
+      "posterUrl": "images/posters/91-a_quiet_place_2.jpg",
+      "backdrop": "🌲",
+      "posterColor": {
+        "from": "#14532d",
+        "to": "#0f172a"
+      },
+      "posterImage": "linear-gradient(135deg, #14532d 0%, #0f172a 100%)",
+      "description": "The survivors of the first attack venture into a dangerous new world while trying to keep one step ahead of the creatures hunting by sound.",
+      "scientificAccuracy": 3.1,
+      "concepts": [
+        "Alien Predation",
+        "Survival",
+        "Sound",
+        "Human Adaptation"
+      ],
+      "runtime": "97 min",
+      "scientificConcepts": [
+        {
+          "name": "Predator Ecology",
+          "explanation": "The threat is a fictional ecosystem invention, but the need to manage sound is grounded in real organism behavior."
+        },
+        {
+          "name": "Human Adaptation",
+          "explanation": "The survivors' strategies reflect realistic ways communities adapt under threat."
+        },
+        {
+          "name": "Risk Management",
+          "explanation": "The film emphasizes how sensory cues can be used to reduce exposure in hostile environments."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its social and survival logic is plausibly framed, while the alien threat remains speculative.",
+        "reality": "Predators and prey use sound, but a sound-driven extraterrestrial remains science-fiction."
+      },
+      "relatedMovies": [
+        90,
+        84,
+        43
+      ]
+    },
+    {
+      "id": 92,
+      "title": "I Am Legend",
+      "year": 2007,
+      "director": "Francis Lawrence",
+      "genre": "Drama, Horror, Sci-Fi",
+      "poster": "🧬",
+      "posterUrl": "images/posters/92-i_am_legend.jpg",
+      "backdrop": "🌙",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#4b5563"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #4b5563 100%)",
+      "description": "A lone scientist and survivor battles a mutated population in a depopulated Manhattan, seeking a cure for the plague that transformed humanity.",
+      "scientificAccuracy": 3.3,
+      "concepts": [
+        "Biological Mutation",
+        "Pandemic",
+        "Isolation",
+        "Medical Research"
+      ],
+      "runtime": "101 min",
+      "scientificConcepts": [
+        {
+          "name": "Viral Mutation",
+          "explanation": "The film uses a plausible biological idea: mutation and disease can radically reshape a species."
+        },
+        {
+          "name": "Epidemiology",
+          "explanation": "The social collapse mirrors how pandemics can reshape cities and communities."
+        },
+        {
+          "name": "Medical Response",
+          "explanation": "The story's cure-seeking logic reflects real research into infections and immunology."
+        }
+      ],
+      "accuracy": {
+        "movie": "The cultural and medical collapse are broadly plausible, even if the mutated creatures are fictional."
+      },
+      "relatedMovies": [
+        84,
+        87,
+        90
+      ]
+    },
+    {
+      "id": 93,
+      "title": "Dredd",
+      "year": 2012,
+      "director": "Pete Travis",
+      "genre": "Action, Crime, Sci-Fi",
+      "poster": "🚔",
+      "posterUrl": "images/posters/93-dredd.jpg",
+      "backdrop": "⚙️",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#e11d48"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #e11d48 100%)",
+      "description": "Judge Dredd is sent to clean up a violent megacity district where every action, crime, and survival decision is shaped by totalitarian law.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "Megacities",
+        "Urban Collapse",
+        "Law Enforcement",
+        "Control"
+      ],
+      "runtime": "95 min",
+      "scientificConcepts": [
+        {
+          "name": "Urban Density",
+          "explanation": "The megacity is a stylized version of real urban concentration and infrastructure stress."
+        },
+        {
+          "name": "Governance Systems",
+          "explanation": "The film explores the social consequences of authoritarian policing in crowded cities."
+        },
+        {
+          "name": "Societal Pressure",
+          "explanation": "It uses the reality of extreme urban inequality to drive its worldbuilding."
+        }
+      ],
+      "accuracy": {
+        "movie": "The social and urban themes reflect real dynamics of concentrated population and inequality.",
+        "reality": "Megacities and authoritarian policing are plausible social futures, though the film compresses them into action spectacle."
+      },
+      "relatedMovies": [
+        84,
+        85,
+        92
+      ]
+    },
+    {
+      "id": 94,
+      "title": "Oblivion",
+      "year": 2013,
+      "director": "Joseph Kosinski",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🪐",
+      "posterUrl": "images/posters/94-oblivion.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#38bdf8"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #38bdf8 100%)",
+      "description": "A maintenance worker on a devastated Earth uncovers the truth behind a supposedly final mission as he questions everything he knows.",
+      "scientificAccuracy": 3.5,
+      "concepts": [
+        "Post-Apocalypse",
+        "Human Colonization",
+        "Memory",
+        "Terraforming"
+      ],
+      "runtime": "124 min",
+      "scientificConcepts": [
+        {
+          "name": "Earth Recovery",
+          "explanation": "The film imagines a damaged Earth that is still physically legible after catastrophic ecological disruption."
+        },
+        {
+          "name": "Terraforming",
+          "explanation": "Its infrastructure and orbital perspective reflect the logic of future off-world resource management."
+        },
+        {
+          "name": "Identity",
+          "explanation": "The story explores how memory and mission can create false realities."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film's settings and technologies are fictional but tied to real ideas about colonization, terraforming, and post-disaster recovery.",
+        "reality": "Humans can imagine ecological repair and off-world living, but the film's exact scenario remains speculative."
+      },
+      "relatedMovies": [
+        84,
+        89,
+        2
+      ]
+    },
+    {
+      "id": 95,
+      "title": "Equilibrium",
+      "year": 2002,
+      "director": "Kurt Wimmer",
+      "genre": "Action, Drama, Sci-Fi",
+      "poster": "⚖️",
+      "posterUrl": "images/posters/95-equilibrium.jpg",
+      "backdrop": "⚙️",
+      "posterColor": {
+        "from": "#1f2937",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+      "description": "In a totalitarian future, emotion is outlawed and citizens must suppress their humanity under a rigid regime of control.",
+      "scientificAccuracy": 2.9,
+      "concepts": [
+        "Emotion Suppression",
+        "Totalitarian Control",
+        "Societal Order",
+        "Psychopharmacology"
+      ],
+      "runtime": "107 min",
+      "scientificConcepts": [
+        {
+          "name": "Cognitive Control",
+          "explanation": "The film imagines a system that suppresses feelings to create social harmony, a classic dystopian idea."
+        },
+        {
+          "name": "Psychological Regulation",
+          "explanation": "It uses the real concept that emotion can be managed by drugs, technology, and social conditioning."
+        },
+        {
+          "name": "Governance",
+          "explanation": "It frames social order as a perverse attempt to remove conflict and uncertainty."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is grounded in real questions about emotion, control, and the social use of psychological regulation.",
+        "reality": "Emotion suppression as a total social solution is fictional, although some drugs and social systems indeed shape behavior."
+      },
+      "relatedMovies": [
+        31,
+        92,
+        84
+      ]
+    },
+    {
+      "id": 96,
+      "title": "The Hunger Games",
+      "year": 2012,
+      "director": "Gary Ross",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🏹",
+      "posterUrl": "images/posters/96-the_hunger_games.jpg",
+      "backdrop": "🔥",
+      "posterColor": {
+        "from": "#7c2d12",
+        "to": "#1f2937"
+      },
+      "posterImage": "linear-gradient(135deg, #7c2d12 0%, #1f2937 100%)",
+      "description": "In a divided and authoritarian future, children are forced into a televised survival contest that exposes the power of spectacle and control.",
+      "scientificAccuracy": 3.2,
+      "concepts": [
+        "Survival Games",
+        "Dystopia",
+        "Resource Control",
+        "Politics"
+      ],
+      "runtime": "142 min",
+      "scientificConcepts": [
+        {
+          "name": "Social Control",
+          "explanation": "The film imagines a system where spectacle and fear are used to maintain political order."
+        },
+        {
+          "name": "Resource Distribution",
+          "explanation": "It turns scarcity and inequality into a blunt but effective political tool."
+        },
+        {
+          "name": "Human Competition",
+          "explanation": "The survival contest is a dramatic exaggeration of how social pressure shapes human behavior."
+        }
+      ],
+      "accuracy": {
+        "movie": "It draws on real dynamics of authoritarian control and social inequality instead of strict science fiction technology.",
+        "reality": "Dystopian governance and social manipulation are political realities with some basis in human history."
+      },
+      "relatedMovies": [
+        31,
+        84,
+        87
+      ]
+    },
+    {
+      "id": 97,
+      "title": "Soylent Green",
+      "year": 1973,
+      "director": "Richard Fleischer",
+      "genre": "Crime, Drama, Sci-Fi",
+      "poster": "🍏",
+      "posterUrl": "images/posters/97-soylent_green.jpg",
+      "backdrop": "🌃",
+      "posterColor": {
+        "from": "#111827",
+        "to": "#65a30d"
+      },
+      "posterImage": "linear-gradient(135deg, #111827 0%, #65a30d 100%)",
+      "description": "A detective in a crowded and dying city uncovers the horrifying truth behind the food that keeps the population alive.",
+      "scientificAccuracy": 3.4,
+      "concepts": [
+        "Overpopulation",
+        "Food Scarcity",
+        "Urban Decay",
+        "Resource Ethics"
+      ],
+      "runtime": "97 min",
+      "scientificConcepts": [
+        {
+          "name": "Population Pressure",
+          "explanation": "The film imagines a city where resources are stretched to the breaking point by overpopulation."
+        },
+        {
+          "name": "Food Systems",
+          "explanation": "It explores the real problem of precarious food infrastructure under extreme scarcity."
+        },
+        {
+          "name": "Social Collapse",
+          "explanation": "The world is based on the idea that a society can become ethically corrupted under constant survival pressure."
+        }
+      ],
+      "accuracy": {
+        "movie": "Its logic of overpopulation and resource collapse is a recognizably realistic science-fiction warning.",
+        "reality": "Resource strain and environmental stress are serious problems, though the exact food source remains fictional."
+      },
+      "relatedMovies": [
+        84,
+        87,
+        96
+      ]
+    },
+    {
+      "id": 98,
+      "title": "Logan's Run",
+      "year": 1976,
+      "director": "Michael Anderson",
+      "genre": "Action, Drama, Sci-Fi",
+      "poster": "⏳",
+      "posterUrl": "images/posters/98-logans_run.jpg",
+      "backdrop": "✨",
+      "posterColor": {
+        "from": "#1f2937",
+        "to": "#111827"
+      },
+      "posterImage": "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+      "description": "In a future city, citizens are kept in a controlled cycle of youth and obedience until the system turns on them.",
+      "scientificAccuracy": 2.8,
+      "concepts": [
+        "Controlled Society",
+        "Aging Control",
+        "Utopia",
+        "Freedom"
+      ],
+      "runtime": "119 min",
+      "scientificConcepts": [
+        {
+          "name": "Social Engineering",
+          "explanation": "The film imagines a world where institutional systems shape every part of life, including aging and mortality."
+        },
+        {
+          "name": "Population Control",
+          "explanation": "It reflects a real dystopian fear: systems built around control and optimization can become oppressive."
+        },
+        {
+          "name": "Human Agency",
+          "explanation": "The story brings people back into focus as the true variable of social systems."
+        }
+      ],
+      "accuracy": {
+        "movie": "The idea of engineered social order is a classic dystopian premise rather than a realistic scientific prediction.",
+        "reality": "Population and social controls are real areas of policy debate, but radical age-management systems remain fiction."
+      },
+      "relatedMovies": [
+        31,
+        96,
+        84
+      ]
+    },
+    {
+      "id": 99,
+      "title": "Waterworld",
+      "year": 1995,
+      "director": "Kevin Reynolds",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "🌊",
+      "posterUrl": "images/posters/99-waterworld.jpg",
+      "backdrop": "🌊",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#1d4ed8"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%)",
+      "description": "A world submerged by rising oceans forces survival at sea while a desperate group fights over resources and a mythic future.",
+      "scientificAccuracy": 3.0,
+      "concepts": [
+        "Climate Change",
+        "Rising Seas",
+        "Coastal Collapse",
+        "Maritime Survival"
+      ],
+      "runtime": "176 min",
+      "scientificConcepts": [
+        {
+          "name": "Sea-Level Rise",
+          "explanation": "The film presents the real danger of coastal inundation and adaptation failure."
+        },
+        {
+          "name": "Resource Scarcity",
+          "explanation": "A flooded world forces a brutal economy around water, supplies, and social order."
+        },
+        {
+          "name": "Human Adaptation",
+          "explanation": "It imagines how communities would survive in a radically changed environment."
+        }
+      ],
+      "accuracy": {
+        "movie": "The climate tension is grounded in very real sea-level rise concerns, while the specific worldbuilding remains highly dramatic.",
+        "reality": "Climate change and coastal flooding are active scientific challenges, but a fully oceanic world is not currently the projected future."
+      },
+      "relatedMovies": [
+        84,
+        87,
+        89
+      ]
+    },
+    {
+      "id": 100,
+      "title": "Stalker",
+      "year": 1979,
+      "director": "Andrei Tarkovsky",
+      "genre": "Drama, Sci-Fi",
+      "poster": "🧭",
+      "posterUrl": "images/posters/100-stalker.jpg",
+      "backdrop": "🌌",
+      "posterColor": {
+        "from": "#0f172a",
+        "to": "#374151"
+      },
+      "posterImage": "linear-gradient(135deg, #0f172a 0%, #374151 100%)",
+      "description": "Three travelers cross a forbidden zone to reach a mysterious destination where the boundaries of reality, desire, and faith blur together.",
+      "scientificAccuracy": 3.6,
+      "concepts": [
+        "Forbidden Zone",
+        "Speculative Physics",
+        "Meaning",
+        "Existential Travel"
+      ],
+      "runtime": "162 min",
+      "scientificConcepts": [
+        {
+          "name": "Controlled Environments",
+          "explanation": "The film imagines a dangerous region where the rules of reality are unstable and uncertain."
+        },
+        {
+          "name": "Psychological Exploration",
+          "explanation": "Uncertainty and fear are treated as real consequences of confronting the unknown."
+        },
+        {
+          "name": "Philosophical Inquiry",
+          "explanation": "The film is as much a meditation on desire and belief as it is an exercise in sci-fi worldbuilding."
+        }
+      ],
+      "accuracy": {
+        "movie": "The film is not realistic in an engineering sense, but it uses plausible speculative questions about strange zones and existential risk.",
+        "reality": "Unusual physical conditions in the world are not scientifically known, yet the emotional and philosophical stakes remain grounded."
+      },
+      "relatedMovies": [
+        60,
+        61,
+        89
+      ]
     }
   ]
 }
