@@ -7,6 +7,22 @@ let filteredConcepts = [];
 let activeConceptCategory = 'all';
 let conceptSearchQuery = '';
 
+// Helper: Synchronously render LaTeX using KaTeX if loaded, or return math delimiter span
+function renderEquation(tex, isBlock = true) {
+    if (!tex) return '';
+    if (window.katex && typeof window.katex.renderToString === 'function') {
+        try {
+            return window.katex.renderToString(tex, {
+                displayMode: isBlock,
+                throwOnError: false
+            });
+        } catch (e) {
+            console.warn('KaTeX render warning:', e);
+        }
+    }
+    return isBlock ? `<span class="equation-tex">\\[ ${tex} \\]</span>` : `<span class="equation-tex">\\(${tex}\\)</span>`;
+}
+
 // Celestial bodies gravitational constants
 const CELESTIAL_BODIES = {
     earth: { name: 'Earth', g: 9.80665, icon: '🌍', desc: 'Standard Earth baseline: muscles and bone density are evolved for this force.' },
@@ -283,16 +299,22 @@ function displayConceptCards() {
                     <h3 class="science-card-title">${c.title}</h3>
                     <p class="science-card-description">${c.description}</p>
                     ${c.formula ? `
-                        <div style="font-family: 'Cambria Math', serif; color: #38bdf8; background: rgba(0,0,0,0.3); padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.95rem; margin: 0.75rem 0; border: 1px dashed rgba(6,182,212,0.3); text-align: center;">\\[ ${c.formula} \\]</div>
+                        <div class="science-card-formula-box" style="margin: 0.75rem 0; padding: 0.5rem 0.75rem; background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); text-align: center; overflow-x: auto; overflow-y: hidden;">
+                            ${renderEquation(c.formula, true)}
+                        </div>
                     ` : ''}
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06);">
-                    <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700;">${c.category}</span>
+                    <span style="font-size: 0.75rem; color: #38bdf8; text-transform: uppercase; font-weight: 700;">${c.category}</span>
                     <span class="difficulty-badge ${(c.difficulty || 'intermediate').toLowerCase()}">${c.difficulty || 'Intermediate'}</span>
                 </div>
             </div>
         `;
     }).join('');
+
+    if (window.renderMath) {
+        window.renderMath(grid);
+    }
 
     if (typeof syncAllLikeButtons === 'function') {
         syncAllLikeButtons();
@@ -309,28 +331,30 @@ function openConceptEncyclopediaModal(conceptId) {
 
     const formulaHtml = concept.formulaBreakdown ? `
         <div class="equation-card">
-            <div class="equation-display">\\[ ${concept.formula} \\]</div>
+            <div class="equation-display" style="padding: 0.85rem 0.5rem; text-align: center; background: rgba(15, 23, 42, 0.7); border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.2); margin-bottom: 0.85rem; overflow-x: auto;">
+                ${renderEquation(concept.formula, true)}
+            </div>
             <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.75rem;">${concept.formulaBreakdown.meaning}</p>
-            <div class="equation-variables">
+            <div class="equation-variables" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem;">
                 ${(concept.formulaBreakdown.variables || []).map(v => `
-                    <div class="var-item">
-                        <span class="var-symbol">${v.symbol}</span>
-                        <span class="var-meaning">${v.name}: <strong>${v.value}</strong></span>
+                    <div class="var-item" style="padding: 0.45rem 0.65rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; display: flex; align-items: baseline; gap: 0.5rem;">
+                        <span class="var-symbol" style="color: #38bdf8; font-weight: 700; min-width: 28px;">${renderEquation(v.symbol, false)}</span>
+                        <span class="var-meaning" style="font-size: 0.82rem; color: #cbd5e1;"><strong style="color: #f1f5f9;">${v.name}</strong>: ${v.value}</span>
                     </div>
                 `).join('')}
             </div>
             ${concept.formulaBreakdown.utility ? `
-                <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
-                    <strong>When Useful:</strong> ${concept.formulaBreakdown.utility}
+                <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56, 189, 248, 0.08); border-left: 3px solid #38bdf8; border-radius: 4px;">
+                    <strong style="color: #38bdf8;">When Useful:</strong> ${concept.formulaBreakdown.utility}
                 </div>
             ` : ''}
             ${concept.formulaBreakdown.example ? `
-                <div class="equation-example">
-                    <strong>Worked Example:</strong> ${concept.formulaBreakdown.example}
+                <div class="equation-example" style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 4px; font-size: 0.85rem; color: #cbd5e1;">
+                    <strong style="color: #34d399;">Worked Example:</strong> ${concept.formulaBreakdown.example}
                 </div>
             ` : ''}
         </div>
-    ` : (concept.formula ? `<div class="equation-card"><div class="equation-display">\\[ ${concept.formula} \\]</div></div>` : '');
+    ` : (concept.formula ? `<div class="equation-card"><div class="equation-display">${renderEquation(concept.formula, true)}</div></div>` : '');
 
     const levels = concept.levels || {
         beginner: concept.description,
@@ -435,12 +459,14 @@ function openConceptEncyclopediaModal(conceptId) {
                 const level = btn.dataset.level;
                 contentBox.className = `level-content-box ${level}`;
                 contentBox.innerHTML = levels[level] || levels.beginner;
+                if (window.renderMath) window.renderMath(contentBox);
             });
         });
+        if (window.renderMath) window.renderMath(contentBox);
     }
 
     modal.classList.add('active');
-    if (window.renderMath) window.renderMath(document.body);
+    if (window.renderMath) window.renderMath(modal);
 }
 
 function checkConceptsURLParams() {

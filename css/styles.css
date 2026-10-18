@@ -5756,3 +5756,101 @@ div[style*="Cambria Math"] {
     }
 }
 
+/* Real Science Explorer - Formula & Equation Polish */
+.science-card {
+    text-align: left !important;
+}
+
+.science-card-title {
+    text-align: left !important;
+}
+
+.science-card-description {
+    text-align: left !important;
+}
+
+.science-card-formula-box {
+    background: rgba(10, 15, 30, 0.75) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 0.55rem 0.85rem !important;
+    margin: 0.75rem 0 !important;
+    text-align: center !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 12px rgba(56, 189, 248, 0.08) !important;
+}
+
+.science-card-formula-box .katex {
+    font-size: 1.05rem !important;
+    color: #38bdf8 !important;
+}
+
+.science-card-formula-box .katex-display {
+    margin: 0.2rem 0 !important;
+    padding: 0 !important;
+}
+
+.equation-card {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    margin: 0.75rem 0;
+}
+
+.equation-display {
+    padding: 1rem 0.75rem;
+    background: rgba(2, 6, 23, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.equation-display .katex {
+    font-size: 1.35rem;
+    color: #7dd3fc;
+}
+
+.equation-variables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+}
+
+.var-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.45rem 0.65rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.var-symbol {
+    color: #38bdf8;
+    font-weight: 700;
+    min-width: 24px;
+}
+
+.var-symbol .katex {
+    font-size: 1rem;
+}
+
+.equation-tex {
+    font-family: 'KaTeX_Math', 'Cambria Math', 'Latin Modern Math', monospace;
+    color: #38bdf8;
+}
+
+.level-content-box .katex {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+}
+
