@@ -31,26 +31,48 @@ function setupHamburgerMenu() {
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
+        const closeMenu = () => {
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        };
+
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close menu when a link is clicked
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navMenu.classList.remove('active');
+                if (window.innerWidth <= 1024) {
+                    closeMenu();
                 }
             });
         });
 
         // Close menu when clicking outside navbar
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar')) {
-                navMenu.classList.remove('active');
+            if (e.target instanceof Element && !e.target.closest('.navbar')) {
+                closeMenu();
             }
         });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
     }
+}
+
+function setupResponsiveFilters() {
+    document.querySelectorAll('.filters-toggle').forEach(button => {
+        const panel = document.getElementById(button.getAttribute('aria-controls'));
+        if (!panel) return;
+
+        button.addEventListener('click', () => {
+            const isOpen = panel.classList.toggle('is-open');
+            button.setAttribute('aria-expanded', String(isOpen));
+        });
+    });
 }
 
 // Modal functionality
@@ -738,6 +760,7 @@ function setupAuthListener() {
 document.addEventListener('DOMContentLoaded', () => {
     updateNavigation();
     setupHamburgerMenu();
+    setupResponsiveFilters();
     setupSmoothScroll();
     setupModal('.modal');
     setupModal('.experiment-modal');
@@ -754,4 +777,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-

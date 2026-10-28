@@ -28,7 +28,7 @@
                 </svg>
                 <span>SciFiLens</span>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="movies.html" class="nav-link">Movies</a></li>
                 <li><a href="science.html" class="nav-link active">Real Science</a></li>
@@ -52,11 +52,11 @@
                     </svg>
                 </button>
             </div>
-            <div class="hamburger">
+            <button type="button" class="hamburger" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -69,7 +69,8 @@
 
     <!-- Filters Section -->
     <section class="science-container">
-        <aside class="filters-panel">
+        <button type="button" class="filters-toggle" aria-controls="scienceFilters" aria-expanded="false">Filters</button>
+        <aside class="filters-panel" id="scienceFilters">
             <div class="filter-group">
                 <h3>Search Concepts</h3>
                 <input type="text" id="searchInput" class="search-input" placeholder="Search concepts...">

@@ -1,8 +1,11 @@
 /* ============================================================
-   SCIFILENS — MOBILE RESPONSIVENESS FIXES
-   All rules are inside mobile-targeted media queries.
-   Desktop layout is completely unchanged.
+   SCIFILENS — RESPONSIVE LAYOUT FIXES
+   Breakpoint-scoped changes preserve the wide desktop layout.
    ============================================================ */
+
+.filters-toggle {
+    display: none;
+}
 
 /* ============================================================
    GLOBAL MOBILE BASE  (≤ 768px)
@@ -42,8 +45,7 @@
         gap: 0.5rem;
     }
 
-    /* Hide nav actions (search/profile buttons) on very small screens
-       so hamburger gets space — they are still reachable via the menu */
+    /* Keep nav actions compact alongside the mobile menu button */
     .nav-actions {
         gap: 0.5rem;
     }
@@ -262,8 +264,7 @@
         width: 100%;
     }
 
-    /* Filter section: collapse by default on mobile — 
-       users can scroll it. No JS change needed. */
+    /* Keep filter spacing compact when the panel is expanded */
     .filter-group {
         margin-bottom: 1rem;
         padding-bottom: 1rem;
@@ -274,7 +275,7 @@
     }
 
     .movies-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 0.75rem;
     }
 
@@ -889,7 +890,7 @@
         grid-template-columns: 1fr;
     }
 
-    /* Movies grid: single column at 480px */
+    /* Movies grid: single column when two cards would be cramped */
     .movies-grid {
         grid-template-columns: 1fr;
     }
@@ -952,6 +953,160 @@
     section {
         padding-left: 0.75rem;
         padding-right: 0.75rem;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE FILTERS AND CONTENT WIDTHS
+   ============================================================ */
+@media (max-width: 768px) {
+    .hamburger {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        padding: 0.5rem;
+        color: inherit;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .hamburger:focus-visible,
+    .filters-toggle:focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 3px;
+    }
+
+    .filters-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        min-height: 44px;
+        padding: 0.65rem 1rem;
+        background: rgba(0, 102, 255, 0.15);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        color: var(--text-primary);
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .filters-panel:not(.is-open) {
+        display: none;
+    }
+
+    .filters-panel.is-open {
+        display: block;
+    }
+
+    .movies-grid-wrapper,
+    .science-grid-wrapper,
+    .experiments-grid-wrapper {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .movies-grid,
+    .science-grid,
+    .experiments-grid,
+    .featured-grid,
+    .what-if-grid,
+    .categories-grid {
+        min-width: 0;
+    }
+
+    .movie-card-content,
+    .movie-card-title,
+    .movie-card-meta {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .movie-card-meta {
+        flex-wrap: wrap;
+        gap: 0.4rem 0.75rem;
+    }
+
+    .movie-poster {
+        aspect-ratio: 2 / 3;
+    }
+
+    .page-header h1 {
+        overflow-wrap: anywhere;
+        line-height: 1.2;
+    }
+
+    .page-header p,
+    .section-subtitle {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (min-width: 561px) and (max-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-container {
+        position: relative;
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0.5rem 0;
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hamburger {
+        appearance: none;
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0.5rem;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
     }
 }
 
@@ -1029,4 +1184,3 @@
         overflow-y: auto;
     }
 }
-
