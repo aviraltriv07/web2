@@ -29,21 +29,26 @@ function updateNavigation() {
 function setupHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         });
-        
+
         // Close menu when a link is clicked
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    navMenu.style.display = 'none';
                     navMenu.classList.remove('active');
                 }
             });
+        });
+
+        // Close menu when clicking outside navbar
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navMenu.classList.remove('active');
+            }
         });
     }
 }
