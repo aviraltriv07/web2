@@ -2,8 +2,8 @@
 
 ## Getting Started
 
-### No Installation Required!
-This project uses **vanilla HTML, CSS, and JavaScript** - no build tools or dependencies needed.
+### No Installation Required
+This project uses **vanilla HTML, CSS, and JavaScript**. It has no build step or package dependencies. Run it through a small local web server so the browser can load the JSON data files.
 
 ### Steps to Run:
 
@@ -12,12 +12,13 @@ This project uses **vanilla HTML, CSS, and JavaScript** - no build tools or depe
    cd c:\Users\Admin\OneDrive\Desktop\web2
    ```
 
-2. **Open in browser** - Use any of these methods:
-   - **Double-click** `index.html` to open in your default browser
-   - **Right-click** `index.html` → "Open with" → Choose your browser
-   - **Drag & drop** `index.html` onto your browser window
+2. **Start a local server** from the project folder in a terminal:
+   ```powershell
+   python -m http.server 8000
+   ```
+   Alternatively, open the folder in VS Code and use the Live Server extension.
 
-3. **That's it!** The website is fully functional and ready to use.
+3. **Open** `http://localhost:8000` in your browser. Keep the server terminal open while using the site.
 
 ## Project Features
 
@@ -69,10 +70,12 @@ web2/
 │   └── quiz.js                  # Quiz logic
 │
 ├── data/
-│   ├── movies.json              # 6 movies
-│   ├── science-concepts.json    # 8 concepts
+│   ├── movies.json              # 112 movies
+│   ├── science-concepts.json    # 36 concepts
 │   ├── quiz-questions.json      # 10 questions
-│   └── experiments.json         # 5 experiments
+│   ├── experiments.json         # 5 calculator-style experiments
+│   ├── movie-simulations.json   # 15 interactive simulations
+│   └── concept-movie-clips.json # Movie-scene references for concepts
 │
 ├── README.md                     # Documentation
 └── QUICKSTART.md               # This file
@@ -80,7 +83,7 @@ web2/
 
 ## What's Included
 
-### 6 Featured Movies
+### Example Movies
 1. **Interstellar** (4.5/5) ⭐
 2. **The Martian** (4.8/5) ⭐
 3. **Gravity** (3.5/5) ⭐
@@ -88,7 +91,7 @@ web2/
 5. **2001: A Space Odyssey** (4.3/5) ⭐
 6. **Inception** (2.8/5) ⭐
 
-### 8 Science Concepts
+### Example Science Concepts
 - Black Holes 🕳️
 - Time Dilation ⏰
 - Wormholes 🌉
@@ -98,12 +101,14 @@ web2/
 - Quantum Physics 🌊
 - Artificial Intelligence 🤖
 
-### 5 Interactive Experiments
+### Calculator-Style Experiments
 - Gravitational Time Dilation
 - Escape Velocity
 - Orbital Motion
 - Projectile Motion
 - Black Hole Event Horizon
+
+The Experiments page also contains 15 interactive movie-scene simulations. Related movie pages include links to matching experiments.
 
 ### 10 Quiz Questions
 - Test your knowledge of science and sci-fi

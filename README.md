@@ -8,7 +8,7 @@ A modern, futuristic website exploring the science behind science-fiction movies
 - **Movie Library** - Searchable, filterable collection of sci-fi movies with scientific accuracy ratings
 - **Movie Details** - Cinematic detail pages showing the science behind each film
 - **Science Explorer** - Interactive library of scientific concepts with explanations
-- **Interactive Experiments** - Physics calculators and visualizations (Time Dilation, Escape Velocity, Orbital Motion, Projectile Motion, Black Holes)
+- **Interactive Experiments** - Physics calculators plus 15 interactive movie-scene simulations
 - **Quiz** - Science fiction science quiz with instant feedback
 - **About Page** - Information about the SciFiLens mission
 - **Responsive Design** - Works perfectly on desktop, tablet, and mobile devices
@@ -26,7 +26,9 @@ SciFiLens/
 ├── about.html                # About page
 │
 ├── css/
-│   └── styles.css            # Main stylesheet (5000+ lines of modern CSS)
+│   ├── styles.css            # Main stylesheet
+│   ├── mobile.css            # Responsive layout rules
+│   └── auth.css              # Authentication and profile styling
 │
 ├── js/
 │   ├── main.js               # Shared functionality
@@ -37,11 +39,14 @@ SciFiLens/
 │   ├── experiments.js        # Physics experiments and visualizations
 │   └── quiz.js               # Quiz logic and scoring
 │
+├── physics-movie-simulations.html # Standalone canvas simulations, embedded by Experiments
 └── data/
-    ├── movies.json           # Movie data (6 movies with full details)
-    ├── science-concepts.json # 8 scientific concepts with explanations
-    ├── quiz-questions.json   # 10 quiz questions with answers
-    └── experiments.json      # 5 interactive physics experiments
+    ├── movies.json               # 112 movie records
+    ├── science-concepts.json     # 36 concepts
+    ├── quiz-questions.json       # 10 quiz questions
+    ├── experiments.json          # 5 calculator-style experiments
+    ├── movie-simulations.json    # 15 simulations and movie associations
+    └── concept-movie-clips.json  # Movie-scene links for concepts
 ```
 
 ## 🎨 Design Features
@@ -76,7 +81,7 @@ SciFiLens/
 
 ## 📊 Mock Data
 
-### Movies
+### Example Movies
 - **Interstellar** (4.5/5) - Black Holes, Time Dilation, Wormholes, Relativity
 - **The Martian** (4.8/5) - Space Travel, Orbital Mechanics, Chemistry, Botany
 - **Gravity** (3.5/5) - Orbital Mechanics, Zero Gravity, Space Debris
@@ -84,7 +89,7 @@ SciFiLens/
 - **2001: A Space Odyssey** (4.3/5) - Artificial Gravity, Orbital Mechanics, AI
 - **Inception** (2.8/5) - Neuroscience, Psychology, Quantum Physics, Consciousness
 
-### Science Concepts
+### Example Science Concepts
 1. **Black Holes** (Advanced) - Event horizons and singularities
 2. **Time Dilation** (Intermediate) - Relativity effects on time
 3. **Wormholes** (Advanced) - Einstein-Rosen bridges
@@ -94,12 +99,14 @@ SciFiLens/
 7. **Quantum Physics** (Advanced) - Subatomic phenomena
 8. **Artificial Intelligence** (Intermediate) - Machine learning and consciousness
 
-### Interactive Experiments
+### Calculator-Style Experiments
 1. **Gravitational Time Dilation** - Adjust mass and distance to see time effects
 2. **Escape Velocity** - Calculate minimum speed to escape gravitational pull
 3. **Orbital Motion** - Explore circular orbital mechanics
 4. **Projectile Motion** - Classic physics with adjustable angle and velocity
 5. **Black Hole Event Horizon** - Calculate Schwarzschild radius
+
+The Experiments page also includes 15 canvas simulations covering orbital mechanics, waves, electromagnetism, scaling, quantum physics, buoyancy, impacts, nuclear physics, and heat diffusion. Movie detail pages link to experiments associated with that film.
 
 ### Quiz
 10 science-fiction science questions covering:

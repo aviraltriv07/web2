@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SciFiLens | Physics at the Movies</title>
+<style>
+:root{--bg:#f6f7f9;--fg:#14181f;--mu:#5b6573;--cd:#fff;--bd:#d9dee5;--ac:#2563eb;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0a0a;--fg:#e8ecf2;--mu:#98a3b3;--cd:#14171c;--bd:#262b33;--ac:#6ea8ff}}
+:root[data-theme="dark"]{--bg:#0a0a0a;--fg:#e8ecf2;--mu:#98a3b3;--cd:#14171c;--bd:#262b33;--ac:#6ea8ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main,footer{max-width:1180px;margin:auto;padding:16px}
+h1{margin:0;font-size:1.5rem}h2{margin:0;font-size:1.2rem}p{margin:.3rem 0}.mu{color:var(--mu)}
+nav{display:flex;gap:8px;overflow-x:auto;padding:4px 16px 12px;max-width:1180px;margin:auto}
+button{font:inherit;color:var(--fg);background:var(--cd);border:1px solid var(--bd);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+nav button{flex:none}button.on{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+main{display:grid;gap:16px;grid-template-columns:minmax(0,1fr);align-items:start}
+@media(min-width:900px){main{grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr)}}
+canvas{width:100%;aspect-ratio:16/9;display:block;border-radius:12px;border:1px solid var(--bd);touch-action:none;background:#0b0f14}
+.panel{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:16px}
+label{display:grid;grid-template-columns:1fr auto;gap:2px 8px;margin:10px 0;font-size:.85rem}
+label input{grid-column:1/3;width:100%;accent-color:var(--ac)}
+.row{display:flex;gap:8px;margin-top:8px}
+.ro{white-space:pre-line;line-height:1.65;font-size:.88rem;color:var(--ac);min-height:8em;font-variant-numeric:tabular-nums;margin-top:12px}
+footer{color:var(--mu);font-size:.8rem}
+body.embedded{min-height:100vh;background:#080d18}
+body.embedded header,body.embedded footer{display:none}
+body.embedded nav{max-width:none;padding:10px 12px 12px}
+body.embedded main{max-width:none;padding:0 12px 12px;gap:12px}
+body.embedded .panel{max-height:74vh;overflow:auto}
+body.embedded canvas{min-height:280px}
+</style></head><body>
+<header><h1>🎬 Physics at the Movies</h1><p class="mu">15 interactive simulations of the real science behind famous film scenes.</p></header>
+<nav id="nav"></nav>
+<main>
+<canvas id="cv" width="1600" height="900"></canvas>
+<section class="panel"><h2 id="ti"></h2><p id="mv" class="mu"></p><p id="ds"></p><div id="ctl"></div>
+<div class="row"><button id="rb">⟲ Restart</button><button id="pb">⏸ Pause</button></div><p id="ro" class="ro"></p></section>
+</main>
+<footer>Original simulations in the spirit of simuphysics.com’s topic categories. Pure canvas + JavaScript, no dependencies. Film scenes are dramatized; the physics is real.</footer>
+<script>
+const R=Math.random,PI=Math.PI,sin=Math.sin,cos=Math.cos,sqrt=Math.sqrt,abs=Math.abs,W=800,H=450,$=s=>document.querySelector(s);
+const cv=$('#cv'),g=cv.getContext('2d');g.scale(2,2);
+let P,X,cur,paused=0,last=0;
+const pageParams=new URLSearchParams(location.search),embedMode=pageParams.get('embed')==='1';
+if(embedMode){document.documentElement.dataset.theme='dark';document.body.classList.add('embedded')}
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const dot=(x,y,r,c)=>{g.fillStyle=g.shadowColor=c;g.shadowBlur=r*2+3;g.beginPath();g.arc(x,y,r,0,7);g.fill();g.shadowBlur=0};
+const ln=(a,b,c,d,s='#8895a7',w=1)=>{g.strokeStyle=s;g.lineWidth=w;g.beginPath();g.moveTo(a,b);g.lineTo(c,d);g.stroke()};
+const tx=(s,x,y,c='#cfd8e3',a='left')=>{g.fillStyle=c;g.textAlign=a;g.font='13px system-ui,sans-serif';g.fillText(s,x,y)};
+const poly=(a,c,w=2,o=[0,0])=>{if(a.length<2)return;g.strokeStyle=g.shadowColor=c;g.shadowBlur=7;g.lineWidth=w;g.beginPath();a.forEach((p,i)=>i?g.lineTo(p[0]+o[0],p[1]+o[1]):g.moveTo(p[0]+o[0],p[1]+o[1]));g.stroke();g.shadowBlur=0};
+const fmt=n=>n>=1e5?n.toExponential(1):n>=100?n.toFixed(0):n>=1?n.toFixed(1):n.toFixed(2);
+const reset=()=>{X={};cur.i&&cur.i()};
+const clk=(x,y,a,l)=>{g.strokeStyle='#cfd8e3';g.lineWidth=2;g.beginPath();g.arc(x,y,36,0,7);g.stroke();ln(x,y,x+30*sin(a),y-30*cos(a),'#ff9f43',3);tx(l,x,y+58,'#98a3b3','center')};
+
+const S=[
+{n:'Gravitational Time Dilation',m:'Interstellar',e:'🕳️',d:'Near a black hole, clocks tick slower: dτ = dt·√(1 − rₛ/r). On Miller’s planet an hour cost seven years back home. Slide closer to the horizon.',
+p:[['q','Closeness to horizon',0,11,4,.1]],
+f(dt){X.t=(X.t||0)+dt;const r=1+10**(.6-P.q),k=sqrt(1-1/r),nx=170+50*r;
+ dot(100,225,50,'#000');g.strokeStyle='#ffb84d';g.lineWidth=5;g.beginPath();g.ellipse(100,225,92,20,-.3,0,7);g.stroke();
+ clk(nx,225,X.t*k*2.2,'Near the hole');clk(690,225,X.t*2.2,'Far away');
+ const t=1/k;return `1 hour near the hole = ${t<1e3?fmt(t)+' hours':fmt(t/8766)+' years'} far away`}},
+
+{n:'Orbital Mechanics',m:'Apollo 13 / Gravity',e:'🛰️',d:'Gravity bends a spacecraft’s path into a conic section. Too slow and you re-enter; just right and you orbit; too fast and you escape.',
+p:[['v','Burn speed (× circular)',.3,1.5,.85,.01]],rs:1,
+i(){X={x:150,y:0,vx:0,vy:P.v*60,tr:[]}},
+f(dt){const s=X,GM=540000;if(!s.end){for(let k=0;k<20;k++){const h=dt/20,r2=s.x*s.x+s.y*s.y,a=-GM/(r2*sqrt(r2));s.vx+=a*s.x*h;s.vy+=a*s.y*h;s.x+=s.vx*h;s.y+=s.vy*h}
+ s.tr.push([s.x,s.y]);if(s.tr.length>600)s.tr.shift();const r=sqrt(s.x*s.x+s.y*s.y);
+ if(r<22)s.end='💥 Re-entry: the burn was too weak';if(r>560)s.end='🚀 Escaped to deep space'}
+ dot(400,225,22,'#2d6cdf');poly(s.tr,'#ffb84d88',1.5,[400,225]);dot(400+s.x,225+s.y,4,'#fff');
+ return s.end||`Altitude ${fmt(sqrt(s.x*s.x+s.y*s.y)-22)} · speed ${fmt(sqrt(s.vx*s.vx+s.vy*s.vy))} (circular = 60)`}},
+
+{n:'Ramp Jump Projectile',m:'Fast & Furious',e:'🚗',d:'A car leaves the ramp as a projectile. Range depends on speed and angle (R = v²·sin2θ / g); air drag shortens it. Clear the gap to the far platform.',
+p:[['v','Launch speed (m/s)',10,50,38,1],['a','Ramp angle (°)',0,45,20,1],['k','Air drag',0,.02,0,.002]],rs:1,
+i(){const a=P.a*PI/180;X={x:0,y:0,vx:P.v*cos(a),vy:P.v*sin(a),tr:[]}},
+f(dt){const s=X,sc=6,gx=40,gy=380;
+ if(!s.end){for(let k=0;k<4;k++){const h=dt/4,v=sqrt(s.vx*s.vx+s.vy*s.vy);s.vx-=P.k*v*s.vx*h;s.vy-=(9.8+P.k*v*s.vy)*h;s.x+=s.vx*h;s.y+=s.vy*h;
+  if(s.y<=0&&s.vy<0){s.end=s.x>=70&&s.x<=125?`✅ Clean landing at ${s.x|0} m`:s.x<70?`💦 Fell short at ${s.x|0} m`:`💨 Overshot at ${s.x|0} m`;break}}
+  s.tr.push([s.x,s.y])}
+ g.fillStyle='#1e4f7a';g.fillRect(0,400,W,50);g.fillStyle='#4a5565';g.fillRect(0,gy,gx,70);g.fillRect(gx+70*sc,gy,55*sc,70);
+ s.tr.forEach(p=>dot(gx+p[0]*sc,gy-p[1]*sc,1.5,'#ffb84d'));g.fillStyle='#e23d3d';g.fillRect(gx+s.x*sc-9,gy-s.y*sc-9,18,8);
+ return s.end||`Distance ${s.x|0} m · height ${fmt(s.y)} m`}},
+
+{n:'Ripple Interference',m:'Jurassic Park',e:'🦖',d:'The T. rex footsteps shake the water in the cup. Two wave sources interfere constructively and destructively. Click or drag the water to add a footstep.',
+p:[['f','Frequency',.15,.5,.3,.01],['s','Source spacing',3,20,10,1]],
+i(){X={u:new Float32Array(5600),v:new Float32Array(5600),s:0}},
+q(x,y){X.u[cl(y/8|0,1,54)*100+cl(x/8|0,1,98)]=5},
+f(dt){const{u,v}=X;for(let n=0;n<(dt?3:0);n++){X.s++;for(let y=1;y<55;y++)for(let x=1;x<99;x++){const k=y*100+x;v[k]+=.25*(u[k-1]+u[k+1]+u[k-100]+u[k+100]-4*u[k])}
+ for(let k=0;k<5600;k++){v[k]*=.995;u[k]+=v[k]}const a=2*sin(X.s*P.f);u[(28-P.s)*100+15]=a;u[(28+P.s)*100+15]=a}
+ for(let y=0;y<56;y++)for(let x=0;x<100;x++){g.fillStyle=`hsl(205 85% ${cl(30+u[y*100+x]*18,4,92)}%)`;g.fillRect(x*8,y*8,8.5,8.5)}
+ dot(124,(28-P.s)*8+4,4,'#ffb84d');dot(124,(28+P.s)*8+4,4,'#ffb84d');return `Wavelength ≈ ${fmt(.5*2*PI/P.f)} cells · click to splash`}},
+
+{n:'Charged Particle in a Magnetic Field',m:'Iron Man (arc reactor)',e:'⚛️',d:'Magnetic fields bend moving charges into circles (r = mv/qB). Add an electric field and the orbit drifts sideways (E×B drift), the principle behind tokamak reactors.',
+p:[['B','Magnetic field B',.2,3,1,.05],['v','Particle speed',40,200,100,5],['E','Electric field E',0,1.5,0,.05]],rs:1,
+i(){X={x:400,y:225,vx:P.v,vy:0,tr:[]}},
+f(dt){const s=X;for(let k=0;k<8;k++){const h=dt/8,c=cos(P.B*h),n=sin(P.B*h),a=s.vx*c+s.vy*n;s.vy=-s.vx*n+s.vy*c;s.vx=a;s.vy+=P.E*50*h;s.x+=s.vx*h;s.y+=s.vy*h}
+ s.tr.push([s.x,s.y]);if(s.tr.length>700)s.tr.shift();
+ for(let a=40;a<800;a+=80)for(let b=40;b<450;b+=80)tx('×',a,b,'#2a3a55','center');
+ poly(s.tr,'#5ee7ff',2);dot(s.x,s.y,5,'#fff');if(s.x<-20||s.x>820||s.y<-20||s.y>470){reset();return}
+ return `Larmor radius r = mv/qB ≈ ${fmt(P.v/P.B)} px · drift speed E/B ≈ ${fmt(50*P.E/P.B)}`}},
+
+{n:'Electric Field Lines',m:'Thor / Spider-Man 2 (Electro)',e:'⚡',d:'Field lines leave positive charges and enter negative ones. Like charges repel, opposites attract with F ∝ q₁q₂/d². Change the charges and spacing.',
+p:[['a','Charge 1',-3,3,2,1],['b','Charge 2',-3,3,-2,1],['d','Separation',60,300,200,10]],
+f(dt){X.t=(X.t||0)+dt;const d=P.d,cs=[[400-d/2,225,P.a],[400+d/2,225,P.b]];g.setLineDash([7,6]);
+ cs.forEach(([cx,cy,q])=>{if(!q)return;const sg=q>0?1:-1,N=Math.round(abs(q)*8);
+  for(let i=0;i<N;i++){let x=cx+12*cos(2*PI*i/N+.3),y=cy+12*sin(2*PI*i/N+.3);const pts=[[x,y]];
+   for(let k=0;k<260;k++){let ex=0,ey=0;for(const c of cs){const dx=x-c[0],dy=y-c[1],r2=dx*dx+dy*dy+1,r3=r2*sqrt(r2);ex+=c[2]*dx/r3;ey+=c[2]*dy/r3}
+    const m=sqrt(ex*ex+ey*ey)||1;x+=sg*5*ex/m;y+=sg*5*ey/m;pts.push([x,y]);
+    if(x<0||x>W||y<0||y>H||cs.some(c=>c[2]&&(x-c[0])**2+(y-c[1])**2<100))break}
+   g.lineDashOffset=-X.t*30*sg;poly(pts,q>0?'#ff7b7b':'#6fb3ff',1.6)}});
+ g.setLineDash([]);cs.forEach(([cx,cy,q])=>{if(q){dot(cx,cy,10,q>0?'#e23d3d':'#2b6cd7');tx(q>0?'+':'−',cx,cy+5,'#fff','center')}});
+ return P.a*P.b>0?'Like charges: they repel':P.a*P.b<0?'Opposite charges: they attract':'Only one charge active'}},
+
+{n:'The Square–Cube Law',m:'Ant-Man',e:'🐜',d:'Strength grows with cross-section (size²) but weight grows with volume (size³). Shrink and you get relatively stronger, which is why ants lift many times their weight.',
+p:[['x','Height (log₁₀ metres)',-2.5,.5,.26,.01]],
+f(){const h=10**P.x,s=h/1.8,hp=30+(P.x+2.5)*115,fx=130,fy=400,ink='#cfd8e3';
+ dot(fx,fy-hp,hp*.08+3,'#e23d3d');ln(fx,fy-hp*.9,fx,fy-hp*.45,ink,3);ln(fx,fy-hp*.45,fx-hp*.15,fy,ink,3);ln(fx,fy-hp*.45,fx+hp*.15,fy,ink,3);ln(fx-hp*.2,fy-hp*.7,fx+hp*.2,fy-hp*.7,ink,3);ln(0,fy,260,fy,'#4a5565',2);
+ ln(560,95,560,380,'#8895a7');tx('human size = ×1',560,85,'#98a3b3','center');
+ [['Strength (∝ size²)',s**2,'#6fe27f'],['Weight (∝ size³)',s**3,'#ff7b7b'],['Strength ÷ weight (∝ 1/size)',1/s,'#ffb84d']].forEach(([l,v,c],i)=>{const y=125+i*85,w=60*Math.log10(v);tx(l,380,y-10,'#98a3b3');g.fillStyle=c;g.fillRect(560,y,w,26);tx('×'+fmt(v),w>0?570+w:568,y+18,'#fff')});
+ const sz=h<.01?fmt(h*1e3)+' mm':h<1?fmt(h*100)+' cm':fmt(h)+' m';return `${sz} tall · lifts ${fmt(1/s)}× its own weight (log scale)`}},
+
+{n:'Doppler Effect & Sonic Boom',m:'Top Gun: Maverick',e:'✈️',d:'Waves bunch up in front of a moving source (Doppler). At Mach 1 they pile into a shock wave; above it they form a cone with sin μ = 1/Mach: the sonic boom.',
+p:[['m','Mach number',0,3,.8,.05]],
+i(){X={x:60,w:[],e:0}},
+f(dt){const s=X,c=100,M=P.m;s.x+=M*c*dt;s.e+=dt;if(s.e>.1){s.e=0;s.w.push([s.x,0])}
+ s.w.forEach(w=>w[1]+=dt);s.w=s.w.filter(w=>w[1]*c<700);if(s.x>W+30){s.x=-30;s.w=[]}
+ s.w.forEach(([x,a])=>{g.strokeStyle='#6fb3ff99';g.lineWidth=1;g.beginPath();g.arc(x,225,a*c,0,7);g.stroke()});
+ let r='Subsonic: waves bunch up ahead (higher pitch in front, lower behind)';
+ if(M>=1){const m=Math.asin(1/M);ln(s.x,225,s.x-700*cos(m),225-700*sin(m),'#ffb84d',2);ln(s.x,225,s.x-700*cos(m),225+700*sin(m),'#ffb84d',2);r=`💥 Mach cone half-angle ${(m*180/PI).toFixed(1)}° · sonic boom`}
+ dot(s.x,225,6,'#fff');return r}},
+
+{n:'Artificial Gravity',m:'2001: A Space Odyssey',e:'🌀',d:'A spinning station presses crew against the rim with centripetal acceleration a = ω²r. Tune radius and spin rate until it feels like 1 g.',
+p:[['R','Radius (m)',50,1000,224,1],['r','Spin (rpm)',.5,6,2,.1]],
+f(dt){const w=2*PI*P.r/60,gg=w*w*P.R/9.8;X.a=(X.a||0)+w*dt*3;
+ g.strokeStyle='#5b6b82';g.lineWidth=26;g.beginPath();g.arc(300,225,150,0,7);g.stroke();
+ for(let k=0;k<3;k++){const a=X.a+k*2*PI/3;ln(300,225,300+150*cos(a),225+150*sin(a),'#5b6b82',4)}
+ dot(300,225,16,'#8895a7');const a=X.a+.8;ln(300+137*cos(a),225+137*sin(a),300+107*cos(a),225+107*sin(a),'#ff9f43',5);dot(300+100*cos(a),225+100*sin(a),6,'#ff9f43');
+ tx('Gravity felt',620,120,'#98a3b3','center');g.fillStyle='#262b33';g.fillRect(600,140,40,230);const h=Math.min(gg,2)/2*230;
+ g.fillStyle=gg<.8?'#ffb84d':gg>1.3?'#ff7b7b':'#6fe27f';g.fillRect(600,370-h,40,h);ln(590,255,650,255,'#fff',2);tx('1 g',660,259);
+ return `${fmt(gg)} g at the rim · ω = ${w.toFixed(2)} rad/s`+(P.r>4?' · ⚠️ dizzying Coriolis effect':'')}},
+
+{n:'Buoyancy & Sinking',m:'Titanic',e:'🚢',d:'Archimedes: a hull floats while its average density is below water’s. Flooded compartments raise the average density until the ship goes under.',
+p:[['d','Average density (water = 1)',.2,1.4,.5,.01]],rs:1,
+i(){X={y:30,v:0}},
+f(dt){const s=X,d=P.d;for(let k=0;k<4;k++){const h=dt/4,sb=cl((s.y+90-250)/90,0,1);s.v+=300*(1-sb/d)*h;s.v*=1-2.5*h;s.y+=s.v*h;if(s.y>350){s.y=350;s.v=0}}
+ g.fillStyle='#dbe7f3';g.beginPath();g.moveTo(600,250);g.lineTo(660,150);g.lineTo(730,250);g.fill();
+ g.fillStyle=d>1?'#7a2e2e':'#c9d3df';g.fillRect(280,s.y,240,90);tx('TITANIC',400,s.y+52,'#0b0f14','center');
+ g.fillStyle='#1e5fa066';g.fillRect(0,250,W,200);ln(0,250,W,250,'#6fb3ff',2);
+ return `Average density ${d.toFixed(2)} × water: `+(d<1?`floats, ${d*100|0}% submerged`:'sinks. Flooding raised the density')}},
+
+{n:'Asteroid Impact Energy',m:'Armageddon',e:'☄️',d:'Impact energy E = ½mv² grows with the cube of diameter and the square of speed. Compare it with nuclear bombs and the dinosaur-killing impact.',
+p:[['x','Diameter (log₁₀ metres)',1,4,2.7,.05],['v','Speed (km/s)',5,70,20,1]],
+f(dt){X.t=((X.t||0)+dt)%4.5;const t=X.t,x=P.x,d=10**x,m=3000*PI/6*d**3,Mt=.5*m*(P.v*1e3)**2/4.184e15;
+ g.fillStyle='#1b3a66';g.beginPath();g.arc(400,1100,740,0,7);g.fill();
+ if(t<2){const k=t/2,ax=60+340*k,ay=30+330*k;ln(ax,ay,ax-50,ay-50,'#ffb84d99',4+x);dot(ax,ay,3+x*2.5,'#c9a27a')}
+ else{const e=t-2;g.globalAlpha=cl(1-e/2.5,0,1);dot(400,350,10+x*14*Math.min(e*2,1),'#ffb84d');g.strokeStyle='#fff';g.lineWidth=3;g.beginPath();g.arc(400,360,e*(70+x*40),0,7);g.stroke();g.globalAlpha=1}
+ return `Diameter ${fmt(d)} m · energy ${fmt(Mt)} Mt TNT ≈ ${fmt(Mt/.015)} Hiroshima bombs (dinosaur-killer ≈ 10⁸ Mt)`}},
+
+{n:'Double-Slit Experiment',m:'Ant-Man: Quantum Realm',e:'🌌',d:'Single particles build an interference pattern, as if each passed through both slits. Watch which slit it uses and the pattern disappears.',
+p:[['l','Wavelength (nm)',400,700,550,10],['d','Slit separation (µm)',2,10,5,.5],['w','Which-slit detector (0 off, 1 on)',0,1,0,1]],rs:1,
+i(){X={b:new Array(150).fill(0),n:0}},
+f(dt){const s=X,e=P.l/1e3,I=y=>{const A=PI*P.d*y/e,B=PI*y/e;return(P.w?1:cos(A)**2)*(B?(sin(B)/B)**2:1)};
+ if(dt)for(let k=0;k<80;k++){const y=R()*2-1;if(R()<I(y)){s.b[cl((y+1)*75|0,0,149)]++;s.n++}}
+ const mx=Math.max(1,...s.b),y1=225-P.d*8,y2=225+P.d*8;dot(50,225,6,'#ffb84d');
+ g.fillStyle='#8895a7';g.fillRect(247,0,6,y1-4);g.fillRect(247,y1+4,6,y2-y1-8);g.fillRect(247,y2+4,6,450-y2-4);
+ ln(50,225,250,y1,'#ffb84d66');ln(50,225,250,y2,'#ffb84d66');for(let j=0;j<5;j++){ln(250,y1,560,40+j*90,'#6fb3ff2a');ln(250,y2,560,40+j*90,'#6fb3ff2a')}
+ ln(560,0,560,450,'#cfd8e3');s.b.forEach((c,j)=>{g.fillStyle='#6fe27f';g.fillRect(562,j*3,c/mx*210,2.6)});
+ poly(Array.from({length:150},(_,j)=>[562+I((j+.5)/75-1)*210,j*3+1]),'#ffffff66',1);
+ return `${s.n} particles detected · `+(P.w?'watched: no interference, particles act like bullets':'unwatched: wave interference fringes')}},
+
+{n:'Nuclear Chain Reaction',m:'Oppenheimer',e:'☢️',d:'Each fission releases 2–3 neutrons that can split more nuclei. If more than one survives per fission the reaction runs away. Insert control rods to tame it.',
+p:[['e','Enrichment (% fissile)',5,100,60,5],['c','Control rods inserted (%)',0,100,0,5]],rs:1,
+i(){X={a:[],n:[{x:30,y:225,vx:260,vy:40}],f:0};for(let k=0;k<150;k++)X.a.push({x:50+R()*700,y:15+R()*420,u:R()*100<P.e,d:0})},
+f(dt){const s=X;
+ for(let i=s.n.length-1;i>=0;i--){const n=s.n[i];n.x+=n.vx*dt;n.y+=n.vy*dt;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
+  if(dt&&R()<P.c/100*.1){s.n.splice(i,1);continue}
+  for(const a of s.a)if(a.u&&!a.d&&(a.x-n.x)**2+(a.y-n.y)**2<64){a.d=1;s.f++;s.n.splice(i,1);for(let k=0,m=2+(R()<.5);k<m;k++){const t=R()*7;if(s.n.length<500)s.n.push({x:a.x,y:a.y,vx:260*cos(t),vy:260*sin(t)})}break}}
+ g.fillStyle='#6b7280';[150,310,470,630].forEach(x=>g.fillRect(x,0,8,P.c*4.2));
+ s.a.forEach(a=>dot(a.x,a.y,a.u?5:3.5,a.d?'#ff7b4d':a.u?'#6fe27f':'#5b6b82'));s.n.forEach(n=>dot(n.x,n.y,2.2,'#fff'));
+ const F=s.a.filter(a=>a.u).length;return `Neutrons ${s.n.length} · fissions ${s.f}/${F}`+(s.n.length?'':' · chain reaction ended (subcritical)')+(s.f>F*.5?' · 💥 runaway!':'')}},
+
+{n:'Swinging Pendulum',m:'Spider-Man',e:'🕷️',d:'A web-swing is a pendulum: θ″ = −(g/L)·sinθ. The fastest speed and highest web tension occur at the bottom of the arc.',
+p:[['L','Web length (m)',5,35,25,1],['a','Release angle (°)',10,85,60,1],['b','Air drag',0,.3,.02,.01]],rs:1,
+i(){X={t:P.a*PI/180,w:0,tr:[]}},
+f(dt){const s=X,L=P.L;for(let k=0;k<10;k++){const h=dt/10;s.w+=(-9.8/L*sin(s.t)-P.b*s.w)*h;s.t+=s.w*h}
+ const x=400+L*9*sin(s.t),y=30+L*9*cos(s.t);if(dt)s.tr.push([x,y]);if(s.tr.length>150)s.tr.shift();
+ g.fillStyle='#3b4452';g.fillRect(330,0,140,30);poly(s.tr,'#ffffff44',2);ln(400,30,x,y,'#e8ecf2',1.5);dot(x,y,9,'#e23d3d');dot(x,y-2,4,'#2b5bd7');
+ const v=L*abs(s.w);return `Speed ${fmt(v)} m/s · web tension ${fmt(cos(s.t)+v*v/(9.8*L))}× body weight`}},
+
+{n:'Heat Diffusion',m:'The Day After Tomorrow',e:'❄️',d:'Heat flows from hot to cold: ∂T/∂t = α∇²T, so the flash-freeze front spreads inward from the cold edges. Click or drag to paint hot or cold.',
+p:[['k','Conductivity',.05,.24,.2,.01],['m','Brush (0 cold ❄️, 1 hot 🔥)',0,1,0,1]],
+i(){const A=new Float32Array(3600).fill(.5);for(let y=0;y<45;y++)for(let x=0;x<80;x++){if(!x||!y||x==79||y==44)A[y*80+x]=0;else if((x-40)**2+(y-22)**2<64)A[y*80+x]=1}X={T:A,N:A.slice()}},
+q(x,y){const cx=x/10|0,cy=y/10|0;for(let a=-3;a<=3;a++)for(let b=-3;b<=3;b++){const i=cx+a,j=cy+b;if(a*a+b*b<=10&&i>0&&i<79&&j>0&&j<44)X.T[j*80+i]=P.m}},
+f(dt){const s=X;for(let n=0;n<(dt?2:0);n++){const{T,N}=s;for(let y=1;y<44;y++)for(let x=1;x<79;x++){const k=y*80+x;N[k]=T[k]+P.k*(T[k-1]+T[k+1]+T[k-80]+T[k+80]-4*T[k])}s.T=N;s.N=T}
+ for(let y=0;y<45;y++)for(let x=0;x<80;x++){const v=cl(s.T[y*80+x],0,1);g.fillStyle=`hsl(${230-v*230} 85% ${22+v*34}%)`;g.fillRect(x*10,y*10,10.5,10.5)}
+ return `Painting ${P.m?'🔥 heat':'❄️ cold'} · the frozen edges stay at the minimum`}}
+];
+
+let TS=1;const BG=document.createElement('canvas');BG.width=1600;BG.height=900;{const b=BG.getContext('2d'),r=b.createRadialGradient(800,450,50,800,450,1000);r.addColorStop(0,'#14203a');r.addColorStop(1,'#04060c');b.fillStyle=r;b.fillRect(0,0,1600,900);
+for(let i=0;i<5;i++){const x=R()*1600,y=R()*900,n=b.createRadialGradient(x,y,0,x,y,280);n.addColorStop(0,`hsla(${200+R()*120},80%,50%,.12)`);n.addColorStop(1,'transparent');b.fillStyle=n;b.fillRect(0,0,1600,900)}
+for(let i=0;i<260;i++){b.fillStyle=`rgba(255,255,255,${.15+R()*.7})`;b.beginPath();b.arc(R()*1600,R()*900,R()*1.6+.3,0,7);b.fill()}}
+const fx=n=>n<.01?n.toExponential(1):fmt(n);
+
+S[0]={n:'Gargantua: Relativistic Orbit',m:'Interstellar',e:'🕳️',d:'A Schwarzschild black hole bends starlight into rings, brightens the approaching side of its disk (Doppler beaming) and slows clocks through both gravity and orbital speed. Tune mass, orbit and viewing angle.',
+p:[['M','Black-hole mass (log₁₀ M☉)',5,10,8,.1],['o','Orbit radius (× rₛ)',1.6,20,3.5,.05],['i','Disk inclination (°)',0,85,75,1],['l','Lensing strength',0,2,1,.05]],
+i(){X={t:0,s:[],k:[]};for(let i=0;i<260;i++)X.s.push([R()*800,R()*450,R()]);for(let i=0;i<2400;i++)X.k.push([3+R()*9,R()*7,R()])},
+f(dt){const s=X,rs=2.95*10**P.M,o=P.o,inc=P.i*PI/180,ci=cos(inc),si=sin(inc),cx=330,cy=225,sc=18,sh=2.6*sc,E=P.l*45;s.t+=dt;
+ s.s.forEach(([x,y,b])=>{const dx=x-cx,dy=y-cy,r=sqrt(dx*dx+dy*dy)+1,q=sqrt(r*r+4*E*E),a=(r+q)/2/r,c=(q-r)/2/r;g.fillStyle='#fff';g.globalAlpha=.3+b*.7;g.fillRect(cx+dx*a,cy+dy*a,1+b*1.4,1+b*1.4);g.globalAlpha*=.5;g.fillRect(cx-dx*c,cy-dy*c,1.2,1.2)});g.globalAlpha=1;
+ const pt=pass=>{g.globalCompositeOperation='lighter';s.k.forEach(([d,p0,jt])=>{const ph=p0+s.t*2.2*d**-1.5,sn=sin(ph);if((sn>=0)!=!!pass)return;const Rr=d*sc,b=1/sqrt(2*(d-1)),dop=1+1.6*b*cos(ph)*si,br=Math.min(1,dop**3*.5*(1.25-(d-3)/10));
+  g.fillStyle=`hsla(${22+(12-d)*4+(dop-1)*70},100%,${30+br*40}%,${.3+br*.6})`;g.fillRect(cx+Rr*cos(ph),cy+Rr*sn*ci+jt*2,2.2,2.2);
+  if(!pass){const ra=sh+Rr*.12;g.fillRect(cx+ra*1.3*cos(ph),cy-ra*abs(sn)*(.4+.6*si)+jt,1.8,1.8);g.fillRect(cx+ra*1.3*cos(ph),cy+ra*abs(sn)*(.3+.3*si)+jt,1.4,1.4)}});g.globalCompositeOperation='source-over'};
+ const gl=g.createRadialGradient(cx,cy,sh,cx,cy,sh*5);gl.addColorStop(0,'rgba(255,170,70,.35)');gl.addColorStop(1,'rgba(255,120,40,0)');g.fillStyle=gl;g.fillRect(0,0,W,H);pt(0);dot(cx,cy,sh,'#000');g.strokeStyle='#ffd9a0';g.lineWidth=1.6;g.shadowColor='#ffa94d';g.shadowBlur=16;g.beginPath();g.arc(cx,cy,sh+1,0,7);g.stroke();g.shadowBlur=0;pt(1);
+ const ps=s.t*2.2*o**-1.5,sx=cx+o*sc*cos(ps),sy=cy+o*sc*sin(ps)*ci;g.strokeStyle='#6fe2ff33';g.lineWidth=1;g.beginPath();g.ellipse(cx,cy,o*sc,o*sc*ci+.5,0,0,7);g.stroke();dot(sx,sy,4,'#8ff');tx('Ranger',sx+8,sy-8,'#8ff');
+ const f=sqrt(Math.max(0,1-1.5/o)),Om=299792/rs*sqrt(1/(2*o**3)),T=2*PI/Om;
+ return `Horizon rₛ = ${fx(rs)} km (${fx(rs/6.96e5)} R☉)\nOrbit ${fx(o*rs)} km · local speed ${(1/sqrt(2*(o-1))).toFixed(3)} c\nGravity-only clock rate ${sqrt(1-1/o).toFixed(4)}\nTotal dτ/dt (gravity + speed) = ${f.toFixed(4)}\n1 h aboard = ${f?fx(1/f)+' h':'∞'} outside\nOrbit period (outside clock) ${T<7200?fx(T/60)+' min':fx(T/3600)+' h'}\nTidal stretch over 2 m ≈ ${fx(4*Om*Om/9.81)} g`+(o<3?'\n⚠️ Inside the last stable orbit (3 rₛ): thrust required':'')}};
+
+S[1]={n:'Earth–Moon Free Return',m:'Apollo 13 / Gravity',e:'🌕',d:'A restricted three-body flight: Earth and Moon both pull on the ship while a finite-thrust burn (Tsiolkovsky rocket equation) sends it translunar. Tune Δv, burn timing, angle and the Moon’s phase to find a flyby, a capture or a crash.',
+p:[['dv','Trans-lunar burn Δv (km/s)',2.5,3.6,3.12,.01],['ph','Moon position at launch (°)',0,360,113,1],['bs','Burn start (° along parking orbit)',0,360,343,1],['ac','Engine acceleration (m/s²)',2,30,6,.5],['is','Engine Isp (s)',250,450,350,5],['an','Burn angle off prograde (°)',-30,30,0,1]],rs:1,
+i(){X={x:1.047,y:0,vx:0,vy:.977,t:0,b:0,u:0,tr:[],md:1e9,end:''}},
+f(dt){const s=X,D=60.3,F=r=>12+3.4*(r-1),mp=t=>{const a=P.ph*PI/180+.0021*t;return[D*cos(a),D*sin(a)]};
+ if(!s.end){const ac=(x,y,vx,vy,t,th)=>{const[mx,my]=mp(t),r=sqrt(x*x+y*y),dx=mx-x,dy=my-y,dm=sqrt(dx*dx+dy*dy),c1=1/(r*r*r),c2=.0123/(dm*dm*dm),c3=.0123/(D*D*D);let ax=-x*c1+dx*c2-mx*c3,ay=-y*c1+dy*c2-my*c3;if(th){const v=sqrt(vx*vx+vy*vy)||1,A=P.ac/9.798,q=P.an*PI/180,ux=vx/v,uy=vy/v;ax+=A*(ux*cos(q)-uy*sin(q));ay+=A*(ux*sin(q)+uy*cos(q))}return[ax,ay,r,dm]};
+  const hs=.0015;s.acc=(s.acc||0)+dt*12;let nn=0;
+  while(s.acc>=hs&&nn++<3000&&!s.end){s.acc-=hs;const ang=(Math.atan2(s.y,s.x)*180/PI+360)%360;if(s.b==0&&s.t>.5&&ang>=P.bs)s.b=1;
+   const th=s.b==1,[a0x,a0y]=ac(s.x,s.y,s.vx,s.vy,s.t,th),qx=s.vx+a0x*hs/2,qy=s.vy+a0y*hs/2;s.x+=qx*hs;s.y+=qy*hs;s.t+=hs;
+   const[a1x,a1y,r,dm]=ac(s.x,s.y,qx,qy,s.t,th);s.vx=qx+a1x*hs/2;s.vy=qy+a1y*hs/2;
+   if(th){s.u+=P.ac/9.798*hs;if(s.u>=P.dv/7.905)s.b=2}s.md=Math.min(s.md,dm);
+   if(s.t-(s.tl||0)>.25){s.tl=s.t;s.tr.push([s.x,s.y]);if(s.tr.length>4000)s.tr.shift()}
+   if(r<1){s.end=s.md*6378<150000?`🌍 Free return! Looped the Moon (closest ${(s.md*6378/1e3).toFixed(0)},000 km) and re-entered at ${(sqrt(s.vx*s.vx+s.vy*s.vy)*7.905).toFixed(1)} km/s`:'🌍 Re-entry: the path dipped into the atmosphere'}
+   else if(dm<.273)s.end='💥 Lunar impact';else if(r>90)s.end='🚀 Lost to deep space'}}
+ const[mx,my]=mp(s.t),P2=(x,y)=>{const r=sqrt(x*x+y*y)||1,k=F(r)/r;return[400+x*k,225-y*k]};
+ g.strokeStyle='#ffffff18';g.lineWidth=1;g.beginPath();g.arc(400,225,F(D),0,7);g.stroke();
+ const q=g.createRadialGradient(396,221,2,400,225,12);q.addColorStop(0,'#7fd0ff');q.addColorStop(.7,'#1d63c9');q.addColorStop(1,'#08224a');g.shadowColor='#4aa8ff';g.shadowBlur=24;g.fillStyle=q;g.beginPath();g.arc(400,225,11,0,7);g.fill();g.shadowBlur=0;
+ const[m2x,m2y]=P2(mx,my);dot(m2x,m2y,5,'#d4d8df');tx('Moon',m2x+9,m2y+4,'#98a3b3');poly(s.tr.map(p=>P2(p[0],p[1])),'#ffd27a',1.6);
+ const[sx,sy]=P2(s.x,s.y),v=sqrt(s.vx*s.vx+s.vy*s.vy);if(s.b==1)ln(sx,sy,sx-16*s.vx/v,sy+16*s.vy/v,'#ffa43a',4);dot(sx,sy,3.5,'#fff');tx('Odyssey',sx+8,sy-8,'#fff');
+ const r=sqrt(s.x*s.x+s.y*s.y),dm=sqrt((mx-s.x)**2+(my-s.y)**2);
+ return (s.end?s.end+'\n':'')+`Mission time ${(s.t*806.8/86400).toFixed(2)} days\nAltitude ${fx((r-1)*6378)} km · speed ${(v*7.905).toFixed(2)} km/s\nMoon distance ${fx(dm*6378)} km (closest ${fx(s.md*6378)} km)\nΔv used ${(s.u*7.905).toFixed(2)} / ${P.dv} km/s · propellant ${((1-Math.exp(-s.u*7905/(P.is*9.81)))*100).toFixed(0)}% of liftoff mass\nPhase: ${s.b==0?'parking orbit':s.b==1?'🔥 trans-lunar burn':'coasting'}`}};
+
+S[11]={n:'Electron Interference',m:'Ant-Man: Quantum Realm',e:'🌌',d:'N-slit interference of electrons with a real de Broglie wavelength λ = h/√(2meV). Fringes come from the slit spacing, the envelope from the slit width. Switch on the which-slit detector and the fringes vanish.',
+p:[['V','Electron energy (eV)',50,3000,150,10],['d','Slit spacing (nm)',200,2000,600,20],['a','Slit width (nm)',40,400,100,10],['N','Number of slits',1,6,2,1],['L','Screen distance (m)',.1,2,.5,.05],['w','Which-slit detector (0 off / 1 on)',0,1,0,1]],rs:1,
+i(){X={p:[],n:0,t:0}},
+f(dt){const s=X,lam=1.2264/sqrt(P.V),N=P.N,I=y=>{const sn=y*1e-3/P.L,A=PI*P.d*sn/lam,B=PI*P.a*sn/lam,env=B?(sin(B)/B)**2:1,sa=sin(A);return env*(P.w||abs(sa)<1e-9?1:(sin(N*A)/(N*sa))**2)};
+ s.t+=dt;if(dt)for(let k=0;k<70;k++){const y=R()*2-1;if(R()<I(y)){s.p.push(y);s.n++}}while(s.p.length>5000)s.p.shift();
+ const sp=12+P.d/50,ws=2+P.a/40,ys=[];for(let i=0;i<N;i++)ys.push(225+(i-(N-1)/2)*sp);
+ dot(40,225,7,'#7cf');ln(40,225,250,225,'#78c8ff40',3);
+ g.fillStyle='#59657a';let pv=0;ys.forEach(y=>{g.fillRect(247,pv,6,Math.max(0,y-ws/2-pv));pv=y+ws/2});g.fillRect(247,pv,6,450-pv);
+ g.strokeStyle='#6fb3ff2a';g.lineWidth=1;ys.forEach(y=>{for(let k=0;k<14;k++){g.beginPath();g.arc(250,y,(s.t*30)%14+14*k,-PI/2,PI/2);g.stroke()}});
+ g.fillStyle='#05080f';g.fillRect(560,0,240,450);for(let y=0;y<450;y+=3){g.fillStyle=`rgba(80,200,255,${I((y-225)/225)*.6})`;g.fillRect(560,y,30,3)}
+ g.globalCompositeOperation='lighter';g.fillStyle='rgba(110,255,190,.5)';s.p.forEach(y=>g.fillRect(600+((abs(y)*9973)%1)*190,225+y*225,1.7,1.7));g.globalCompositeOperation='source-over';
+ return `de Broglie λ = ${(lam*1e3).toFixed(1)} pm · electron speed ${(5.93e5*sqrt(P.V)/3e8*100).toFixed(1)}% of c\nFringe spacing ≈ ${fx(lam/P.d*P.L*1e3)} mm · envelope ≈ ${fx(lam/P.a*P.L*1e3)} mm\n${s.n} electrons detected\n`+(P.w?'Watched: no fringes, electrons behave like particles':'Unwatched: wave interference')}};
+
+S[12]={n:'Reactor Criticality',m:'Oppenheimer',e:'☢️',d:'Fast neutrons are slowed by the moderator into thermal neutrons that split U-235 far more easily. Delayed neutrons make control possible, hot fuel absorbs more (Doppler feedback), and coolant carries the heat away. Find criticality, or melt the core.',
+p:[['e','Enrichment (% U-235)',3,100,20,1],['mo','Moderator density (%)',0,100,50,1],['c','Control rods inserted (%)',0,100,40,1],['cf','Coolant flow',.05,2,.6,.05],['nu','Neutrons per fission',2,3,2.5,.05],['bt','Delayed neutron fraction (%)',0,1.5,.65,.05]],rs:1,
+i(){const A=[];for(let r=0;r<10;r++)for(let c=0;c<16;c++)A.push({x:60+c*45+R()*14,y:30+r*34+R()*12,u:R()*100<P.e});X={a:A,n:[{x:30,y:225,vx:330,vy:0,th:0}],q:[],T:300,t:0,nb:0,nd:0,fr:0,h:[],hc:0,f:0,end:''}},
+f(dt){const s=X,k60=dt*60,B=P.bt/100,tf=1/(1+Math.max(0,s.T-300)/350);
+ if(!s.end&&dt){s.t+=dt;if(R()<3*dt&&s.n.length<700){const a=R()*7;s.n.push({x:R()*W,y:R()*375,vx:330*cos(a),vy:330*sin(a),th:0})}
+  for(let i=s.q.length-1;i>=0;i--)if(s.q[i].t<s.t){const d=s.q.splice(i,1)[0];s.n.push({x:d.x,y:d.y,vx:330*cos(d.a),vy:330*sin(d.a),th:0})}
+  for(let i=s.n.length-1;i>=0;i--){const n=s.n[i];n.x=cl(n.x+n.vx*dt,0,W);n.y=cl(n.y+n.vy*dt,0,375);if(n.x<=0||n.x>=W)n.vx*=-1;if(n.y<=0||n.y>=375)n.vy*=-1;
+   if(!n.th&&R()<P.mo/100*.09*k60){n.th=1;const a=R()*7;n.vx=90*cos(a);n.vy=90*sin(a)}
+   let dead=n.th&&R()<P.mo/100*.004*k60;
+   if(!dead)for(const x of[60,160,260,360,460,560,660,760])if(abs(n.x-x)<14&&n.y<P.c*3.75&&R()<.8){dead=1;break}
+   if(!dead)for(const a of s.a)if(a.u&&(a.x-n.x)**2+(a.y-n.y)**2<81&&R()<(n.th?.35:.04)*tf*k60){dead=1;a.fl=1;s.f++;s.fr++;s.T+=3;const m=Math.floor(P.nu)+(R()<P.nu%1?1:0);s.nb+=m;
+    for(let j=0;j<m;j++){const ang=R()*7;if(R()<B)s.q.push({t:s.t+.5+R()*6,x:a.x,y:a.y,a:ang});else if(s.n.length<700)s.n.push({x:a.x,y:a.y,vx:330*cos(ang),vy:330*sin(ang),th:0})}break}
+   if(dead){s.n.splice(i,1);s.nd++}}
+  s.T=Math.max(300,s.T-P.cf*(s.T-300)*dt*.5);s.nb*=.998**k60;s.nd*=.998**k60;s.fr*=.99**k60;if(s.T>2800)s.end='☢️ Meltdown: fuel passed 2800 K';
+  if(s.t-s.hc>.1){s.hc=s.t;s.h.push(s.n.length);if(s.h.length>240)s.h.shift()}}
+ g.fillStyle=`rgba(30,110,220,${P.mo/100*.28})`;g.fillRect(0,0,W,380);
+ [60,160,260,360,460,560,660,760].forEach(x=>{g.fillStyle='#3b4452';g.shadowColor='#8fa';g.shadowBlur=6;g.fillRect(x-6,0,12,P.c*3.75);g.shadowBlur=0});
+ const hh=cl((s.T-300)/1500,0,1);s.a.forEach(a=>{dot(a.x,a.y,a.u?5:3,a.u?`hsl(${120-hh*120} 90% ${45+hh*35}%)`:'#4a5568');if(a.fl>0){g.globalAlpha=a.fl;dot(a.x,a.y,11,'#fff');g.globalAlpha=1;a.fl-=dt*3}});
+ s.n.forEach(n=>ln(n.x,n.y,n.x-n.vx*.025,n.y-n.vy*.025,n.th?'#ffb347':'#9fd8ff',2));
+ g.fillStyle='#ffffff0d';g.fillRect(20,390,380,50);poly(s.h.map((v,i)=>[20+i*1.58,440-50*Math.log10(1+v)/2.85]),'#6fe2ff',1.6);tx('neutron population (log scale)',26,404,'#98a3b3');
+ g.fillStyle='#262b33';g.fillRect(430,400,350,12);g.fillStyle=`hsl(${120-hh*120} 90% 55%)`;g.fillRect(430,400,350*cl(s.T/3000,0,1),12);tx(`fuel ${s.T.toFixed(0)} K`,430,432,'#cfd8e3');
+ const ok=s.nd>3,k=ok?Math.max(.01,s.nb/s.nd):1,rd=(k-1)/k;
+ return (s.end?s.end+'\n':'')+`Neutrons ${s.n.length} (+${s.q.length} delayed pending) · fissions/s ≈ ${fmt(s.fr/1.7)}\nk_eff ≈ ${ok?k.toFixed(3):'measuring…'} · reactivity ${ok?(rd*1e5).toFixed(0):'–'} pcm\n${!ok?'Source neutrons are starting the reactor…':rd>B?'⚠️ prompt supercritical: delayed neutrons cannot save you':k>1.02?'Supercritical: power rising':k<.98?'Subcritical: only the neutron source keeps it going':'✅ Critical: controllable'}\nFuel ${s.T.toFixed(0)} K · Doppler feedback ×${tf.toFixed(2)}`}};
+
+S[4]={n:'Magnetic Bottle',m:'Iron Man (arc reactor)',e:'🧲',d:'Ions spiral around field lines and bounce between the strong-field ends (a magnetic mirror). Ions with small pitch angles fall inside the loss cone and escape. Real 3D Boris-pusher motion in a mirror field.',
+p:[['B','Field strength B₀',1,8,3,.1],['Rm','Mirror ratio B_max/B₀',1.2,6,2.5,.1],['E','Ion energy (keV)',1,20,6,1],['A','Ion mass (amu: H, D, T)',1,3,1,1],['nu','Collision rate',0,2,.2,.05],['Ez','Axial electric field',0,1.5,0,.05]],rs:1,
+i(){const v=30*sqrt(P.E/P.A),p=[];for(let i=0;i<48;i++){const c=2*R()-1,sn=sqrt(1-c*c),f=R()*7;p.push({x:R()*6-3,y:R()*6-3,z:R()*60-30,vx:v*sn*cos(f),vy:v*sn*sin(f),vz:v*c,tr:[],d:0,lc:sn*sn<1/P.Rm})}X={p,lost:0}},
+f(dt){const s=X,k=P.B*(P.Rm-1)/9e4,w=1/P.A,n=8,h=dt/n;
+ if(dt)s.p.forEach(p=>{if(p.d)return;for(let j=0;j<n;j++){const bz=P.B*(1+(P.Rm-1)*(p.z/300)**2),tx_=-p.x*k*p.z*w*h/2,ty=-p.y*k*p.z*w*h/2,tz=bz*w*h/2,tt=tx_*tx_+ty*ty+tz*tz,sx=2*tx_/(1+tt),sy=2*ty/(1+tt),sz=2*tz/(1+tt);
+  let vx=p.vx,vy=p.vy,vz=p.vz+P.Ez*w*h/2;const ux=vx+(vy*tz-vz*ty),uy=vy+(vz*tx_-vx*tz),uz=vz+(vx*ty-vy*tx_);
+  vx+=uy*sz-uz*sy;vy+=uz*sx-ux*sz;vz+=ux*sy-uy*sx+P.Ez*w*h/2;p.vx=vx;p.vy=vy;p.vz=vz;p.x+=vx*h;p.y+=vy*h;p.z+=vz*h}
+  if(R()<P.nu*dt){const v=sqrt(p.vx*p.vx+p.vy*p.vy+p.vz*p.vz),a=[p.vx+(R()-.5)*v,p.vy+(R()-.5)*v,p.vz+(R()-.5)*v],m=v/sqrt(a[0]**2+a[1]**2+a[2]**2);p.vx=a[0]*m;p.vy=a[1]*m;p.vz=a[2]*m}
+  p.tr.push([400+p.z,225+p.x]);if(p.tr.length>50)p.tr.shift();if(abs(p.z)>300){p.d=1;s.lost++}});
+ [-70,-45,-20,20,45,70].forEach(r0=>{const pts=[];for(let z=-300;z<=300;z+=20)pts.push([400+z,225+r0/sqrt(1+(P.Rm-1)*(z/300)**2)]);poly(pts,'#3a7bd555',1)});
+ [-300,300].forEach(z=>{g.strokeStyle='#ffb347';g.shadowColor='#ff9f43';g.shadowBlur=14;g.lineWidth=3+P.B*.6;g.beginPath();g.ellipse(400+z,225,9,95,0,0,7);g.stroke();g.shadowBlur=0});
+ let ke=0;const al=s.p.filter(p=>!p.d);s.p.forEach(p=>{poly(p.tr,p.d?'#ff7b5a55':p.lc?'#ffb347':'#5ee7ff',1.4);if(!p.d){dot(400+p.z,225+p.x,2.4,'#fff');ke+=P.A*(p.vx*p.vx+p.vy*p.vy+p.vz*p.vz)/900}});
+ const v=30*sqrt(P.E/P.A),Om=P.B/P.A;
+ return `Cyclotron Ω = ${Om.toFixed(2)} rad/s · gyroradius ρ = v/Ω = ${fx(v/Om)} px\nMirror ratio ${P.Rm.toFixed(1)} → loss-cone half-angle ${(Math.asin(1/sqrt(P.Rm))*180/PI).toFixed(1)}°\nTheory: ${(sqrt(1-1/P.Rm)*100).toFixed(0)}% of an isotropic plasma is trapped\nSimulated: ${al.length}/${s.p.length} ions still confined\nMean energy ${al.length?fx(ke/al.length):'–'} keV (orange = inside loss cone)`}};
+
+S[13]={n:'Web Swinging',m:'Spider-Man',e:'🕷️',d:'An elastic web swings Spider-Man like a spring-pendulum while drag bleeds energy. Click and hold on the canvas to fire a new web to that point, release to let go and fly. Watch kinetic, potential and elastic energy trade places.',
+p:[['g','Gravity (m/s²)',1.6,25,9.8,.1],['L','Web length (m)',8,35,25,1],['k','Web stiffness (1/s²)',20,2000,400,10],['cd','Air drag',0,.05,.005,.005],['a','Start angle (°)',10,85,60,1]],rs:1,
+i(){const L=P.L*9,a=P.a*PI/180,B=[];let x=0;while(x<W){const w=40+R()*50;B.push([x,w,70+R()*180]);x+=w+6}X={x:400+L*sin(a),y:40+L*cos(a),vx:0,vy:0,A:{x:400,y:40},L0:L,tr:[],B,h:[],t:0,hc:0,ed:0,demo:1}},
+q(x,y){const s=X;if(s.A&&!s.demo)return;s.demo=0;s.A={x,y:Math.min(y,s.y-30)};s.L0=Math.hypot(s.x-s.A.x,s.y-s.A.y)},
+u(){X.A=null},
+f(dt){const s=X,n=12,h=dt/n,gp=P.g*9;let aw=0;
+ for(let j=0;j<n&&dt;j++){let ax=0,ay=gp;const sp=Math.hypot(s.vx,s.vy);ax-=P.cd*sp*s.vx/9;ay-=P.cd*sp*s.vy/9;s.ed=0;
+  if(s.A){const dx=s.x-s.A.x,dy=s.y-s.A.y,d=Math.hypot(dx,dy)||1,e=d-s.L0;if(e>0){const f=P.k*e+4*((s.vx*dx+s.vy*dy)/d);ax-=f*dx/d;ay-=f*dy/d;aw=abs(f)/9;s.ed=e}}
+  s.vx+=ax*h;s.vy+=ay*h;s.x+=s.vx*h;s.y+=s.vy*h;if(s.y>425){s.y=425;s.vy*=-.2;s.vx*=.92}if(s.x<0)s.x+=W;if(s.x>W)s.x-=W}
+ const v=Math.hypot(s.vx,s.vy)/9,ke=.5*v*v,pe=P.g*(425-s.y)/9,ee=.5*P.k*(s.ed/9)**2;
+ if(dt){s.t+=dt;if(s.t-s.hc>.05){s.hc=s.t;s.h.push([ke,pe,ee]);if(s.h.length>200)s.h.shift()}s.tr.push([s.x,s.y]);if(s.tr.length>90)s.tr.shift()}
+ s.B.forEach(([bx,bw,bh])=>{g.fillStyle='#10162a';g.fillRect(bx,450-bh,bw,bh);g.fillStyle='#ffcf7055';for(let wy=450-bh+8;wy<440;wy+=14)for(let wx=bx+5;wx<bx+bw-6;wx+=12)if(((wx*7+wy*3)|0)%5<2)g.fillRect(wx,wy,5,7)});
+ poly(s.tr,'#ffffff44',2);if(s.A){poly([[s.x,s.y],[s.A.x,s.A.y]],'#e8ecf2',1.5);dot(s.A.x,s.A.y,3,'#fff')}dot(s.x,s.y,8,'#e23d3d');dot(s.x,s.y-2,3.5,'#2b5bd7');
+ g.fillStyle='#000a';g.fillRect(560,12,230,92);const sc=80/(P.g*50);[[0,'#ff7b7b'],[1,'#6fb3ff'],[2,'#ffcf70']].forEach(([i,c])=>poly(s.h.map((r,j)=>[560+j*1.15,100-cl(r[i]*sc,0,80)]),c,1.4));poly(s.h.map((r,j)=>[560+j*1.15,100-cl((r[0]+r[1]+r[2])*sc,0,80)]),'#6fe27f',1.6);tx('KE · PE · elastic · total',566,26,'#98a3b3');
+ return `${s.A?(s.demo?'Swinging (click to fire a web)':'Web attached'):'🪂 Free flight'} · speed ${v.toFixed(1)} m/s · height ${((425-s.y)/9).toFixed(1)} m\nWeb stretch ${(s.ed/9).toFixed(2)} m · load on body ${(aw/P.g+(s.A?0:0)).toFixed(2)} g (web force)\nKE ${ke.toFixed(0)} · PE ${pe.toFixed(0)} · elastic ${ee.toFixed(0)} J/kg\nTotal ${(ke+pe+ee).toFixed(0)} J/kg (drag steadily drains it)`}};
+
+S[2]={n:'Ramp Jump: Vehicle Dynamics',m:'Fast & Furious',e:'🚗',d:'A power-limited car accelerates against drag and rolling resistance, climbs the ramp and flies as a drag-affected projectile. Thin air, wind, mass and landing height all matter, and the landing g-load decides whether the car survives.',
+p:[['P','Engine power (kW)',100,1200,220,10],['m','Car mass (kg)',900,3000,1500,50],['D','Run-up distance (m)',60,500,100,10],['th','Ramp angle (°)',5,40,20,1],['G','Gap width (m)',10,120,55,1],['dh','Landing height vs ramp (m)',-12,6,-2,1],['wd','Headwind (m/s)',-15,15,0,1],['al','Altitude (m)',0,4000,0,100]],rs:1,
+i(){const b=[];for(let i=0;i<30;i++)b.push([i*70+R()*30,30+R()*90,30+R()*40]);X={ph:0,x:0,y:0,v:0,vx:0,vy:0,tr:[],fx:[],end:'',pit:0,mx:0,hm:0,b}},
+f(dt){const s=X,rho=1.225*Math.exp(-P.al/8500),th=P.th*PI/180,Lr=10,xr=P.D+Lr*cos(th),hr=Lr*sin(th),xp=xr+P.G,hp=hr+P.dh,CdA=.73;
+ if(!s.end)for(let k=0;k<8;k++){const h=dt/8,vr=s.v+P.wd;
+  if(s.ph<2){let a=P.P*1e3/(Math.max(s.v,6)*P.m)-.5*rho*CdA*vr*abs(vr)/P.m-.15;a=Math.min(a,9.5);if(s.ph==1)a-=9.81*sin(th);s.v=Math.max(s.v+a*h,0);s.x+=s.v*(s.ph?cos(th):1)*h;
+   if(s.ph==0&&s.x>=P.D)s.ph=1;if(s.ph==1){s.y=hr*(s.x-P.D)/(xr-P.D);if(s.x>=xr){s.ph=2;s.vx=s.v*cos(th);s.vy=s.v*sin(th);s.mx=s.v}else if(s.v<.5)s.end='🛑 Stalled on the ramp: not enough speed'}}
+  else{const wx=s.vx+P.wd,sp=sqrt(wx*wx+s.vy*s.vy),dr=.5*rho*CdA/P.m;s.vx-=dr*sp*wx*h;s.vy-=(9.81+dr*sp*s.vy)*h;s.x+=s.vx*h;s.y+=s.vy*h;s.hm=Math.max(s.hm,s.y);
+   if(s.x>=xp&&s.y<=hp&&s.vy<0){const gl=s.vy*s.vy/1.2/9.81;s.end=s.x<xp+50?(gl>25?`💥 Landed at ${(s.x-xr).toFixed(0)} m but the chassis folded (${gl.toFixed(0)} g)`:`✅ Clean landing at ${(s.x-xr).toFixed(0)} m (${gl.toFixed(0)} g)`):'💨 Overshot the platform';for(let i=0;i<40;i++)s.fx.push([s.x,s.y,(R()-.3)*14,R()*10,1]);break}
+   if(s.y<hp-40){s.end=`💦 Fell short: landed ${(s.x-xr).toFixed(0)} m past the ramp`;break}}}
+ const tgt=s.ph<2?(s.ph?th:0):(s.end&&s.y>hp-2?0:Math.atan2(s.vy,s.vx));s.pit+=(tgt-s.pit)*Math.min(1,dt*4);if(dt&&!s.end){s.tr.push([s.x,s.y]);if(s.tr.length>30)s.tr.shift()}
+ const cx=s.x*8-220,X_=w=>w*8-cx,Y_=w=>370-w*8,v=s.ph<2?s.v:Math.hypot(s.vx,s.vy);
+ const gr=g.createLinearGradient(0,0,0,370);gr.addColorStop(0,'#0b1030');gr.addColorStop(.75,'#6b2a5e');gr.addColorStop(1,'#ff8a4d');g.fillStyle=gr;g.fillRect(0,0,W,370);
+ s.b.forEach(([bx,bh,bw])=>{const x=((bx*1.0-cx*.3)%2100+2100)%2100-200;g.fillStyle='#10152a';g.fillRect(x,370-bh*2,bw,bh*2);g.fillStyle='#ffcf7066';for(let wy=370-bh*2+6;wy<360;wy+=12)for(let wx=x+4;wx<x+bw-6;wx+=9)if(((wx+wy)|0)%7<2)g.fillRect(wx,wy,4,6)});
+ const rx=Math.min(W,X_(P.D));if(rx>0){g.fillStyle='#1b1f2a';g.fillRect(0,370,rx,80);for(let wx=Math.floor(cx/80)*80;wx<cx+W;wx+=80)if(wx-cx<rx)ln(wx-cx,408,wx-cx+36,408,'#ffd27a',3)}
+ g.fillStyle='#4b5568';g.shadowColor='#6fe2ff';g.shadowBlur=10;g.beginPath();g.moveTo(X_(P.D),370);g.lineTo(X_(xr),Y_(hr));g.lineTo(X_(xr),370);g.fill();g.shadowBlur=0;
+ g.fillStyle='#0d3b66';g.fillRect(X_(xr),Y_(hp-30),X_(xp)-X_(xr),450);g.fillStyle='#1b1f2a';g.fillRect(X_(xp),Y_(hp),400,450);ln(X_(xp),Y_(hp),X_(xp)+400,Y_(hp),'#6fe2ff',2);
+ if(v>20&&!s.end)for(let i=0;i<14;i++){const y=R()*370,x=R()*W;ln(x,y,x-v*1.2,y,'#ffffff22',1)}
+ poly(s.tr.map(p=>[X_(p[0]),Y_(p[1])-5]),'#ffb84d99',2);
+ g.save();g.translate(X_(s.x),Y_(s.y)-5);g.rotate(-s.pit);g.shadowColor='#ff4d4d';g.shadowBlur=12;g.fillStyle='#e23d3d';g.fillRect(-18,-8,36,8);g.fillStyle='#8b1e1e';g.fillRect(-8,-14,16,6);g.shadowBlur=0;dot(-11,0,4,'#111');dot(11,0,4,'#111');g.fillStyle='#ffe9a855';g.beginPath();g.moveTo(18,-5);g.lineTo(90,-18);g.lineTo(90,8);g.fill();g.restore();
+ s.fx.forEach(p=>{p[0]+=p[2]*dt;p[1]+=p[3]*dt;p[3]-=20*dt;p[4]-=dt*1.5;if(p[1]<hp){p[1]=hp;p[3]*=-.4}g.globalAlpha=Math.max(0,p[4]);dot(X_(p[0]),Y_(p[1]),2,'#ffcf70')});g.globalAlpha=1;s.fx=s.fx.filter(p=>p[4]>0);
+ return (s.end?s.end+'\n':'')+`${s.ph<2?(s.ph?'Ramp':'Run-up'):'Airborne'} · ${(v*3.6).toFixed(0)} km/h (${v.toFixed(1)} m/s)\nAir density ${rho.toFixed(3)} kg/m³ · drag area CdA ${CdA} m²\nLaunch speed ${s.mx?s.mx.toFixed(1):'–'} m/s · vacuum range ${(s.mx*s.mx*sin(2*th)/9.81).toFixed(0)} m\nGap ${P.G} m · peak height ${s.hm.toFixed(1)} m`}};
+
+function sel(i){cur=S[i];P={};cur.p.forEach(a=>P[a[0]]=a[4]);
+ $('#ti').textContent=cur.n;$('#mv').textContent='🎬 '+cur.m;$('#ds').textContent=cur.d;
+ $('#ctl').innerHTML=cur.p.map(([k,l,a,b,v,s])=>`<label><span>${l}</span><output id="o_${k}">${v}</output><input type="range" id="i_${k}" min="${a}" max="${b}" step="${s}" value="${v}"></label>`).join('')+`<label><span>⏱ Time scale (all simulations)</span><output id="o_ts">${TS}</output><input type="range" id="i_ts" min=".1" max="3" step=".1" value="${TS}"></label>`;
+ cur.p.forEach(([k])=>$('#i_'+k).oninput=e=>{P[k]=+e.target.value;$('#o_'+k).textContent=e.target.value;cur.rs&&reset()});
+ $('#i_ts').oninput=e=>{TS=+e.target.value;$('#o_ts').textContent=TS};document.querySelectorAll('#nav button').forEach((b,j)=>b.classList.toggle('on',j==i));reset()}
+$('#nav').innerHTML=S.map((s,i)=>`<button data-i="${i}" title="Scene: ${s.m}">${s.e} ${s.n}</button>`).join('');
+$('#nav').onclick=e=>{const b=e.target.closest('button');if(b)sel(+b.dataset.i)};
+cv.onpointerdown=cv.onpointermove=e=>{if(e.buttons&&cur.q){const r=cv.getBoundingClientRect();cur.q((e.clientX-r.left)*W/r.width,(e.clientY-r.top)*H/r.height)}};
+cv.onpointerup=cv.onpointerleave=()=>cur.u&&cur.u();$('#rb').onclick=reset;$('#pb').onclick=()=>{paused=!paused;$('#pb').textContent=paused?'▶ Play':'⏸ Pause'};
+function loop(t){const dt=paused?0:Math.min((t-last)/1e3,.05)*TS;last=t;g.drawImage(BG,0,0,W,H);g.setLineDash([]);g.lineDashOffset=0;
+ const r=cur.f(dt);$('#ro').textContent=r||'';requestAnimationFrame(loop)}
+const requestedSimulation=Number(pageParams.get('sim'));
+sel(Number.isInteger(requestedSimulation)&&requestedSimulation>=0&&requestedSimulation<S.length?requestedSimulation:0);requestAnimationFrame(loop);
+</script></body></html>

@@ -4,6 +4,7 @@
 
 let allConcepts = [];
 let filteredConcepts = [];
+let conceptMovieClips = {};
 let activeConceptCategory = 'all';
 let conceptSearchQuery = '';
 
@@ -40,7 +41,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTimeDilationSimulator();
     initGravitySimulator();
 
-    const data = await fetchJSON('data/science-concepts.json');
+    const [data, movieClipData] = await Promise.all([
+        fetchJSON('data/science-concepts.json'),
+        fetchJSON('data/concept-movie-clips.json')
+    ]);
+    conceptMovieClips = movieClipData?.clips || {};
+
     if (data && data.concepts) {
         allConcepts = data.concepts;
         filteredConcepts = [...allConcepts];
@@ -321,6 +327,92 @@ function displayConceptCards() {
     }
 }
 
+function escapeConceptHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    })[character]);
+}
+
+function getMovieClipVideoId(clip) {
+    const videoId = String(clip.videoId || '');
+    return /^[A-Za-z0-9_-]{11}$/.test(videoId) ? videoId : '';
+}
+
+function renderMovieClipCard(clip) {
+    const title = escapeConceptHtml(clip.title);
+    const movie = escapeConceptHtml(clip.movie || 'Movie scene');
+    const source = escapeConceptHtml(clip.source || 'Movie scene');
+    const explanation = escapeConceptHtml(clip.explanation);
+    const url = escapeConceptHtml(clip.url);
+    const videoId = getMovieClipVideoId(clip);
+
+    const media = videoId
+        ? `
+            <div class="movie-scene-player">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0"
+                    title="${movie}: ${title} - ${source}"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <a class="movie-scene-open-link" href="${url}" target="_blank" rel="noopener noreferrer">
+                Open full clip on ${source} <span aria-hidden="true">↗</span>
+            </a>
+        `
+        : `
+            <div class="movie-scene-link-preview">
+                <span class="movie-scene-preview-icon" aria-hidden="true">🎬</span>
+                <span class="movie-scene-preview-label">${movie}</span>
+                <span class="movie-scene-preview-scene">${title}</span>
+                <span class="movie-scene-preview-source">${source}</span>
+                <a class="movie-scene-preview-button" href="${url}" target="_blank" rel="noopener noreferrer">
+                    Open scene <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+        `;
+
+    return `
+        <article class="movie-scene-card">
+            <div class="movie-scene-media-column">
+                ${media}
+            </div>
+            <div class="movie-scene-explanation">
+                <span class="movie-scene-kicker">How the scene uses the concept</span>
+                <span class="movie-scene-film">${movie}</span>
+                <h4>${title}</h4>
+                <p>${explanation}</p>
+            </div>
+        </article>
+    `;
+}
+
+function renderMovieScenesSection(concept) {
+    const clips = conceptMovieClips[String(concept.id)] || [];
+    if (!clips.length) return '';
+
+    return `
+        <section class="movie-scenes-section" aria-labelledby="movieScenesHeading">
+            <div class="movie-scenes-header">
+                <div>
+                    <span class="movie-scenes-eyebrow">Science in cinema</span>
+                    <h3 id="movieScenesHeading">Movie scene${clips.length === 1 ? '' : 's'}</h3>
+                </div>
+                <span class="movie-scenes-count">${clips.length} scene${clips.length === 1 ? '' : 's'}</span>
+            </div>
+            <div class="movie-scenes-list">
+                ${clips.map(renderMovieClipCard).join('')}
+            </div>
+        </section>
+    `;
+}
+
 function openConceptEncyclopediaModal(conceptId) {
     const concept = allConcepts.find(c => c.id === conceptId || c.slug === conceptId);
     if (!concept) return;
@@ -380,6 +472,7 @@ function openConceptEncyclopediaModal(conceptId) {
     const modalLikeBtn = typeof renderConceptLikeButton === 'function'
         ? renderConceptLikeButton(concept.id, 'Like Concept', 'detail-like-btn')
         : '';
+    const movieScenesHtml = renderMovieScenesSection(concept);
 
     body.innerHTML = `
         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.25rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
@@ -401,6 +494,8 @@ function openConceptEncyclopediaModal(conceptId) {
         </div>
 
         <p style="font-size: 1.05rem; color: #e2e8f0; line-height: 1.6; margin-bottom: 1.25rem;">${concept.description}</p>
+
+        ${movieScenesHtml}
 
         <!-- 3-Tier Explanation Switcher -->
         <div>

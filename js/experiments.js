@@ -4,6 +4,7 @@
  */
 
 let allExperiments = [];
+let cinemaSimulationExperiments = [];
 let currentExperiment = null;
 let currentControls = {};
 let animFrameId = null;
@@ -22,9 +23,15 @@ const M_earth = 5.972e24;   // Earth mass (kg)
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const expData = await fetchJSON('data/experiments.json');
+        const [expData, cinemaData] = await Promise.all([
+            fetchJSON('data/experiments.json'),
+            fetchJSON('data/movie-simulations.json')
+        ]);
         if (expData && Array.isArray(expData.experiments)) {
-            allExperiments = expData.experiments;
+            cinemaSimulationExperiments = cinemaData && Array.isArray(cinemaData.simulations)
+                ? cinemaData.simulations
+                : [];
+            allExperiments = [...expData.experiments, ...cinemaSimulationExperiments];
             setupFilterPills();
             setupSearchAndControls();
             renderExperimentsGrid();
@@ -35,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (expId) {
                 const matched = allExperiments.find(e => e.id === parseInt(expId) || e.title.toLowerCase().includes(expId.toLowerCase()));
                 if (matched) {
-                    openExperiment(matched.id);
+                    openExperimentCard(matched.id);
                 }
             }
         }
@@ -133,6 +140,7 @@ function renderExperimentsGrid() {
             exp.title.toLowerCase().includes(searchQuery) ||
             exp.description.toLowerCase().includes(searchQuery) ||
             exp.category.toLowerCase().includes(searchQuery) ||
+            (exp.sceneFilm && exp.sceneFilm.toLowerCase().includes(searchQuery)) ||
             (exp.relatedMovies && exp.relatedMovies.some(m => m.toLowerCase().includes(searchQuery)));
 
         return matchesCat && matchesDiff && matchesSearch;
@@ -157,7 +165,7 @@ function renderExperimentsGrid() {
     }
 
     grid.innerHTML = filtered.map(exp => `
-        <div class="experiment-card" onclick="openExperiment(${exp.id})">
+        <div class="experiment-card" onclick="openExperimentCard(${exp.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openExperimentCard(${exp.id})}">
             <div class="experiment-card-top">
                 <div class="experiment-card-icon">${exp.icon || '⚡'}</div>
                 <div class="experiment-badges">
@@ -169,12 +177,14 @@ function renderExperimentsGrid() {
             <h3 class="experiment-card-title">${exp.title}</h3>
             <p class="experiment-card-description">${exp.description}</p>
 
+            ${exp.sceneFilm ? `<p class="experiment-scene-reference">🎬 Scene reference: ${exp.sceneFilm}</p>` : ''}
+
             <div class="experiment-card-formula-preview">
                 <code>\\[ ${exp.formula || 'Physical Equation'} \\]</code>
             </div>
 
             <div class="experiment-card-footer">
-                <span class="footer-param-count">🎛️ ${exp.controls.length} Interactive Parameters</span>
+                <span class="footer-param-count">${Number.isInteger(exp.simulationIndex) ? '🎛️ Interactive simulation' : `🎛️ ${exp.controls.length} Interactive Parameters`}</span>
                 <span class="launch-btn">Launch Simulator →</span>
             </div>
         </div>
@@ -212,13 +222,68 @@ function closeExperimentModal() {
     const modal = document.getElementById('experimentModal');
     if (modal) {
         modal.classList.remove('active');
+        modal.classList.remove('cinema-simulation-mode');
     }
+    const frame = document.getElementById('cinemaSimulationFrame');
+    if (frame) frame.src = 'about:blank';
     stopAnimationLoop();
+}
+
+function openExperimentCard(expId) {
+    const exp = allExperiments.find(e => e.id === parseInt(expId));
+    if (!exp) return;
+    if (Number.isInteger(exp.simulationIndex)) {
+        openMovieSimulation(exp);
+        return;
+    }
+    openExperiment(exp.id);
+}
+
+function openMovieSimulation(exp) {
+    stopAnimationLoop();
+    const modal = document.getElementById('experimentModal');
+    const frame = document.getElementById('cinemaSimulationFrame');
+    const stage = document.getElementById('cinemaSimulationStage');
+    if (!modal || !frame || !stage) return;
+
+    currentExperiment = exp;
+    currentControls = {};
+    document.getElementById('experimentIcon').textContent = exp.icon || '🎬';
+    document.getElementById('experimentTitle').textContent = exp.title;
+    document.getElementById('experimentCategory').textContent = exp.category;
+    document.getElementById('experimentDifficulty').textContent = exp.difficulty;
+    document.getElementById('experimentDescription').textContent = exp.description;
+
+    const moviesContainer = document.getElementById('relatedMoviesTags');
+    const moviesSection = moviesContainer && moviesContainer.closest('.related-movies-section');
+    if (moviesContainer && moviesSection) {
+        if (exp.relatedMovies && exp.relatedMovies.length) {
+            moviesContainer.innerHTML = exp.relatedMovies.map(movie => `
+                <a href="movies.html?search=${encodeURIComponent(movie)}" class="movie-pill"><span>🎬 ${movie}</span></a>
+            `).join('');
+            moviesSection.hidden = false;
+        } else {
+            moviesSection.hidden = true;
+        }
+    }
+
+    modal.classList.add('cinema-simulation-mode', 'active');
+    stage.hidden = false;
+    frame.src = `physics-movie-simulations.html?sim=${exp.simulationIndex}&embed=1`;
 }
 
 function openExperiment(expId) {
     const exp = allExperiments.find(e => e.id === parseInt(expId));
     if (!exp) return;
+
+    const modal = document.getElementById('experimentModal');
+    if (modal) modal.classList.remove('cinema-simulation-mode');
+    const cinemaFrame = document.getElementById('cinemaSimulationFrame');
+    if (cinemaFrame) cinemaFrame.src = 'about:blank';
+    const cinemaStage = document.getElementById('cinemaSimulationStage');
+    if (cinemaStage) cinemaStage.hidden = true;
+    const moviesSection = document.querySelector('.related-movies-section');
+    if (moviesSection) moviesSection.hidden = false;
 
     currentExperiment = exp;
     currentControls = {};
@@ -261,7 +326,6 @@ function openExperiment(expId) {
     updatePhysicalResults(exp);
 
     // Open Modal
-    const modal = document.getElementById('experimentModal');
     if (modal) {
         modal.classList.add('active');
     if (window.renderMath) window.renderMath(document.body);

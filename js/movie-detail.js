@@ -6,18 +6,25 @@ let currentMovie = null;
 let allMovies = [];
 let allWhatIfs = [];
 let allConcepts = [];
+let allMovieExperiments = [];
 
 document.addEventListener('DOMContentLoaded', async () => {
     const movieId = getMovieIdFromURL();
     
-    const [moviesData, whatIfData, conceptsData] = await Promise.all([
+    const [moviesData, whatIfData, conceptsData, experimentsData, movieSimulationsData] = await Promise.all([
         fetchJSON('data/movies.json'),
         fetchJSON('data/what-if.json'),
-        fetchJSON('data/science-concepts.json')
+        fetchJSON('data/science-concepts.json'),
+        fetchJSON('data/experiments.json'),
+        fetchJSON('data/movie-simulations.json')
     ]);
     
     if (whatIfData && whatIfData.scenarios) allWhatIfs = whatIfData.scenarios;
     if (conceptsData && conceptsData.concepts) allConcepts = conceptsData.concepts;
+    allMovieExperiments = [
+        ...(experimentsData && Array.isArray(experimentsData.experiments) ? experimentsData.experiments : []),
+        ...(movieSimulationsData && Array.isArray(movieSimulationsData.simulations) ? movieSimulationsData.simulations : [])
+    ];
 
     if (moviesData && moviesData.movies) {
         allMovies = moviesData.movies;
@@ -67,6 +74,7 @@ function displayMovieDetails() {
     displayMovieInfo();
     displayScienceBehind();
     displayComparison();
+    displayRelatedExperiments();
     displayMovieWhatIfs();
     displayRelatedMovies();
 }
@@ -356,6 +364,35 @@ function displayMovieWhatIfs() {
                 <span style="font-size: 0.8rem; color: #c084fc; font-weight: 600;">Explore Theoretical Scenario →</span>
             </div>
         </div>
+    `).join('');
+}
+
+function displayRelatedExperiments() {
+    const section = document.getElementById('movieExperimentsSection');
+    const container = document.getElementById('movieExperimentsGrid');
+    if (!section || !container) return;
+
+    const related = allMovieExperiments.filter(experiment =>
+        (experiment.relatedMovies || []).includes(currentMovie.title)
+    );
+
+    if (!related.length) {
+        section.hidden = true;
+        return;
+    }
+
+    section.hidden = false;
+    container.innerHTML = related.map(experiment => `
+        <a class="movie-experiment-card" href="experiments.html?id=${experiment.id}">
+            <div class="movie-experiment-card-top">
+                <span class="movie-experiment-icon">${experiment.icon || '⚛️'}</span>
+                <span class="movie-experiment-category">${experiment.category}</span>
+            </div>
+            <h3>${experiment.title}</h3>
+            <p>${experiment.description}</p>
+            ${experiment.formula ? `<code>${experiment.formula}</code>` : ''}
+            <span class="movie-experiment-link">Open interactive experiment →</span>
+        </a>
     `).join('');
 }
 
